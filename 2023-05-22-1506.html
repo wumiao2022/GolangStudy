@@ -10,118 +10,97 @@
 <body>
 
  <ol>
-<li>在终端中输入一个数字，判断该数是否为偶数。</li>
-</ol>
+<li><p>将字符串 &ldquo;hello world&rdquo; 反转输出。</p>
 
-<pre><code class="language-go">package main
-
+<pre><code>package main
 import &quot;fmt&quot;
-
 func main() {
-    var num int
-    fmt.Print(&quot;请输入一个数字：&quot;)
-    fmt.Scan(&amp;num)
-    if num%2 == 0 {
-        fmt.Println(num, &quot;是偶数&quot;)
-    } else {
-        fmt.Println(num, &quot;是奇数&quot;)
-    }
+str := &quot;hello world&quot;
+for i := len(str) - 1; i &gt;= 0; i-- {
+	fmt.Printf(&quot;%c&quot;, str[i])
 }
-</code></pre>
+fmt.Println()
+}
+</code></pre></li>
 
-<ol>
-<li>求一个字符串的长度。</li>
-</ol>
+<li><p>将切片中的元素按照从小到大的顺序排列。</p>
 
-<pre><code class="language-go">package main
+<pre><code>package main
+import (
+&quot;fmt&quot;
+&quot;sort&quot;
+)
+func main() {
+nums := []int{5, 2, 8, 1, 7}
+sort.Ints(nums)
+fmt.Println(nums)
+}
+</code></pre></li>
 
+<li><p>实现一个函数，将字符串切片中的所有字符串连接成一个字符串，并在每个字符串之间添加指定的分隔符。</p>
+
+<pre><code>package main
+import (
+&quot;fmt&quot;
+&quot;strings&quot;
+)
+func joinWithSep(strs []string, sep string) string {
+return strings.Join(strs, sep)
+}
+func main() {
+strs := []string{&quot;hello&quot;, &quot;world&quot;, &quot;go&quot;}
+sep := &quot;-&quot;
+res := joinWithSep(strs, sep)
+fmt.Println(res)
+}
+</code></pre></li>
+
+<li><p>实现一个函数，计算两个正整数的最大公约数。</p>
+
+<pre><code>package main
 import &quot;fmt&quot;
-
-func main() {
-    str := &quot;hello world&quot;
-    len := len(str)
-    fmt.Println(&quot;字符串长度为：&quot;, len)
+func gcd(a, b int) int {
+if a%b == 0 {
+	return b
+} else {
+	return gcd(b, a%b)
 }
-</code></pre>
+}
+func main() {
+a := 24
+b := 32
+res := gcd(a, b)
+fmt.Printf(&quot;%d 和 %d 的最大公约数为 %d\n&quot;, a, b, res)
+}
+</code></pre></li>
 
-<ol>
-<li>计算数组中所有元素之和。</li>
+<li><p>实现一个函数，查找一个字符串中出现次数最多的字符以及出现次数。</p>
+
+<pre><code>package main
+import (
+&quot;fmt&quot;
+)
+func findMaxFreq(str string) (byte, int) {
+var freqList [256]int
+for i := 0; i &lt; len(str); i++ {
+	freqList[str[i]]++
+}
+maxFreq := 0
+var maxChar byte
+for i := 0; i &lt; len(freqList); i++ {
+	if freqList[i] &gt; maxFreq {
+		maxFreq = freqList[i]
+		maxChar = byte(i)
+	}
+}
+return maxChar, maxFreq
+}
+func main() {
+str := &quot;abccbaadd&quot;
+maxChar, maxFreq := findMaxFreq(str)
+fmt.Printf(&quot;%c 出现次数最多，出现了 %d 次\n&quot;, maxChar, maxFreq)
+}
+</code></pre></li>
 </ol>
-
-<pre><code class="language-go">package main
-
-import &quot;fmt&quot;
-
-func main() {
-    arr := []int{1, 2, 3, 4, 5}
-    sum := 0
-    for _, val := range arr {
-        sum += val
-    }
-    fmt.Println(&quot;数组元素之和为：&quot;, sum)
-}
-</code></pre>
-
-<ol>
-<li>实现一个简单的计算器程序，支持加、减、乘、除四种运算。</li>
-</ol>
-
-<pre><code class="language-go">package main
-
-import &quot;fmt&quot;
-
-func main() {
-    var num1, num2, result float64
-    var operator string
-    fmt.Print(&quot;请输入第一个数字：&quot;)
-    fmt.Scan(&amp;num1)
-    fmt.Print(&quot;请输入第二个数字：&quot;)
-    fmt.Scan(&amp;num2)
-    fmt.Print(&quot;请输入运算符：&quot;)
-    fmt.Scan(&amp;operator)
-    switch operator {
-    case &quot;+&quot;:
-        result = num1 + num2
-    case &quot;-&quot;:
-        result = num1 - num2
-    case &quot;*&quot;:
-        result = num1 * num2
-    case &quot;/&quot;:
-        result = num1 / num2
-    default:
-        fmt.Println(&quot;不支持的运算符&quot;)
-        return
-    }
-    fmt.Println(&quot;计算结果为：&quot;, result)
-}
-</code></pre>
-
-<ol>
-<li>编写一个函数，用于判断一个字符串是否为回文字符串。</li>
-</ol>
-
-<pre><code class="language-go">package main
-
-import &quot;fmt&quot;
-
-func main() {
-    str := &quot;abba&quot;
-    if isPalindrome(str) {
-        fmt.Println(str, &quot;是回文字符串&quot;)
-    } else {
-        fmt.Println(str, &quot;不是回文字符串&quot;)
-    }
-}
-
-func isPalindrome(str string) bool {
-    l := len(str)
-    for i := 0; i &lt; l/2; i++ {
-        if str[i] != str[l-1-i] {
-            return false
-        }
-    }
-    return true
-}
-</code></pre>
  </body>
 </html>
