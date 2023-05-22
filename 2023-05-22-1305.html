@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li>打印文件路径信息</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;文件路径信息：&quot;)
+	fmt.Println(&quot;文件名：&quot;, &quot;main.go&quot;)
+	fmt.Println(&quot;路径：&quot;, &quot;/Users/username/Documents/go/src/project/main.go&quot;)
+}
+</code></pre>
+
+<ol>
+<li>使用for循环输出1到10的数字</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    fmt.Println(&quot;1到10的数字：&quot;)
+    for i := 1; i &lt;= 10; i++ {
+        fmt.Println(i)
+    }
+}
+</code></pre>
+
+<ol>
+<li>计算两个数的和</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    num1 := 10
+    num2 := 20
+    sum := num1 + num2
+    fmt.Println(&quot;两数之和：&quot;, sum)
+}
+</code></pre>
+
+<ol>
+<li>使用defer延迟执行函数</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    defer fmt.Println(&quot;defer语句1&quot;)
+    defer fmt.Println(&quot;defer语句2&quot;)
+    fmt.Println(&quot;普通语句&quot;)
+}
+</code></pre>
+
+<ol>
+<li>定义一个结构体</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+type Person struct {
+    name string
+    age int
+}
+
+func main() {
+    p := Person{name: &quot;Tom&quot;, age: 20}
+    fmt.Println(&quot;Person信息：&quot;, p)
+}
+</code></pre>
+
+<ol>
+<li>使用if语句判断数字的奇偶性</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    num := 11
+    if num % 2 == 0 {
+        fmt.Println(num, &quot;是偶数&quot;)
+    } else {
+        fmt.Println(num, &quot;是奇数&quot;)
+    }
+}
+</code></pre>
+
+<ol>
+<li>使用switch语句判断一个数的等级</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    score := 85
+    switch {
+    case score &gt;= 90:
+        fmt.Println(&quot;优秀&quot;)
+    case score &gt;= 75:
+        fmt.Println(&quot;良好&quot;)
+    case score &gt;= 60:
+        fmt.Println(&quot;及格&quot;)
+    default:
+        fmt.Println(&quot;不及格&quot;)
+    }
+}
+</code></pre>
+
+<ol>
+<li>定义一个函数并调用</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func add(num1, num2 int) int {
+    return num1 + num2
+}
+
+func main() {
+    num1 := 10
+    num2 := 20
+    result := add(num1, num2)
+    fmt.Println(num1, &quot;与&quot;, num2, &quot;的和为：&quot;, result)
+}
+</code></pre>
+
+<ol>
+<li>使用make函数创建一个slice</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    mySlice := make([]int, 3, 5)
+    fmt.Println(&quot;slice长度：&quot;, len(mySlice))
+    fmt.Println(&quot;slice容量：&quot;, cap(mySlice))
+}
+</code></pre>
+
+<ol>
+<li>使用defer、recover和panic处理异常</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func test() {
+    defer func() {
+        err := recover()
+        if err != nil {
+            fmt.Println(&quot;程序出现异常：&quot;, err)
+        }
+    }()
+    panic(&quot;test函数出现异常&quot;)
+}
+
+func main() {
+    test()
+    fmt.Println(&quot;程序正常结束&quot;)
+}
+</code></pre>
+ </body>
+</html>
