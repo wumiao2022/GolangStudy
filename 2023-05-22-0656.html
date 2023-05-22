@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li><p>求1到100的和</p>
+
+<pre><code>sum := 0
+for i := 1; i &lt;= 100; i++ {
+sum += i
+}
+</code></pre></li>
+
+<li><p>判断一个数是否为质数</p>
+
+<pre><code>func isPrime(n int) bool {
+if n &lt; 2 {
+    return false
+}
+for i := 2; i*i &lt;= n; i++ {
+    if n%i == 0 {
+        return false
+    }
+}
+return true
+}
+</code></pre></li>
+
+<li><p>实现快速排序</p>
+
+<pre><code>func quickSort(arr []int) []int {
+if len(arr) &lt;= 1 {
+    return arr
+}
+pivot := arr[0]
+var left, right []int
+for i := 1; i &lt; len(arr); i++ {
+    if arr[i] &lt; pivot {
+        left = append(left, arr[i])
+    } else {
+        right = append(right, arr[i])
+    }
+}
+left = quickSort(left)
+right = quickSort(right)
+return append(append(left, pivot), right...)
+}
+</code></pre></li>
+
+<li><p>实现单链表的反转</p>
+
+<pre><code>// 定义链表节点
+type ListNode struct {
+Val  int
+Next *ListNode
+}
+func reverseList(head *ListNode) *ListNode {
+var prev, next *ListNode
+for head != nil {
+    next = head.Next
+    head.Next = prev
+    prev = head
+    head = next
+}
+return prev
+}
+</code></pre></li>
+
+<li><p>判断一个字符串是否为回文字符串</p>
+
+<pre><code>func isPalindrome(s string) bool {
+l, r := 0, len(s)-1
+for l &lt; r {
+    for l &lt; r &amp;&amp; !isalnum(s[l]) {
+        l++
+    }
+    for l &lt; r &amp;&amp; !isalnum(s[r]) {
+        r--
+    }
+    if l &lt; r &amp;&amp; toLower(s[l]) != toLower(s[r]) {
+        return false
+    }
+    l++
+    r--
+}
+return true
+}
+func isalnum(c byte) bool {
+return '0' &lt;= c &amp;&amp; c &lt;= '9' || 'a' &lt;= c &amp;&amp; c &lt;= 'z' || 'A' &lt;= c &amp;&amp; c &lt;= 'Z'
+}
+func toLower(c byte) byte {
+if 'A' &lt;= c &amp;&amp; c &lt;= 'Z' {
+    return c + 'a'-'A'
+}
+return c
+}
+</code></pre></li>
+</ol>
+ </body>
+</html>
