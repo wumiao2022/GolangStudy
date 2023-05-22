@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一个求斐波那契数列第N项的函数示例代码：</p>
+
+<pre><code>func fibonacci(n int) int {
+    if n &lt;= 1 {
+        return n
+    }
+    return fibonacci(n-1) + fibonacci(n-2)
+}
+</code></pre>
+
+<p>以下是一个将整数数组反转的函数示例代码：</p>
+
+<pre><code>func reverse(nums []int) {
+    for i, j := 0, len(nums)-1; i &lt; j; i, j = i+1, j-1 {
+        nums[i], nums[j] = nums[j], nums[i]
+    }
+}
+</code></pre>
+
+<p>以下是一个判断一个字符串是否为回文的函数示例代码：</p>
+
+<pre><code>func isPalindrome(s string) bool {
+    for i, j := 0, len(s)-1; i &lt; j; i, j = i+1, j-1 {
+        if s[i] != s[j] {
+            return false
+        }
+    }
+    return true
+}
+</code></pre>
+ </body>
+</html>
