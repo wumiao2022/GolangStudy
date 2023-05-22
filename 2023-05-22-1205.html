@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一些 Golang 的练习示例代码：</p>
+
+<ol>
+<li>将字符串反转</li>
+</ol>
+
+<pre><code class="language-go">func reverseString(s string) string {
+    runes := []rune(s)
+    for i, j := 0, len(runes)-1; i &lt; j; i, j = i+1, j-1 {
+        runes[i], runes[j] = runes[j], runes[i]
+    }
+    return string(runes)
+}
+</code></pre>
+
+<ol>
+<li>计算斐波那契数列</li>
+</ol>
+
+<pre><code class="language-go">func fibonacci(n int) int {
+    if n &lt; 2 {
+        return n
+    }
+    return fibonacci(n-1) + fibonacci(n-2)
+}
+</code></pre>
+
+<ol>
+<li>判断一个数是否是质数</li>
+</ol>
+
+<pre><code class="language-go">func isPrime(n int) bool {
+    if n &lt;= 1 {
+        return false
+    }
+    for i := 2; i*i &lt;= n; i++ {
+        if n%i == 0 {
+            return false
+        }
+    }
+    return true
+}
+</code></pre>
+
+<ol>
+<li>实现一个简单的栈</li>
+</ol>
+
+<pre><code class="language-go">type Stack struct {
+    items []int
+}
+
+func (s *Stack) Push(item int) {
+    s.items = append(s.items, item)
+}
+
+func (s *Stack) Pop() int {
+    if s.IsEmpty() {
+        return -1
+    }
+    index := len(s.items) - 1
+    removed := s.items[index]
+    s.items = s.items[:index]
+    return removed
+}
+
+func (s *Stack) IsEmpty() bool {
+    return len(s.items) == 0
+}
+
+func (s *Stack) Peek() int {
+    if s.IsEmpty() {
+        return -1
+    }
+    return s.items[len(s.items)-1]
+}
+</code></pre>
+
+<ol>
+<li>实现一个简单的链表</li>
+</ol>
+
+<pre><code class="language-go">type Node struct {
+    value int
+    next  *Node
+}
+
+type LinkedList struct {
+    head *Node
+    tail *Node
+}
+
+func (ll *LinkedList) Add(value int) {
+    node := &amp;Node{value, nil}
+    if ll.head == nil {
+        ll.head = node
+        ll.tail = node
+    } else {
+        ll.tail.next = node
+        ll.tail = node
+    }
+}
+
+func (ll *LinkedList) Contains(value int) bool {
+    node := ll.head
+    for node != nil {
+        if node.value == value {
+            return true
+        }
+        node = node.next
+    }
+    return false
+}
+
+func (ll *LinkedList) Remove(value int) {
+    if ll.head == nil {
+        return
+    }
+    if ll.head.value == value {
+        ll.head = ll.head.next
+        return
+    }
+    prev := ll.head
+    node := ll.head.next
+    for node != nil {
+        if node.value == value {
+            prev.next = node.next
+            if node == ll.tail {
+                ll.tail = prev
+            }
+            return
+        }
+        prev = node
+        node = node.next
+    }
+}
+</code></pre>
+ </body>
+</html>
