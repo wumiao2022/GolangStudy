@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一些Golang练习题:</p>
+
+<ol>
+<li>给定一个字符串，反转字符串中的每个单词。</li>
+</ol>
+
+<pre><code class="language-go">func reverseWords(s string) string {
+    sArr := strings.Split(s, &quot; &quot;)
+    for i := 0; i &lt; len(sArr); i++ {
+        sArr[i] = reverseString(sArr[i])
+    }
+    return strings.Join(sArr, &quot; &quot;)
+}
+
+func reverseString(s string) string {
+    sArr := []rune(s)
+    for i, j := 0, len(sArr)-1; i &lt; j; i, j = i+1, j-1 {
+        sArr[i], sArr[j] = sArr[j], sArr[i]
+    }
+    return string(sArr)
+}
+</code></pre>
+
+<ol>
+<li>给定两个整数数组，编写一个函数将它们相加。</li>
+</ol>
+
+<pre><code class="language-go">func addArrays(a, b []int) []int {
+    m, n := len(a), len(b)
+    if m &gt; n {
+        b = append(make([]int, m-n), b...)
+    } else {
+        a = append(make([]int, n-m), a...)
+    }
+    res := make([]int, len(a))
+    carry := 0
+    for i := len(a) - 1; i &gt;= 0; i-- {
+        sum := a[i] + b[i] + carry
+        res[i] = sum % 10
+        carry = sum / 10
+    }
+    if carry != 0 {
+        res = append([]int{carry}, res...)
+    }
+    return res
+}
+</code></pre>
+
+<ol>
+<li>给定一个非负整数 n，返回杨辉三角的前 n 行。</li>
+</ol>
+
+<pre><code class="language-go">func generate(numRows int) [][]int {
+    res := make([][]int, numRows)
+    for i := 0; i &lt; numRows; i++ {
+        res[i] = make([]int, i+1)
+        for j := 0; j &lt;= i; j++ {
+            if j == 0 || j == i {
+                res[i][j] = 1
+            } else {
+                res[i][j] = res[i-1][j-1] + res[i-1][j]
+            }
+        }
+    }
+    return res
+}
+</code></pre>
+
+<ol>
+<li>编写一个函数，输入是一个字符串，返回是否是回文字符串。</li>
+</ol>
+
+<pre><code class="language-go">func isPalindrome(s string) bool {
+    s = strings.ToLower(s)
+    for i, j := 0, len(s)-1; i &lt; j; i, j = i+1, j-1 {
+        for i &lt; j &amp;&amp; !isAlphanumeric(s[i]) {
+            i++
+        }
+        for i &lt; j &amp;&amp; !isAlphanumeric(s[j]) {
+            j--
+        }
+        if s[i] != s[j] {
+            return false
+        }
+    }
+    return true
+}
+
+func isAlphanumeric(c byte) bool {
+    return ('a' &lt;= c &amp;&amp; c &lt;= 'z') || ('0' &lt;= c &amp;&amp; c &lt;= '9')
+}
+</code></pre>
+
+<p>以上是一些简单的Golang练习题，希望能给你提供一些帮助。</p>
+ </body>
+</html>
