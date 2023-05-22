@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li>翻转字符串：</li>
+</ol>
+
+<pre><code class="language-go">func reverseString(s string) string {
+    var res string
+    for i := len(s) - 1; i &gt;= 0; i-- {
+        res += string(s[i])
+    }
+    return res
+}
+</code></pre>
+
+<ol>
+<li>求两个整数的最大公约数：</li>
+</ol>
+
+<pre><code class="language-go">func gcd(a, b int) int {
+    if a == 0 {
+        return b
+    }
+    return gcd(b%a, a)
+}
+</code></pre>
+
+<ol>
+<li>反转链表：</li>
+</ol>
+
+<pre><code class="language-go">type ListNode struct {
+    Val int
+    Next *ListNode
+}
+
+func reverseListNode(head *ListNode) *ListNode {
+    var prev *ListNode
+    curr := head
+    for curr != nil {
+        next := curr.Next
+        curr.Next = prev
+        prev = curr
+        curr = next
+    }
+    return prev
+}
+</code></pre>
+
+<ol>
+<li>按照奇偶性重排数组：</li>
+</ol>
+
+<pre><code class="language-go">func oddEvenSort(nums []int) []int {
+    l, r := 0, len(nums)-1
+    for l &lt; r {
+        if nums[l]%2 == 0 {
+            nums[l], nums[r] = nums[r], nums[l]
+            r--
+        } else {
+            l++
+        }
+    }
+    return nums
+}
+</code></pre>
+
+<ol>
+<li>实现一个括号匹配函数：</li>
+</ol>
+
+<pre><code class="language-go">func isValid(s string) bool {
+    stack := []byte{}
+    for i := 0; i &lt; len(s); i++ {
+        if s[i] == '(' || s[i] == '{' || s[i] == '[' {
+            stack = append(stack, s[i])
+        } else {
+            if len(stack) == 0 {
+                return false
+            }
+            top := stack[len(stack)-1]
+            if s[i] == ')' &amp;&amp; top == '(' ||
+                s[i] == '}' &amp;&amp; top == '{' ||
+                s[i] == ']' &amp;&amp; top == '[' {
+                stack = stack[:len(stack)-1]
+            } else {
+                return false
+            }
+        }
+    }
+    return len(stack) == 0
+}
+</code></pre>
+ </body>
+</html>
