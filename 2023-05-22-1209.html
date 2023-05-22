@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一个简单的“hello world”示例，可以用作Golang每日练习的起点：</p>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    fmt.Println(&quot;Hello, World!&quot;)
+}
+</code></pre>
+
+<p>以下是一个简单的循环示例，可以用于练习Golang的循环控制语句：</p>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    // 循环1-10并打印
+    for i := 1; i &lt;= 10; i++ {
+        fmt.Printf(&quot;%d &quot;, i)
+    }
+    fmt.Println()
+
+    // 使用range循环打印数组
+    arr := []string{&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;}
+    for i, v := range arr {
+        fmt.Printf(&quot;arr[%d]: %s\n&quot;, i, v)
+    }
+}
+</code></pre>
+
+<p>以下是一个简单的并发示例，可以用于练习Golang并发编程：</p>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+    &quot;sync&quot;
+)
+
+func main() {
+    var wg sync.WaitGroup
+
+    wg.Add(2)
+    go func() {
+        defer wg.Done()
+        fmt.Println(&quot;This is function 1&quot;)
+    }()
+    go func() {
+        defer wg.Done()
+        fmt.Println(&quot;This is function 2&quot;)
+    }()
+
+    // 等待两个函数执行完成
+    wg.Wait()
+}
+</code></pre>
+ </body>
+</html>
