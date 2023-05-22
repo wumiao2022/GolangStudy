@@ -9,207 +9,41 @@
 </head>
 <body>
 
- <ol>
-<li>将一个整数切片按照从小到大的顺序排序</li>
-</ol>
-
-<pre><code class="language-go">package main
-
-import (
-	&quot;fmt&quot;
-	&quot;sort&quot;
-)
-
-func main() {
-	nums := []int{3, 6, 2, 8, 1, 9, 7, 4, 5}
-	fmt.Println(&quot;Before sort:&quot;, nums)
-	sort.Ints(nums)
-	fmt.Println(&quot;After sort:&quot;, nums)
-}
-</code></pre>
-
-<ol>
-<li>将一个字符串切片按照字典序（从小到大）排序</li>
-</ol>
-
-<pre><code class="language-go">package main
-
-import (
-	&quot;fmt&quot;
-	&quot;sort&quot;
-)
-
-func main() {
-	strs := []string{&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;, &quot;kiwi&quot;, &quot;grape&quot;, &quot;pear&quot;}
-	fmt.Println(&quot;Before sort:&quot;, strs)
-	sort.Strings(strs)
-	fmt.Println(&quot;After sort:&quot;, strs)
-}
-</code></pre>
-
-<ol>
-<li>将一个float64切片按照从小到大的顺序排序</li>
-</ol>
-
-<pre><code class="language-go">package main
-
-import (
-	&quot;fmt&quot;
-	&quot;sort&quot;
-)
-
-func main() {
-	floats := []float64{3.6, 2.2, 7.5, 4.1, 1.3, 9.0, 5.8}
-	fmt.Println(&quot;Before sort:&quot;, floats)
-	sort.Float64s(floats)
-	fmt.Println(&quot;After sort:&quot;, floats)
-}
-</code></pre>
-
-<ol>
-<li>计算一个整数切片的和</li>
-</ol>
+ <p>以下是一道练习实例代码，它实现了一个根据关键字过滤掉数组中不匹配项的函数。</p>
 
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
 
+// FilterArray takes an array and a filter string and returns a new array
+// containing only elements that contain the filter string.
+func FilterArray(arr []string, filter string) []string {
+    var result []string
+
+    for _, s := range arr {
+        if contains(s, filter) {
+            result = append(result, s)
+        }
+    }
+
+    return result
+}
+
+// contains returns true if s contains the filter string.
+func contains(s, filter string) bool {
+    return len(filter) == 0 || (len(s) &gt;= len(filter) &amp;&amp; s[:len(filter)] == filter)
+}
+
 func main() {
-	nums := []int{1, 2, 3, 4, 5}
-	sum := 0
-	for _, num := range nums {
-		sum += num
-	}
-	fmt.Println(&quot;Sum:&quot;, sum)
+    arr := []string{&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;, &quot;date&quot;, &quot;eggfruit&quot;, &quot;fig&quot;}
+    filter := &quot;e&quot;
+    fmt.Println(FilterArray(arr, filter))
 }
 </code></pre>
 
-<ol>
-<li>判断一个字符串是否为回文字符串</li>
-</ol>
+<p>以上代码会过滤掉数组 <code>arr</code> 中不包含关键字 <code>filter</code> 的项，并返回包含关键字 <code>filter</code> 的项组成的新数组。输出为：</p>
 
-<pre><code class="language-go">package main
-
-import &quot;fmt&quot;
-
-func main() {
-	str := &quot;racecar&quot;
-	l := len(str)
-	for i := 0; i &lt; l/2; i++ {
-		if str[i] != str[l-1-i] {
-			fmt.Printf(&quot;%v is not a palindrome.&quot;, str)
-			return
-		}
-	}
-	fmt.Printf(&quot;%v is a palindrome.&quot;, str)
-}
-</code></pre>
-
-<ol>
-<li>查找一个字符串中出现次数最多的字符</li>
-</ol>
-
-<pre><code class="language-go">package main
-
-import (
-	&quot;fmt&quot;
-	&quot;strings&quot;
-)
-
-func main() {
-	str := &quot;beautiful&quot;
-	counts := make(map[rune]int)
-	for _, r := range str {
-		counts[r]++
-	}
-	var maxVal int
-	var maxRune rune
-	for r, count := range counts {
-		if count &gt; maxVal {
-			maxVal = count
-			maxRune = r
-		}
-	}
-	fmt.Printf(&quot;The character '%c' appears %v times in \&quot;%v\&quot;.&quot;, maxRune, maxVal, str)
-}
-</code></pre>
-
-<ol>
-<li>删除一个字符串切片中特定的字符串</li>
-</ol>
-
-<pre><code class="language-go">package main
-
-import &quot;fmt&quot;
-
-func main() {
-	strs := []string{&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;, &quot;kiwi&quot;, &quot;grape&quot;, &quot;pear&quot;}
-	target := &quot;kiwi&quot;
-	for i, str := range strs {
-		if str == target {
-			strs = append(strs[:i], strs[i+1:]...)
-			break
-		}
-	}
-	fmt.Printf(&quot;After removing \&quot;%v\&quot;: %v&quot;, target, strs)
-}
-</code></pre>
-
-<ol>
-<li>将一个整数切片中所有奇数平方</li>
-</ol>
-
-<pre><code class="language-go">package main
-
-import &quot;fmt&quot;
-
-func main() {
-	nums := []int{1, 2, 3, 4, 5}
-	for i, num := range nums {
-		if num%2 == 1 {
-			nums[i] = num * num
-		}
-	}
-	fmt.Println(&quot;After squaring odd numbers:&quot;, nums)
-}
-</code></pre>
-
-<ol>
-<li>将一个整数切片中所有偶数加倍</li>
-</ol>
-
-<pre><code class="language-go">package main
-
-import &quot;fmt&quot;
-
-func main() {
-	nums := []int{1, 2, 3, 4, 5, 6}
-	for i, num := range nums {
-		if num%2 == 0 {
-			nums[i] = num * 2
-		}
-	}
-	fmt.Println(&quot;After doubling even numbers:&quot;, nums)
-}
-</code></pre>
-
-<ol>
-<li>反转一个字符串中的字符顺序</li>
-</ol>
-
-<pre><code class="language-go">package main
-
-import &quot;fmt&quot;
-
-func main() {
-	str := &quot;hello world&quot;
-	s := []rune(str)
-	l := len(s)
-	for i := 0; i &lt; l/2; i++ {
-		s[i], s[l-1-i] = s[l-1-i], s[i]
-	}
-	fmt.Printf(&quot;Reverse of \&quot;%v\&quot; is \&quot;%v\&quot;.&quot;, str, string(s))
-}
+<pre><code>[apple date eggfruit]
 </code></pre>
  </body>
 </html>
