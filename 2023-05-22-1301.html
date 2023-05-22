@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>// 每日多练: 实现一个字符串反转函数
+func reverseString(s string) string {
+    r := []rune(s)
+    for i, j := 0, len&reg;-1; i &lt; len&reg;/2; i, j = i+1, j-1 {
+        r[i], r[j] = r[j], r[i]
+    }
+    return string&reg;
+}</p>
+ </body>
+</html>
