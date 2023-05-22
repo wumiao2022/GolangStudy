@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一道Golang练习题的代码，用于将一个整数转换为英文表述。</p>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+    &quot;strings&quot;
+)
+
+var ones = []string{&quot;&quot;, &quot;one&quot;, &quot;two&quot;, &quot;three&quot;, &quot;four&quot;, &quot;five&quot;, &quot;six&quot;, &quot;seven&quot;, &quot;eight&quot;, &quot;nine&quot;, &quot;ten&quot;, &quot;eleven&quot;, &quot;twelve&quot;, &quot;thirteen&quot;, &quot;fourteen&quot;, &quot;fifteen&quot;, &quot;sixteen&quot;, &quot;seventeen&quot;, &quot;eighteen&quot;, &quot;nineteen&quot;}
+
+var tens = []string{&quot;&quot;, &quot;&quot;, &quot;twenty&quot;, &quot;thirty&quot;, &quot;forty&quot;, &quot;fifty&quot;, &quot;sixty&quot;, &quot;seventy&quot;, &quot;eighty&quot;, &quot;ninety&quot;}
+
+func convert(num int) string {
+    if num &lt; 0 {
+        return &quot;minus &quot; + convert(-num)
+    }
+    if num == 0 {
+        return &quot;zero&quot;
+    }
+    if num &lt; 20 {
+        return ones[num]
+    }
+    if num &lt; 100 {
+        return tens[num/10] + &quot;-&quot; + ones[num%10]
+    }
+    if num &lt; 1000 {
+        return ones[num/100] + &quot; hundred &quot; + convert(num%100)
+    }
+    if num &lt; 1000000 {
+        return convert(num/1000) + &quot; thousand &quot; + convert(num%1000)
+    }
+    if num &lt; 1000000000 {
+        return convert(num/1000000) + &quot; million &quot; + convert(num%1000000)
+    }
+    return &quot;&quot;
+}
+
+func main() {
+    fmt.Println(convert(42)) // &quot;forty-two&quot;
+    fmt.Println(convert(100)) // &quot;one hundred&quot;
+    fmt.Println(convert(1234)) // &quot;one thousand two hundred thirty-four&quot;
+    fmt.Println(convert(1000000)) // &quot;one million&quot;
+    fmt.Println(convert(987654321)) // &quot;nine hundred eighty-seven million six hundred fifty-four thousand three hundred twenty-one&quot;
+}
+</code></pre>
+
+<p>请自行理解代码含义并思考如何运行测试。</p>
+ </body>
+</html>
