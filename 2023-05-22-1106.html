@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>今日练习：</p>
+
+<p>题目一：编写一个函数，输入一个字符串，将字符串中的空格全部替换成&rdquo;%20&rdquo;，并返回新字符串。要求在原字符串上进行替换。</p>
+
+<pre><code class="language-go">func replaceSpace(s string) string {
+    r := []rune(s)
+    l := len(r)
+    spaceCount := 0
+    for i := 0; i &lt; l; i++ {
+        if r[i] == ' ' {
+            spaceCount++
+        }
+    }
+    newLen := l + spaceCount*2
+    r = append(r, make([]rune, spaceCount*2)...)
+    for i, j := l-1, newLen-1; i &gt;= 0 &amp;&amp; j &gt;= 0; {
+        if r[i] == ' ' {
+            r[j] = '0'
+            r[j-1] = '2'
+            r[j-2] = '%'
+            j = j - 3
+        } else {
+            r[j] = r[i]
+            j--
+        }
+        i--
+    }
+    return string(r)
+}
+</code></pre>
+
+<p>题目二：实现一个队列，支持入队、出队、获取队首元素以及获取队列长度的操作。</p>
+
+<pre><code class="language-go">type Queue struct {
+    items []interface{}
+}
+
+func NewQueue() *Queue {
+    return &amp;Queue{}
+}
+
+func (q *Queue) Enqueue(item interface{}) {
+    q.items = append(q.items, item)
+}
+
+func (q *Queue) Dequeue() interface{} {
+    if q.IsEmpty() {
+        return nil
+    }
+    item := q.items[0]
+    q.items = q.items[1:]
+    return item
+}
+
+func (q *Queue) Peek() interface{} {
+    if q.IsEmpty() {
+        return nil
+    }
+    return q.items[0]
+}
+
+func (q *Queue) Len() int {
+    return len(q.items)
+}
+
+func (q *Queue) IsEmpty() bool {
+    return q.Len() == 0
+}
+</code></pre>
+ </body>
+</html>
