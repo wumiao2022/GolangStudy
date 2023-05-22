@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>请参考以下练习实例代码：</p>
+
+<ol>
+<li>打印出1到10的数字</li>
+</ol>
+
+<pre><code class="language-go">for i := 1; i &lt;= 10; i++ {
+    fmt.Println(i)
+}
+</code></pre>
+
+<ol>
+<li>判断一个数字是奇数还是偶数</li>
+</ol>
+
+<pre><code class="language-go">if num % 2 == 0 {
+    fmt.Println(&quot;这是一个偶数&quot;)
+} else {
+    fmt.Println(&quot;这是一个奇数&quot;)
+}
+</code></pre>
+
+<ol>
+<li>打印出1到100之间的所有素数</li>
+</ol>
+
+<pre><code class="language-go">for i := 2; i &lt;= 100; i++ {
+    flag := true
+    for j := 2; j &lt; i; j++ {
+        if i % j == 0 {
+            flag = false
+            break
+        }
+    }
+    if flag {
+        fmt.Println(i)
+    }
+}
+</code></pre>
+
+<ol>
+<li>反转一个字符串</li>
+</ol>
+
+<pre><code class="language-go">str := &quot;hello world&quot;
+newStr := &quot;&quot;
+for i := len(str)-1; i &gt;= 0; i-- {
+    newStr += string(str[i])
+}
+fmt.Println(newStr)
+</code></pre>
+
+<ol>
+<li>计算一个数组的平均数</li>
+</ol>
+
+<pre><code class="language-go">arr := []int{1, 2, 3, 4, 5}
+sum := 0
+for _, value := range arr {
+    sum += value
+}
+avg := sum / len(arr)
+fmt.Println(avg)
+</code></pre>
+ </body>
+</html>
