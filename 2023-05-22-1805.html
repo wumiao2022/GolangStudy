@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li><p>编写一个程序，计算斐波那契数列的前N项（N通过命令行参数传入），将结果输出到控制台。</p>
+
+<pre><code>package main
+import (
+&quot;fmt&quot;
+&quot;os&quot;
+&quot;strconv&quot;
+)
+func main() {
+if len(os.Args) &lt; 2 {
+	fmt.Println(&quot;Usage: fibonacci [N]&quot;)
+	return
+}
+n, err := strconv.Atoi(os.Args[1])
+if err != nil {
+	fmt.Println(&quot;Invalid argument:&quot;, os.Args[1])
+	return
+}
+fib := make([]int, n)
+fib[0] = 0
+if n &gt; 1 {
+	fib[1] = 1
+	for i := 2; i &lt; n; i++ {
+		fib[i] = fib[i-1] + fib[i-2]
+	}
+}
+fmt.Println(fib)
+}
+</code></pre></li>
+
+<li><p>编写一个程序，实现计算器功能，能够支持加减乘除四则运算。</p>
+
+<pre><code>package main
+import (
+&quot;fmt&quot;
+&quot;os&quot;
+&quot;strconv&quot;
+)
+func main() {
+if len(os.Args) &lt; 4 {
+	fmt.Println(&quot;Usage: calculator [num1] [op] [num2]&quot;)
+	return
+}
+num1, err := strconv.Atoi(os.Args[1])
+if err != nil {
+	fmt.Println(&quot;Invalid argument:&quot;, os.Args[1])
+	return
+}
+num2, err := strconv.Atoi(os.Args[3])
+if err != nil {
+	fmt.Println(&quot;Invalid argument:&quot;, os.Args[3])
+	return
+}
+op := os.Args[2]
+switch op {
+case &quot;+&quot;:
+	fmt.Println(num1 + num2)
+case &quot;-&quot;:
+	fmt.Println(num1 - num2)
+case &quot;*&quot;:
+	fmt.Println(num1 * num2)
+case &quot;/&quot;:
+	if num2 == 0 {
+		fmt.Println(&quot;Cannot divide by zero!&quot;)
+		return
+	}
+	fmt.Println(num1 / num2)
+default:
+	fmt.Println(&quot;Unsupported operator:&quot;, op)
+}
+}
+</code></pre></li>
+
+<li><p>实现一个并发程序，生成指定数量的随机数（范围为0-100），将结果按照升序排序并输出到控制台，要求使用多个goroutine并发处理。</p>
+
+<pre><code>package main
+import (
+&quot;fmt&quot;
+&quot;math/rand&quot;
+&quot;sort&quot;
+&quot;sync&quot;
+&quot;time&quot;
+)
+func main() {
+rand.Seed(time.Now().UnixNano())
+count := 10
+nums := make([]int, count)
+var wg sync.WaitGroup
+wg.Add(count)
+for i := 0; i &lt; count; i++ {
+	go func(j int) {
+		nums[j] = rand.Intn(101)
+		wg.Done()
+	}(i)
+}
+wg.Wait()
+sort.Ints(nums)
+fmt.Println(nums)
+}
+</code></pre></li>
+</ol>
+ </body>
+</html>
