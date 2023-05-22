@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>这是一个输出 &ldquo;Hello, World!&rdquo; 的简单程序：</p>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    fmt.Println(&quot;Hello, World!&quot;)
+}
+</code></pre>
+
+<p>这是一个使用 for 循环输出九九乘法表的程序：</p>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    for i := 1; i &lt;= 9; i++ {
+        for j := 1; j &lt;= i; j++ {
+            fmt.Printf(&quot;%d*%d=%d &quot;, j, i, i*j)
+        }
+        fmt.Println()
+    }
+}
+</code></pre>
+
+<p>这是一个判断一个数是否是素数的程序：</p>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    var n int
+    fmt.Print(&quot;Enter a positive integer: &quot;)
+    fmt.Scan(&amp;n)
+
+    if n &lt;= 1 {
+        fmt.Printf(&quot;%d is not a prime number.\n&quot;, n)
+        return
+    }
+
+    for i := 2; i &lt;= n/2; i++ {
+        if n%i == 0 {
+            fmt.Printf(&quot;%d is not a prime number.\n&quot;, n)
+            return
+        }
+    }
+
+    fmt.Printf(&quot;%d is a prime number.\n&quot;, n)
+}
+</code></pre>
+ </body>
+</html>
