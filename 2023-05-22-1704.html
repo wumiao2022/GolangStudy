@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li><p>打印&rdquo;Hello, world!&ldquo;：</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+func main() {
+fmt.Println(&quot;Hello, world!&quot;)
+}
+</code></pre></li>
+
+<li><p>计算并输出1+2+3+&hellip;+100的值：</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+func main() {
+sum := 0
+for i := 1; i &lt;= 100; i++ {
+	sum += i
+}
+fmt.Println(sum)
+}
+</code></pre></li>
+
+<li><p>定义一个名为Person的结构体，包含name和age两个属性，并创建一个实例p：</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+type Person struct {
+name string
+age  int
+}
+func main() {
+p := Person{
+	name: &quot;John&quot;,
+	age:  30,
+}
+fmt.Println(p)
+}
+</code></pre></li>
+
+<li><p>在数组中查找指定的元素，返回其下标，如果不存在返回-1：</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+func main() {
+arr := []int{1, 2, 3, 4, 5}
+target := 3
+index := -1
+for i, val := range arr {
+	if val == target {
+		index = i
+		break
+	}
+}
+fmt.Println(index)
+}
+</code></pre></li>
+
+<li><p>实现一个简单的HTTP服务器，接收请求并返回响应：</p>
+
+<pre><code>package main
+import (
+&quot;fmt&quot;
+&quot;net/http&quot;
+)
+func handler(w http.ResponseWriter, r *http.Request) {
+fmt.Fprintln(w, &quot;Hello, client!&quot;)
+}
+func main() {
+http.HandleFunc(&quot;/&quot;, handler)
+http.ListenAndServe(&quot;:8080&quot;, nil)
+}
+</code></pre></li>
+</ol>
+ </body>
+</html>
