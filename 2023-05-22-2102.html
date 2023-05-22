@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li>判断一个整数是否为质数</li>
+</ol>
+
+<pre><code class="language-go">func isPrime(n int) bool {
+    if n &lt;= 1 {
+        return false
+    }
+    for i := 2; i &lt;= int(math.Sqrt(float64(n))); i++ {
+        if n%i == 0 {
+            return false
+        }
+    }
+    return true
+}
+</code></pre>
+
+<ol>
+<li>冒泡排序</li>
+</ol>
+
+<pre><code class="language-go">func bubbleSort(nums []int) {
+    n := len(nums)
+    for i := 0; i &lt; n-1; i++ {
+        for j := 0; j &lt; n-i-1; j++ {
+            if nums[j] &gt; nums[j+1] {
+                nums[j], nums[j+1] = nums[j+1], nums[j]
+            }
+        }
+    }
+}
+</code></pre>
+
+<ol>
+<li>计算一个字符串中每个字符出现的次数</li>
+</ol>
+
+<pre><code class="language-go">func countChars(str string) map[rune]int {
+    counts := make(map[rune]int)
+    for _, c := range str {
+        counts[c]++
+    }
+    return counts
+}
+</code></pre>
+
+<ol>
+<li>找到两个数组中的重复元素</li>
+</ol>
+
+<pre><code class="language-go">func findDuplicates(nums1, nums2 []int) []int {
+    set := make(map[int]struct{})
+    var res []int
+    for _, num := range nums1 {
+        set[num] = struct{}{}
+    }
+    for _, num := range nums2 {
+        if _, ok := set[num]; ok {
+            res = append(res, num)
+        }
+    }
+    return res
+}
+</code></pre>
+
+<ol>
+<li>反转一个字符串</li>
+</ol>
+
+<pre><code class="language-go">func reverseString(str string) string {
+    n := len(str)
+    runes := []rune(str)
+    for i := 0; i &lt; n/2; i++ {
+        runes[i], runes[n-i-1] = runes[n-i-1], runes[i]
+    }
+    return string(runes)
+}
+</code></pre>
+ </body>
+</html>
