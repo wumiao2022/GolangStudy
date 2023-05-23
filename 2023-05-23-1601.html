@@ -9,59 +9,24 @@
 </head>
 <body>
 
- <ol>
-<li><p>求一个整数数组的平均值</p>
+ <p>以下是一个简单的Golang练习实例，实现了对数组中元素的求和，将结果输出到控制台上：</p>
 
-<pre><code>func average(nums []int) float64 {
-sum := 0
-for _, num := range nums {
-    sum += num
-}
-return float64(sum) / float64(len(nums))
-}
-</code></pre></li>
+<pre><code class="language-go">package main
 
-<li><p>判断一个字符串是否是回文字符串</p>
+import &quot;fmt&quot;
 
-<pre><code>func isPalindrome(s string) bool {
-runes := []rune(s)
-for i := 0; i &lt; len(runes)/2; i++ {
-    if runes[i] != runes[len(runes)-i-1] {
-        return false
+func main() {
+    nums := []int{1, 2, 3, 4, 5}
+    sum := 0
+    for _, num := range nums {
+        sum += num
     }
+    fmt.Println(sum)
 }
-return true
-}
-</code></pre></li>
+</code></pre>
 
-<li><p>生成斐波那契数列的前n项</p>
+<p>这个实例展示了如何使用for循环和range关键字遍历一个切片类型的数组，并将每个元素累加到一个总和变量中。最后，使用fmt包的Println函数将计算出的总和输出到控制台上。</p>
 
-<pre><code>func fibonacci(n int) []int {
-result := make([]int, n)
-result[0], result[1] = 0, 1
-for i := 2; i &lt; n; i++ {
-    result[i] = result[i-1] + result[i-2]
-}
-return result
-}
-</code></pre></li>
-
-<li><p>对一个整数切片进行排序（从小到大）</p>
-
-<pre><code>func sortInts(nums []int) {
-sort.Slice(nums, func(i, j int) bool {
-    return nums[i] &lt; nums[j]
-})
-}
-</code></pre></li>
-
-<li><p>判断一个字符串是否是数字类型</p>
-
-<pre><code>func isNumeric(str string) bool {
-_, err := strconv.ParseFloat(str, 64)
-return err == nil
-}
-</code></pre></li>
-</ol>
+<p>练习建议：修改数组中的元素并重新运行程序，看看输出的结果是否正确。尝试使用不同的for循环方式（如传统的for循环）来实现同样的功能。</p>
  </body>
 </html>
