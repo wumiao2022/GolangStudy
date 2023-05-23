@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>这里是一道Golang练习题：编写一个函数，实现两个整数相除并返回结果，不使用除法、乘法和mod运算符。</p>
+
+<pre><code>func divide(dividend int, divisor int) int {
+    if dividend == 0 {
+        return 0
+    }
+    if divisor == 1 {
+        return dividend
+    }
+    if dividend == math.MinInt32 &amp;&amp; divisor == -1 {
+        return math.MaxInt32
+    }
+    
+    sign := 1
+    if dividend &lt; 0 {
+        sign = -sign
+        dividend = -dividend
+    }
+    if divisor &lt; 0 {
+        sign = -sign
+        divisor = -divisor
+    }
+    
+    res := 0
+    for dividend &gt;= divisor {
+        tmp, multiple := divisor, 1
+        for dividend &gt;= (tmp &lt;&lt; 1) {
+            tmp &lt;&lt;= 1
+            multiple &lt;&lt;= 1
+        }
+        dividend -= tmp
+        res += multiple
+    }
+    
+    if sign &lt; 0 {
+        res = -res
+    }
+    
+    return res
+}
+</code></pre>
+ </body>
+</html>
