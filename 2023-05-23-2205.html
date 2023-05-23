@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li>生成10个随机数，输出其中最大值和最小值</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+    &quot;math/rand&quot;
+    &quot;time&quot;
+)
+
+func main() {
+    rand.Seed(time.Now().UnixNano())
+
+    var max, min int = rand.Intn(100), rand.Intn(100)
+
+    for i := 1; i &lt; 10; i++ {
+        num := rand.Intn(100)
+        fmt.Printf(&quot;随机数%d：%d\n&quot;, i, num)
+
+        if num &gt; max {
+            max = num
+        }
+
+        if num &lt; min {
+            min = num
+        }
+    }
+
+    fmt.Printf(&quot;最大值：%d，最小值：%d&quot;, max, min)
+}
+</code></pre>
+
+<ol>
+<li>将一个字符串反转输出</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    str := &quot;hello world!&quot;
+    reverse := &quot;&quot;
+
+    for _, s := range str {
+        reverse = string(s) + reverse
+    }
+    fmt.Println(reverse)
+}
+</code></pre>
+
+<ol>
+<li>打印出1024到2048之间的素数</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+    &quot;math&quot;
+)
+
+func main() {
+    for i := 1024; i &lt;= 2048; i++ {
+        if isPrime(i) {
+            fmt.Println(i)
+        }
+    }
+}
+
+func isPrime(num int) bool {
+    if num &lt;= 1 {
+        return false
+    }
+
+    if num == 2 || num == 3 {
+        return true
+    }
+
+    if num%2 == 0 || num%3 == 0 {
+        return false
+    }
+
+    for i := 5; i &lt;= int(math.Sqrt(float64(num))); i += 6 {
+        if num%i == 0 || num%(i+2) == 0 {
+            return false
+        }
+    }
+
+    return true
+}
+</code></pre>
+
+<ol>
+<li>打印出九九乘法表</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+)
+
+func main() {
+    for i := 1; i &lt; 10; i++ {
+        for j := 1; j &lt;= i; j++ {
+            fmt.Printf(&quot;%d*%d=%-2d &quot;, j, i, i*j)
+        }
+        fmt.Println()
+    }
+}
+</code></pre>
+
+<ol>
+<li>冒泡排序</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+)
+
+func main() {
+    arr := []int{5, 3, 8, 6, 10, 7, 2, 1}
+
+    for i := 0; i &lt; len(arr)-1; i++ {
+        for j := 0; j &lt; len(arr)-1-i; j++ {
+            if arr[j] &gt; arr[j+1] {
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+            }
+        }
+    }
+
+    fmt.Println(arr)
+}
+</code></pre>
+ </body>
+</html>
