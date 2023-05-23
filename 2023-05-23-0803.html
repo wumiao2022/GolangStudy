@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li><p>打印Hello World</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+func main() {
+fmt.Println(&quot;Hello, World!&quot;)
+}
+</code></pre></li>
+
+<li><p>数组遍历</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+func main() {
+arr := [5]int{1, 2, 3, 4, 5}
+for i := 0; i &lt; len(arr); i++ {
+    fmt.Printf(&quot;%d &quot;, arr[i])
+}
+}
+</code></pre></li>
+
+<li><p>切片遍历</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+func main() {
+s := []int{1, 2, 3, 4, 5}
+for i := range s {
+    fmt.Printf(&quot;%d &quot;, s[i])
+}
+}
+</code></pre></li>
+
+<li><p>map遍历</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+func main() {
+m := map[string]int{&quot;foo&quot;: 1, &quot;bar&quot;: 2, &quot;baz&quot;: 3}
+for k, v := range m {
+    fmt.Printf(&quot;%s: %d\n&quot;, k, v)
+}
+}
+</code></pre></li>
+
+<li><p>结构体的定义和使用</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+type Person struct {
+name string
+age  int
+}
+func main() {
+p := Person{name: &quot;Alice&quot;, age: 20}
+fmt.Printf(&quot;Name: %s\n&quot;, p.name)
+fmt.Printf(&quot;Age: %d&quot;, p.age)
+}
+</code></pre></li>
+
+<li><p>文件读取和写入</p>
+
+<pre><code>package main
+import (
+&quot;fmt&quot;
+&quot;io/ioutil&quot;
+)
+func main() {
+fileContents, err := ioutil.ReadFile(&quot;input.txt&quot;)
+if err != nil {
+    fmt.Println(&quot;Error reading file:&quot;, err)
+    return
+}
+fmt.Println(&quot;File contents:&quot;, string(fileContents))
+err = ioutil.WriteFile(&quot;output.txt&quot;, []byte(&quot;Hello, World!&quot;), 0644)
+if err != nil {
+    fmt.Println(&quot;Error writing file:&quot;, err)
+    return
+}
+fmt.Println(&quot;File written.&quot;)
+}
+</code></pre></li>
+
+<li><p>并发编程</p>
+
+<pre><code>package main
+import (
+&quot;fmt&quot;
+&quot;sync&quot;
+)
+func main() {
+var wg sync.WaitGroup
+for i := 0; i &lt; 10; i++ {
+    wg.Add(1)
+    go func(i int) {
+        defer wg.Done()
+        fmt.Println(&quot;Goroutine&quot;, i)
+    }(i)
+}
+wg.Wait()
+fmt.Println(&quot;All goroutines finished.&quot;)
+}
+</code></pre></li>
+
+<li><p>HTTP服务器</p>
+
+<pre><code>package main
+import (
+&quot;fmt&quot;
+&quot;net/http&quot;
+)
+func handler(w http.ResponseWriter, r *http.Request) {
+fmt.Fprintf(w, &quot;Hello, World!&quot;)
+}
+func main() {
+http.HandleFunc(&quot;/&quot;, handler)
+http.ListenAndServe(&quot;:8080&quot;, nil)
+}
+</code></pre></li>
+
+<li><p>JSON解析和生成</p>
+
+<pre><code>package main
+import (
+&quot;encoding/json&quot;
+&quot;fmt&quot;
+)
+type Person struct {
+Name string `json:&quot;name&quot;`
+Age  int    `json:&quot;age&quot;`
+}
+func main() {
+jsonStr := `{&quot;name&quot;: &quot;Alice&quot;, &quot;age&quot;: 20}`
+var p Person
+err := json.Unmarshal([]byte(jsonStr), &amp;p)
+if err != nil {
+    fmt.Println(&quot;Error:&quot;, err)
+    return
+}
+fmt.Println(p)
+p.Age = 21
+jsonBytes, err := json.Marshal(p)
+if err != nil {
+    fmt.Println(&quot;Error:&quot;, err)
+    return
+}
+fmt.Println(string(jsonBytes))
+}
+</code></pre></li>
+
+<li><p>时间日期操作</p>
+
+<pre><code>package main
+import (
+&quot;fmt&quot;
+&quot;time&quot;
+)
+func main() {
+now := time.Now()
+fmt.Println(now)
+fmt.Println(&quot;Year:&quot;, now.Year())
+fmt.Println(&quot;Month:&quot;, now.Month())
+fmt.Println(&quot;Day:&quot;, now.Day())
+fmt.Println(&quot;Hour:&quot;, now.Hour())
+fmt.Println(&quot;Minute:&quot;, now.Minute())
+fmt.Println(&quot;Second:&quot;, now.Second())
+format := &quot;2006-01-02 15:04:05&quot;
+str := &quot;2021-08-22 08:30:00&quot;
+t, _ := time.Parse(format, str)
+fmt.Println(t)
+duration := time.Since(t)
+fmt.Println(duration)
+}
+</code></pre></li>
+</ol>
+ </body>
+</html>
