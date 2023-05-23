@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是今天的练习代码：</p>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+)
+
+// 练习1：打印乘法口诀表
+func printMultiplicationTable() {
+	for i := 1; i &lt;= 9; i++ {
+		for j := 1; j &lt;= i; j++ {
+			fmt.Printf(&quot;%d*%d=%d\t&quot;, j, i, i*j)
+		}
+		fmt.Println()
+	}
+}
+
+// 练习2：检查一个字符串是否为回文字符串
+func isPalindrome(s string) bool {
+	for i := 0; i &lt; len(s)/2; i++ {
+		if s[i] != s[len(s)-1-i] {
+			return false
+		}
+	}
+	return true
+}
+
+// 练习3：斐波那契数列（非递归实现）
+func fibonacci(n int) int {
+	if n &lt;= 1 {
+		return n
+	}
+	first, second := 0, 1
+	for i := 2; i &lt;= n; i++ {
+		first, second = second, first+second
+	}
+	return second
+}
+
+func main() {
+	// 打印乘法口诀表
+	printMultiplicationTable()
+
+	// 检查回文字符串
+	fmt.Println(isPalindrome(&quot;level&quot;))
+
+	// 斐波那契数列
+	fmt.Println(fibonacci(10))
+}
+</code></pre>
+ </body>
+</html>
