@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一个实现快速排序算法的Golang代码示例：</p>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func quickSort(arr []int) []int {
+    if len(arr) &lt;= 1 {
+        return arr
+    }
+    pivot := arr[0]
+    var left, right []int
+    for i := 1; i &lt; len(arr); i++ {
+        if arr[i] &lt; pivot {
+            left = append(left, arr[i])
+        } else {
+            right = append(right, arr[i])
+        }
+    }
+    left = quickSort(left)
+    right = quickSort(right)
+    return append(append(left, pivot), right...)
+}
+
+func main() {
+    arr := []int{5, 9, 1, 4, 8, 3, 2, 7, 6}
+    sortedArr := quickSort(arr)
+    fmt.Println(sortedArr)
+}
+</code></pre>
+ </body>
+</html>
