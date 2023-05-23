@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一个简单的Golang程序，它定义了一个函数，该函数接受一个字符串，将其反转，并返回结果：</p>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+// ReverseString takes a string and returns its reverse
+func ReverseString(str string) string {
+    runes := []rune(str)
+    for i, j := 0, len(runes)-1; i &lt; len(runes)/2; i, j = i+1, j-1 {
+        runes[i], runes[j] = runes[j], runes[i]
+    }
+    return string(runes)
+}
+
+func main() {
+    s := &quot;Hello, world!&quot;
+    fmt.Println(ReverseString(s))
+}
+</code></pre>
+
+<p>这个程序输出：<code>!dlrow ,olleH</code></p>
+
+<p>建议你注意代码中的每一行，并且在自己电脑上实验一下。</p>
+ </body>
+</html>
