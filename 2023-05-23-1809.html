@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是今天的练习实例代码：</p>
+
+<ol>
+<li>计算两个整数的和：</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    var a, b int
+    a = 10
+    b = 20
+    fmt.Println(a+b)
+}
+</code></pre>
+
+<ol>
+<li>判断一个整数是否为偶数：</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    var a int
+    a = 6
+    if a%2 == 0 {
+        fmt.Println(a, &quot;is even&quot;)
+    } else {
+        fmt.Println(a, &quot;is odd&quot;)
+    }
+}
+</code></pre>
+
+<ol>
+<li>遍历一个字符串并打印每个字符的ASCII码值：</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    str := &quot;Hello World&quot;
+    for i := 0; i &lt; len(str); i++ {
+        fmt.Printf(&quot;%c: %d\n&quot;, str[i], str[i])
+    }
+}
+</code></pre>
+
+<ol>
+<li>找到一个整数切片中的最大值和最小值：</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    arr := []int{4, 12, 7, 2, 9, 20, 5}
+    max := arr[0]
+    min := arr[0]
+    for _, v := range arr {
+        if v &gt; max {
+            max = v
+        }
+        if v &lt; min {
+            min = v
+        }
+    }
+    fmt.Println(&quot;Max:&quot;, max)
+    fmt.Println(&quot;Min:&quot;, min)
+}
+</code></pre>
+
+<ol>
+<li>反转一个字符串：</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    str := &quot;Hello World&quot;
+    var rev string
+    for i := len(str)-1; i &gt;= 0; i-- {
+        rev += string(str[i])
+    }
+    fmt.Println(rev)
+}
+</code></pre>
+ </body>
+</html>
