@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一道Golang练习题的答案代码：</p>
+
+<pre><code>package main
+
+import (
+	&quot;fmt&quot;
+)
+
+func main() {
+	// 给定一个整数数组nums和一个目标值target，在数组中找出和为目标值的两个整数
+	nums := []int{2, 7, 11, 15}
+	target := 9
+
+	// 创建一个map，用于存储目标值和当前值的差值及其所在的下标
+	diffMap := make(map[int]int)
+
+	for i, num := range nums {
+		if j, ok := diffMap[target-num]; ok {
+			// 如果map中存在target-num这个差值，那么说明当前值和之前的某个值的和为目标值
+			fmt.Printf(&quot;[%d, %d]\n&quot;, j, i)
+			break
+		} else {
+			// 否则将当前值和目标值的差值及其所在的下标存入map中，等待后续的遍历
+			diffMap[num-target] = i
+		}
+	}
+}
+</code></pre>
+ </body>
+</html>
