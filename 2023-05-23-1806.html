@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li>打印1到100之间的所有奇数：</li>
+</ol>
+
+<pre><code class="language-go">for i := 1; i &lt;= 100; i++ {
+	if i%2 != 0 {
+		fmt.Println(i)
+	}
+}
+</code></pre>
+
+<ol>
+<li>判断一个数是不是质数：</li>
+</ol>
+
+<pre><code class="language-go">func isPrime(num int) bool {
+	if num &lt; 2 {
+		return false
+	}
+	for i := 2; i &lt;= int(math.Sqrt(float64(num))); i++ {
+		if num%i == 0 {
+			return false
+		}
+	}
+	return true
+}
+</code></pre>
+
+<ol>
+<li>打印斐波那契数列前20项：</li>
+</ol>
+
+<pre><code class="language-go">func fibonacci(n int) int {
+	if n &lt;= 1 {
+		return n
+	}
+	return fibonacci(n-1) + fibonacci(n-2)
+}
+
+for i := 0; i &lt; 20; i++ {
+	fmt.Println(fibonacci(i))
+}
+</code></pre>
+
+<ol>
+<li>反转一个字符串：</li>
+</ol>
+
+<pre><code class="language-go">func reverseString(str string) string {
+	result := &quot;&quot;
+	for _, s := range str {
+		result = string(s) + result
+	}
+	return result
+}
+
+fmt.Println(reverseString(&quot;hello&quot;))
+</code></pre>
+
+<ol>
+<li>判断一个字符串是不是回文串：</li>
+</ol>
+
+<pre><code class="language-go">func isPalindrome(str string) bool {
+	for i := 0; i &lt; len(str)/2; i++ {
+		if str[i] != str[len(str)-i-1] {
+			return false
+		}
+	}
+	return true
+}
+
+fmt.Println(isPalindrome(&quot;abccba&quot;))
+</code></pre>
+
+<ol>
+<li>统计一个字符串中出现次数最多的字符及其出现次数：</li>
+</ol>
+
+<pre><code class="language-go">func maxFrequency(str string) (rune, int) {
+	frequency := make(map[rune]int)
+	for _, s := range str {
+		frequency[s]++
+	}
+
+	maxFreq := 0
+	maxChar := rune(0)
+	for char, freq := range frequency {
+		if freq &gt; maxFreq {
+			maxFreq = freq
+			maxChar = char
+		}
+	}
+
+	return maxChar, maxFreq
+}
+
+maxChar, maxFreq := maxFrequency(&quot;abccbaab&quot;)
+fmt.Printf(&quot;maxChar:%c, maxFreq:%d\n&quot;, maxChar, maxFreq)
+</code></pre>
+ </body>
+</html>
