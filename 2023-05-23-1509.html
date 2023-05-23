@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li><p>反转字符串</p>
+
+<pre><code>func reverseString(s string) string {
+r := []rune(s)
+for i, j := 0, len(r)-1; i &lt; j; i, j = i+1, j-1 {
+    r[i], r[j] = r[j], r[i]
+}
+return string(r)
+}
+</code></pre></li>
+
+<li><p>判断回文数</p>
+
+<pre><code>func isPalindrome(x int) bool {
+if x &lt; 0 || (x != 0 &amp;&amp; x % 10 == 0) {
+    return false
+}
+// 反转数字
+reverse, y := 0, x
+for y != 0 {
+    reverse = reverse * 10 + y % 10
+    y /= 10
+}
+return x == reverse
+}
+</code></pre></li>
+
+<li><p>删除排序数组中的重复项</p>
+
+<pre><code>func removeDuplicates(nums []int) int {
+if len(nums) == 0 {
+    return 0
+}
+// 定义快指针和慢指针
+i, j := 0, 1
+for ; j &lt; len(nums); j++ {
+    if nums[i] != nums[j] {
+        i++
+        nums[i] = nums[j]
+    }
+}
+return i+1
+}
+</code></pre></li>
+
+<li><p>合并两个有序链表</p>
+
+<pre><code>// 定义链表结构体
+type ListNode struct {
+Val int
+Next *ListNode
+}
+func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
+// 如果其中一个链表为空，则直接返回另一个链表
+if l1 == nil {
+    return l2
+} else if l2 == nil {
+    return l1
+}
+// 定义头结点和指针
+res := &amp;ListNode{}
+p := res
+// 合并两个链表
+for l1 != nil &amp;&amp; l2 != nil {
+    if l1.Val &lt; l2.Val {
+        p.Next = l1
+        l1 = l1.Next
+    } else {
+        p.Next = l2
+        l2 = l2.Next
+    }
+    p = p.Next
+}
+// 将剩余的节点插入
+if l1 != nil {
+    p.Next = l1
+} else {
+    p.Next = l2
+}
+return res.Next
+}
+</code></pre></li>
+
+<li><p>字符串中的第一个唯一字符</p>
+
+<pre><code>func firstUniqChar(s string) int {
+freq := make([]int, 26)
+// 统计每个字符出现次数
+for _, ch := range s {
+    freq[ch-'a']++
+}
+// 找到第一个唯一字符的下标
+for i, ch := range s {
+    if freq[ch-'a'] == 1 {
+        return i
+    }
+}
+return -1
+}
+</code></pre></li>
+</ol>
+ </body>
+</html>
