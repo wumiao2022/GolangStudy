@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一些 Golang 练习实例代码：</p>
+
+<ol>
+<li>输出 Hello, World！</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    fmt.Println(&quot;Hello, World!&quot;)
+}
+</code></pre>
+
+<ol>
+<li>判断一个数是否是质数</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    var n int
+    fmt.Println(&quot;Enter a number:&quot;)
+    fmt.Scan(&amp;n)
+    if n &lt; 2 {
+        fmt.Println(n, &quot;is not a prime number&quot;)
+    } else {
+        prime := true
+        for i := 2; i*i &lt;= n; i++ {
+            if n%i == 0 {
+                prime = false
+                break
+            }
+        }
+        if prime {
+            fmt.Println(n, &quot;is a prime number&quot;)
+        } else {
+            fmt.Println(n, &quot;is not a prime number&quot;)
+        }
+    }
+}
+</code></pre>
+
+<ol>
+<li>实现一个简单的计算器</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    var num1, num2 float64
+    var operator string
+    fmt.Println(&quot;Enter first number:&quot;)
+    fmt.Scan(&amp;num1)
+    fmt.Println(&quot;Enter second number:&quot;)
+    fmt.Scan(&amp;num2)
+    fmt.Println(&quot;Enter operator (+, -, *, /):&quot;)
+    fmt.Scan(&amp;operator)
+    switch operator {
+    case &quot;+&quot;:
+        fmt.Println(num1, &quot;+&quot;, num2, &quot;=&quot;, num1+num2)
+    case &quot;-&quot;:
+        fmt.Println(num1, &quot;-&quot;, num2, &quot;=&quot;, num1-num2)
+    case &quot;*&quot;:
+        fmt.Println(num1, &quot;*&quot;, num2, &quot;=&quot;, num1*num2)
+    case &quot;/&quot;:
+        fmt.Println(num1, &quot;/&quot;, num2, &quot;=&quot;, num1/num2)
+    default:
+        fmt.Println(&quot;Invalid operator&quot;)
+    }
+}
+</code></pre>
+
+<ol>
+<li>实现冒泡排序算法</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func bubbleSort(arr []int) {
+    n := len(arr)
+    for i := 0; i &lt; n-1; i++ {
+        for j := 0; j &lt; n-i-1; j++ {
+            if arr[j] &gt; arr[j+1] {
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+            }
+        }
+    }
+}
+
+func main() {
+    arr := []int{3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5}
+    fmt.Println(&quot;Original array:&quot;)
+    fmt.Println(arr)
+    bubbleSort(arr)
+    fmt.Println(&quot;Sorted array:&quot;)
+    fmt.Println(arr)
+}
+</code></pre>
+
+<ol>
+<li>实现斐波那契数列</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func fibonacci(n int) int {
+    if n &lt; 2 {
+        return n
+    }
+    return fibonacci(n-1) + fibonacci(n-2)
+}
+
+func main() {
+    fmt.Println(&quot;Enter the length of Fibonacci sequence:&quot;)
+    var length int
+    fmt.Scan(&amp;length)
+    for i := 0; i &lt; length; i++ {
+        fmt.Print(fibonacci(i), &quot; &quot;)
+    }
+    fmt.Println()
+}
+</code></pre>
+ </body>
+</html>
