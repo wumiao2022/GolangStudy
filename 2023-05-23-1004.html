@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下为一份简单的习题，希望能帮助你巩固Golang的基础知识：</p>
+
+<ol>
+<li>请编写一个函数，计算字符串中每个字母出现的次数，并以map的形式返回结果。</li>
+</ol>
+
+<pre><code class="language-go">func charCount(s string) map[rune]int {
+    count := make(map[rune]int)
+    for _, c := range s {
+        count[c]++
+    }
+    return count
+}
+</code></pre>
+
+<ol>
+<li>请编写一个函数，接收一个字符串参数，将字符串中的每个单词的首字母转为大写，并返回修改后的字符串。</li>
+</ol>
+
+<pre><code class="language-go">func toUpperFirst(s string) string {
+    words := strings.Fields(s)
+    for i, word := range words {
+        words[i] = strings.ToUpper(string(word[0])) + word[1:]
+    }
+    return strings.Join(words, &quot; &quot;)
+}
+</code></pre>
+
+<ol>
+<li>请编写一个函数，接收两个参数（一个整数切片和一个整数k），把整数切片分为多个长度为k的切片，并返回这些切片。</li>
+</ol>
+
+<pre><code class="language-go">func splitSlice(nums []int, k int) [][]int {
+    var result [][]int
+    for i := 0; i &lt; len(nums); i += k {
+        end := i + k
+        if end &gt; len(nums) {
+            end = len(nums)
+        }
+        result = append(result, nums[i:end])
+    }
+    return result
+}
+</code></pre>
+
+<ol>
+<li>请编写一个函数，接收一个整数切片并排序，要求使用冒泡排序算法。</li>
+</ol>
+
+<pre><code class="language-go">func bubbleSort(nums []int) {
+    for i := 0; i &lt; len(nums); i++ {
+        for j := i + 1; j &lt; len(nums); j++ {
+            if nums[i] &gt; nums[j] {
+                nums[i], nums[j] = nums[j], nums[i]
+            }
+        }
+    }
+}
+</code></pre>
+
+<ol>
+<li>请编写一个函数，接收一个字符串和一个整数k，将字符串中的每个字符向右移动k个位置后返回新的字符串。</li>
+</ol>
+
+<pre><code class="language-go">func rotateString(s string, k int) string {
+    n := len(s)
+    k %= n
+    return s[n-k:] + s[:n-k]
+}
+</code></pre>
+ </body>
+</html>
