@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li>反转字符串</li>
+</ol>
+
+<pre><code class="language-go">func reverseString(str string) string {
+    runes := []rune(str)
+    for i, j := 0, len(runes)-1; i &lt; len(runes)/2; i, j = i+1, j-1 {
+        runes[i], runes[j] = runes[j], runes[i]
+    }
+    return string(runes)
+}
+
+// 示例：
+// reverseString(&quot;hello&quot;) -&gt; &quot;olleh&quot;
+</code></pre>
+
+<ol>
+<li>求两数之和</li>
+</ol>
+
+<pre><code class="language-go">func twoSum(nums []int, target int) []int {
+    m := make(map[int]int)
+    for i, num := range nums {
+        if j, ok := m[target-num]; ok {
+            return []int{j, i}
+        }
+        m[num] = i
+    }
+    return nil
+}
+
+// 示例：
+// twoSum([]int{2, 7, 11, 15}, 9) -&gt; []int{0, 1}
+</code></pre>
+
+<ol>
+<li>验证回文字符串</li>
+</ol>
+
+<pre><code class="language-go">import &quot;unicode&quot;
+
+func isPalindrome(s string) bool {
+    runes := []rune(s)
+    for i := 0; i &lt; len(runes)/2; i++ {
+        if !unicode.IsLetter(runes[i]) &amp;&amp; !unicode.IsDigit(runes[i]) {
+            continue
+        }
+        if !unicode.IsLetter(runes[len(runes)-1-i]) &amp;&amp; !unicode.IsDigit(runes[len(runes)-1-i]) {
+            continue
+        }
+        if unicode.ToLower(runes[i]) != unicode.ToLower(runes[len(runes)-1-i]) {
+            return false
+        }
+    }
+    return true
+}
+
+// 示例：
+// isPalindrome(&quot;A man, a plan, a canal: Panama&quot;) -&gt; true
+// isPalindrome(&quot;race a car&quot;) -&gt; false
+</code></pre>
+
+<ol>
+<li>查找字符串中的最长回文子串</li>
+</ol>
+
+<pre><code class="language-go">func longestPalindrome(s string) string {
+    if len(s) &lt; 2 {
+        return s
+    }
+    start, end := 0, 0
+    for i := 0; i &lt; len(s); i++ {
+        len1 := expandAroundCenter(s, i, i)
+        len2 := expandAroundCenter(s, i, i+1)
+        maxLen := max(len1, len2)
+        if maxLen &gt; end-start {
+            start = i - (maxLen-1)/2
+            end = i + maxLen/2
+        }
+    }
+    return s[start : end+1]
+}
+
+func expandAroundCenter(s string, left, right int) int {
+    for left &gt;= 0 &amp;&amp; right &lt; len(s) &amp;&amp; s[left] == s[right] {
+        left--
+        right++
+    }
+    return right - left - 1
+}
+
+func max(x, y int) int {
+    if x &gt; y {
+        return x
+    }
+    return y
+}
+
+// 示例：
+// longestPalindrome(&quot;babad&quot;) -&gt; &quot;bab&quot;, &quot;aba&quot; 均可
+// longestPalindrome(&quot;cbbd&quot;) -&gt; &quot;bb&quot;
+</code></pre>
+ </body>
+</html>
