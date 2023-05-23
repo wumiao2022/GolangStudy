@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一个Golang练习题的代码实现，可以测试学习者对Golang基础语法和控制流程的掌握程度：</p>
+
+<pre><code>package main
+
+import &quot;fmt&quot;
+
+func main() {
+	// 练习题 1: 输出 1 到 10 的所有整数，每行一个
+	for i := 1; i &lt;= 10; i++ {
+		fmt.Println(i)
+	}
+
+	// 练习题 2: 输出 1 到 100 的所有奇数，每行一个
+	for i := 1; i &lt;= 100; i += 2 {
+		fmt.Println(i)
+	}
+
+	// 练习题 3: 输出 1 到 100 的所有偶数，每行一个
+	for i := 2; i &lt;= 100; i += 2 {
+		fmt.Println(i)
+	}
+
+	// 练习题 4: 打印乘法口诀表
+	for i := 1; i &lt;= 9; i++ {
+		for j := 1; j &lt;= i; j++ {
+			fmt.Printf(&quot;%d*%d=%d &quot;, j, i, i*j)
+		}
+		fmt.Println()
+	}
+
+	// 练习题 5: 判断一个数是不是素数
+	num := 23
+	isPrime := true
+	for i := 2; i &lt; num; i++ {
+		if num%i == 0 {
+			isPrime = false
+			break
+		}
+	}
+	if isPrime {
+		fmt.Printf(&quot;%d is a prime number\n&quot;, num)
+	} else {
+		fmt.Printf(&quot;%d is not a prime number\n&quot;, num)
+	}
+
+	// 练习题 6: 实现冒泡排序（升序）
+	arr := []int{3, 2, 4, 5, 1}
+	for i := 0; i &lt; len(arr)-1; i++ {
+		for j := 0; j &lt; len(arr)-1-i; j++ {
+			if arr[j] &gt; arr[j+1] {
+				arr[j], arr[j+1] = arr[j+1], arr[j]
+			}
+		}
+	}
+	fmt.Println(&quot;Sorted array:&quot;, arr)
+}
+</code></pre>
+ </body>
+</html>
