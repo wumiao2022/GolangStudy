@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li>判断一个数字是否为偶数</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    var num int = 12
+    if num%2 == 0 {
+        fmt.Println(&quot;num is even&quot;)
+    } else {
+        fmt.Println(&quot;num is odd&quot;)
+    }
+}
+</code></pre>
+
+<ol>
+<li>将一组数字倒序输出</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    var nums []int = []int{3, 6, 9, 12, 15}
+    for i := len(nums) - 1; i &gt;= 0; i-- {
+        fmt.Printf(&quot;%d &quot;, nums[i])
+    }
+}
+</code></pre>
+
+<ol>
+<li>实现一个简单的计算器</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    var num1, num2 float64
+    var operator string
+    fmt.Print(&quot;Enter first number: &quot;)
+    fmt.Scanln(&amp;num1)
+    fmt.Print(&quot;Enter operator (+, -, *, /): &quot;)
+    fmt.Scanln(&amp;operator)
+    fmt.Print(&quot;Enter second number: &quot;)
+    fmt.Scanln(&amp;num2)
+    var result float64
+    switch operator {
+    case &quot;+&quot;:
+        result = num1 + num2
+    case &quot;-&quot;:
+        result = num1 - num2
+    case &quot;*&quot;:
+        result = num1 * num2
+    case &quot;/&quot;:
+        if num2 == 0 {
+            fmt.Println(&quot;Cannot divide by zero&quot;)
+            return
+        } else {
+            result = num1 / num2
+        }
+    default:
+        fmt.Println(&quot;Invalid operator&quot;)
+        return
+    }
+    fmt.Printf(&quot;%g %s %g = %g&quot;, num1, operator, num2, result)
+}
+</code></pre>
+
+<ol>
+<li>判断一个字符串是否为回文字符串</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+    &quot;strings&quot;
+)
+
+func main() {
+    var str string = &quot;racecar&quot;
+    var reversedStr string = &quot;&quot;
+    for i := len(str) - 1; i &gt;= 0; i-- {
+        reversedStr += string(str[i])
+    }
+    if strings.ToLower(str) == strings.ToLower(reversedStr) {
+        fmt.Println(&quot;Palindrome&quot;)
+    } else {
+        fmt.Println(&quot;Not a palindrome&quot;)
+    }
+}
+</code></pre>
+
+<ol>
+<li>找出一个数组中的最大和最小值</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+    &quot;math&quot;
+)
+
+func main() {
+    var nums []float64 = []float64{3.5, -5.2, 10.1, 7.8, 2.3}
+    var min float64 = math.Inf(1)
+    var max float64 = math.Inf(-1)
+    for _, num := range nums {
+        if num &lt; min {
+            min = num
+        }
+        if num &gt; max {
+            max = num
+        }
+    }
+    fmt.Printf(&quot;Min: %g, Max: %g&quot;, min, max)
+}
+</code></pre>
+ </body>
+</html>
