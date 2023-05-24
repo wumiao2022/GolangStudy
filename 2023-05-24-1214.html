@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li><p>反转字符串</p>
+
+<pre><code>func reverseString(s string) string {
+r := []rune(s)
+for i, j := 0, len(r)-1; i &lt; j; i, j = i+1, j-1 {
+    r[i], r[j] = r[j], r[i]
+}
+return string(r)
+}
+</code></pre></li>
+
+<li><p>斐波那契数列</p>
+
+<pre><code>func fibonacci(n int) int {
+if n &lt; 2 {
+    return n
+}
+return fibonacci(n-1) + fibonacci(n-2)
+}
+</code></pre></li>
+
+<li><p>两数之和</p>
+
+<pre><code>func twoSum(nums []int, target int) []int {
+m := make(map[int]int)
+for i, num := range nums {
+    if j, ok := m[target-num]; ok {
+        return []int{j, i}
+    }
+    m[num] = i
+}
+return nil
+}
+</code></pre></li>
+
+<li><p>判断一个数是否是素数</p>
+
+<pre><code>func isPrime(num int) bool {
+if num &lt; 2 {
+    return false
+}
+for i := 2; i*i &lt;= num; i++ {
+    if num%i == 0 {
+        return false
+    }
+}
+return true
+}
+</code></pre></li>
+
+<li><p>选择排序</p>
+
+<pre><code>func selectionSort(arr []int) []int {
+for i := 0; i &lt; len(arr)-1; i++ {
+    minIndex := i
+    for j := i + 1; j &lt; len(arr); j++ {
+        if arr[j] &lt; arr[minIndex] {
+            minIndex = j
+        }
+    }
+    arr[i], arr[minIndex] = arr[minIndex], arr[i]
+}
+return arr
+}
+</code></pre></li>
+</ol>
+ </body>
+</html>
