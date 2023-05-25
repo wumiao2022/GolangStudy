@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+    &quot;math/rand&quot;
+    &quot;time&quot;
+)
+
+func main() {
+    rand.Seed(time.Now().UnixNano())
+
+    // 生成随机数字数组
+    nums := make([]int, 10)
+    for i := range nums {
+        nums[i] = rand.Intn(100)
+    }
+
+    // 打印原始数组
+    fmt.Println(&quot;原始数组：&quot;, nums)
+
+    // 统计数组中的元素个数
+    count := len(nums)
+    fmt.Println(&quot;元素个数：&quot;, count)
+
+    // 计算数组中所有元素的和
+    sum := 0
+    for _, num := range nums {
+        sum += num
+    }
+    fmt.Println(&quot;所有元素的和：&quot;, sum)
+
+    // 查找数组中最大和最小值
+    max, min := nums[0], nums[0]
+    for _, num := range nums {
+        if num &gt; max {
+            max = num
+        } else if num &lt; min {
+            min = num
+        }
+    }
+    fmt.Println(&quot;最大值：&quot;, max)
+    fmt.Println(&quot;最小值：&quot;, min)
+
+    // 反转数组
+    for i := 0; i &lt; count/2; i++ {
+        nums[i], nums[count-1-i] = nums[count-1-i], nums[i]
+    }
+    fmt.Println(&quot;反转数组：&quot;, nums)
+
+    // 删除指定位置的元素
+    removeIndex := 4
+    if removeIndex &gt;= 0 &amp;&amp; removeIndex &lt; count {
+        nums = append(nums[:removeIndex], nums[removeIndex+1:]...)
+    }
+    fmt.Println(&quot;删除指定位置的元素：&quot;, nums)
+
+    // 在指定位置插入元素
+    insertIndex := 2
+    insertValue := 888
+    if insertIndex &gt;= 0 &amp;&amp; insertIndex &lt;= count {
+        nums = append(nums[:insertIndex], append([]int{insertValue}, nums[insertIndex:]...)...)
+    }
+    fmt.Println(&quot;在指定位置插入元素：&quot;, nums)
+}
+</code></pre>
+ </body>
+</html>
