@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一些练习实例代码：</p>
+
+<ol>
+<li>打印&rdquo;Hello, world!&ldquo;的程序</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    fmt.Println(&quot;Hello, world!&quot;)
+}
+</code></pre>
+
+<ol>
+<li>计算加法的程序</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    var a, b, sum int
+    a = 10
+    b = 20
+    sum = a + b
+    fmt.Println(&quot;The sum of&quot;, a, &quot;and&quot;, b, &quot;is&quot;, sum)
+}
+</code></pre>
+
+<ol>
+<li>判断一个数是否是奇数的程序</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    var num int
+    fmt.Print(&quot;Enter a number: &quot;)
+    fmt.Scan(&amp;num)
+    if num%2 == 0 {
+        fmt.Println(num, &quot;is an even number&quot;)
+    } else {
+        fmt.Println(num, &quot;is an odd number&quot;)
+    }
+}
+</code></pre>
+
+<ol>
+<li>判断一个数是否是质数的程序</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+    &quot;math&quot;
+)
+
+func main() {
+    var num int
+    fmt.Print(&quot;Enter a number: &quot;)
+    fmt.Scan(&amp;num)
+
+    isPrime := true
+    for i := 2; i &lt;= int(math.Sqrt(float64(num))); i++ {
+        if num%i == 0 {
+            isPrime = false
+            break
+        }
+    }
+
+    if isPrime {
+        fmt.Println(num, &quot;is a prime number&quot;)
+    } else {
+        fmt.Println(num, &quot;is not a prime number&quot;)
+    }
+}
+</code></pre>
+
+<ol>
+<li>将两个数组合并为一个的程序</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    arr1 := []int{1, 2, 3}
+    arr2 := []int{4, 5, 6}
+
+    arr3 := append(arr1, arr2...)
+    fmt.Println(arr3)
+}
+</code></pre>
+ </body>
+</html>
