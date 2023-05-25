@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li>写一个程序，输入一个字符串，然后将字符串中的大写字母转成小写字母，小写字母转成大写字母，其他字符保持不变。</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+    &quot;strings&quot;
+)
+
+func main() {
+    var input string
+    fmt.Print(&quot;Enter a string: &quot;)
+    fmt.Scanln(&amp;input)
+    output := &quot;&quot;
+    for _, ch := range input {
+        if ch &gt;= 'A' &amp;&amp; ch &lt;= 'Z' {
+            output += strings.ToLower(string(ch))
+        } else if ch &gt;= 'a' &amp;&amp; ch &lt;= 'z' {
+            output += strings.ToUpper(string(ch))
+        } else {
+            output += string(ch)
+        }
+    }
+    fmt.Println(output)
+}
+</code></pre>
+
+<ol>
+<li>写一个程序，将给定的整数数组反转。</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    arr := []int{1, 2, 3, 4, 5}
+    reverse(arr)
+    fmt.Println(arr)
+}
+
+func reverse(arr []int) {
+    for i := 0; i &lt; len(arr)/2; i++ {
+        j := len(arr) - 1 - i
+        arr[i], arr[j] = arr[j], arr[i]
+    }
+}
+</code></pre>
+
+<ol>
+<li>写一个程序，输入一个数字n，输出1到n的所有素数。</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    var n int
+    fmt.Print(&quot;Enter a number: &quot;)
+    fmt.Scanln(&amp;n)
+    primes := []int{}
+    for i := 2; i &lt;= n; i++ {
+        isPrime := true
+        for j := 2; j*j &lt;= i; j++ {
+            if i%j == 0 {
+                isPrime = false
+                break
+            }
+        }
+        if isPrime {
+            primes = append(primes, i)
+        }
+    }
+    fmt.Println(primes)
+}
+</code></pre>
+
+<ol>
+<li>写一个程序，输入一个数字n，输出斐波那契数列的前n项。</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    var n int
+    fmt.Print(&quot;Enter a number: &quot;)
+    fmt.Scanln(&amp;n)
+    fib := []int{0, 1}
+    for i := 2; i &lt; n; i++ {
+        fib = append(fib, fib[i-1]+fib[i-2])
+    }
+    fmt.Println(fib)
+}
+</code></pre>
+
+<ol>
+<li>写一个程序，将一个字符串按照单词反转顺序输出。</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+    &quot;strings&quot;
+)
+
+func main() {
+    input := &quot;hello world&quot;
+    words := strings.Split(input, &quot; &quot;)
+    output := &quot;&quot;
+    for i := len(words) - 1; i &gt;= 0; i-- {
+        output += words[i] + &quot; &quot;
+    }
+    fmt.Println(strings.TrimSpace(output))
+}
+</code></pre>
+ </body>
+</html>
