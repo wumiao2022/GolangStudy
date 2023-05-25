@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>这是一个简单的计算器程序，用于进行基本的四则运算：</p>
+
+<pre><code>package main
+
+import &quot;fmt&quot;
+
+func main() {
+	var num1, num2 float64
+	var operator string
+
+	fmt.Print(&quot;请输入第一个数字: &quot;)
+	fmt.Scanln(&amp;num1)
+
+	fmt.Print(&quot;请选择运算符(+, -, *, /): &quot;)
+	fmt.Scanln(&amp;operator)
+
+	fmt.Print(&quot;请输入第二个数字: &quot;)
+	fmt.Scanln(&amp;num2)
+
+	if operator == &quot;+&quot; {
+		fmt.Printf(&quot;%.2f + %.2f = %.2f\n&quot;, num1, num2, num1+num2)
+	} else if operator == &quot;-&quot; {
+		fmt.Printf(&quot;%.2f - %.2f = %.2f\n&quot;, num1, num2, num1-num2)
+	} else if operator == &quot;*&quot; {
+		fmt.Printf(&quot;%.2f * %.2f = %.2f\n&quot;, num1, num2, num1*num2)
+	} else if operator == &quot;/&quot; {
+		fmt.Printf(&quot;%.2f / %.2f = %.2f\n&quot;, num1, num2, num1/num2)
+	} else {
+		fmt.Println(&quot;您选择的运算符不正确！&quot;)
+	}
+}
+</code></pre>
+ </body>
+</html>
