@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>这是一个简单的示例程序，实现了将一个整数切片反转的功能：</p>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func reverseIntSlice(nums []int) {
+    for i, j := 0, len(nums)-1; i &lt; j; i, j = i+1, j-1 {
+        nums[i], nums[j] = nums[j], nums[i]
+    }
+}
+
+func main() {
+    nums := []int{1, 2, 3, 4, 5}
+    fmt.Println(&quot;原始切片：&quot;, nums)
+    reverseIntSlice(nums)
+    fmt.Println(&quot;反转后的切片：&quot;, nums)
+}
+</code></pre>
+ </body>
+</html>
