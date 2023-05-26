@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一些Golang的练习实例代码：</p>
+
+<ol>
+<li>求2的n次幂</li>
+</ol>
+
+<pre><code class="language-go">func pow2(n int) int {
+    return 1 &lt;&lt; n
+}
+</code></pre>
+
+<ol>
+<li>判断一个整数是不是质数</li>
+</ol>
+
+<pre><code class="language-go">func isPrime(num int) bool {
+    if num &lt; 2 {
+        return false
+    }
+    for i := 2; i &lt;= int(math.Sqrt(float64(num))); i++ {
+        if num%i == 0 {
+            return false
+        }
+    }
+    return true
+}
+</code></pre>
+
+<ol>
+<li>判断一个字符串是否是回文字符串</li>
+</ol>
+
+<pre><code class="language-go">func isPalindrome(str string) bool {
+    for i := 0; i &lt; len(str)/2; i++ {
+        if str[i] != str[len(str)-1-i] {
+            return false
+        }
+    }
+    return true
+}
+</code></pre>
+
+<ol>
+<li>冒泡排序</li>
+</ol>
+
+<pre><code class="language-go">func bubbleSort(a []int) {
+    n := len(a)
+    for i := 0; i &lt; n-1; i++ {
+        for j := 0; j &lt; n-i-1; j++ {
+            if a[j] &gt; a[j+1] {
+                a[j], a[j+1] = a[j+1], a[j]
+            }
+        }
+    }
+}
+</code></pre>
+
+<ol>
+<li>计算斐波那契数列的第n项</li>
+</ol>
+
+<pre><code class="language-go">func fib(n int) int {
+    if n == 0 {
+        return 0
+    }
+    if n == 1 {
+        return 1
+    }
+    return fib(n-1) + fib(n-2)
+}
+</code></pre>
+ </body>
+</html>
