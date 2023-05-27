@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>随机生成10个0-100之间的整数，并在终端输出这些数字的最大值、最小值和平均值</p>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;math/rand&quot;
+)
+
+func main() {
+	var nums [10]int
+	for i := 0; i &lt; 10; i++ {
+		nums[i] = rand.Intn(101)
+	}
+	fmt.Printf(&quot;生成的数字为：%v\n&quot;, nums)
+
+	max, min, sum := nums[0], nums[0], 0
+	for _, num := range nums {
+		sum += num
+		if num &gt; max {
+			max = num
+		}
+		if num &lt; min {
+			min = num
+		}
+	}
+	avg := float64(sum) / float64(len(nums))
+
+	fmt.Printf(&quot;最大值为：%d，最小值为：%d，平均值为：%.2f&quot;, max, min, avg)
+}
+</code></pre>
+
+<p>输出结果可能如下：</p>
+
+<pre><code>生成的数字为：[99 13 36 54 87 75 90 18 0 42]
+最大值为：99，最小值为：0，平均值为：52.40
+</code></pre>
+ </body>
+</html>
