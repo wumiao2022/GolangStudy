@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li><p>编写一个函数，可以对字符串数组进行去重操作。</p>
+
+<pre><code>func uniqueSlice(input []string) []string {
+unique := make(map[string]bool)
+result := []string{}
+for _, val := range input {
+    if !unique[val] {
+        unique[val] = true
+        result = append(result, val)
+    }
+}
+return result
+}
+</code></pre></li>
+
+<li><p>编写一个函数，可以将一个整数切片按从小到大的顺序进行排序。</p>
+
+<pre><code>func sortIntSlice(input []int) []int {
+sort.Slice(input, func(i, j int) bool {
+    return input[i] &lt; input[j]
+})
+return input
+}
+</code></pre></li>
+
+<li><p>编写一个函数，可以计算两个整数的最大公约数。</p>
+
+<pre><code>func gcd(a, b int) int {
+if a &lt; b {
+    a, b = b, a
+}
+for b != 0 {
+    a, b = b, a%b
+}
+return a
+}
+</code></pre></li>
+
+<li><p>编写一个函数，可以递归地求斐波那契数列的第n个数。</p>
+
+<pre><code>func fibonacci(n int) int {
+if n &lt;= 1 {
+    return n
+}
+return fibonacci(n-1) + fibonacci(n-2)
+}
+</code></pre></li>
+
+<li><p>编写一个函数，可以判断一个整数是否为素数。</p>
+
+<pre><code>func isPrime(n int) bool {
+if n &lt;= 1 {
+    return false
+}
+for i := 2; i*i &lt;= n; i++ {
+    if n%i == 0 {
+        return false
+    }
+}
+return true
+}
+</code></pre></li>
+</ol>
+ </body>
+</html>
