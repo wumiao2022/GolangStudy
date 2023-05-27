@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一个练习实例代码，用于在Golang中生成随机字符串（包含字母和数字）：</p>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+    &quot;math/rand&quot;
+    &quot;time&quot;
+)
+
+func generateRandomString(length int) string {
+    rand.Seed(time.Now().UnixNano()) //设置随机种子
+    letters := []rune(&quot;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&quot;)
+    str := make([]rune, length)
+    for i := range str {
+        str[i] = letters[rand.Intn(len(letters))]
+    }
+    return string(str)
+}
+
+func main() {
+    fmt.Println(generateRandomString(10))
+}
+</code></pre>
+
+<p>它使用随机种子和随机数生成器创建一个包含字母和数字的字符串。请注意，此示例仅用于练习目的，不用于生产环境。</p>
+ </body>
+</html>
