@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是今天的Golang练习题代码示例：</p>
+
+<p>题目1：写一个函数，输入两个正整数n和m，输出它们的最大公约数。</p>
+
+<pre><code class="language-go">func gcd(n, m int) int {
+    if m == 0 {
+        return n
+    }
+    return gcd(m, n%m)
+}
+</code></pre>
+
+<p>题目2：写一个函数，输入一个字符串，判断它是否是回文字符串。</p>
+
+<pre><code class="language-go">func isPalindrome(s string) bool {
+    for i := 0; i &lt; len(s)/2; i++ {
+        if s[i] != s[len(s)-i-1] {
+            return false
+        }
+    }
+    return true
+}
+</code></pre>
+
+<p>题目3：写一个函数，输入一个整数n，输出它的阶乘。</p>
+
+<pre><code class="language-go">func factorial(n int) int {
+    if n &lt;= 1 {
+        return 1
+    }
+    return n * factorial(n-1)
+}
+</code></pre>
+ </body>
+</html>
