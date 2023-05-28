@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一个简单的Go程序，用于将输入的字符串反转输出：</p>
+
+<pre><code>package main
+
+import (
+	&quot;fmt&quot;
+	&quot;strings&quot;
+)
+
+func main() {
+	var str string
+	fmt.Print(&quot;请输入字符串: &quot;)
+	fmt.Scan(&amp;str)
+
+	// 借助golang自带的strings包中的Reverse函数来反转字符串
+	var reversedStr = strings.Builder{}
+	for i := len(str) - 1; i &gt;= 0; i-- {
+		reversedStr.WriteByte(str[i])
+	}
+	fmt.Println(reversedStr.String())
+}
+</code></pre>
+ </body>
+</html>
