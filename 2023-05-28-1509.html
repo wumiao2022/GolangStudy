@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li>输出&rdquo;hello, world!&ldquo;的程序：
+&ldquo;`go
+package main</li>
+</ol>
+
+<p>import &ldquo;fmt&rdquo;</p>
+
+<p>func main() {
+    fmt.Println(&ldquo;hello, world!&rdquo;)
+}</p>
+
+<pre><code>
+2. 判断一个数是否为质数的程序：
+```go
+package main
+
+import (
+    &quot;fmt&quot;
+    &quot;math&quot;
+)
+
+func isPrime(num int) bool {
+    if num &lt; 2 {
+        return false
+    }
+    for i := 2; i &lt;= int(math.Sqrt(float64(num))); i++ {
+        if num%i == 0 {
+            return false
+        }
+    }
+    return true
+}
+
+func main() {
+    num := 17
+    if isPrime(num) {
+        fmt.Printf(&quot;%d is a prime number.\n&quot;, num)
+    } else {
+        fmt.Printf(&quot;%d is not a prime number.\n&quot;, num)
+    }
+}
+</code></pre>
+
+<ol>
+<li>冒泡排序的程序：
+&ldquo;`go
+package main</li>
+</ol>
+
+<p>import &ldquo;fmt&rdquo;</p>
+
+<p>func bubbleSort(arr []int) {
+    n := len(arr)
+    for i := 0; i &lt; n-1; i++ {
+        for j := 0; j &lt; n-i-1; j++ {
+            if arr[j] &gt; arr[j+1] {
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+            }
+        }
+    }
+}</p>
+
+<p>func main() {
+    arr := []int{3, 5, 2, 1, 6, 4}
+    fmt.Println(&ldquo;Before sorting:&rdquo;, arr)
+    bubbleSort(arr)
+    fmt.Println(&ldquo;After sorting:&rdquo;, arr)
+}</p>
+
+<pre><code>
+4. 计算斐波那契数列的程序：
+```go
+package main
+
+import &quot;fmt&quot;
+
+func fibonacci(n int) int {
+    if n &lt;= 1 {
+        return n
+    }
+    return fibonacci(n-1) + fibonacci(n-2)
+}
+
+func main() {
+    n := 10
+    for i := 0; i &lt; n; i++ {
+        fmt.Printf(&quot;%d &quot;, fibonacci(i))
+    }
+}
+</code></pre>
+
+<ol>
+<li>计算阶乘的程序：
+&ldquo;`go
+package main</li>
+</ol>
+
+<p>import &ldquo;fmt&rdquo;</p>
+
+<p>func factorial(n int) int {
+    if n == 0 {
+        return 1
+    }
+    return n * factorial(n-1)
+}</p>
+
+<p>func main() {
+    n := 5
+    fmt.Printf(&ldquo;%d! = %d\n&rdquo;, n, factorial(n))
+}
+&ldquo;`</p>
+ </body>
+</html>
