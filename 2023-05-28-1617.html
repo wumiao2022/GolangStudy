@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>func main() {
+    // 练习1：打印1到100的整数，如果是3的倍数，打印Fizz；如果是5的倍数，打印Buzz；如果即是3的倍数又是5的倍数，打印FizzBuzz。
+    for i := 1; i &lt;= 100; i++ {
+        if i%3 == 0 &amp;&amp; i%5 == 0 {
+            fmt.Println(&ldquo;FizzBuzz&rdquo;)
+        } else if i%3 == 0 {
+            fmt.Println(&ldquo;Fizz&rdquo;)
+        } else if i%5 == 0 {
+            fmt.Println(&ldquo;Buzz&rdquo;)
+        } else {
+            fmt.Println(i)
+        }
+    }</p>
+
+<pre><code>// 练习2：实现一个函数，输入一个字符串，返回该字符串中第一个不重复的字符。如果字符串中没有不重复的字符，则返回空字符。
+fmt.Println(firstNonRepeatingChar(&quot;hello world&quot;))
+fmt.Println(firstNonRepeatingChar(&quot;leetcode&quot;))
+</code></pre>
+
+<p>}</p>
+
+<p>func firstNonRepeatingChar(s string) string {
+    chars := map[rune]int{}
+    for _, r := range s {
+        chars[r]++
+    }
+    for _, r := range s {
+        if chars[r] == 1 {
+            return string&reg;
+        }
+    }
+    return &ldquo;&rdquo;
+}</p>
+ </body>
+</html>
