@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li><p>求一个数组的平均数</p>
+
+<pre><code>func average(arr []int) float64 {
+sum := 0
+for _, value := range arr {
+    sum += value
+}
+return float64(sum) / float64(len(arr))
+}
+</code></pre></li>
+
+<li><p>判断一个数是否是素数</p>
+
+<pre><code>func isPrime(num int) bool {
+if num &lt;= 1 {
+    return false
+}
+for i := 2; i &lt;= int(math.Sqrt(float64(num))); i++ {
+    if num%i == 0 {
+        return false
+    }
+}
+return true
+}
+</code></pre></li>
+
+<li><p>打印斐波那契数列的前n项</p>
+
+<pre><code>func fibonacci(n int) {
+a, b := 0, 1
+for i := 0; i &lt; n; i++ {
+    fmt.Print(a, &quot; &quot;)
+    a, b = b, a+b
+}
+}
+</code></pre></li>
+
+<li><p>判断一个字符串是否是回文串</p>
+
+<pre><code>func isPalindrome(str string) bool {
+for i := 0; i &lt; len(str)/2; i++ {
+    if str[i] != str[len(str)-1-i] {
+        return false
+    }
+}
+return true
+}
+</code></pre></li>
+
+<li><p>求两个数组的交集</p>
+
+<pre><code>func intersection(nums1 []int, nums2 []int) []int {
+set1 := make(map[int]bool)
+set2 := make(map[int]bool)
+for _, num := range nums1 {
+    set1[num] = true
+}
+for _, num := range nums2 {
+    set2[num] = true
+}
+result := make([]int, 0)
+for num, _ := range set1 {
+    if set2[num] {
+        result = append(result, num)
+    }
+}
+return result
+}
+</code></pre></li>
+</ol>
+ </body>
+</html>
