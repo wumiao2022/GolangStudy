@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一个练习实例代码：</p>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;math/rand&quot;
+	&quot;time&quot;
+)
+
+func main() {
+	rand.Seed(time.Now().UnixNano())
+
+	// 生成随机数并猜测
+	answer := rand.Intn(100) + 1
+	fmt.Println(&quot;我想了一个1-100之间的整数，请你猜猜看。&quot;)
+	var guess int
+	for {
+		fmt.Print(&quot;你的猜测是：&quot;)
+		fmt.Scanln(&amp;guess)
+		if guess &lt; answer {
+			fmt.Println(&quot;你猜的数字太小了，再试试？&quot;)
+		} else if guess &gt; answer {
+			fmt.Println(&quot;你猜的数字太大了，再试试？&quot;)
+		} else {
+			fmt.Println(&quot;恭喜你，猜中了！答案是&quot;, answer)
+			break
+		}
+	}
+}
+</code></pre>
+
+<p>这个程序会生成一个1-100之间的随机数，然后让用户进行猜测，根据用户每次提交的猜测结果，程序会提示用户是猜小了还是猜大了，直到用户猜中为止。</p>
+ </body>
+</html>
