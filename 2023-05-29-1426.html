@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是今天的Golang练习实例代码：</p>
+
+<ol>
+<li>编写一个程序，输出1到100之间的所有奇数。</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    for i := 1; i &lt;= 100; i++ {
+        if i%2 == 1 {
+            fmt.Printf(&quot;%d &quot;, i)
+        }
+    }
+}
+</code></pre>
+
+<ol>
+<li>编写一个函数，计算两个整数的和。</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func sum(a, b int) int {
+    return a + b
+}
+
+func main() {
+    a, b := 10, 20
+    fmt.Printf(&quot;sum of %d and %d is %d&quot;, a, b, sum(a, b))
+}
+</code></pre>
+
+<ol>
+<li>编写一个程序，求斐波那契数列的第n项（n由用户输入）。</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func fibonacci(n int) int {
+    if n &lt;= 1 {
+        return n
+    }
+    return fibonacci(n-1) + fibonacci(n-2)
+}
+
+func main() {
+    var n int
+    fmt.Print(&quot;Enter the value of n: &quot;)
+    fmt.Scan(&amp;n)
+    fmt.Printf(&quot;Fibonacci number at position %d is %d&quot;, n, fibonacci(n))
+}
+</code></pre>
+
+<ol>
+<li>编写一个程序，判断一个字符串是否是回文串。</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+    &quot;strings&quot;
+)
+
+func isPalindrome(str string) bool {
+    str = strings.ToLower(str)
+    for i := 0; i &lt; len(str)/2; i++ {
+        if str[i] != str[len(str)-i-1] {
+            return false
+        }
+    }
+    return true
+}
+
+func main() {
+    str := &quot;level&quot;
+    if isPalindrome(str) {
+        fmt.Printf(&quot;%s is a palindrome&quot;, str)
+    } else {
+        fmt.Printf(&quot;%s is not a palindrome&quot;, str)
+    }
+}
+</code></pre>
+
+<ol>
+<li>编写一个程序，交换两个整数变量的值。</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    a, b := 10, 20
+    fmt.Printf(&quot;Before swapping a=%d b=%d\n&quot;, a, b)
+    a, b = b, a // swapping
+    fmt.Printf(&quot;After swapping a=%d b=%d&quot;, a, b)
+}
+</code></pre>
+ </body>
+</html>
