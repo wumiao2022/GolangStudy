@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>下面是一个基于Golang的简单的字符串翻转程序：</p>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func reverseString(str string) string {
+    runes := []rune(str)
+    for i, j := 0, len(runes)-1; i &lt; len(runes)/2; i, j = i+1, j-1 {
+        runes[i], runes[j] = runes[j], runes[i]
+    }
+    return string(runes)
+}
+
+func main() {
+    fmt.Println(reverseString(&quot;Hello World!&quot;))
+}
+</code></pre>
+ </body>
+</html>
