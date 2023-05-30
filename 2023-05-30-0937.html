@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一个使用goroutine并发处理的示例代码。它从多个url获取HTTP响应，并输出响应的长度。</p>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;io/ioutil&quot;
+	&quot;net/http&quot;
+	&quot;time&quot;
+)
+
+func main() {
+	urls := []string{
+		&quot;https://www.google.com&quot;,
+		&quot;https://www.microsoft.com&quot;,
+		&quot;https://www.apple.com&quot;,
+	}
+
+	start := time.Now()
+
+	for _, url := range urls {
+		go func(url string) {
+			res, err := http.Get(url)
+			if err != nil {
+				fmt.Printf(&quot;Error fetching %s: %v\n&quot;, url, err)
+				return
+			}
+			defer res.Body.Close()
+
+			body, err := ioutil.ReadAll(res.Body)
+			if err != nil {
+				fmt.Printf(&quot;Error reading %s: %v\n&quot;, url, err)
+				return
+			}
+
+			fmt.Printf(&quot;Response length for %s: %d\n&quot;, url, len(body))
+		}(url)
+	}
+
+	elapsed := time.Since(start)
+	fmt.Printf(&quot;Elapsed time: %s\n&quot;, elapsed)
+}
+</code></pre>
+ </body>
+</html>
