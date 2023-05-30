@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li>找到整型切片中最大值</li>
+</ol>
+
+<pre><code class="language-go">func findMax(s []int) int {
+    max := s[0]
+    for _, val := range s {
+        if val &gt; max {
+            max = val
+        }
+    }
+    return max
+}
+</code></pre>
+
+<ol>
+<li>定义结构体并打印</li>
+</ol>
+
+<pre><code class="language-go">type Person struct {
+    name string
+    age  int
+}
+
+func main() {
+    p := Person{
+        name: &quot;John&quot;,
+        age:  30,
+    }
+    fmt.Printf(&quot;Name: %s, Age: %d&quot;, p.name, p.age)
+}
+</code></pre>
+
+<ol>
+<li>数组反转</li>
+</ol>
+
+<pre><code class="language-go">func reverseArray(s []int) {
+    for i := 0; i &lt; len(s)/2; i++ {
+        j := len(s) - 1 - i
+        s[i], s[j] = s[j], s[i]
+    }
+}
+</code></pre>
+
+<ol>
+<li>计算两个数的最大公约数</li>
+</ol>
+
+<pre><code class="language-go">func gcd(a, b int) int {
+    for b != 0 {
+        a, b = b, a%b
+    }
+    return a
+}
+</code></pre>
+
+<ol>
+<li>将map按照键名排序并输出</li>
+</ol>
+
+<pre><code class="language-go">func sortMap(m map[string]int) {
+    keys := make([]string, 0, len(m))
+    for k := range m {
+        keys = append(keys, k)
+    }
+    sort.Strings(keys)
+    for _, k := range keys {
+        fmt.Printf(&quot;%s: %d\n&quot;, k, m[k])
+    }
+}
+</code></pre>
+ </body>
+</html>
