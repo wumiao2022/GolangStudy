@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一个实现选择排序的Golang程序：</p>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func selectionSort(arr []int) []int {
+    n := len(arr)
+    for i := 0; i &lt; n-1; i++ {
+        min := i
+        for j := i+1; j &lt; n; j++ {
+            if arr[j] &lt; arr[min] {
+                min = j
+            }
+        }
+        if min != i {
+            arr[i], arr[min] = arr[min], arr[i]
+        }
+    }
+    return arr
+}
+
+func main() {
+    arr := []int{64, 34, 25, 12, 22, 11, 90}
+    fmt.Println(&quot;Before sorting: &quot;, arr)
+    sortedArr := selectionSort(arr)
+    fmt.Println(&quot;After sorting: &quot;, sortedArr)
+}
+</code></pre>
+
+<p>输出：</p>
+
+<pre><code>Before sorting:  [64 34 25 12 22 11 90]
+After sorting:  [11 12 22 25 34 64 90]
+</code></pre>
+ </body>
+</html>
