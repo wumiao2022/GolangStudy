@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code>package main
+
+import (
+	&quot;fmt&quot;
+)
+
+func main() {
+	// 练习1：输出Hello World
+	fmt.Println(&quot;Hello World&quot;)
+
+	// 练习2：输出1-100之间的所有偶数
+	for i := 1; i &lt;= 100; i++ {
+		if i%2 == 0 {
+			fmt.Println(i)
+		}
+	}
+
+	// 练习3：输入一个数字n，输出1到n的所有奇数
+	var n int
+	fmt.Println(&quot;请输入一个数字:&quot;)
+	fmt.Scan(&amp;n)
+	for i := 1; i &lt;= n; i++ {
+		if i%2 != 0 {
+			fmt.Println(i)
+		}
+	}
+
+	// 练习4：输入一个数字n，输出n的阶乘
+	var fac int = 1
+	fmt.Println(&quot;请输入一个数字:&quot;)
+	fmt.Scan(&amp;n)
+	for i := 1; i &lt;= n; i++ {
+		fac *= i
+	}
+	fmt.Printf(&quot;%d的阶乘为%d\n&quot;, n, fac)
+
+	// 练习5：输入一个字符串，反转输出
+	var str string
+	fmt.Println(&quot;请输入一个字符串:&quot;)
+	fmt.Scan(&amp;str)
+	for i := len(str) - 1; i &gt;= 0; i-- {
+		fmt.Printf(&quot;%c&quot;, str[i])
+	}
+	fmt.Println()
+
+	// 练习6：输出一个九九乘法表
+	for i := 1; i &lt;= 9; i++ {
+		for j := 1; j &lt;= i; j++ {
+			fmt.Printf(&quot;%d*%d=%d\t&quot;, j, i, j*i)
+		}
+		fmt.Println()
+	}
+}
+</code></pre>
+ </body>
+</html>
