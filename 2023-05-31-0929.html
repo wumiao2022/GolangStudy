@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一个基于Golang的HTTP服务程序，可以监听指定端口并接收请求，响应&rdquo;Hello World!&ldquo;：</p>
+
+<pre><code class="language-go">package main
+
+import (
+  &quot;fmt&quot;
+  &quot;log&quot;
+  &quot;net/http&quot;
+)
+
+func main() {
+  port := &quot;8080&quot; // 监听的端口
+  
+  // 定义处理器函数
+  http.HandleFunc(&quot;/&quot;, func(w http.ResponseWriter, r *http.Request) {
+    fmt.Fprintf(w, &quot;Hello World!&quot;)
+  })
+  
+  log.Printf(&quot;Server is listening on port %s...\n&quot;, port)
+  
+  // 启动HTTP服务
+  err := http.ListenAndServe(&quot;:&quot;+port, nil)
+  if err != nil {
+    log.Fatalln(&quot;Failed to start server:&quot;, err)
+  }
+}
+</code></pre>
+
+<p>可以使用<code>go run main.go</code>命令运行该程序，并在浏览器中访问<code>http://localhost:8080/</code>来测试服务是否正常工作。</p>
+ </body>
+</html>
