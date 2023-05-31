@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>// 1. 找出切片中最小的数
+func findMin(nums []int) int {
+    min := nums[0]
+    for _, num := range nums {
+        if num &lt; min {
+            min = num
+        }
+    }
+    return min
+}</p>
+
+<p>// 2. 判断切片中是否存在重复元素
+func hasDuplicate(nums []int) bool {
+    numMap := make(map[int]bool)
+    for _, num := range nums {
+        if numMap[num] {
+            return true
+        }
+        numMap[num] = true
+    }
+    return false
+}</p>
+
+<p>// 3. 实现二分查找算法
+func binarySearch(nums []int, target int) int {
+    left, right := 0, len(nums)-1
+    for left &lt;= right {
+        mid := (left + right) / 2
+        if nums[mid] == target {
+            return mid
+        } else if nums[mid] &lt; target {
+            left = mid + 1
+        } else {
+            right = mid - 1
+        }
+    }
+    return -1
+}</p>
+
+<p>// 4. 实现快速排序算法
+func quickSort(nums []int) []int {
+    if len(nums) &lt;= 1 {
+        return nums
+    }
+    pivot := nums[0]
+    var left, right []int
+    for _, num := range nums[1:] {
+        if num &lt; pivot {
+            left = append(left, num)
+        } else {
+            right = append(right, num)
+        }
+    }
+    left = quickSort(left)
+    right = quickSort(right)
+    return append(append(left, pivot), right&hellip;)
+}</p>
+
+<p>// 5. 实现斐波那契数列算法
+func fibonacci(n int) int {
+    if n &lt;= 1 {
+        return n
+    }
+    return fibonacci(n-1) + fibonacci(n-2)
+}</p>
+ </body>
+</html>
