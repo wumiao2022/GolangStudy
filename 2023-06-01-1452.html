@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>func main() {
+    // 练习1：打印Hello World!
+    fmt.Println(&ldquo;Hello World!&rdquo;)</p>
+
+<pre><code>// 练习2：求两个整数的和
+var a, b int = 10, 20
+sum := a + b
+fmt.Println(&quot;sum=&quot;, sum)
+
+// 练习3：判断一个数是否是偶数
+var num int = 6
+if num%2 == 0 {
+    fmt.Println(num, &quot;is even&quot;)
+} else {
+    fmt.Println(num, &quot;is odd&quot;)
+}
+
+// 练习4：将一个字符串反转
+var str string = &quot;hello world&quot;
+reversedStr := &quot;&quot;
+for i := len(str)-1; i &gt;= 0; i-- {
+    reversedStr += string(str[i])
+}
+fmt.Println(reversedStr)
+
+// 练习5：在数组中查找指定元素的位置
+var arr = []int{2, 3, 4, 5, 6, 7, 8, 9}
+var searchNum int = 6
+for i, num := range arr {
+    if num == searchNum {
+        fmt.Println(&quot;The index of&quot;, searchNum, &quot;in the array is&quot;, i)
+        break
+    }
+}
+</code></pre>
+
+<p>}</p>
+ </body>
+</html>
