@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>示例代码：</p>
+
+<pre><code>package main
+
+import &quot;fmt&quot;
+
+func main() {
+    // 打印 Hello, World!
+    fmt.Println(&quot;Hello, World!&quot;)
+    
+    // 声明和输出变量
+    var num1 int = 10
+    var str1 string = &quot;Golang&quot;
+    fmt.Printf(&quot;%d\n&quot;, num1)
+    fmt.Printf(&quot;%s\n&quot;, str1)
+    
+    // 数组
+    var arr1 [5]int
+    arr2 := [3]string{&quot;a&quot;, &quot;b&quot;, &quot;c&quot;}
+    fmt.Println(arr1)
+    fmt.Println(arr2)
+    
+    // 切片
+    slice1 := []string{&quot;x&quot;, &quot;y&quot;, &quot;z&quot;}
+    slice2 := make([]int, 2, 4)
+    slice2 = append(slice2, 1, 2, 3)
+    fmt.Println(slice1)
+    fmt.Println(slice2)
+    
+    // map
+    map1 := make(map[string]int)
+    map1[&quot;a&quot;] = 1
+    map1[&quot;b&quot;] = 2
+    fmt.Println(map1)
+}
+</code></pre>
+ </body>
+</html>
