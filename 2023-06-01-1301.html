@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li>反转字符串</li>
+</ol>
+
+<pre><code class="language-go">func reverseString(s string) string {
+    runes := []rune(s)
+    for i, j := 0, len(runes)-1; i &lt; j; i, j = i+1, j-1 {
+        runes[i], runes[j] = runes[j], runes[i]
+    }
+    return string(runes)
+}
+</code></pre>
+
+<ol>
+<li>判断字符串是否为回文串</li>
+</ol>
+
+<pre><code class="language-go">func isPalindrome(s string) bool {
+    s = strings.ToLower(s)
+    for i, j := 0, len(s)-1; i &lt; j; i, j = i+1, j-1 {
+        for i &lt; j &amp;&amp; !isAlphanumeric(s[i]) {
+            i++
+        }
+        for i &lt; j &amp;&amp; !isAlphanumeric(s[j]) {
+            j--
+        }
+        if s[i] != s[j] {
+            return false
+        }
+    }
+    return true
+}
+
+func isAlphanumeric(c byte) bool {
+    return (c &gt;= 'a' &amp;&amp; c &lt;= 'z') || (c &gt;= 'A' &amp;&amp; c &lt;= 'Z') || (c &gt;= '0' &amp;&amp; c &lt;= '9')
+}
+</code></pre>
+
+<ol>
+<li>将数组中的0移动到末尾</li>
+</ol>
+
+<pre><code class="language-go">func moveZeroes(nums []int) {
+    i := 0
+    for _, num := range nums {
+        if num != 0 {
+            nums[i] = num
+            i++
+        }
+    }
+    for ; i &lt; len(nums); i++ {
+        nums[i] = 0
+    }
+}
+</code></pre>
+
+<ol>
+<li>判断一个数是否为完全平方数</li>
+</ol>
+
+<pre><code class="language-go">func isPerfectSquare(num int) bool {
+    if num &lt; 1 {
+        return false
+    }
+    if num == 1 {
+        return true
+    }
+    left, right := 1, num/2
+    for left &lt;= right {
+        mid := left + (right-left)/2
+        if mid*mid == num {
+            return true
+        } else if mid*mid &lt; num {
+            left = mid + 1
+        } else {
+            right = mid - 1
+        }
+    }
+    return false
+}
+</code></pre>
+
+<ol>
+<li>判断一个数是否为质数</li>
+</ol>
+
+<pre><code class="language-go">func isPrime(n int) bool {
+    if n &lt; 2 {
+        return false
+    }
+    for i := 2; i*i &lt;= n; i++ {
+        if n%i == 0 {
+            return false
+        }
+    }
+    return true
+}
+</code></pre>
+ </body>
+</html>
