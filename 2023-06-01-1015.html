@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一个 Golang 程序，用于输出Hello World！</p>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    fmt.Println(&quot;Hello, World!&quot;)
+}
+</code></pre>
+
+<p>以下是一个 Golang 程序，用于计算并输出斐波那契数列的前20个数。</p>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    var a, b int = 0, 1
+    for i := 0; i &lt; 20; i++ {
+        fmt.Println(a)
+        a, b = b, a+b
+    }
+}
+</code></pre>
+
+<p>以下是一个 Golang 程序，用于计算并输出1到100之间的素数。</p>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    for i := 2; i &lt;= 100; i++ {
+        flag := true
+        for j := 2; j*j &lt;= i; j++ {
+            if i%j == 0 {
+                flag = false
+                break
+            }
+        }
+        if flag == true {
+            fmt.Println(i)
+        }
+    }
+}
+</code></pre>
+ </body>
+</html>
