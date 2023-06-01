@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li><p>判断一个数是不是素数</p>
+
+<pre><code>func isPrime(x int) bool {
+if x &lt; 2 {
+    return false
+}
+for i := 2; i*i &lt;= x; i++ {
+    if x%i == 0 {
+        return false
+    }
+}
+return true
+}
+</code></pre></li>
+
+<li><p>冒泡排序</p>
+
+<pre><code>func bubbleSort(arr []int) {
+n := len(arr)
+for i := 0; i &lt; n-1; i++ {
+    for j := 0; j &lt; n-i-1; j++ {
+        if arr[j] &gt; arr[j+1] {
+            arr[j], arr[j+1] = arr[j+1], arr[j]
+        }
+    }
+}
+}
+</code></pre></li>
+
+<li><p>查找字符串出现的次数</p>
+
+<pre><code>func countSubstring(s, substr string) int {
+count := 0
+n := len(substr)
+for i := 0; i &lt; len(s); i++ {
+    if i+n &lt;= len(s) &amp;&amp; s[i:i+n] == substr {
+        count++
+    }
+}
+return count
+}
+</code></pre></li>
+
+<li><p>反转一个字符串</p>
+
+<pre><code>func reverseString(str string) string {
+runes := []rune(str)
+for i, j := 0, len(runes)-1; i &lt; j; i, j = i+1, j-1 {
+    runes[i], runes[j] = runes[j], runes[i]
+}
+return string(runes)
+}
+</code></pre></li>
+
+<li><p>计算一个数组的平均值</p>
+
+<pre><code>func average(arr []float64) float64 {
+sum := 0.0
+for _, num := range arr {
+    sum += num
+}
+return sum / float64(len(arr))
+}
+</code></pre></li>
+</ol>
+ </body>
+</html>
