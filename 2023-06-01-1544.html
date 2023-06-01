@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li>打印Hello world：</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;Hello world!&quot;)
+}
+</code></pre>
+
+<ol>
+<li>定义变量和常量：</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	var age int = 18
+	const name string = &quot;Jack&quot;
+
+	fmt.Println(&quot;My name is&quot;, name, &quot;and I'm&quot;, age, &quot;years old.&quot;)
+}
+</code></pre>
+
+<ol>
+<li>条件语句：</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	score := 85
+
+	if score &gt;= 90 {
+		fmt.Println(&quot;A&quot;)
+	} else if score &gt;= 80 {
+		fmt.Println(&quot;B&quot;)
+	} else {
+		fmt.Println(&quot;C&quot;)
+	}
+}
+</code></pre>
+
+<ol>
+<li>循环语句：</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	// for loop
+	for i := 0; i &lt; 5; i++ {
+		fmt.Println(i)
+	}
+
+	// while loop
+	j := 0
+	for j &lt; 5 {
+		fmt.Println(j)
+		j++
+	}
+
+	// infinite loop
+	k := 0
+	for {
+		fmt.Println(k)
+		k++
+	}
+}
+</code></pre>
+
+<ol>
+<li>数组和切片：</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	// array
+	var arr [5]int
+	arr[0] = 1
+	arr[1] = 2
+	arr[2] = 3
+	arr[3] = 4
+	arr[4] = 5
+	fmt.Println(arr)
+
+	// slice
+	slice := make([]int, 3, 5)
+	slice[0] = 1
+	slice[1] = 2
+	slice[2] = 3
+	fmt.Println(slice)
+	fmt.Println(&quot;Length:&quot;, len(slice))
+	fmt.Println(&quot;Capacity:&quot;, cap(slice))
+
+	slice = append(slice, 4, 5, 6)
+	fmt.Println(slice)
+	fmt.Println(&quot;Length:&quot;, len(slice))
+	fmt.Println(&quot;Capacity:&quot;, cap(slice))
+
+	slice2 := slice[2:4]
+	fmt.Println(slice2)
+	fmt.Println(&quot;Length:&quot;, len(slice2))
+	fmt.Println(&quot;Capacity:&quot;, cap(slice2))
+}
+</code></pre>
+
+<ol>
+<li>结构体和方法：</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+type Student struct {
+	name   string
+	age    int
+	gender string
+}
+
+func (s *Student) sayHello() {
+	fmt.Println(&quot;Hello, my name is&quot;, s.name)
+}
+
+func main() {
+	stu := Student{name: &quot;Jack&quot;, age: 18, gender: &quot;male&quot;}
+	fmt.Println(stu)
+	stu.sayHello()
+}
+</code></pre>
+
+<ol>
+<li>并发和通道：</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;time&quot;
+)
+
+func sayHello() {
+	fmt.Println(&quot;Hello&quot;)
+}
+
+func count(id int, ch chan int) {
+	for i := 1; i &lt;= 5; i++ {
+		fmt.Println(id, &quot;:&quot;, i)
+		time.Sleep(time.Second)
+	}
+	ch &lt;- id
+}
+
+func main() {
+	// goroutine
+	go sayHello()
+
+	// channel
+	ch := make(chan int)
+	go count(1, ch)
+	go count(2, ch)
+	id1 := &lt;-ch
+	id2 := &lt;-ch
+	fmt.Println(id1, id2)
+}
+</code></pre>
+ </body>
+</html>
