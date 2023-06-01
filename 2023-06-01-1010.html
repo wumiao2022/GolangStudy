@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li>数组元素翻转</li>
+</ol>
+
+<pre><code class="language-go">func reverseArray(arr []int) {
+    for i, j := 0, len(arr)-1; i &lt; j; i, j = i+1, j-1 {
+        arr[i], arr[j] = arr[j], arr[i]
+    }
+}
+</code></pre>
+
+<ol>
+<li>判断一个字符串是否是回文</li>
+</ol>
+
+<pre><code class="language-go">func isPalindrome(s string) bool {
+    for i, j := 0, len(s)-1; i &lt; j; i, j = i+1, j-1 {
+        if s[i] != s[j] {
+            return false
+        }
+    }
+    return true
+}
+</code></pre>
+
+<ol>
+<li>实现Map函数</li>
+</ol>
+
+<pre><code class="language-go">func Map(arr []int, f func(int) int) []int {
+    result := make([]int, len(arr))
+    for i, v := range arr {
+        result[i] = f(v)
+    }
+    return result
+}
+</code></pre>
+
+<ol>
+<li>实现一个字符串的Contains函数</li>
+</ol>
+
+<pre><code class="language-go">func Contains(s, substr string) bool {
+    if len(s) &lt; len(substr) {
+        return false
+    }
+    for i := 0; i &lt;= len(s)-len(substr); i++ {
+        if s[i:i+len(substr)] == substr {
+            return true
+        }
+    }
+    return false
+}
+</code></pre>
+
+<ol>
+<li>实现取一个数组的前n个元素</li>
+</ol>
+
+<pre><code class="language-go">func GetFirstN(arr []int, n int) []int {
+    return arr[:n]
+}
+</code></pre>
+ </body>
+</html>
