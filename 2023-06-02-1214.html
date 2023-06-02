@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li><p>给定一个整数数组，实现一个函数找到数组中第二小的数，并返回其值。如果数组中没有第二小的数，则返回-1。</p>
+
+<pre><code class="language-go">func findSecondSmallest(nums []int) int {
+if len(nums) &lt; 2 {
+    return -1
+}
+smallest, secondSmallest := math.MaxInt32, math.MaxInt32
+for _, num := range nums {
+    if num &lt; smallest {
+        secondSmallest = smallest
+        smallest = num
+    } else if num &lt; secondSmallest &amp;&amp; num != smallest {
+        secondSmallest = num
+    }
+}
+if secondSmallest == math.MaxInt32 {
+    return -1
+}
+return secondSmallest
+}
+</code></pre>
+<ol>
+<li>实现一个函数，输入一个字符串，返回字符串中的最长回文子串。
+<code>go
+func longestPalindrome(s string) string {
+if len(s) &lt; 2 {
+return s
+}
+start, end := 0, 0
+for i := 0; i &lt; len(s); i++ {
+len1 := expandAroundCenter(s, i, i)
+len2 := expandAroundCenter(s, i, i+1)
+length := max(len1, len2)
+if length &gt; end-start {
+    start = i - (length-1)/2
+    end = i + length/2
+}
+}
+return s[start : end+1]
+}
+func expandAroundCenter(s string, left, right int) int {
+for left &gt;= 0 &amp;&amp; right &lt; len(s) &amp;&amp; s[left] == s[right] {
+left--
+right++
+}
+return right - left - 1
+}
+func max(x, y int) int {
+if x &gt; y {
+return x
+}
+return y
+}
+</code></li>
+</ol></li>
+
+<li><p>实现一个函数，输入两个字符串 s 和 t，判断 s 是否为 t 的子序列。</p>
+
+<pre><code class="language-go">func isSubsequence(s string, t string) bool {
+if len(s) == 0 {
+    return true
+}
+i, j := 0, 0
+for j &lt; len(t) {
+    if s[i] == t[j] {
+        i++
+        if i == len(s) {
+            return true
+        }
+    }
+    j++
+}
+return false
+}
+</code></pre>
+<ol>
+<li>实现一个函数，输入一个头结点为 head 的非空单链表，返回链表的中间节点。如果有两个中间节点，则返回第二个中间节点。
+<code>go
+type ListNode struct {
+Val  int
+Next *ListNode
+}
+func middleNode(head *ListNode) *ListNode {
+slow, fast := head, head
+for fast != nil &amp;&amp; fast.Next != nil {
+slow = slow.Next
+fast = fast.Next.Next
+}
+return slow
+}
+</code></li>
+</ol></li>
+
+<li><p>给定一个整数 n，生成所有由 1 &hellip; n 为节点所组成的二叉搜索树。
+&ldquo;`go
+func generateTrees(n int) []*TreeNode {
+if n == 0 {
+    return []*TreeNode{}
+}
+return helper(1, n)
+}</p></li>
+</ol>
+
+<p>func helper(start, end int) []*TreeNode {
+    res := []*TreeNode{}
+    if start &gt; end {
+        return append(res, nil)
+    }
+    for i := start; i &lt;= end; i++ {
+        left := helper(start, i-1)
+        right := helper(i+1, end)
+        for _, l := range left {
+            for _, r := range right {
+                node := &amp;TreeNode{i, nil, nil}
+                node.Left = l
+                node.Right = r
+                res = append(res, node)
+            }
+        }
+    }
+    return res
+}</p>
+
+<p>type TreeNode struct {
+    Val   int
+    Left  *TreeNode
+    Right *TreeNode
+}
+&ldquo;`</p>
+ </body>
+</html>
