@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一个简单的Go语言程序，它将用户输入的数字相加并输出结果：</p>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    var num1, num2, sum int
+
+    fmt.Print(&quot;Enter the first number: &quot;)
+    fmt.Scanln(&amp;num1)
+
+    fmt.Print(&quot;Enter the second number: &quot;)
+    fmt.Scanln(&amp;num2)
+
+    sum = num1 + num2
+
+    fmt.Println(&quot;The sum of&quot;, num1, &quot;and&quot;, num2, &quot;is&quot;, sum)
+}
+</code></pre>
+ </body>
+</html>
