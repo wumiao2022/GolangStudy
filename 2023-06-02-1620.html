@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li>打印100以内所有奇数：</li>
+</ol>
+
+<pre><code class="language-go">for i := 1; i &lt;= 100; i += 2 {
+    fmt.Printf(&quot;%d &quot;, i)
+}
+</code></pre>
+
+<ol>
+<li>计算0到100的和：</li>
+</ol>
+
+<pre><code class="language-go">var sum int
+for i := 0; i &lt;= 100; i++ {
+    sum += i
+}
+fmt.Println(sum)
+</code></pre>
+
+<ol>
+<li>打印乘法口诀表：</li>
+</ol>
+
+<pre><code class="language-go">for i := 1; i &lt;= 9; i++ {
+    for j := 1; j &lt;= i; j++ {
+        fmt.Printf(&quot;%d*%d=%d\t&quot;, j, i, j*i)
+    }
+    fmt.Println()
+}
+</code></pre>
+
+<ol>
+<li>判断一个数是否是质数：</li>
+</ol>
+
+<pre><code class="language-go">func isPrime(n int) bool {
+    if n &lt;= 1 {
+        return false
+    }
+    for i := 2; i &lt;= int(math.Sqrt(float64(n))); i++ {
+        if n%i == 0 {
+            return false
+        }
+    }
+    return true
+}
+</code></pre>
+
+<ol>
+<li>求斐波那契数列的第n项：</li>
+</ol>
+
+<pre><code class="language-go">func fibonacci(n int) int {
+    if n == 0 || n == 1 {
+        return n
+    }
+    return fibonacci(n-1) + fibonacci(n-2)
+}
+</code></pre>
+ </body>
+</html>
