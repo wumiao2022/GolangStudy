@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>这是一个简单的Golang练习，可以用来练习基础的数据类型和流程控制语句：</p>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    // 打印1到10之间的整数
+    for i := 1; i &lt;= 10; i++ {
+        fmt.Println(i)
+    }
+    
+    // 创建一个字符串数组，并打印出数组中的每一项
+    strs := []string{&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;}
+    for _, s := range strs {
+        fmt.Println(s)
+    }
+    
+    // 创建一个整型数组，并计算数组中所有元素的和
+    nums := []int{1, 2, 3, 4, 5}
+    sum := 0
+    for _, n := range nums {
+        sum += n
+    }
+    fmt.Println(&quot;Sum:&quot;, sum)
+    
+    // 创建一个映射类型，存储几个人的名字和年龄，并打印出所有人名字和年龄的对应关系
+    ages := map[string]int{
+        &quot;Alice&quot;:  25,
+        &quot;Bob&quot;:    30,
+        &quot;Charlie&quot;: 35,
+    }
+    for name, age := range ages {
+        fmt.Printf(&quot;%s is %d years old.\n&quot;, name, age)
+    }
+}
+</code></pre>
+ </body>
+</html>
