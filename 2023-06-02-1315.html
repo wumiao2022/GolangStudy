@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一个简单的练习实例代码，实现了一个简单的计算器，完成了加、减、乘、除四则运算：</p>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	var num1, num2 float64
+	var operator string
+	fmt.Println(&quot;请输入第一个数：&quot;)
+	fmt.Scanln(&amp;num1)
+	fmt.Println(&quot;请输入运算符：&quot;)
+	fmt.Scanln(&amp;operator)
+	fmt.Println(&quot;请输入第二个数：&quot;)
+	fmt.Scanln(&amp;num2)
+
+	switch operator {
+	case &quot;+&quot;:
+		fmt.Printf(&quot;%.2f+%2.f=%.2f&quot;, num1, num2, num1+num2)
+	case &quot;-&quot;:
+		fmt.Printf(&quot;%.2f-%2.f=%.2f&quot;, num1, num2, num1-num2)
+	case &quot;*&quot;:
+		fmt.Printf(&quot;%.2f*%2.f=%.2f&quot;, num1, num2, num1*num2)
+	case &quot;/&quot;:
+		if num2 == 0 {
+			fmt.Println(&quot;除数不能为0！&quot;)
+		} else {
+			fmt.Printf(&quot;%.2f/%2.f=%.2f&quot;, num1, num2, num1/num2)
+		}
+	default:
+		fmt.Println(&quot;运算符输入错误！&quot;)
+	}
+}
+</code></pre>
+
+<p>祝您练习愉快！</p>
+ </body>
+</html>
