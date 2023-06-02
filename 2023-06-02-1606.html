@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li>打印九九乘法表
+&ldquo;`go
+package main</li>
+</ol>
+
+<p>import &ldquo;fmt&rdquo;</p>
+
+<p>func main() {
+	for i := 1; i &lt;= 9; i++ {
+		for j := 1; j &lt;= i; j++ {
+			fmt.Printf(&ldquo;%d x %d = %d\t&rdquo;, j, i, j*i)
+		}
+		fmt.Println()
+	}
+}</p>
+
+<pre><code>2. 判断一个数是否是素数
+```go
+package main
+
+import &quot;fmt&quot;
+
+func main() {
+	var num int
+	fmt.Println(&quot;Enter a number:&quot;)
+	fmt.Scanln(&amp;num)
+	if isPrime(num) {
+		fmt.Printf(&quot;%d is a prime number\n&quot;, num)
+	} else {
+		fmt.Printf(&quot;%d is not a prime number\n&quot;, num)
+	}
+}
+
+func isPrime(num int) bool {
+	if num &lt;= 1 {
+		return false
+	}
+	for i := 2; i*i &lt;= num; i++ {
+		if num%i == 0 {
+			return false
+		}
+	}
+	return true
+}
+</code></pre>
+
+<ol>
+<li>实现一个冒泡排序算法
+&ldquo;`go
+package main</li>
+</ol>
+
+<p>import &ldquo;fmt&rdquo;</p>
+
+<p>func main() {
+	arr := []int{5, 8, 3, 1, 9}
+	bubbleSort(arr)
+	fmt.Println(arr)
+}</p>
+
+<p>func bubbleSort(arr []int) {
+	n := len(arr)
+	for i := 0; i &lt; n-1; i++ {
+		for j := 0; j &lt; n-i-1; j++ {
+			if arr[j] &gt; arr[j+1] {
+				arr[j], arr[j+1] = arr[j+1], arr[j]
+			}
+		}
+	}
+}</p>
+
+<pre><code>4. 实现一个递归函数，求斐波那契数列的第 n 项
+```go
+package main
+
+import &quot;fmt&quot;
+
+func main() {
+	n := 10
+	fmt.Printf(&quot;The %dth Fibonacci number is %d\n&quot;, n, Fibonacci(n))
+}
+
+func Fibonacci(n int) int {
+	if n == 0 || n == 1 {
+		return n
+	}
+	return Fibonacci(n-1) + Fibonacci(n-2)
+}
+</code></pre>
+
+<ol>
+<li>实现一个函数，找出一个字符串中出现次数最多的字符和出现次数
+&ldquo;`go
+package main</li>
+</ol>
+
+<p>import &ldquo;fmt&rdquo;</p>
+
+<p>func main() {
+	str := &ldquo;hello world&rdquo;
+	char, count := maxOccurringChar(str)
+	fmt.Printf(&ldquo;The max occurring char in %s is %c with count %d\n&rdquo;, str, char, count)
+}</p>
+
+<p>func maxOccurringChar(str string) (byte, int) {
+	countMap := make(map[byte]int)
+	for i := 0; i &lt; len(str); i++ {
+		countMap[str[i]]++
+	}
+	maxChar := byte(0)
+	maxCount := 0
+	for char, count := range countMap {
+		if count &gt; maxCount {
+			maxChar = char
+			maxCount = count
+		}
+	}
+	return maxChar, maxCount
+}
+&ldquo;`</p>
+ </body>
+</html>
