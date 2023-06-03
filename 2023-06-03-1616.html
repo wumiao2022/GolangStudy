@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li><p>删除切片中的重复元素</p>
+
+<pre><code class="language-go">func removeDuplicate(s []int) []int {
+keys := make(map[int]bool)
+ans := []int{}
+for _, v := range s {
+    if _, value := keys[v]; !value {
+        keys[v] = true
+        ans = append(ans, v)
+    }
+}
+return ans
+}
+</code></pre>
+<ol>
+<li>判断两个字符串是否为变位词
+<code>go
+func isAnagram(s string, t string) bool {
+if len(s) != len(t) {
+return false
+}
+sMap := make(map[rune]int)
+for _, c := range s {
+sMap[c]++
+}
+for _, c := range t {
+sMap[c]--
+if sMap[c] &lt; 0 {
+    return false
+}
+}
+return true
+}
+</code></li>
+</ol></li>
+
+<li><p>根据身高重建队列</p>
+
+<pre><code class="language-go">func reconstructQueue(people [][]int) [][]int {
+n := len(people)
+sort.Slice(people, func(i, j int) bool {
+    a, b := people[i], people[j]
+    if a[0] != b[0] {
+        return a[0] &gt; b[0]
+    }
+    return a[1] &lt; b[1]
+})
+
+
+ans := make([][]int, n)
+for _, person := range people {
+    spaces := person[1] + 1
+    for i := 0; i &lt; n; i++ {
+        if ans[i] == nil {
+            spaces--
+            if spaces == 0 {
+                ans[i] = person
+                break
+            }
+        }
+    }
+}
+return ans
+}
+</code></pre>
+<ol>
+<li>斐波那契数列
+<code>go
+func Fibonacci(n int) int {
+if n &lt; 2 {
+return n
+}
+a, b := 0, 1
+for i := 2; i &lt;= n; i++ {
+a, b = b, a+b
+}
+return b
+}
+</code></li>
+</ol></li>
+
+<li><p>冒泡排序</p>
+
+<pre><code class="language-go">func BubbleSort(a []int) {
+n := len(a)
+for i := 0; i &lt; n-1; i++ {
+    for j := 0; j &lt; n-1-i; j++ {
+        if a[j] &gt; a[j+1] {
+            a[j], a[j+1] = a[j+1], a[j]
+        }
+    }
+}
+}
+</code></pre></li>
+</ol>
+ </body>
+</html>
