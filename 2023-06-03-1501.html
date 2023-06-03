@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li><p>判断一个数是否为质数</p>
+
+<pre><code>func isPrime(n int) bool {
+if n &lt; 2 {
+    return false
+}
+for i := 2; i &lt;= int(math.Sqrt(float64(n))); i++ {
+    if n%i == 0 {
+        return false
+    }
+}
+return true
+}
+</code></pre></li>
+
+<li><p>求斐波那契数列第n项</p>
+
+<pre><code>func fibonacci(n int) int {
+if n &lt;= 1 {
+    return n
+}
+return fibonacci(n-1) + fibonacci(n-2)
+}
+</code></pre></li>
+
+<li><p>实现一个简单的计算器</p>
+
+<pre><code>func calculate(op string, a, b float64) float64 {
+switch op {
+case &quot;+&quot;:
+    return a + b
+case &quot;-&quot;:
+    return a - b
+case &quot;*&quot;:
+    return a * b
+case &quot;/&quot;:
+    if b == 0 {
+        return math.Inf(1)
+    }
+    return a / b
+default:
+    return math.NaN()
+}
+}
+</code></pre></li>
+
+<li><p>使用二分法查找一个数在有序数组中的位置</p>
+
+<pre><code>func binarySearch(arr []int, target int) int {
+left, right := 0, len(arr)-1
+for left &lt;= right {
+    mid := (left + right) / 2
+    if arr[mid] == target {
+        return mid
+    }
+    if arr[mid] &lt; target {
+        left = mid + 1
+    } else {
+        right = mid - 1
+    }
+}
+return -1
+}
+</code></pre></li>
+
+<li><p>使用冒泡排序对数组进行升序排序</p>
+
+<pre><code>func bubbleSort(arr []int) {
+for i := 0; i &lt; len(arr)-1; i++ {
+    for j := 0; j &lt; len(arr)-1-i; j++ {
+        if arr[j] &gt; arr[j+1] {
+            arr[j], arr[j+1] = arr[j+1], arr[j]
+        }
+    }
+}
+}
+</code></pre></li>
+</ol>
+ </body>
+</html>
