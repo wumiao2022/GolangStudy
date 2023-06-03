@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li><p>打印出1~1000之间所有能够被3整除的数。</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+func main() {
+for i := 1; i &lt;= 1000; i++ {
+	if i%3 == 0 {
+		fmt.Println(i)
+	}
+}
+}
+</code></pre></li>
+
+<li><p>编写一个程序，输入一个字符串，反转字符串并输出。</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+func main() {
+var s string
+fmt.Println(&quot;请输入一个字符串：&quot;)
+fmt.Scanln(&amp;s)
+r := []rune(s)
+for i, j := 0, len(r)-1; i &lt; j; i, j = i+1, j-1 {
+	r[i], r[j] = r[j], r[i]
+}
+fmt.Println(&quot;反转后的字符串为：&quot;, string(r))
+}
+</code></pre></li>
+
+<li><p>编写一个程序，输入一个正整数n，求n的阶乘并输出。</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+func main() {
+var n int
+fmt.Println(&quot;请输入一个正整数：&quot;)
+fmt.Scanln(&amp;n)
+factorial := 1
+for i := 1; i &lt;= n; i++ {
+	factorial *= i
+}
+fmt.Println(n, &quot;的阶乘是：&quot;, factorial)
+}
+</code></pre></li>
+
+<li><p>编写一个程序，输入一个字符串，统计其中的英文字母、数字和其他字符的个数并输出。</p>
+
+<pre><code>package main
+import (
+&quot;fmt&quot;
+&quot;unicode&quot;
+)
+func main() {
+var s string
+fmt.Println(&quot;请输入一个字符串：&quot;)
+fmt.Scanln(&amp;s)
+var letter, number, other int
+for _, r := range s {
+	if unicode.IsLetter(r) {
+		letter++
+	} else if unicode.IsNumber(r) {
+		number++
+	} else {
+		other++
+	}
+}
+fmt.Printf(&quot;英文字母：%d，数字：%d，其他字符：%d\n&quot;, letter, number, other)
+}
+</code></pre></li>
+
+<li><p>编写一个程序，输入一个字符串，判断它是否是回文串并输出。</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+func main() {
+var s string
+fmt.Println(&quot;请输入一个字符串：&quot;)
+fmt.Scanln(&amp;s)
+r := []rune(s)
+for i, j := 0, len(r)-1; i &lt; j; i, j = i+1, j-1 {
+	if r[i] != r[j] {
+		fmt.Println(s, &quot;不是回文串&quot;)
+		return
+	}
+}
+fmt.Println(s, &quot;是回文串&quot;)
+}
+</code></pre></li>
+</ol>
+ </body>
+</html>
