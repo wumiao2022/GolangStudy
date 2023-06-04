@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>非常好，下面给你一个练习实例代码：</p>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+    &quot;math/rand&quot;
+    &quot;time&quot;
+)
+
+func main() {
+    rand.Seed(time.Now().UnixNano()) // 设置随机数种子
+
+    guess := -1
+    number := rand.Intn(100) + 1 // 生成1到100之间的随机整数
+    fmt.Println(&quot;我想了一个1到100之间的整数，你猜猜是多少？&quot;)
+
+    for guess != number {
+        fmt.Print(&quot;请猜一个整数： &quot;)
+        fmt.Scan(&amp;guess)
+
+        if guess &gt; number {
+            fmt.Println(&quot;猜大了！&quot;)
+        } else if guess &lt; number {
+            fmt.Println(&quot;猜小了！&quot;)
+        } else {
+            fmt.Println(&quot;恭喜你猜对了！&quot;)
+        }
+    }
+}
+</code></pre>
+
+<p>这个程序会生成一个1到100之间的随机整数，然后让玩家猜这个数是多少，每次猜完都会给出提示，直到猜对为止。这个程序可以帮助你练习随机数生成、if语句、循环、格式化输入输出等技能。</p>
+ </body>
+</html>
