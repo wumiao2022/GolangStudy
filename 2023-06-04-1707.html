@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一些练习代码示例：</p>
+
+<ol>
+<li>将一个字符串反转</li>
+</ol>
+
+<pre><code class="language-go">func reverseString(s string) string {
+    runes := []rune(s)
+    for i, j := 0, len(runes)-1; i &lt; len(runes)/2; i, j = i+1, j-1 {
+        runes[i], runes[j] = runes[j], runes[i]
+    }
+    return string(runes)
+}
+</code></pre>
+
+<ol>
+<li>判断一个字符串是否为回文字符串</li>
+</ol>
+
+<pre><code class="language-go">func isPalindrome(s string) bool {
+    runes := []rune(s)
+    for i, j := 0, len(runes)-1; i &lt; j; i, j = i+1, j-1 {
+        if runes[i] != runes[j] {
+            return false
+        }
+    }
+    return true
+}
+</code></pre>
+
+<ol>
+<li>给定一个整数数组，找到其中两个数相加等于目标值的下标</li>
+</ol>
+
+<pre><code class="language-go">func twoSum(nums []int, target int) []int {
+    indexMap := make(map[int]int)
+    for i, num := range nums {
+        complement := target - num
+        if index, ok := indexMap[complement]; ok {
+            return []int{index, i}
+        }
+        indexMap[num] = i
+    }
+    return nil
+}
+</code></pre>
+
+<ol>
+<li>实现一个链表的反转</li>
+</ol>
+
+<pre><code class="language-go">type ListNode struct {
+    Val int
+    Next *ListNode
+}
+
+func reverseList(head *ListNode) *ListNode {
+    var prev, curr *ListNode = nil, head
+    for curr != nil {
+        next := curr.Next
+        curr.Next = prev
+        prev = curr
+        curr = next
+    }
+    return prev
+}
+</code></pre>
+
+<ol>
+<li>给定一棵二叉树，输出它的中序遍历</li>
+</ol>
+
+<pre><code class="language-go">type TreeNode struct {
+    Val int
+    Left *TreeNode
+    Right *TreeNode
+}
+
+func inorderTraversal(root *TreeNode) []int {
+    var result []int
+    var stack []*TreeNode
+    curr := root
+    for curr != nil || len(stack) &gt; 0 {
+        for curr != nil {
+            stack = append(stack, curr)
+            curr = curr.Left
+        }
+        curr = stack[len(stack)-1]
+        stack = stack[:len(stack)-1]
+        result = append(result, curr.Val)
+        curr = curr.Right
+    }
+    return result
+}
+</code></pre>
+ </body>
+</html>
