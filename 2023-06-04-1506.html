@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一个简单的Golang程序，用于将输入的整数打印到控制台：</p>
+
+<pre><code>package main
+
+import &quot;fmt&quot;
+
+func main() {
+    var num int
+    fmt.Print(&quot;Enter an integer: &quot;)
+    fmt.Scanf(&quot;%d&quot;, &amp;num)
+    fmt.Println(&quot;You entered:&quot;, num)
+}
+</code></pre>
+
+<p>以下是一个Golang程序，用于使用递归方式计算斐波那契数列中的第n个数字：</p>
+
+<pre><code>package main
+
+import &quot;fmt&quot;
+
+func fibonacci(n int) int {
+    if n &lt;= 1 {
+        return n
+    }
+    return fibonacci(n-1) + fibonacci(n-2)
+}
+
+func main() {
+    fmt.Println(fibonacci(10))
+}
+</code></pre>
+
+<p>以下是一个Golang程序，用于遍历数组并打印所有元素：</p>
+
+<pre><code>package main
+
+import &quot;fmt&quot;
+
+func main() {
+    nums := [5]int{1, 2, 3, 4, 5}
+    for i := 0; i &lt; len(nums); i++ {
+        fmt.Println(nums[i])
+    }
+}
+</code></pre>
+
+<p>以下是一个Golang程序，用于使用for循环和switch语句打印数字1到10中的偶数：</p>
+
+<pre><code>package main
+
+import &quot;fmt&quot;
+
+func main() {
+    for i := 1; i &lt;= 10; i++ {
+        switch i % 2 {
+        case 0:
+            fmt.Println(i)
+        }
+    }
+}
+</code></pre>
+ </body>
+</html>
