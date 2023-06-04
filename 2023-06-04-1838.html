@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>这是一个简单的Golang程序，可以用来打印出Hello World的信息：</p>
+
+<pre><code>package main
+
+import &quot;fmt&quot;
+
+func main() {
+    fmt.Println(&quot;Hello World!&quot;)
+}
+</code></pre>
+
+<p>这是一个简单的计算两个整数之和并打印出结果的Golang程序：</p>
+
+<pre><code>package main
+
+import &quot;fmt&quot;
+
+func main() {
+    var a, b = 10, 20
+    var sum = a + b
+    fmt.Println(&quot;Sum:&quot;, sum)
+}
+</code></pre>
+
+<p>这是一个简单的从命令行读取用户输入的Golang程序：</p>
+
+<pre><code>package main
+
+import (
+    &quot;bufio&quot;
+    &quot;os&quot;
+    &quot;fmt&quot;
+)
+
+func main() {
+    reader := bufio.NewReader(os.Stdin)
+
+    fmt.Print(&quot;Enter Text: &quot;)
+    text, _ := reader.ReadString('\n')
+
+    fmt.Println(&quot;You entered:&quot;, text)
+}
+</code></pre>
+ </body>
+</html>
