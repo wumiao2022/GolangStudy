@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>// 练习1：输出Hello World
+package main</p>
+
+<p>import &ldquo;fmt&rdquo;</p>
+
+<p>func main() {
+	fmt.Println(&ldquo;Hello, World!&rdquo;)
+}</p>
+
+<p>// 练习2：计算两个数的和并输出
+package main</p>
+
+<p>import &ldquo;fmt&rdquo;</p>
+
+<p>func main() {
+	var a, b int
+	fmt.Scan(&amp;a, &amp;b)
+	fmt.Println(a + b)
+}</p>
+
+<p>// 练习3：计算整数数组的平均值并输出
+package main</p>
+
+<p>import &ldquo;fmt&rdquo;</p>
+
+<p>func main() {
+	var nums []int = []int{1, 2, 3, 4, 5}
+	var sum int
+	for _, num := range nums {
+		sum += num
+	}
+	fmt.Println(sum / len(nums))
+}</p>
+
+<p>// 练习4：判断一个数是否为偶数并输出
+package main</p>
+
+<p>import &ldquo;fmt&rdquo;</p>
+
+<p>func main() {
+	var num int
+	fmt.Scan(&amp;num)
+	if num%2 == 0 {
+		fmt.Println(&ldquo;是偶数&rdquo;)
+	} else {
+		fmt.Println(&ldquo;不是偶数&rdquo;)
+	}
+}</p>
+
+<p>// 练习5：在命令行中输入一个字符串，输出其中的元音字母个数
+package main</p>
+
+<p>import (
+	&ldquo;fmt&rdquo;
+	&ldquo;strings&rdquo;
+)</p>
+
+<p>func main() {
+	var str string
+	fmt.Scanln(&amp;str)
+	str = strings.ToLower(str)
+	var count int
+	for _, char := range str {
+		switch char {
+		case &lsquo;a&rsquo;, &lsquo;e&rsquo;, &lsquo;i&rsquo;, &lsquo;o&rsquo;, &lsquo;u&rsquo;:
+			count++
+		}
+	}
+	fmt.Println(count)
+}</p>
+ </body>
+</html>
