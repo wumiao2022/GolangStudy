@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>这是一个Golang的结构体示例：</p>
+
+<pre><code>package main
+
+import &quot;fmt&quot;
+
+type person struct {
+    name   string
+    age    int
+    gender string
+}
+
+func main() {
+    var p1 person
+    p1.name = &quot;Alice&quot;
+    p1.age = 26
+    p1.gender = &quot;female&quot;
+    fmt.Println(p1)
+
+    p2 := person{name: &quot;Bob&quot;, age: 32, gender: &quot;male&quot;}
+    fmt.Println(p2)
+
+    p3 := person{&quot;Charlie&quot;, 45, &quot;male&quot;}
+    fmt.Println(p3)
+}
+</code></pre>
+ </body>
+</html>
