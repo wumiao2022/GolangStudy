@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code>// 练习1：打印九九乘法表（for循环实现）
+
+package main
+
+import &quot;fmt&quot;
+
+func main() {
+	for i := 1; i &lt;= 9; i++ {
+		for j := 1; j &lt;= i; j++ {
+			fmt.Printf(&quot;%d x %d = %d\t&quot;, j, i, i*j)
+		}
+		fmt.Println()
+	}
+}
+
+// 练习2：判断一个数是否为质数
+
+package main
+
+import (
+	&quot;fmt&quot;
+	&quot;math&quot;
+)
+
+// 判断一个数是否为质数
+func IsPrime(num int) bool {
+	if num &lt;= 1 {
+		return false
+	}
+	if num == 2 {
+		return true
+	}
+	if num%2 == 0 {
+		return false
+	}
+	for i := 3; i &lt;= int(math.Sqrt(float64(num))); i += 2 {
+		if num%i == 0 {
+			return false
+		}
+	}
+	return true
+}
+
+func main() {
+	fmt.Println(IsPrime(11)) // true
+	fmt.Println(IsPrime(12)) // false
+}
+
+// 练习3：使用递归实现斐波那契数列
+
+package main
+
+import &quot;fmt&quot;
+
+// 使用递归实现斐波那契数列
+func Fibonacci(n int) int {
+	if n &lt;= 1 {
+		return n
+	}
+	return Fibonacci(n-1) + Fibonacci(n-2)
+}
+
+func main() {
+	fmt.Println(Fibonacci(10)) // 输出：55
+}
+</code></pre>
+ </body>
+</html>
