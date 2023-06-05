@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li>编写一个函数，该函数接受一个整数数组并返回其中最大和最小值的差值。</li>
+</ol>
+
+<pre><code class="language-go">func diffMinMax(nums []int) int {
+    min, max := nums[0], nums[0]
+    for i := 1; i &lt; len(nums); i++ {
+        if nums[i] &lt; min {
+            min = nums[i]
+        }
+        if nums[i] &gt; max {
+            max = nums[i]
+        }
+    }
+    return max - min
+}
+</code></pre>
+
+<ol>
+<li>编写一个函数，该函数将两个字符串拼接在一起，并确保相邻字符之间至少有一个空格。</li>
+</ol>
+
+<pre><code class="language-go">func concatStrings(str1, str2 string) string {
+    var result strings.Builder
+    for i := 0; i &lt; len(str1); i++ {
+        result.WriteByte(str1[i])
+        if i &lt; len(str1)-1 || len(str2) &gt; 0 {
+            result.WriteByte(' ')
+        }
+    }
+    for i := 0; i &lt; len(str2); i++ {
+        result.WriteByte(str2[i])
+        if i &lt; len(str2)-1 {
+            result.WriteByte(' ')
+        }
+    }
+    return result.String()
+}
+</code></pre>
+
+<ol>
+<li>编写一个函数，该函数将给定的整数按照从小到大的顺序排序，并返回排序后的切片。</li>
+</ol>
+
+<pre><code class="language-go">func sortInts(nums []int) []int {
+    sort.Ints(nums)
+    return nums
+}
+</code></pre>
+
+<ol>
+<li>编写一个函数，该函数接受一个整数并返回它的二进制表示字符串。</li>
+</ol>
+
+<pre><code class="language-go">func intToBinaryString(num int) string {
+    return strconv.FormatInt(int64(num), 2)
+}
+</code></pre>
+
+<ol>
+<li>编写一个函数，该函数接受一个字符串，找到其中出现次数最多的字符并返回它。</li>
+</ol>
+
+<pre><code class="language-go">func mostFrequentChar(str string) byte {
+    var freq [256]int
+    maxFreq := 0
+    var maxChar byte
+    for i := 0; i &lt; len(str); i++ {
+        freq[str[i]]++
+        if freq[str[i]] &gt; maxFreq {
+            maxFreq = freq[str[i]]
+            maxChar = str[i]
+        }
+    }
+    return maxChar
+}
+</code></pre>
+ </body>
+</html>
