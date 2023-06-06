@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li>找出切片中的最大值和最小值</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    slice := []int{5, 2, 7, 3, 9, 1}
+
+    max, min := slice[0], slice[0]
+
+    for _, v := range slice {
+        if v &gt; max {
+            max = v
+        }
+        if v &lt; min {
+            min = v
+        }
+    }
+
+    fmt.Printf(&quot;Max value: %v\nMin value: %v&quot;, max, min)
+}
+</code></pre>
+
+<ol>
+<li>实现一个简单的HTTP服务，返回一条问候语</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+    &quot;net/http&quot;
+)
+
+func hello(w http.ResponseWriter, r *http.Request) {
+    fmt.Fprintf(w, &quot;Hello, World!&quot;)
+}
+
+func main() {
+    http.HandleFunc(&quot;/&quot;, hello)
+    http.ListenAndServe(&quot;:8080&quot;, nil)
+}
+</code></pre>
+
+<ol>
+<li>实现一个函数，将一个字符串反转</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func reverseString(s string) string {
+    runes := []rune(s)
+
+    for i, j := 0, len(runes)-1; i &lt; len(runes)/2; i, j = i+1, j-1 {
+        runes[i], runes[j] = runes[j], runes[i]
+    }
+
+    return string(runes)
+}
+
+func main() {
+    s := &quot;hello&quot;
+
+    fmt.Println(reverseString(s))
+}
+</code></pre>
+
+<ol>
+<li>实现一个简单的计算器，支持加、减、乘、除四种运算</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+    &quot;strconv&quot;
+)
+
+func calculate(num1 string, operator string, num2 string) float64 {
+    f1, _ := strconv.ParseFloat(num1, 64)
+    f2, _ := strconv.ParseFloat(num2, 64)
+
+    switch operator {
+    case &quot;+&quot;:
+        return f1 + f2
+    case &quot;-&quot;:
+        return f1 - f2
+    case &quot;*&quot;:
+        return f1 * f2
+    case &quot;/&quot;:
+        return f1 / f2
+    default:
+        return 0
+    }
+}
+
+func main() {
+    result := calculate(&quot;5&quot;, &quot;+&quot;, &quot;3&quot;)
+    fmt.Println(result)
+
+    result = calculate(&quot;5&quot;, &quot;-&quot;, &quot;3&quot;)
+    fmt.Println(result)
+
+    result = calculate(&quot;5&quot;, &quot;*&quot;, &quot;3&quot;)
+    fmt.Println(result)
+
+    result = calculate(&quot;5&quot;, &quot;/&quot;, &quot;3&quot;)
+    fmt.Println(result)
+}
+</code></pre>
+
+<ol>
+<li>实现一个函数，判断一个字符串是否为回文</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func isPalindrome(s string) bool {
+    runes := []rune(s)
+
+    for i, j := 0, len(runes)-1; i &lt; len(runes)/2; i, j = i+1, j-1 {
+        if runes[i] != runes[j] {
+            return false
+        }
+    }
+
+    return true
+}
+
+func main() {
+    s := &quot;racecar&quot;
+
+    if isPalindrome(s) {
+        fmt.Println(&quot;Yes, it is a palindrome&quot;)
+    } else {
+        fmt.Println(&quot;No, it is not a palindrome&quot;)
+    }
+}
+</code></pre>
+ </body>
+</html>
