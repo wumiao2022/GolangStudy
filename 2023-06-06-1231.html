@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li>反转字符串</li>
+</ol>
+
+<pre><code class="language-go">func reverseString(str string) string {
+    s := []rune(str)
+    for i, j := 0, len(s)-1; i &lt; j; i, j = i+1, j-1 {
+        s[i], s[j] = s[j], s[i]
+    }
+    return string(s)
+}
+</code></pre>
+
+<ol>
+<li>斐波那契数列</li>
+</ol>
+
+<pre><code class="language-go">func fibonacci(n int) int {
+    if n &lt;= 1 {
+        return n
+    }
+    return fibonacci(n-1) + fibonacci(n-2)
+}
+</code></pre>
+
+<ol>
+<li>计算平均值</li>
+</ol>
+
+<pre><code class="language-go">func average(nums []int) float64 {
+    sum := 0
+    for _, n := range nums {
+        sum += n
+    }
+    return float64(sum) / float64(len(nums))
+}
+</code></pre>
+
+<ol>
+<li>判断一个字符串是否为回文字符串</li>
+</ol>
+
+<pre><code class="language-go">func isPalindrome(str string) bool {
+    s := []rune(str)
+    for i, j := 0, len(s)-1; i &lt; j; i, j = i+1, j-1 {
+        if s[i] != s[j] {
+            return false
+        }
+    }
+    return true
+}
+</code></pre>
+
+<ol>
+<li>求一个整数数组中的最大值和最小值</li>
+</ol>
+
+<pre><code class="language-go">func findMinMax(nums []int) (int, int) {
+    if len(nums) == 0 {
+        return 0, 0
+    }
+    min, max := nums[0], nums[0]
+    for _, n := range nums {
+        if n &lt; min {
+            min = n
+        }
+        if n &gt; max {
+            max = n
+        }
+    }
+    return min, max
+}
+</code></pre>
+
+<ol>
+<li>判断一个整数是否为素数</li>
+</ol>
+
+<pre><code class="language-go">func isPrime(num int) bool {
+    if num &lt;= 1 {
+        return false
+    }
+    for i := 2; i &lt;= int(math.Sqrt(float64(num))); i++ {
+        if num%i == 0 {
+            return false
+        }
+    }
+    return true
+}
+</code></pre>
+
+<ol>
+<li>合并两个有序数组</li>
+</ol>
+
+<pre><code class="language-go">func mergeSortedArrays(arr1, arr2 []int) []int {
+    result := []int{}
+    i, j := 0, 0
+    for i &lt; len(arr1) &amp;&amp; j &lt; len(arr2) {
+        if arr1[i] &lt; arr2[j] {
+            result = append(result, arr1[i])
+            i++
+        } else {
+            result = append(result, arr2[j])
+            j++
+        }
+    }
+    result = append(result, arr1[i:]...)
+    result = append(result, arr2[j:]...)
+    return result
+}
+</code></pre>
+
+<ol>
+<li>判断两个字符串是否为同构字符串</li>
+</ol>
+
+<pre><code class="language-go">func isIsomorphic(s, t string) bool {
+    if len(s) != len(t) {
+        return false
+    }
+    m := make(map[byte]byte)
+    n := make(map[byte]byte)
+    for i := 0; i &lt; len(s); i++ {
+        if _, ok := m[s[i]]; !ok {
+            m[s[i]] = t[i]
+        } else {
+            if m[s[i]] != t[i] {
+                return false
+            }
+        }
+        if _, ok := n[t[i]]; !ok {
+            n[t[i]] = s[i]
+        } else {
+            if n[t[i]] != s[i] {
+                return false
+            }
+        }
+    }
+    return true
+}
+</code></pre>
+
+<ol>
+<li>计算一个字符串中出现次数最多的字符</li>
+</ol>
+
+<pre><code class="language-go">func mostFrequentChar(s string) byte {
+    m := make(map[byte]int)
+    for i := 0; i &lt; len(s); i++ {
+        m[s[i]]++
+    }
+    max, res := 0, byte(0)
+    for k, v := range m {
+        if v &gt; max {
+            max = v
+            res = k
+        }
+    }
+    return res
+}
+</code></pre>
+
+<ol>
+<li>顺时针旋转一个矩阵</li>
+</ol>
+
+<pre><code class="language-go">func rotateMatrix(matrix [][]int) [][]int {
+    n := len(matrix)
+    for i := 0; i &lt; n/2; i++ {
+        for j := i; j &lt; n-i-1; j++ {
+            temp := matrix[i][j]
+            matrix[i][j] = matrix[n-j-1][i]
+            matrix[n-j-1][i] = matrix[n-i-1][n-j-1]
+            matrix[n-i-1][n-j-1] = matrix[j][n-i-1]
+            matrix[j][n-i-1] = temp
+        }
+    }
+    return matrix
+}
+</code></pre>
+ </body>
+</html>
