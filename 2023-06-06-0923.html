@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是Golang每日多练的一些练习实例代码：</p>
+
+<h4>1. 反转字符串</h4>
+
+<pre><code class="language-go">func reverseString(s string) string {
+    n := len(s) - 1
+    runes := []rune(s)
+
+    for i := 0; i &lt; len(runes)/2; i++ {
+        runes[i], runes[n-i] = runes[n-i], runes[i]
+    }
+
+    return string(runes)
+}
+</code></pre>
+
+<h4>2. 计算字符串中的字符数</h4>
+
+<pre><code class="language-go">func countChar(s string) map[rune]int {
+    charCount := make(map[rune]int)
+
+    for _, char := range s {
+        charCount[char]++
+    }
+
+    return charCount
+}
+</code></pre>
+
+<h4>3. 翻转链表</h4>
+
+<pre><code class="language-go">type ListNode struct {
+    Val  int
+    Next *ListNode
+}
+
+func reverseList(head *ListNode) *ListNode {
+    var prev, current, next *ListNode
+    current = head
+
+    for current != nil {
+        next = current.Next
+        current.Next = prev
+        prev = current
+        current = next
+    }
+
+    return prev
+}
+</code></pre>
+
+<h4>4. 二分查找</h4>
+
+<pre><code class="language-go">func binarySearch(nums []int, target int) int {
+    low, high := 0, len(nums)-1
+
+    for low &lt;= high {
+        mid := (low + high) / 2
+
+        if nums[mid] == target {
+            return mid
+        } else if nums[mid] &gt; target {
+            high = mid - 1
+        } else {
+            low = mid + 1
+        }
+    }
+
+    return -1
+}
+</code></pre>
+
+<p>以上是一些Golang的练习实例代码，可以帮助提高编程技巧和思维能力。</p>
+ </body>
+</html>
