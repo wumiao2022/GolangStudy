@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>这是一个简单的Golang多 Goroutine 并发实现:</p>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;sync&quot;
+)
+
+func main() {
+	var wg sync.WaitGroup
+	for i := 1; i &lt;= 10; i++ {
+		wg.Add(1)
+		go func(num int) {
+			defer wg.Done()
+			fmt.Printf(&quot;Goroutine %d\n&quot;, num)
+		}(i)
+	}
+	wg.Wait()
+	fmt.Println(&quot;All Goroutines are Done!&quot;)
+}
+</code></pre>
+
+<p>这个程序将会启动 10 个 Goroutine 并行地执行，每个 Goroutine 简单地打印&rdquo;Goroutine x&rdquo;，最后打印&rdquo;All Goroutines are Done!&ldquo;。sync.WaitGroup 被用来等待所有的 Goroutine 完成执行。</p>
+ </body>
+</html>
