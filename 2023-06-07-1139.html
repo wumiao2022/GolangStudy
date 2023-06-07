@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>1.</p>
+
+<p>package main</p>
+
+<p>import &ldquo;fmt&rdquo;</p>
+
+<p>func main() {
+    for i := 1; i &lt;= 10; i++ {
+        if i%2 == 0 {
+            fmt.Println(i, &ldquo; is even&rdquo;)
+        } else {
+            fmt.Println(i, &ldquo; is odd&rdquo;)
+        }
+    }
+}</p>
+
+<p>2.</p>
+
+<p>package main</p>
+
+<p>import &ldquo;fmt&rdquo;</p>
+
+<p>func main() {
+    var num int
+    fmt.Println(&ldquo;Enter a number: &ldquo;)
+    fmt.Scan(&amp;num)
+    for i := 1; i &lt;= num; i++ {
+        if i%3 == 0 &amp;&amp; i%5 == 0 {
+            fmt.Println(&ldquo;FizzBuzz&rdquo;)
+        } else if i%3 == 0 {
+            fmt.Println(&ldquo;Fizz&rdquo;)
+        } else if i%5 == 0 {
+            fmt.Println(&ldquo;Buzz&rdquo;)
+        } else {
+            fmt.Println(i)
+        }
+    }
+}</p>
+
+<p>3.</p>
+
+<p>package main</p>
+
+<p>import &ldquo;fmt&rdquo;</p>
+
+<p>func main() {
+    var num, sum int
+    fmt.Println(&ldquo;Enter a number: &ldquo;)
+    fmt.Scan(&amp;num)
+    for i := 1; i &lt;= num; i++ {
+        sum += i
+    }
+    fmt.Println(&ldquo;Sum of first&rdquo;, num, &ldquo;numbers is:&rdquo;, sum)
+}</p>
+
+<p>4.</p>
+
+<p>package main</p>
+
+<p>import &ldquo;fmt&rdquo;</p>
+
+<p>func main() {
+    var num, count int
+    fmt.Println(&ldquo;Enter a number: &ldquo;)
+    fmt.Scan(&amp;num)
+    for i := 1; i &lt;= num; i++ {
+        if num%i == 0 {
+            count++
+        }
+    }
+    if count == 2 {
+        fmt.Println(num, &ldquo;is prime&rdquo;)
+    } else {
+        fmt.Println(num, &ldquo;is not prime&rdquo;)
+    }
+}</p>
+
+<p>5.</p>
+
+<p>package main</p>
+
+<p>import &ldquo;fmt&rdquo;</p>
+
+<p>func main() {
+    var num, temp, rem int
+    fmt.Println(&ldquo;Enter a number: &ldquo;)
+    fmt.Scan(&amp;num)
+    temp = num
+    for {
+        rem = num % 10
+        num = num / 10
+        temp = temp*10 + rem
+        if num == 0 {
+            break
+        }
+    }
+    if temp == num {
+        fmt.Println(num, &ldquo;is a palindrome&rdquo;)
+    } else {
+        fmt.Println(num, &ldquo;is not a palindrome&rdquo;)
+    }
+}</p>
+ </body>
+</html>
