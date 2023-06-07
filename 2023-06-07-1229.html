@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一道简单的练习题，用于练习Golang的函数和for循环：</p>
+
+<pre><code class="language-go">// 写一个函数，接收一个整数n，返回n的阶乘（n!）。
+func factorial(n int) int {
+    result := 1
+    for i := 1; i &lt;= n; i++ {
+        result *= i
+    }
+    return result
+}
+</code></pre>
+
+<p>使用方法：</p>
+
+<pre><code class="language-go">fmt.Println(factorial(5)) // 输出 120
+</code></pre>
+ </body>
+</html>
