@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li>打印乘法表：</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    for i := 1; i &lt;= 9; i++ {
+        for j := 1; j &lt;= i; j++ {
+            fmt.Printf(&quot;%d*%d=%d &quot;, j, i, i*j)
+        }
+        fmt.Println()
+    }
+}
+</code></pre>
+
+<ol>
+<li>判断一个数是不是质数：</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+    &quot;math&quot;
+)
+
+func isPrime(num int) bool {
+    if num &lt;= 1 {
+        return false
+    }
+    for i := 2; i &lt;= int(math.Sqrt(float64(num))); i++ {
+        if num%i == 0 {
+            return false
+        }
+    }
+    return true
+}
+
+func main() {
+    fmt.Println(isPrime(2))   // true
+    fmt.Println(isPrime(3))   // true
+    fmt.Println(isPrime(4))   // false
+    fmt.Println(isPrime(17))  // true
+    fmt.Println(isPrime(100)) // false
+}
+</code></pre>
+
+<ol>
+<li>比较两个字符串是否相等，不区分大小写：</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;strings&quot;
+)
+
+func equalsIgnoreCase(s1, s2 string) bool {
+    return strings.EqualFold(s1, s2)
+}
+</code></pre>
+
+<ol>
+<li>求一个整形数组中的最大值：</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;math&quot;
+
+func getMax(arr []int) int {
+    max := int(math.Inf(-1))
+    for _, v := range arr {
+        if v &gt; max {
+            max = v
+        }
+    }
+    return max
+}
+</code></pre>
+
+<ol>
+<li>判断一个字符串是否为回文字符串：</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+func isPalindrome(s string) bool {
+    n := len(s)
+    for i := 0; i &lt; n/2; i++ {
+        if s[i] != s[n-i-1] {
+            return false
+        }
+    }
+    return true
+}
+</code></pre>
+ </body>
+</html>
