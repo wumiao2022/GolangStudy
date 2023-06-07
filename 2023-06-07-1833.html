@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>这是一个简单的Golang练习实例，用于熟悉Go语言的基本语法。</p>
+
+<pre><code>package main
+
+import &quot;fmt&quot;
+
+func main() {
+	// 练习1：打印Hello, world!
+	fmt.Println(&quot;Hello, world!&quot;)
+
+	// 练习2：计算两个数的和
+	num1 := 10
+	num2 := 20
+	sum := num1 + num2
+	fmt.Printf(&quot;The sum of %d and %d is %d\n&quot;, num1, num2, sum)
+
+	// 练习3：循环输出1-10内的偶数
+	for i := 1; i &lt;= 10; i++ {
+		if i%2 == 0 {
+			fmt.Println(i)
+		}
+	}
+
+	// 练习4：判断某年是否是闰年
+	year := 2020
+	if (year%4 == 0 &amp;&amp; year%100 != 0) || year%400 == 0 {
+		fmt.Printf(&quot;%d is a leap year\n&quot;, year)
+	} else {
+		fmt.Printf(&quot;%d is not a leap year\n&quot;, year)
+	}
+
+	// 练习5：使用递归函数计算阶乘
+	num := 5
+	factorial := calcFactorial(num)
+	fmt.Printf(&quot;The factorial of %d is %d\n&quot;, num, factorial)
+}
+
+func calcFactorial(n int) int {
+	if n &lt;= 1 {
+		return n
+	}
+	return n * calcFactorial(n-1)
+}
+</code></pre>
+ </body>
+</html>
