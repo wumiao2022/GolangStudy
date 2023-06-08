@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一个简单的Golang练习题，实现一个函数，输入一个字符串，将其中的空格全部替换为&rdquo;%20&rdquo;。函数原型为：</p>
+
+<pre><code class="language-go">func replaceSpace(str string) string {
+    // 请在这里完成代码
+}
+</code></pre>
+
+<p>代码如下：</p>
+
+<pre><code class="language-go">func replaceSpace(str string) string {
+    newStr := &quot;&quot;
+    for _, r := range str {
+        if r == ' ' {
+            newStr += &quot;%20&quot;
+        } else {
+            newStr += string(r)
+        }
+    }
+    return newStr
+}
+</code></pre>
+
+<p>调用：</p>
+
+<pre><code class="language-go">str := &quot;hello world&quot;
+newStr := replaceSpace(str)
+fmt.Println(newStr) // 打印结果为：hello%20world
+</code></pre>
+ </body>
+</html>
