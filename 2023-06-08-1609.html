@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li><p>常规操作：打印 Hello World</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+func main() {
+fmt.Println(&quot;Hello World!&quot;)
+}
+</code></pre></li>
+
+<li><p>常规操作：计算两个整数之和</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+func main() {
+var num1 int = 10
+var num2 int = 20
+var sum int = num1 + num2
+fmt.Println(&quot;The sum of&quot;, num1, &quot;and&quot;, num2, &quot;is&quot;, sum)
+}
+</code></pre></li>
+
+<li><p>变量声明与初始化</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+func main() {
+var a int // 声明一个名为 a 的变量并分配 int 类型的零值
+var b float64 = 3.14 // 声明一个名为 b 的变量并分配浮点型初始值
+var c, d bool // 声明两个布尔类型的变量，并分配默认零值
+var str string = &quot;Golang&quot; // 声明一个字符串类型的变量并赋值
+fmt.Println(a, b, c, d, str)
+}
+</code></pre></li>
+
+<li><p>控制流：if 语句</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+func main() {
+var num int = 10
+if num &gt; 0 {
+    fmt.Println(num, &quot;is a positive number&quot;)
+} else if num == 0 {
+    fmt.Println(num, &quot;is zero&quot;)
+} else {
+    fmt.Println(num, &quot;is a negative number&quot;)
+}
+}
+</code></pre></li>
+
+<li><p>控制流：for 循环</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+func main() {
+for i := 0; i &lt;= 10; i++ {
+    fmt.Println(i)
+}
+}
+</code></pre></li>
+
+<li><p>数组声明与初始化</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+func main() {
+// 声明一个数组
+var numArr [5]int
+// 声明并赋值一个数组
+strArr := [4]string{&quot;Golang&quot;, &quot;Java&quot;, &quot;Python&quot;, &quot;Ruby&quot;}
+// 赋值数组元素
+numArr[0] = 1
+numArr[1] = 2
+numArr[2] = 3
+numArr[3] = 4
+numArr[4] = 5
+// 打印数组元素
+fmt.Println(numArr)
+fmt.Println(strArr)
+}
+</code></pre></li>
+
+<li><p>切片声明与初始化</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+func main() {
+// 声明一个切片
+var numSlice []int
+// 声明并赋值一个切片
+strSlice := []string{&quot;Golang&quot;, &quot;Java&quot;, &quot;Python&quot;, &quot;Ruby&quot;}
+// 赋值切片元素
+numSlice = append(numSlice, 1)
+numSlice = append(numSlice, 2)
+numSlice = append(numSlice, 3)
+numSlice = append(numSlice, 4)
+numSlice = append(numSlice, 5)
+// 打印切片元素
+fmt.Println(numSlice)
+fmt.Println(strSlice)
+}
+</code></pre></li>
+
+<li><p>函数声明与调用</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+// 声明一个函数，接受两个参数并返回它们的和
+func add(num1 int, num2 int) int {
+return num1 + num2
+}
+func main() {
+// 调用函数
+sum := add(10, 20)
+fmt.Println(&quot;The sum of 10 and 20 is&quot;, sum)
+}
+</code></pre></li>
+
+<li><p>结构体声明与初始化</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+// 声明一个 Book 结构体
+type Book struct {
+title string
+author string
+price float64
+}
+func main() {
+// 声明一个 Book 类型的变量，并赋值
+book1 := Book{
+    title: &quot;Golang Programming&quot;,
+    author: &quot;John Doe&quot;,
+    price: 29.99,
+}
+// 打印 Book 类型变量中的变量值
+fmt.Println(book1.title)
+fmt.Println(book1.author)
+fmt.Println(book1.price)
+}
+</code></pre></li>
+
+<li><p>接口声明与实现</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+// 声明一个接口
+type Shape interface {
+area() float64
+}
+// 声明一个 Circle 结构体，并实现 Shape 接口
+type Circle struct {
+radius float64
+}
+func (c Circle) area() float64 {
+return 3.14 * c.radius * c.radius
+}
+func main() {
+// 声明一个 Circle 类型的变量
+circle := Circle{radius: 5}
+// 将 Circle 类型的变量赋值给 Shape 接口类型的变量
+var shape Shape
+shape = circle
+// 调用 Shape 接口中的方法
+fmt.Println(shape.area())
+}
+</code></pre></li>
+</ol>
+ </body>
+</html>
