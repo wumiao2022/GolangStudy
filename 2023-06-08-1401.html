@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>题目：使用Golang实现一个简单的TCP服务器，监听本地端口并接受客户端连接，客户端发送的信息直接原样返回给客户端。</p>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;net&quot;
+)
+
+func main() {
+	fmt.Println(&quot;Starting server...&quot;)
+
+	ln, err := net.Listen(&quot;tcp&quot;, &quot;:8080&quot;)
+
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	defer ln.Close()
+
+	fmt.Println(&quot;Server is now listening on port 8080...&quot;)
+
+	for {
+		conn, err := ln.Accept()
+
+		if err != nil {
+			fmt.Println(err)
+			continue
+		}
+
+		fmt.Println(&quot;New client connected&quot;)
+		go handleConnection(conn)
+	}
+}
+
+func handleConnection(conn net.Conn) {
+	defer conn.Close()
+
+	for {
+		buffer := make([]byte, 1024)
+		_, err := conn.Read(buffer)
+
+		if err != nil {
+			fmt.Println(err)
+			return
+		}
+
+		fmt.Printf(&quot;Received message: %s\n&quot;, string(buffer))
+
+		//将客户端发送的信息直接返回给客户端
+		_, err = conn.Write(buffer)
+
+		if err != nil {
+			fmt.Println(err)
+			return
+		}
+
+		fmt.Println(&quot;Message sent:&quot;, string(buffer))
+	}
+}
+</code></pre>
+ </body>
+</html>
