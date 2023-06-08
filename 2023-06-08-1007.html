@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>// 练习1：编写一个程序，计算输入的整数之和
+package main</p>
+
+<p>import (
+    &ldquo;fmt&rdquo;
+)</p>
+
+<p>func main() {
+    var n int
+    var sum int</p>
+
+<pre><code>fmt.Println(&quot;请输入一个整数：&quot;)
+fmt.Scanln(&amp;n)
+
+for i := 0; i &lt;= n; i++ {
+    sum += i
+}
+
+fmt.Println(&quot;从0到&quot;, n, &quot;的整数之和为：&quot;, sum)
+</code></pre>
+
+<p>}</p>
+
+<p>// 练习2：编写一个程序，统计输入的字符串中字母、数字、空格和其他字符的个数
+package main</p>
+
+<p>import (
+    &ldquo;bufio&rdquo;
+    &ldquo;fmt&rdquo;
+    &ldquo;os&rdquo;
+)</p>
+
+<p>func main() {
+    var str string
+    var letter, digit, space, other int</p>
+
+<pre><code>fmt.Println(&quot;请输入一段字符串：&quot;)
+reader := bufio.NewReader(os.Stdin)
+str, _ = reader.ReadString('\n')
+
+for _, s := range str {
+    if s &gt;= '0' &amp;&amp; s &lt;= '9' {
+        digit++
+    } else if (s &gt;= 'a' &amp;&amp; s &lt;= 'z') || (s &gt;= 'A' &amp;&amp; s &lt;= 'Z') {
+        letter++
+    } else if s == ' ' {
+        space++
+    } else {
+        other++
+    }
+}
+
+fmt.Println(&quot;字母个数：&quot;, letter)
+fmt.Println(&quot;数字个数：&quot;, digit)
+fmt.Println(&quot;空格个数：&quot;, space)
+fmt.Println(&quot;其他字符个数：&quot;, other)
+</code></pre>
+
+<p>}</p>
+
+<p>// 练习3：编写一个程序，求出一个切片中的最大值和最小值
+package main</p>
+
+<p>import (
+    &ldquo;fmt&rdquo;
+)</p>
+
+<p>func main() {
+    var nums []int
+    var n, max, min int</p>
+
+<pre><code>fmt.Println(&quot;请输入需要求最大最小值的切片（以空格分隔）：&quot;)
+for {
+    _, err := fmt.Scan(&amp;n)
+    if err != nil {
+        break
+    }
+    nums = append(nums, n)
+}
+
+if len(nums) &gt; 0 {
+    max = nums[0]
+    min = nums[0]
+}
+
+for _, num := range nums {
+    if num &gt; max {
+        max = num
+    }
+    if num &lt; min {
+        min = num
+    }
+}
+
+fmt.Println(&quot;最大值为：&quot;, max)
+fmt.Println(&quot;最小值为：&quot;, min)
+</code></pre>
+
+<p>}</p>
+ </body>
+</html>
