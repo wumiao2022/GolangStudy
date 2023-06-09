@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一个Golang练习实例代码：</p>
+
+<ol>
+<li><p>编写一个函数，接受两个整数作为参数并返回它们的和：</p>
+
+<pre><code>func sum(a, b int) int {
+return a + b
+}
+</code></pre></li>
+
+<li><p>编写一个函数，接受一个字符串作为参数并返回该字符串的长度：</p>
+
+<pre><code>func stringLength(str string) int {
+return len(str)
+}
+</code></pre></li>
+
+<li><p>编写一个函数，接受一个字符串作为参数并返回该字符串中每个字母的ASCII码值：</p>
+
+<pre><code>func asciiValues(str string) {
+for _, c := range str {
+fmt.Print(c, &quot; &quot;)
+}
+}
+</code></pre></li>
+
+<li><p>编写一个函数，接受一个整数切片作为参数并返回其中所有奇数的和：</p>
+
+<pre><code>func sumOddNumbers(numbers []int) int {
+sum := 0
+for _, n := range numbers {
+if n%2 != 0 {
+  sum += n
+}
+}
+return sum
+}
+</code></pre></li>
+
+<li><p>编写一个函数，接受一个字符串作为参数并返回该字符串的反转形式：</p>
+
+<pre><code>func reverseString(str string) string {
+runes := []rune(str)
+for i, j := 0, len(runes)-1; i &lt; len(runes)/2; i, j = i+1, j-1 {
+runes[i], runes[j] = runes[j], runes[i]
+}
+return string(runes)
+}
+</code></pre></li>
+</ol>
+ </body>
+</html>
