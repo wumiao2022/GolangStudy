@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一些Golang的练习实例代码：</p>
+
+<ol>
+<li>打印&rdquo;Hello, World!&rdquo;
+&ldquo;`go
+package main</li>
+</ol>
+
+<p>import &ldquo;fmt&rdquo;</p>
+
+<p>func main() {
+    fmt.Println(&ldquo;Hello, World!&rdquo;)
+}</p>
+
+<pre><code>
+2. 计算两个数的和并输出结果
+```go
+package main
+
+import &quot;fmt&quot;
+
+func main() {
+    var num1, num2 int
+
+    fmt.Println(&quot;请输入两个整数：&quot;)
+    fmt.Scanln(&amp;num1, &amp;num2)
+
+    sum := num1 + num2
+
+    fmt.Printf(&quot;%d + %d = %d&quot;, num1, num2, sum)
+}
+</code></pre>
+
+<ol>
+<li>判断一个数是否为素数（质数）
+&ldquo;`go
+package main</li>
+</ol>
+
+<p>import (
+    &ldquo;fmt&rdquo;
+    &ldquo;math&rdquo;
+)</p>
+
+<p>func main() {
+    var num int</p>
+
+<pre><code>fmt.Println(&quot;请输入一个整数：&quot;)
+fmt.Scanln(&amp;num)
+
+isPrime := true
+
+for i := 2; i &lt;= int(math.Sqrt(float64(num))); i++ {
+    if num%i == 0 {
+        isPrime = false
+        break
+    }
+}
+
+if isPrime {
+    fmt.Printf(&quot;%d是素数&quot;, num)
+} else {
+    fmt.Printf(&quot;%d不是素数&quot;, num)
+}
+</code></pre>
+
+<p>}</p>
+
+<pre><code>
+4. 实现冒泡排序
+```go
+package main
+
+import (
+    &quot;fmt&quot;
+)
+
+func main() {
+    nums := []int{3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9}
+
+    for i := 0; i &lt; len(nums)-1; i++ {
+        for j := 0; j &lt; len(nums)-1-i; j++ {
+            if nums[j] &gt; nums[j+1] {
+                nums[j], nums[j+1] = nums[j+1], nums[j]
+            }
+        }
+    }
+
+    fmt.Println(nums)
+}
+</code></pre>
+
+<ol>
+<li>计算Fibonacci数列的前n项
+&ldquo;`go
+package main</li>
+</ol>
+
+<p>import &ldquo;fmt&rdquo;</p>
+
+<p>func main() {
+    var n int</p>
+
+<pre><code>fmt.Println(&quot;请输入项数n：&quot;)
+fmt.Scanln(&amp;n)
+
+f1, f2 := 0, 1
+
+for i := 0; i &lt; n; i++ {
+    fmt.Println(f2)
+    f1, f2 = f2, f1+f2
+}
+</code></pre>
+
+<p>}
+&ldquo;`</p>
+ </body>
+</html>
