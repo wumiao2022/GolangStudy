@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一些Golang的练习实例代码：</p>
+
+<ol>
+<li><p>输出Hello, World!：</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+func main() {
+   fmt.Println(&quot;Hello, World!&quot;)
+}
+</code></pre></li>
+
+<li><p>输入两个整数并计算它们的和：</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+func main() {
+   var num1, num2 int
+   fmt.Println(&quot;请输入两个整数：&quot;)
+   fmt.Scan(&amp;num1, &amp;num2)
+   fmt.Printf(&quot;它们的和是：%d&quot;, num1+num2)
+}
+</code></pre></li>
+
+<li><p>判断一个数是否为质数：</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+func main() {
+   var num int
+   fmt.Println(&quot;请输入一个整数：&quot;)
+   fmt.Scan(&amp;num)
+   prime := true // 假设num是质数
+   for i := 2; i &lt;= num/2; i++ {
+       if num%i == 0 {
+           prime = false // 不是质数
+           break
+       }
+   }
+   if prime {
+       fmt.Printf(&quot;%d是质数。&quot;, num)
+   } else {
+       fmt.Printf(&quot;%d不是质数。&quot;, num)
+   }
+}
+</code></pre></li>
+
+<li><p>计算斐波那契数列的前n项：</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+func main() {
+   var n int
+   fmt.Println(&quot;请输入要计算的斐波那契数列的项数：&quot;)
+   fmt.Scan(&amp;n)
+   a, b := 0, 1
+   for i := 0; i &lt; n; i++ {
+       fmt.Printf(&quot;%d &quot;, a)
+       a, b = b, a+b
+   }
+}
+</code></pre></li>
+
+<li><p>实现冒泡排序：</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+func main() {
+   nums := []int{5, 2, 9, 1, 5, 6}
+   for i := 0; i &lt; len(nums)-1; i++ {
+       for j := 0; j &lt; len(nums)-i-1; j++ {
+           if nums[j] &gt; nums[j+1] {
+               nums[j], nums[j+1] = nums[j+1], nums[j]
+           }
+       }
+   }
+   fmt.Println(nums)
+}
+</code></pre></li>
+</ol>
+ </body>
+</html>
