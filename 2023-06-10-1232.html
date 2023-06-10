@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一些Golang练习实例代码：</p>
+
+<ol>
+<li>打印出1到100的数字，但是当数字为3的倍数时打印出&rdquo;Fizz&rdquo;，当数字为5的倍数时打印出&rdquo;Buzz&rdquo;，当数字同时为3和5的倍数时打印出&rdquo;FizzBuzz&rdquo;。</li>
+</ol>
+
+<pre><code class="language-go">for i := 1; i &lt;= 100; i++ {
+    if i%3 == 0 &amp;&amp; i%5 == 0 {
+        fmt.Println(&quot;FizzBuzz&quot;)
+    } else if i%3 == 0 {
+        fmt.Println(&quot;Fizz&quot;)
+    } else if i%5 == 0 {
+        fmt.Println(&quot;Buzz&quot;)
+    } else {
+        fmt.Println(i)
+    }
+}
+</code></pre>
+
+<ol>
+<li>冒泡排序实现，从小到大排序。</li>
+</ol>
+
+<pre><code class="language-go">func bubbleSort(arr []int) []int {
+    for i := 0; i &lt; len(arr)-1; i++ {
+        for j := i + 1; j &lt; len(arr); j++ {
+            if arr[i] &gt; arr[j] {
+                temp := arr[i]
+                arr[i] = arr[j]
+                arr[j] = temp
+            }
+        }
+    }
+    return arr
+}
+</code></pre>
+
+<ol>
+<li>输入一个字符串，逆序输出该字符串。</li>
+</ol>
+
+<pre><code class="language-go">func reverseString(str string) string {
+    result := []rune(str)
+    length := len(result)
+    for i := 0; i &lt; length/2; i++ {
+        temp := result[i]
+        result[i] = result[length-i-1]
+        result[length-i-1] = temp
+    }
+    return string(result)
+}
+</code></pre>
+
+<ol>
+<li>计算两个数的最大公约数和最小公倍数。</li>
+</ol>
+
+<pre><code class="language-go">func gcd(a, b int) int {
+    if a &lt; b {
+        a, b = b, a
+    }
+    for b != 0 {
+        temp := b
+        b = a % b
+        a = temp
+    }
+    return a
+}
+
+func lcm(a, b int) int {
+    return a * b / gcd(a, b)
+}
+</code></pre>
+
+<ol>
+<li>计算斐波那契数列第N项的值。</li>
+</ol>
+
+<pre><code class="language-go">func fib(n int) int {
+    if n &lt;= 1 {
+        return n
+    }
+    return fib(n-1) + fib(n-2)
+}
+</code></pre>
+ </body>
+</html>
