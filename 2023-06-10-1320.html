@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li>题目：输出Hello, world!</li>
+</ol>
+
+<pre><code class="language-go">   package main
+   
+   import &quot;fmt&quot;
+   
+   func main() {
+       fmt.Println(&quot;Hello, world!&quot;)
+   }
+</code></pre>
+
+<ol>
+<li>题目：输出1到100的偶数</li>
+</ol>
+
+<pre><code class="language-go">   package main
+   
+   import &quot;fmt&quot;
+   
+   func main() {
+       for i := 1; i &lt;= 100; i++ {
+           if i%2 == 0 {
+               fmt.Println(i)
+           }
+       }
+   }
+</code></pre>
+
+<ol>
+<li>题目：求两个数的最大公约数</li>
+</ol>
+
+<pre><code class="language-go">   package main
+   
+   import &quot;fmt&quot;
+   
+   func gcd(a, b int) int {
+       if a &lt; b {
+           a, b = b, a
+       }
+       for b != 0 {
+           temp := a % b
+           a = b
+           b = temp
+       }
+       return a
+   }
+   
+   func main() {
+       fmt.Println(gcd(24, 36)) // output: 12
+   }
+</code></pre>
+
+<ol>
+<li>题目：求从1到n的所有数的和</li>
+</ol>
+
+<pre><code class="language-go">   package main
+   
+   import &quot;fmt&quot;
+   
+   func sum(n int) int {
+       if n == 0 {
+           return 0
+       }
+       return n + sum(n-1)
+   }
+   
+   func main() {
+       fmt.Println(sum(10)) // output: 55
+   }
+</code></pre>
+
+<ol>
+<li>题目：使用递归逆序输出一个字符串</li>
+</ol>
+
+<pre><code class="language-go">   package main
+   
+   import &quot;fmt&quot;
+   
+   func reverse(str string) {
+       if len(str) == 0 {
+           return
+       }
+       reverse(str[1:])
+       fmt.Printf(&quot;%c&quot;, str[0])
+   }
+   
+   func main() {
+       reverse(&quot;hello&quot;) // output: olleh
+   }
+</code></pre>
+ </body>
+</html>
