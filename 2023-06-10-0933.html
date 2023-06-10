@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li><p>找出切片中的最大值</p>
+
+<pre><code>package main
+import (
+&quot;fmt&quot;
+)
+func main() {
+nums := []int{2, 4, 6, 3, 7, 1}
+max := nums[0]
+for _, num := range nums {
+    if num &gt; max {
+        max = num
+    }
+}
+fmt.Println(&quot;Max number in slice is:&quot;, max)
+}
+</code></pre></li>
+
+<li><p>将字符串中的字符反转</p>
+
+<pre><code>package main
+import (
+&quot;fmt&quot;
+)
+func main() {
+str := &quot;hello world&quot;
+runes := []rune(str)
+for i, j := 0, len(runes)-1; i &lt; len(runes)/2; i, j = i+1, j-1 {
+    runes[i], runes[j] = runes[j], runes[i]
+}
+fmt.Println(&quot;Reversed string is:&quot;, string(runes))
+}
+</code></pre></li>
+
+<li><p>判断一个数是否为质数</p>
+
+<pre><code>package main
+import (
+&quot;fmt&quot;
+)
+func main() {
+num := 17
+isPrime := true
+for i := 2; i &lt; num; i++ {
+    if num%i == 0 {
+        isPrime = false
+        break
+    }
+}
+if isPrime {
+    fmt.Printf(&quot;%d is a prime number&quot;, num)
+} else {
+    fmt.Printf(&quot;%d is not a prime number&quot;, num)
+}
+}
+</code></pre></li>
+
+<li><p>将一个有序整数数组转换为二叉搜索树</p>
+
+<pre><code>package main
+import (
+&quot;fmt&quot;
+)
+type TreeNode struct {
+Val   int
+Left  *TreeNode
+Right *TreeNode
+}
+func main() {
+nums := []int{-10, -3, 0, 5, 9}
+root := sortedArrayToBST(nums)
+fmt.Println(&quot;Inorder traversal of constructed BST is:&quot;)
+printInorder(root)
+}
+func sortedArrayToBST(nums []int) *TreeNode {
+if len(nums) == 0 {
+    return nil
+}
+mid := len(nums) / 2
+root := &amp;TreeNode{Val: nums[mid]}
+root.Left = sortedArrayToBST(nums[:mid])
+root.Right = sortedArrayToBST(nums[mid+1:])
+return root
+}
+func printInorder(node *TreeNode) {
+if node == nil {
+    return
+}
+printInorder(node.Left)
+fmt.Printf(&quot;%d &quot;, node.Val)
+printInorder(node.Right)
+}
+</code></pre></li>
+
+<li><p>用递归实现斐波那契数列</p>
+
+<pre><code>package main
+import (
+&quot;fmt&quot;
+)
+func main() {
+n := 10
+for i := 0; i &lt; n; i++ {
+    fmt.Printf(&quot;%d &quot;, fib(i))
+}
+}
+func fib(n int) int {
+if n &lt; 2 {
+    return n
+}
+return fib(n-1) + fib(n-2)
+}
+</code></pre></li>
+</ol>
+ </body>
+</html>
