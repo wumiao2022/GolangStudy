@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li>数组去重</li>
+</ol>
+
+<pre><code class="language-go">func unique(arr []int) []int {
+    result := make([]int, 0, len(arr))
+    temp := map[int]bool{}
+    for _, val := range arr {
+        if !temp[val] {
+            temp[val] = true
+            result = append(result, val)
+        }
+    }
+    return result
+}
+</code></pre>
+
+<ol>
+<li>遍历Map</li>
+</ol>
+
+<pre><code class="language-go">func iterateMap(m map[string]string) {
+    for key, val := range m {
+        fmt.Println(key, val)
+    }
+}
+</code></pre>
+
+<ol>
+<li>获取随机数</li>
+</ol>
+
+<pre><code class="language-go">import &quot;math/rand&quot;
+
+func random(min, max int) int {
+    return rand.Intn(max-min) + min
+}
+</code></pre>
+
+<ol>
+<li>逆序输出字符串</li>
+</ol>
+
+<pre><code class="language-go">func reverse(str string) string {
+    runes := []rune(str)
+    for i, j := 0, len(runes)-1; i &lt; len(runes)/2; i, j = i+1, j-1 {
+        runes[i], runes[j] = runes[j], runes[i]
+    }
+    return string(runes)
+}
+</code></pre>
+
+<ol>
+<li>求斐波那契数列</li>
+</ol>
+
+<pre><code class="language-go">func fibonacci(n int) []int {
+    result := []int{0, 1}
+    for i := 2; i &lt; n; i++ {
+        result = append(result, result[i-1]+result[i-2])
+    }
+    return result
+}
+</code></pre>
+ </body>
+</html>
