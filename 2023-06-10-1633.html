@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>很好，以下是一些Golang练习代码，每日复习巩固：</p>
+
+<ol>
+<li>判断一个数是否为素数（质数）</li>
+</ol>
+
+<pre><code class="language-go">func isPrime(n int) bool {
+    if n &lt; 2 {
+        return false
+    }
+    for i := 2; i &lt;= int(math.Sqrt(float64(n))); i++ {
+        if n%i == 0 {
+            return false
+        }
+    }
+    return true
+}
+</code></pre>
+
+<ol>
+<li>打印杨辉三角的前n行</li>
+</ol>
+
+<pre><code class="language-go">func printYanghuiTriangle(n int) {
+    var arr [][]int
+    for i := 0; i &lt; n; i++ {
+        row := make([]int, i+1)
+        row[0], row[len(row)-1] = 1, 1
+        for j := 1; j &lt; len(row)-1; j++ {
+            row[j] = arr[i-1][j-1] + arr[i-1][j]
+        }
+        arr = append(arr, row)
+    }
+    for i := 0; i &lt; len(arr); i++ {
+        fmt.Printf(&quot;%*s&quot;, (n-i)*2, &quot;&quot;)
+        for j := 0; j &lt; len(arr[i]); j++ {
+            fmt.Printf(&quot;%4d&quot;, arr[i][j])
+        }
+        fmt.Println()
+    }
+}
+</code></pre>
+
+<ol>
+<li>实现快速排序算法</li>
+</ol>
+
+<pre><code class="language-go">func quickSort(arr []int, left, right int) {
+    if left &gt;= right {
+        return
+    }
+    pivot := arr[left]
+    i, j := left, right
+    for i &lt; j {
+        for i &lt; j &amp;&amp; arr[j] &gt;= pivot {
+            j--
+        }
+        for i &lt; j &amp;&amp; arr[i] &lt;= pivot {
+            i++
+        }
+        if i &lt; j {
+            arr[i], arr[j] = arr[j], arr[i]
+        }
+    }
+    arr[left], arr[i] = arr[i], arr[left]
+    quickSort(arr, left, i-1)
+    quickSort(arr, i+1, right)
+}
+``` 
+
+4. 在一个二维矩阵中查找目标值
+
+```go
+func searchMatrix(matrix [][]int, target int) bool {
+    if len(matrix) == 0 || len(matrix[0]) == 0 {
+        return false
+    }
+    m, n := len(matrix), len(matrix[0])
+    left, right := 0, m*n-1
+    for left &lt;= right {
+        mid := (left + right) / 2
+        row, col := mid/n, mid%n
+        if matrix[row][col] == target {
+            return true
+        } else if matrix[row][col] &gt; target {
+            right = mid - 1
+        } else {
+            left = mid + 1
+        }
+    }
+    return false
+}
+</code></pre>
+
+<ol>
+<li>实现堆排序算法</li>
+</ol>
+
+<pre><code class="language-go">func heapSort(arr []int) {
+    n := len(arr)
+    for i := n/2 - 1; i &gt;= 0; i-- {
+        heapify(arr, n, i)
+    }
+    for i := n - 1; i &gt; 0; i-- {
+        arr[0], arr[i] = arr[i], arr[0]
+        heapify(arr, i, 0)
+    }
+}
+func heapify(arr []int, n, i int) {
+    largest, l, r := i, 2*i+1, 2*i+2
+    if l &lt; n &amp;&amp; arr[l] &gt; arr[largest] {
+        largest = l
+    }
+    if r &lt; n &amp;&amp; arr[r] &gt; arr[largest] {
+        largest = r
+    }
+    if largest != i {
+        arr[i], arr[largest] = arr[largest], arr[i]
+        heapify(arr, n, largest)
+    }
+}
+</code></pre>
+
+<p>希望这些练习代码对你的Golang学习有所帮助！</p>
+ </body>
+</html>
