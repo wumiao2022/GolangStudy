@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	// 练习1：输出hello world
+	fmt.Println(&quot;hello world&quot;)
+
+	// 练习2：变量声明和初始化
+	var num int = 20
+	fmt.Println(num)
+
+	// 练习3：常量声明和使用
+	const pi float64 = 3.14
+	fmt.Println(pi)
+
+	// 练习4：条件语句if-else
+	if num &gt; 10 {
+		fmt.Println(&quot;大于10&quot;)
+	} else {
+		fmt.Println(&quot;不大于10&quot;)
+	}
+
+	// 练习5：循环语句for
+	for i := 0; i &lt; 5; i++ {
+		fmt.Println(i)
+	}
+
+	// 练习6：数组声明和使用
+	var arr [5]int = [5]int{1, 2, 3, 4, 5}
+	fmt.Println(arr)
+
+	// 练习7：切片声明和使用
+	var slice []int = make([]int, 3)
+	slice[0] = 1
+	slice[1] = 2
+	slice[2] = 3
+	fmt.Println(slice)
+
+	// 练习8：map声明和使用
+	var m map[string]int = make(map[string]int)
+	m[&quot;apple&quot;] = 1
+	m[&quot;banana&quot;] = 2
+	m[&quot;orange&quot;] = 3
+	fmt.Println(m)
+
+	// 练习9：函数声明和使用
+	add := func(a, b int) int {
+		return a + b
+	}
+	result := add(1, 2)
+	fmt.Println(result)
+
+	// 练习10：结构体声明和使用
+	type Person struct {
+		Name string
+		Age  int
+	}
+	p := Person{Name: &quot;Tom&quot;, Age: 18}
+	fmt.Println(p)
+}
+</code></pre>
+ </body>
+</html>
