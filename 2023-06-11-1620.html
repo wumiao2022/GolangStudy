@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>解决官方题目：</p>
+
+<pre><code class="language-go">// 1. 打印99乘法表
+func printMultiplicationTable() {
+    for i:=1;i&lt;10;i++{
+        for j:=1;j&lt;=i;j++{
+            fmt.Printf(&quot;%v*%v=%v\t&quot;, i, j, i*j)
+        }
+        fmt.Println()
+    }
+}
+
+// 2. 打印斐波那契数列（输出前20位）
+func printFibonacci() {
+    num1, num2 := 0, 1
+    for i:=0;i&lt;20;i++{
+        fmt.Printf(&quot;%v\t&quot;, num2)
+        num1, num2 = num2, num1+num2
+    }
+}
+
+// 3. 判断是否是质数
+func isPrime(n int) bool {
+    if n&lt;2 {
+        return false
+    }
+    for i:=2;i&lt;=int(math.Sqrt(float64(n)));i++{
+        if n%i == 0 {
+            return false
+        }
+    }
+    return true
+}
+
+// 4. 打印100以内的质数
+func printPrime() {
+    for i:=2;i&lt;=100;i++{
+        if isPrime(i) {
+            fmt.Printf(&quot;%v &quot;, i)
+        }
+    }
+}
+
+// 5. 打印100-999中的水仙花数
+func printNarcissistic() {
+    for i:=100;i&lt;1000;i++{
+        num := i
+        sum := 0
+        for num &gt; 0 {
+            digit := num % 10
+            sum += digit * digit * digit
+            num /= 10
+        }
+        if sum == i {
+            fmt.Printf(&quot;%v &quot;, i)
+        }
+    }
+}
+</code></pre>
+ </body>
+</html>
