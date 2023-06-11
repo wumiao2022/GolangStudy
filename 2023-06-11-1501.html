@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>这里是一个Golang语言的练习实例，可以用来熟悉Golang中的字符串相关操作。</p>
+
+<pre><code>package main
+
+import (
+	&quot;fmt&quot;
+	&quot;strings&quot;
+)
+
+func main() {
+	// 字符串拼接
+	str1 := &quot;hello&quot;
+	str2 := &quot;world&quot;
+	result := str1 + &quot; &quot; + str2
+	fmt.Println(result)
+
+	// 字符串分割
+	str := &quot;one,two,three&quot;
+	arr := strings.Split(str, &quot;,&quot;)
+	for _, val := range arr {
+		fmt.Println(val)
+	}
+
+	// 字符串查找
+	str = &quot;Hello, World!&quot;
+	index := strings.Index(str, &quot;World&quot;)
+	fmt.Println(index)
+
+	// 字符串替换
+	str = &quot;Hello, World!&quot;
+	newStr := strings.Replace(str, &quot;World&quot;, &quot;Golang&quot;, -1)
+	fmt.Println(newStr)
+
+	// 字符串大小写转换
+	str = &quot;Hello, World!&quot;
+	lowerStr := strings.ToLower(str)
+	upperStr := strings.ToUpper(str)
+	fmt.Println(lowerStr)
+	fmt.Println(upperStr)
+
+	// 字符串去除空格
+	str = &quot;  Hello, World!  &quot;
+	clearStr := strings.TrimSpace(str)
+	fmt.Println(clearStr)
+}
+
+</code></pre>
+
+<p>这个练习实例包括了字符串的拼接、分割、查找、替换、大小写转换和去除空格等常用操作。通过练习这个实例，你可以进一步巩固和提高你的Golang编程技能。</p>
+ </body>
+</html>
