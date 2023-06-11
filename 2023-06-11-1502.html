@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>下面是一个练习题，编写一个 Golang 程序，读取一个整数 n，然后输出 n 行星号组成的等腰直角三角形。例如读取数值 4，输出如下图形：</p>
+
+<pre><code>*
+**
+***
+****
+</code></pre>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    var n int
+    fmt.Print(&quot;请输入一个整数：&quot;)
+    fmt.Scan(&amp;n)
+    for i := 1; i &lt;= n; i++ {
+        for j := 1; j &lt;= i; j++ {
+            fmt.Print(&quot;*&quot;)
+        }
+        fmt.Println()
+    }
+}
+</code></pre>
+ </body>
+</html>
