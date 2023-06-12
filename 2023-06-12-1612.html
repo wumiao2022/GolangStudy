@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下为Golang每日练习示例代码：</p>
+
+<ol>
+<li>统计字符串中某个字符出现的次数</li>
+</ol>
+
+<pre><code class="language-go">func countChar(str string, char byte) int {
+    count := 0
+    for _, c := range str {
+        if byte(c) == char {
+            count++
+        }
+    }
+    return count
+}
+
+// 示例用法
+count := countChar(&quot;hello world&quot;, 'l')
+fmt.Println(count)  // 输出：3
+</code></pre>
+
+<ol>
+<li>实现一个简单的HTTP服务器，返回固定的HTML内容</li>
+</ol>
+
+<pre><code class="language-go">func handleRequest(w http.ResponseWriter, r *http.Request) {
+    fmt.Fprintf(w, &quot;&lt;h1&gt;Hello, world!&lt;/h1&gt;&quot;)
+}
+
+func main() {
+    http.HandleFunc(&quot;/&quot;, handleRequest)
+    http.ListenAndServe(&quot;:8080&quot;, nil)
+}
+</code></pre>
+
+<ol>
+<li>实现一个栈</li>
+</ol>
+
+<pre><code class="language-go">type Stack struct {
+    items []int
+}
+
+func (s *Stack) Push(item int) {
+    s.items = append(s.items, item)
+}
+
+func (s *Stack) Pop() int {
+    if len(s.items) == 0 {
+        return -1
+    }
+    item := s.items[len(s.items)-1]
+    s.items = s.items[:len(s.items)-1]
+    return item
+}
+
+// 示例用法
+s := &amp;Stack{}
+s.Push(1)
+s.Push(2)
+s.Push(3)
+fmt.Println(s.Pop())  // 输出：3
+</code></pre>
+
+<ol>
+<li>实现一个简单的计算器，支持加减乘除</li>
+</ol>
+
+<pre><code class="language-go">func calculate(a, b int, operator byte) int {
+    switch operator {
+    case '+':
+        return a + b
+    case '-':
+        return a - b
+    case '*':
+        return a * b
+    case '/':
+        return a / b
+    default:
+        return 0
+    }
+}
+
+// 示例用法
+result := calculate(2, 3, '+')
+fmt.Println(result)  // 输出：5
+</code></pre>
+
+<p>以上实例仅供参考，建议深入理解每个实例背后的原理和实现方式，多加练习。</p>
+ </body>
+</html>
