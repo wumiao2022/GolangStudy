@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>下面是一些Golang练习实例代码：</p>
+
+<ol>
+<li>将字符串逆序输出：</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func reverseString(str string) string {
+    runes := []rune(str)
+    for i, j := 0, len(runes)-1; i &lt; j; i, j = i+1, j-1 {
+        runes[i], runes[j] = runes[j], runes[i]
+    }
+    return string(runes)
+}
+
+func main() {
+    str := &quot;hello world&quot;
+    fmt.Println(reverseString(str))
+}
+</code></pre>
+
+<ol>
+<li>计算两个整数的和：</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func add(x int, y int) int {
+    return x + y
+}
+
+func main() {
+    x := 10
+    y := 20
+    fmt.Println(add(x, y))
+}
+</code></pre>
+
+<ol>
+<li>使用冒泡排序对整数数组进行排序：</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func bubbleSort(arr []int) {
+    n := len(arr)
+    for i := 0; i &lt; n-1; i++ {
+        swapped := false
+        for j := 0; j &lt; n-i-1; j++ {
+            if arr[j] &gt; arr[j+1] {
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+                swapped = true
+            }
+        }
+        if !swapped {
+            break
+        }
+    }
+}
+
+func main() {
+    arr := []int{64, 25, 12, 22, 11}
+    bubbleSort(arr)
+    fmt.Println(arr)
+}
+</code></pre>
+
+<ol>
+<li>判断一个整数是否为素数：</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func isPrime(num int) bool {
+    if num &lt; 2 {
+        return false
+    }
+    for i := 2; i*i &lt;= num; i++ {
+        if num%i == 0 {
+            return false
+        }
+    }
+    return true
+}
+
+func main() {
+    num := 17
+    if isPrime(num) {
+        fmt.Printf(&quot;%d is prime&quot;, num)
+    } else {
+        fmt.Printf(&quot;%d is not prime&quot;, num)
+    }
+}
+</code></pre>
+
+<ol>
+<li>将两个字符串连接成一个字符串并去重：</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func joinStrings(str1 string, str2 string) string {
+    result := make(map[rune]bool)
+    for _, ch := range str1 {
+        result[ch] = true
+    }
+    for _, ch := range str2 {
+        result[ch] = true
+    }
+    var res string
+    for ch := range result {
+        res += string(ch)
+    }
+    return res
+}
+
+func main() {
+    str1 := &quot;hello&quot;
+    str2 := &quot;world&quot;
+    fmt.Println(joinStrings(str1, str2))
+}
+</code></pre>
+ </body>
+</html>
