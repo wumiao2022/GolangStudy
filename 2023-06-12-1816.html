@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一个Golang的练习实例代码，用于求一个切片中所有元素的平均值：</p>
+
+<pre><code>package main
+
+import &quot;fmt&quot;
+
+func main() {
+    nums := []float64{1.2, 3.4, 5.6, 7.8, 9.0}
+    sum := 0.0
+    for _, num := range nums {
+        sum += num
+    }
+    avg := sum / float64(len(nums))
+    fmt.Printf(&quot;The average value is: %.2f\n&quot;, avg)
+}
+</code></pre>
+ </body>
+</html>
