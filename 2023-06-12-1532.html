@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li><p>判断素数</p>
+
+<pre><code>func isPrime(num int) bool {
+if num &lt;= 1 {
+    return false
+}
+for i:=2; i&lt;=int(math.Sqrt(float64(num))); i++ {
+    if num % i == 0 {
+        return false
+    }
+}
+return true
+}
+</code></pre></li>
+
+<li><p>斐波那契数列</p>
+
+<pre><code>func fibonacci(num int) []int {
+result := []int{}
+for i:=0; i&lt;num; i++ {
+    if i == 0 || i == 1 {
+        result = append(result, i)
+    } else {
+        result = append(result, result[i-1]+result[i-2])
+    }
+}
+return result
+}
+</code></pre></li>
+
+<li><p>快速排序</p>
+
+<pre><code>func quickSort(arr []int) []int {
+if len(arr) &lt; 2 {
+    return arr
+}
+pivot := arr[0]
+left, right := []int{}, []int{}
+for i:=1; i&lt;len(arr); i++ {
+    if arr[i] &lt; pivot {
+        left = append(left, arr[i])
+    } else {
+        right = append(right, arr[i])
+    }
+}
+left = quickSort(left)
+right = quickSort(right)
+return append(append(left, pivot), right...)
+}
+</code></pre></li>
+
+<li><p>查找两个字符串的最长公共子串</p>
+
+<pre><code>func longestCommonSubstr(str1, str2 string) string {
+len1, len2 := len(str1), len(str2)
+if len1 == 0 || len2 == 0 {
+    return &quot;&quot;
+}
+arr := make([][]int, len1)
+maxLen, maxEnd := 0, 0
+for i:=0; i&lt;len1; i++ {
+    arr[i] = make([]int, len2)
+    for j:=0; j&lt;len2; j++ {
+        if str1[i] == str2[j] {
+            if i==0 || j==0 {
+                arr[i][j] = 1
+            } else {
+                arr[i][j] = arr[i-1][j-1] + 1
+            }
+        }
+        if arr[i][j] &gt; maxLen {
+            maxLen = arr[i][j]
+            maxEnd = i + 1
+        }
+    }
+}
+return str1[maxEnd-maxLen:maxEnd]
+}
+</code></pre></li>
+
+<li><p>实现一个 LRU Cache</p>
+
+<pre><code>type LRUCache struct {
+capacity int
+m map[int]*list.Element
+l *list.List
+}
+type entry struct {
+key int
+value int
+}
+func Constructor(capacity int) LRUCache {
+return LRUCache{
+    capacity: capacity,
+    m: make(map[int]*list.Element),
+    l: list.New(),
+}
+}
+func (cache *LRUCache) Get(key int) int {
+if elem, ok := cache.m[key]; ok {
+    cache.l.MoveToFront(elem)
+    return elem.Value.(*entry).value
+}
+return -1
+}
+func (cache *LRUCache) Put(key int, value int) {
+if elem, ok := cache.m[key]; ok {
+    cache.l.MoveToFront(elem)
+    elem.Value.(*entry).value = value
+    return
+}
+if cache.l.Len() == cache.capacity {
+    tail := cache.l.Back()
+    delete(cache.m, tail.Value.(*entry).key)
+    cache.l.Remove(tail)
+}
+elem := cache.l.PushFront(&amp;entry{key: key, value: value})
+cache.m[key] = elem
+}
+</code></pre></li>
+</ol>
+ </body>
+</html>
