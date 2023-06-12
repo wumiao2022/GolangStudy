@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一些Golang的练习题代码：</p>
+
+<ol>
+<li>打印出九九乘法表</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    for i := 1; i &lt;= 9; i++ {
+        for j := 1; j &lt;= i; j++ {
+            fmt.Printf(&quot;%d*%d=%d\t&quot;, j, i, i*j)
+        }
+        fmt.Println()
+    }
+}
+</code></pre>
+
+<ol>
+<li>给定一个字符串，判断是否为回文串</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func isPalindrome(s string) bool {
+    for i := 0; i &lt; len(s)/2; i++ {
+        if s[i] != s[len(s)-1-i] {
+            return false
+        }
+    }
+    return true
+}
+
+func main() {
+    s1 := &quot;level&quot;
+    s2 := &quot;hello&quot;
+    fmt.Println(s1, &quot;is a palindrome:&quot;, isPalindrome(s1))
+    fmt.Println(s2, &quot;is a palindrome:&quot;, isPalindrome(s2))
+}
+</code></pre>
+
+<ol>
+<li>实现一个简单的计算器</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    var operator string
+    var num1, num2 float64
+
+    fmt.Print(&quot;Enter operator (+, -, *, /): &quot;)
+    fmt.Scanln(&amp;operator)
+
+    fmt.Print(&quot;Enter first number: &quot;)
+    fmt.Scanln(&amp;num1)
+
+    fmt.Print(&quot;Enter second number: &quot;)
+    fmt.Scanln(&amp;num2)
+
+    switch operator {
+    case &quot;+&quot;:
+        fmt.Printf(&quot;%v + %v = %v&quot;, num1, num2, num1+num2)
+    case &quot;-&quot;:
+        fmt.Printf(&quot;%v - %v = %v&quot;, num1, num2, num1-num2)
+    case &quot;*&quot;:
+        fmt.Printf(&quot;%v * %v = %v&quot;, num1, num2, num1*num2)
+    case &quot;/&quot;:
+        fmt.Printf(&quot;%v / %v = %v&quot;, num1, num2, num1/num2)
+    default:
+        fmt.Println(&quot;Invalid operator&quot;)
+    }
+}
+</code></pre>
+
+<p>希望这些代码能对您的学习有所帮助。建议您自己动手尝试编写这些代码，这样可以更好地理解每个练习的内容。</p>
+ </body>
+</html>
