@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li><p>反转字符串</p>
+
+<pre><code>func reverseString(s []byte) {
+for i:=0; i&lt;len(s)/2; i++ {
+    s[i], s[len(s)-1-i] = s[len(s)-1-i], s[i]
+}
+}
+</code></pre></li>
+
+<li><p>判断素数</p>
+
+<pre><code>func isPrime(n int) bool {
+if n &lt;= 1 {
+    return false
+}
+for i:=2; i*i&lt;=n; i++ {
+    if n%i == 0 {
+        return false
+    }
+}
+return true
+}
+</code></pre></li>
+
+<li><p>斐波那契数列</p>
+
+<pre><code>func fibonacci(n int) []int {
+if n &lt;= 0 {
+    return []int{0}
+} else if n == 1 {
+    return []int{0, 1}
+}
+f := fibonacci(n-1)
+return append(f, f[n-1]+f[n-2])
+}
+</code></pre></li>
+
+<li><p>冒泡排序</p>
+
+<pre><code>func bubbleSort(arr []int) {
+for i:=0; i&lt;len(arr)-1; i++ {
+    for j:=0; j&lt;len(arr)-1-i; j++ {
+        if arr[j] &gt; arr[j+1] {
+            arr[j], arr[j+1] = arr[j+1], arr[j]
+        }
+    }
+}
+}
+</code></pre></li>
+
+<li><p>判断回文字符串</p>
+
+<pre><code>func isPalindrome(s string) bool {
+for i:=0; i&lt;len(s)/2; i++ {
+    if s[i] != s[len(s)-1-i] {
+        return false
+    }
+}
+return true
+}
+</code></pre></li>
+</ol>
+ </body>
+</html>
