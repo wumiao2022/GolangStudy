@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li>打印Hello World</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;Hello World!&quot;)
+}
+</code></pre>
+
+<ol>
+<li>变量和类型</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	var name string = &quot;Alice&quot;
+	var age int = 20
+	var weight float32 = 50.5
+	var isMarried bool = false
+
+	fmt.Printf(&quot;name: %s\n&quot;, name)
+	fmt.Printf(&quot;age: %d\n&quot;, age)
+	fmt.Printf(&quot;weight: %.2f\n&quot;, weight)
+	fmt.Printf(&quot;isMarried: %t\n&quot;, isMarried)
+}
+</code></pre>
+
+<ol>
+<li>流程控制</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	// if else
+	age := 18
+	if age &gt;= 18 {
+		fmt.Println(&quot;adult&quot;)
+	} else {
+		fmt.Println(&quot;child&quot;)
+	}
+
+	// switch case
+	dayOfWeek := 3
+	switch dayOfWeek {
+	case 1:
+		fmt.Println(&quot;Monday&quot;)
+	case 2:
+		fmt.Println(&quot;Tuesday&quot;)
+	case 3:
+		fmt.Println(&quot;Wednesday&quot;)
+	default:
+		fmt.Println(&quot;Error&quot;)
+	}
+
+	// for loop
+	for i := 0; i &lt; 5; i++ {
+		fmt.Println(i)
+	}
+
+	// while loop
+	j := 0
+	for j &lt; 5 {
+		fmt.Println(j)
+		j++
+	}
+
+	// range loop
+	nums := []int{1, 2, 3, 4, 5}
+	for index, value := range nums {
+		fmt.Printf(&quot;index: %d, value: %d\n&quot;, index, value)
+	}
+}
+</code></pre>
+
+<ol>
+<li>数组和切片</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	// array
+	var a [5]int
+	a[0] = 1
+	a[1] = 2
+	a[2] = 3
+	a[3] = 4
+	a[4] = 5
+	fmt.Println(a)
+
+	// slice
+	b := []int{1, 2, 3, 4, 5}
+	fmt.Println(b)
+	fmt.Println(b[1:3])
+	fmt.Println(b[:3])
+	fmt.Println(b[3:])
+	fmt.Println(len(b))
+	fmt.Println(cap(b))
+
+	c := make([]int, 3, 5)
+	fmt.Println(c)
+	fmt.Println(len(c))
+	fmt.Println(cap(c))
+}
+</code></pre>
+
+<ol>
+<li>函数</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	result := add(3, 5)
+	fmt.Println(result)
+
+	result1, result2 := swap(2, 4)
+	fmt.Println(result1, result2)
+}
+
+func add(a int, b int) int {
+	return a + b
+}
+
+func swap(a int, b int) (int, int) {
+	return b, a
+}
+</code></pre>
+
+<ol>
+<li>指针</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	a := 1
+	b := &amp;a
+
+	fmt.Println(a, b) // 1 0xc0000140e0
+	fmt.Println(*b)   // 1
+
+	*b = 2
+	fmt.Println(a) // 2
+}
+</code></pre>
+
+<ol>
+<li>结构体</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+type Person struct {
+	Name string
+	Age  int
+}
+
+func main() {
+	p := Person{
+		Name: &quot;Alice&quot;,
+		Age:  20,
+	}
+	fmt.Println(p)
+
+	fmt.Println(p.Name)
+	fmt.Println(p.Age)
+
+	p.Age = 30
+	fmt.Println(p)
+}
+</code></pre>
+
+<ol>
+<li>方法</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+type Person struct {
+	Name string
+	Age  int
+}
+
+func (p Person) SayHello() {
+	fmt.Printf(&quot;Hello, my name is %s, I'm %d years old.\n&quot;, p.Name, p.Age)
+}
+
+func main() {
+	p := Person{
+		Name: &quot;Alice&quot;,
+		Age:  20,
+	}
+	p.SayHello()
+}
+</code></pre>
+
+<ol>
+<li>接口</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+type Shape interface {
+	Area() float64
+}
+
+type Circle struct {
+	radius float64
+}
+
+func (c Circle) Area() float64 {
+	return 3.14 * c.radius * c.radius
+}
+
+type Rectangle struct {
+	width  float64
+	height float64
+}
+
+func (r Rectangle) Area() float64 {
+	return r.width * r.height
+}
+
+func main() {
+	shapes := []Shape{
+		Circle{2},
+		Rectangle{3, 4},
+	}
+	for _, shape := range shapes {
+		fmt.Println(shape.Area())
+	}
+}
+</code></pre>
+
+<ol>
+<li>并发</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;time&quot;
+)
+
+func main() {
+	go printHello()
+	time.Sleep(time.Second)
+
+	names := []string{&quot;Alice&quot;, &quot;Bob&quot;, &quot;Charlie&quot;}
+	for _, name := range names {
+		go printName(name)
+	}
+	time.Sleep(time.Second)
+
+	ch := make(chan string)
+	go sendHello(ch)
+	result := &lt;-ch
+	fmt.Println(result)
+}
+
+func printHello() {
+	fmt.Println(&quot;Hello&quot;)
+}
+
+func printName(name string) {
+	fmt.Printf(&quot;Hello, my name is %s\n&quot;, name)
+}
+
+func sendHello(ch chan string) {
+	ch &lt;- &quot;Hello&quot;
+}
+</code></pre>
+ </body>
+</html>
