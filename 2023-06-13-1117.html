@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li><p>实现一个简单的HTTP服务器：</p>
+
+<pre><code>package main
+import (
+&quot;fmt&quot;
+&quot;net/http&quot;
+)
+func main() {
+http.HandleFunc(&quot;/&quot;, func(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprint(w, &quot;Hello, world!&quot;)
+})
+http.ListenAndServe(&quot;:8080&quot;, nil)
+}
+</code></pre></li>
+
+<li><p>实现一个简单的命令行计算器：</p>
+
+<pre><code>package main
+import (
+&quot;fmt&quot;
+&quot;os&quot;
+&quot;strconv&quot;
+)
+func main() {
+args := os.Args[1:]
+if len(args) &lt; 3 {
+	fmt.Println(&quot;Usage: calc &lt;num1&gt; &lt;op&gt; &lt;num2&gt;&quot;)
+	return
+}
+num1, err := strconv.ParseFloat(args[0], 64)
+if err != nil {
+	fmt.Printf(&quot;Invalid number: %s\n&quot;, args[0])
+	return
+}
+num2, err := strconv.ParseFloat(args[2], 64)
+if err != nil {
+	fmt.Printf(&quot;Invalid number: %s\n&quot;, args[2])
+	return
+}
+var result float64
+switch args[1] {
+case &quot;+&quot;:
+	result = num1 + num2
+case &quot;-&quot;:
+	result = num1 - num2
+case &quot;*&quot;:
+	result = num1 * num2
+case &quot;/&quot;:
+	result = num1 / num2
+default:
+	fmt.Printf(&quot;Invalid operator: %s\n&quot;, args[1])
+	return
+}
+fmt.Println(result)
+}
+</code></pre></li>
+
+<li><p>实现一个简单的TCP服务器和客户端：</p>
+
+<pre><code>// 服务器
+package main
+import (
+&quot;fmt&quot;
+&quot;io&quot;
+&quot;net&quot;
+)
+func main() {
+listener, err := net.Listen(&quot;tcp&quot;, &quot;:8000&quot;)
+if err != nil {
+	fmt.Println(&quot;Error listening:&quot;, err.Error())
+	return
+}
+defer listener.Close()
+fmt.Println(&quot;Server started, listening on :8000&quot;)
+for {
+	conn, err := listener.Accept()
+	if err != nil {
+		fmt.Println(&quot;Error accepting:&quot;, err.Error())
+		return
+	}
+	go handleConnection(conn)
+}
+}
+func handleConnection(conn net.Conn) {
+defer conn.Close()
+fmt.Printf(&quot;Client %s connected!\n&quot;, conn.RemoteAddr().String())
+for {
+	data := make([]byte, 1024)
+	n, err := conn.Read(data)
+	if err != nil {
+		if err == io.EOF {
+			fmt.Printf(&quot;Client %s disconnected\n&quot;, conn.RemoteAddr().String())
+		} else {
+			fmt.Println(&quot;Error reading:&quot;, err.Error())
+		}
+		return
+	}
+	fmt.Printf(&quot;Received data from client %s: %s\n&quot;, conn.RemoteAddr().String(), string(data[:n]))
+	_, err = conn.Write([]byte(&quot;Server response: &quot; + string(data[:n])))
+	if err != nil {
+		fmt.Println(&quot;Error writing:&quot;, err.Error())
+		return
+	}
+}
+}
+</code></pre>
+<pre><code>// 客户端
+package main
+import (
+&quot;fmt&quot;
+&quot;net&quot;
+&quot;os&quot;
+)
+func main() {
+args := os.Args[1:]
+if len(args) &lt; 1 {
+	fmt.Println(&quot;Usage: client &lt;address&gt;&quot;)
+	return
+}
+conn, err := net.Dial(&quot;tcp&quot;, args[0])
+if err != nil {
+	fmt.Println(&quot;Error connecting:&quot;, err.Error())
+	return
+}
+defer conn.Close()
+fmt.Printf(&quot;Connected to server %s\n&quot;, conn.RemoteAddr().String())
+for {
+	data := make([]byte, 1024)
+	fmt.Print(&quot;Enter message: &quot;)
+	n, err := os.Stdin.Read(data)
+	if err != nil {
+		fmt.Println(&quot;Error reading input:&quot;, err.Error())
+		continue
+	}
+	_, err = conn.Write(data[:n])
+	if err != nil {
+		fmt.Println(&quot;Error sending message:&quot;, err.Error())
+		continue
+	}
+	n, err = conn.Read(data)
+	if err != nil {
+		fmt.Println(&quot;Error receiving response:&quot;, err.Error())
+		continue
+	}
+	fmt.Printf(&quot;Received response from server %s: %s\n&quot;, conn.RemoteAddr().String(), string(data[:n]))
+}
+}
+</code></pre></li>
+</ol>
+ </body>
+</html>
