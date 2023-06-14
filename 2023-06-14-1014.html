@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>下面是一个Golang练习题示例代码：</p>
+
+<pre><code>package main
+
+import &quot;fmt&quot;
+
+func main() {
+    // 将一个整数数组中的每个元素乘以2并输出
+    nums := []int{1, 2, 3, 4, 5}
+    for i := 0; i &lt; len(nums); i++ {
+        fmt.Println(nums[i] * 2)
+    }
+
+    // 将一个字符串数组中所有元素拼接起来并输出
+    strs := []string{&quot;hello&quot;, &quot;world&quot;, &quot;!&quot;}
+    var combinedStr string
+    for i := 0; i &lt; len(strs); i++ {
+        combinedStr += strs[i]
+    }
+    fmt.Println(combinedStr)
+
+    // 创建一个包含键值对的map并输出所有键和对应的值
+    m := map[string]int{
+        &quot;apple&quot;:  1,
+        &quot;banana&quot;: 2,
+        &quot;pear&quot;:   3,
+    }
+    for k, v := range m {
+        fmt.Printf(&quot;%v: %v\n&quot;, k, v)
+    }
+}
+</code></pre>
+
+<p>以上代码可以用来练习数组、字符串、map等常见数据类型的使用。</p>
+ </body>
+</html>
