@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li>反转字符串</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	s := &quot;hello world&quot;
+	r := []rune(s)
+	for i, j := 0, len(r)-1; i &lt; len(r)/2; i, j = i+1, j-1 {
+		r[i], r[j] = r[j], r[i]
+	}
+	fmt.Println(string(r))
+}
+</code></pre>
+
+<ol>
+<li>计算斐波那契数列</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(fibonacci(10))
+}
+
+func fibonacci(n int) []int {
+	res := make([]int, n)
+	if n &lt;= 0 {
+		return res
+	}
+	res[0] = 0
+	if n == 1 {
+		return res
+	}
+	res[1] = 1
+	for i := 2; i &lt; n; i++ {
+		res[i] = res[i-1] + res[i-2]
+	}
+	return res
+}
+</code></pre>
+
+<ol>
+<li>判断一个数是否为素数</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(isPrime(7))
+}
+
+func isPrime(n int) bool {
+	if n &lt;= 1 {
+		return false
+	}
+	for i := 2; i*i &lt;= n; i++ {
+		if n%i == 0 {
+			return false
+		}
+	}
+	return true
+}
+</code></pre>
+
+<ol>
+<li>计算两个整数的最大公约数和最小公倍数</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	a, b := 12, 18
+	fmt.Println(&quot;最大公约数是：&quot;, gcd(a, b))
+	fmt.Println(&quot;最小公倍数是：&quot;, lcm(a, b))
+}
+
+func gcd(a, b int) int {
+	if b == 0 {
+		return a
+	}
+	return gcd(b, a%b)
+}
+
+func lcm(a, b int) int {
+	return a * b / gcd(a, b)
+}
+</code></pre>
+
+<ol>
+<li>判断一个字符串是否回文</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(isPalindrome(&quot;level&quot;))
+}
+
+func isPalindrome(s string) bool {
+	r := []rune(s)
+	for i, j := 0, len(r)-1; i &lt; len(r)/2; i, j = i+1, j-1 {
+		if r[i] != r[j] {
+			return false
+		}
+	}
+	return true
+}
+</code></pre>
+ </body>
+</html>
