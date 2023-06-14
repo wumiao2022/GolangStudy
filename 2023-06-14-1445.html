@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li>判断一个字符串是否是回文字符串</li>
+</ol>
+
+<pre><code class="language-go">func isPalindrome(s string) bool {
+    for i := 0; i &lt; len(s)/2; i++ {
+        if s[i] != s[len(s)-1-i] {
+            return false
+        }
+    }
+    return true
+}
+</code></pre>
+
+<ol>
+<li>找出一个整数数组中不重复的元素</li>
+</ol>
+
+<pre><code class="language-go">func findUnique(nums []int) []int {
+    uniqueMap := make(map[int]bool)
+    unique := []int{}
+    for _, num := range nums {
+        if _, ok := uniqueMap[num]; !ok {
+            uniqueMap[num] = true
+            unique = append(unique, num)
+        }
+    }
+    return unique
+}
+</code></pre>
+
+<ol>
+<li>计算两个整数的最大公约数</li>
+</ol>
+
+<pre><code class="language-go">func gcd(a, b int) int {
+    if b == 0 {
+        return a
+    }
+    return gcd(b, a%b)
+}
+</code></pre>
+
+<ol>
+<li>将一个整数数组按照升序排序</li>
+</ol>
+
+<pre><code class="language-go">func sortAscending(nums []int) []int {
+    sort.Ints(nums)
+    return nums
+}
+</code></pre>
+
+<ol>
+<li>判断一个整数是否是素数</li>
+</ol>
+
+<pre><code class="language-go">func isPrime(n int) bool {
+    if n &lt;= 1 {
+        return false
+    }
+    for i := 2; i*i &lt;= n; i++ {
+        if n%i == 0 {
+            return false
+        }
+    }
+    return true
+}
+</code></pre>
+ </body>
+</html>
