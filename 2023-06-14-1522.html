@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>Package main</p>
+
+<p>import (
+	&ldquo;fmt&rdquo;
+)</p>
+
+<p>func main() {
+	// 练习1：打印1到100之间的奇数
+	for i := 1; i &lt;= 100; i++ {
+		if i%2 == 1 {
+			fmt.Println(i)
+		}
+	}</p>
+
+<pre><code>// 练习2：判断一个数是否为素数
+var num int // 待判断的数
+fmt.Scan(&amp;num)
+isPrime := true
+for i := 2; i &lt; num; i++ {
+	if num%i == 0 {
+		isPrime = false
+		break
+	}
+}
+if isPrime {
+	fmt.Println(num, &quot;是素数&quot;)
+} else {
+	fmt.Println(num, &quot;不是素数&quot;)
+}
+
+// 练习3：统计一个字符串中字母、数字、空格和其他字符出现的次数
+str := &quot;Hello 123 !&quot;
+var letter, digit, space, other int
+for _, v := range str {
+	switch {
+	case v &gt;= 'a' &amp;&amp; v &lt;= 'z' || v &gt;= 'A' &amp;&amp; v &lt;= 'Z':
+		letter++
+	case v &gt;= '0' &amp;&amp; v &lt;= '9':
+		digit++
+	case v == ' ':
+		space++
+	default:
+		other++
+	}
+}
+fmt.Printf(&quot;字母：%d，数字：%d，空格：%d，其他：%d\n&quot;, letter, digit, space, other)
+</code></pre>
+
+<p>}</p>
+ </body>
+</html>
