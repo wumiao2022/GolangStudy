@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li>生成随机数</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;math/rand&quot;
+	&quot;time&quot;
+)
+
+func main() {
+	rand.Seed(time.Now().UnixNano())
+
+	fmt.Println(rand.Intn(100))
+}
+</code></pre>
+
+<ol>
+<li>判断一个字符串是否为回文字符串</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+)
+
+func isPalindrome(str string) bool {
+	for i := 0; i &lt; len(str)/2; i++ {
+		if str[i] != str[len(str)-1-i] {
+			return false
+		}
+	}
+	return true
+}
+
+func main() {
+	fmt.Println(isPalindrome(&quot;racecar&quot;))
+	fmt.Println(isPalindrome(&quot;hello&quot;))
+}
+</code></pre>
+
+<ol>
+<li>使用冒泡排序算法对数组进行排序</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func bubbleSort(arr []int) {
+	for i := 0; i &lt; len(arr)-1; i++ {
+		for j := 0; j &lt; len(arr)-1-i; j++ {
+			if arr[j] &gt; arr[j+1] {
+				arr[j], arr[j+1] = arr[j+1], arr[j]
+			}
+		}
+	}
+}
+
+func main() {
+	arr := []int{5, 4, 3, 2, 1}
+	fmt.Println(&quot;Original:&quot;, arr)
+
+	bubbleSort(arr)
+	fmt.Println(&quot;Sorted:&quot;, arr)
+}
+</code></pre>
+
+<ol>
+<li>计算一个数的阶乘</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func factorial(n int) int {
+	if n == 0 {
+		return 1
+	}
+	return n * factorial(n-1)
+}
+
+func main() {
+	fmt.Println(factorial(5))
+}
+</code></pre>
+
+<ol>
+<li>判断一个数是否为素数</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func isPrime(n int) bool {
+	if n &lt; 2 {
+		return false
+	}
+	for i := 2; i &lt; n; i++ {
+		if n%i == 0 {
+			return false
+		}
+	}
+	return true
+}
+
+func main() {
+	fmt.Println(isPrime(5))
+	fmt.Println(isPrime(10))
+}
+</code></pre>
+ </body>
+</html>
