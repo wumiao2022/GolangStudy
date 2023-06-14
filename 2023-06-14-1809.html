@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一个实现互斥锁的基本示例：</p>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;sync&quot;
+)
+
+var (
+	counter = 0
+	mutex   sync.Mutex
+)
+
+func main() {
+	var wg sync.WaitGroup
+
+	for i := 0; i &lt; 1000; i++ {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+
+			mutex.Lock()
+			counter++
+			fmt.Println(counter)
+			mutex.Unlock()
+		}()
+	}
+
+	wg.Wait()
+}
+</code></pre>
+
+<p>该示例创建了一个计数器，并使用互斥锁确保在并发访问期间不会发生竞争条件。为此，我们定义了一个名为mutex的sync.Mutex变量，然后在计数器被更新时对其进行锁定和解锁。</p>
+
+<p>我们还使用sync.WaitGroup来等待所有协程完成之后才结束程序。在for循环中，我们启动1000个协程，在每个协程中，我们将计数器加1，并使用fmt.Println()输出计数器的当前值。由于互斥锁的存在，每个协程都只会在其他协程完成之后才能访问计数器。最后，我们调用wg.Wait()等待所有协程完成。</p>
+ </body>
+</html>
