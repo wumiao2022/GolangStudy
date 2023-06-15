@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一个Golang练习实例，功能为输入一定范围内的数字，并计算它们的和：</p>
+
+<pre><code>package main
+
+import &quot;fmt&quot;
+
+func main() {
+    var n int
+    sum := 0
+    
+    fmt.Println(&quot;请输入数字的范围:&quot;)
+    fmt.Scanln(&amp;n)
+    
+    for i := 1; i &lt;= n; i++ {
+        sum += i
+    }
+    
+    fmt.Printf(&quot;数字从1到%d的总和为%d&quot;, n, sum)
+}
+</code></pre>
+ </body>
+</html>
