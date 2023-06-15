@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li><p>翻转字符串</p>
+
+<pre><code>func reverseString(s string) string {
+runes := []rune(s)
+for i, j := 0, len(runes)-1; i &lt; j; i, j = i+1, j-1 {
+    runes[i], runes[j] = runes[j], runes[i]
+}
+return string(runes)
+}
+</code></pre></li>
+
+<li><p>求斐波那契数列第n项</p>
+
+<pre><code>func fibonacci(n int) int {
+if n == 0 {
+    return 0
+} else if n == 1 {
+    return 1
+} else {
+    return fibonacci(n-1) + fibonacci(n-2)
+}
+}
+</code></pre></li>
+
+<li><p>统计一个字符串中各字符出现的次数</p>
+
+<pre><code>func countCharacter(s string) map[rune]int {
+charCount := make(map[rune]int)
+for _, char := range s {
+    charCount[char]++
+}
+return charCount
+}
+</code></pre></li>
+
+<li><p>查找一个字符串中的最长回文子串</p>
+
+<pre><code>func longestPalindrome(s string) string {
+if len(s) &lt;= 1 {
+    return s
+}
+start, end := 0, 0
+for i := 0; i &lt; len(s); i++ {
+    len1 := expandAroundCenter(s, i, i)
+    len2 := expandAroundCenter(s, i, i+1)
+    length := int(math.Max(float64(len1), float64(len2)))
+    if length &gt; end-start {
+        start = i - (length-1)/2
+        end = i + length/2
+    }
+}
+return s[start : end+1]
+}
+func expandAroundCenter(s string, left, right int) int {
+for left &gt;= 0 &amp;&amp; right &lt; len(s) &amp;&amp; s[left] == s[right] {
+    left--
+    right++
+}
+return right - left - 1
+}
+</code></pre></li>
+
+<li><p>实现一个二叉树的遍历</p>
+
+<pre><code>type TreeNode struct {
+Val   int
+Left  *TreeNode
+Right *TreeNode
+}
+func preOrderTraversal(root *TreeNode) []int {
+if root == nil {
+    return []int{}
+}
+res := []int{root.Val}
+res = append(res, preOrderTraversal(root.Left)...)
+res = append(res, preOrderTraversal(root.Right)...)
+return res
+}
+func inOrderTraversal(root *TreeNode) []int {
+if root == nil {
+    return []int{}
+}
+res := []int{}
+res = append(res, inOrderTraversal(root.Left)...)
+res = append(res, root.Val)
+res = append(res, inOrderTraversal(root.Right)...)
+return res
+}
+func postOrderTraversal(root *TreeNode) []int {
+if root == nil {
+    return []int{}
+}
+res := []int{}
+res = append(res, postOrderTraversal(root.Left)...)
+res = append(res, postOrderTraversal(root.Right)...)
+res = append(res, root.Val)
+return res
+}
+</code></pre></li>
+</ol>
+ </body>
+</html>
