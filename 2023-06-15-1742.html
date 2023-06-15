@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>下面是一些练习实例代码：</p>
+
+<ol>
+<li>Hello World</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    fmt.Println(&quot;Hello World!&quot;)
+}
+</code></pre>
+
+<ol>
+<li>变量和常量</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    // 使用var关键字定义变量
+    var a int
+    a = 1
+    fmt.Println(a)
+
+    // 使用:=定义变量
+    b := &quot;hello&quot;
+    fmt.Println(b)
+
+    // 定义常量
+    const c = 3.14
+    fmt.Println(c)
+}
+</code></pre>
+
+<ol>
+<li>条件语句</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    age := 18
+
+    // if语句
+    if age &gt;= 18 {
+        fmt.Println(&quot;You are an adult.&quot;)
+    } else {
+        fmt.Println(&quot;You are a teenager.&quot;)
+    }
+
+    // switch语句
+    switch age {
+    case 0:
+        fmt.Println(&quot;You are a baby.&quot;)
+    case 10:
+        fmt.Println(&quot;You are a child.&quot;)
+    case 18:
+        fmt.Println(&quot;You are an adult.&quot;)
+    default:
+        fmt.Println(&quot;You are of an unknown age.&quot;)
+    }
+}
+</code></pre>
+
+<ol>
+<li>循环语句</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    // for循环
+    for i:=0; i&lt;5; i++ {
+        fmt.Println(i)
+    }
+
+    // while循环
+    num := 0
+    for num &lt; 10 {
+        fmt.Println(num)
+        num++
+    }
+
+    // 无限循环
+    for {
+        fmt.Println(&quot;This is an infinite loop.&quot;)
+    }
+}
+</code></pre>
+
+<ol>
+<li>数组和切片</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    // 数组
+    var arr [5]int
+    arr[0] = 1
+    arr[1] = 2
+    arr[2] = 3
+    arr[3] = 4
+    arr[4] = 5
+    fmt.Println(arr)
+
+    // 切片
+    slice := []int{1, 2, 3, 4, 5}
+    fmt.Println(slice)
+}
+</code></pre>
+
+<ol>
+<li>函数</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    // 函数调用
+    result := add(2, 3)
+    fmt.Println(&quot;The result is:&quot;, result)
+
+    // 函数作为变量
+    calculator := func(a, b int) int {
+        return a * b
+    }
+    fmt.Println(calculator(3, 4))
+}
+
+// 定义函数
+func add(x, y int) int {
+    return x + y
+}
+</code></pre>
+
+<ol>
+<li>结构体</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+type Person struct {
+    name string
+    age int
+}
+
+func main() {
+    // 结构体定义
+    var person1 Person
+    person1.name = &quot;Alice&quot;
+    person1.age = 18
+    fmt.Println(person1)
+
+    // 结构体字面量
+    person2 := Person{name: &quot;Bob&quot;, age: 20}
+    fmt.Println(person2)
+
+    // 结构体指针
+    person3 := &amp;Person{name: &quot;Charlie&quot;, age: 22}
+    fmt.Println(*person3)
+}
+</code></pre>
+ </body>
+</html>
