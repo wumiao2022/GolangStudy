@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>好的，这里给你一个示例代码：</p>
+
+<pre><code>package main
+
+import &quot;fmt&quot;
+
+func main() {
+    // 练习1：输出Hello, World!
+    fmt.Println(&quot;Hello, World!&quot;)
+
+    // 练习2：输出1到10的整数
+    for i := 1; i &lt;= 10; i++ {
+        fmt.Println(i)
+    }
+
+    // 练习3：输出2的幂次方，幂次方从0到10
+    for i := 0; i &lt;= 10; i++ {
+        fmt.Println(1 &lt;&lt; uint(i))
+    }
+
+    // 练习4：计算并输出5的阶乘
+    n := 5
+    result := 1
+    for i := 1; i &lt;= n; i++ {
+        result *= i
+    }
+    fmt.Println(result)
+
+    // 练习5：将一个整数数组反转并输出
+    arr := []int{1, 2, 3, 4, 5}
+    for i, j := 0, len(arr)-1; i &lt; j; i, j = i+1, j-1 {
+        arr[i], arr[j] = arr[j], arr[i]
+    }
+    fmt.Println(arr)
+}
+</code></pre>
+
+<p>希望这些练习能够帮助你提高Golang编程能力。</p>
+ </body>
+</html>
