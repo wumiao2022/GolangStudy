@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li><p>打印出 Hello World</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+func main() {
+fmt.Println(&quot;Hello World&quot;)
+}
+</code></pre></li>
+
+<li><p>计算两个数的和并输出结果</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+func main() {
+a := 2
+b := 3
+c := a + b
+fmt.Println(c)
+}
+</code></pre></li>
+
+<li><p>判断一个数是否是偶数并输出结果</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+func main() {
+num := 6
+if num%2 == 0 {
+	fmt.Println(num, &quot;是偶数&quot;)
+} else {
+	fmt.Println(num, &quot;不是偶数&quot;)
+}
+}
+</code></pre></li>
+
+<li><p>使用循环打印数字 1 到 10</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+func main() {
+for i := 1; i &lt;= 10; i++ {
+	fmt.Println(i)
+}
+}
+</code></pre></li>
+
+<li><p>使用切片操作，将一个数组中的元素倒序</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+func main() {
+arr := []int{1, 2, 3, 4, 5}
+for i := 0; i &lt; len(arr)/2; i++ {
+	j := len(arr) - 1 - i
+	arr[i], arr[j] = arr[j], arr[i]
+}
+fmt.Println(arr)
+}
+</code></pre></li>
+</ol>
+ </body>
+</html>
