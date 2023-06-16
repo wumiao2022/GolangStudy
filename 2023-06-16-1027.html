@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li><p>反转字符串</p>
+
+<pre><code>func reverseString(s string) string {
+r := []rune(s)
+for i, j := 0, len(r)-1; i &lt; j; i, j = i+1, j-1 {
+    r[i], r[j] = r[j], r[i]
+}
+return string(r)
+}
+</code></pre></li>
+
+<li><p>判断回文串</p>
+
+<pre><code>func isPalindrome(s string) bool {
+s = strings.ToLower(s)
+s = regexp.MustCompile(&quot;[^0-9a-z]+&quot;).ReplaceAllString(s, &quot;&quot;)
+return s == reverseString(s)
+}
+</code></pre></li>
+
+<li><p>求数组中的最大值和最小值</p>
+
+<pre><code>func findMaxMin(arr []int) (int, int) {
+max, min := arr[0], arr[0]
+for _, num := range arr {
+    if num &gt; max {
+        max = num
+    }
+    if num &lt; min {
+        min = num
+    }
+}
+return max, min
+}
+</code></pre></li>
+
+<li><p>实现栈</p>
+
+<pre><code>type Stack struct {
+items []int
+}
+func (s *Stack) Push(item int) {
+s.items = append(s.items, item)
+}
+func (s *Stack) Pop() int {
+if len(s.items) == 0 {
+    panic(&quot;Stack is empty!&quot;)
+}
+item := s.items[len(s.items)-1]
+s.items = s.items[:len(s.items)-1]
+return item
+}
+func (s *Stack) Peek() int {
+if len(s.items) == 0 {
+    panic(&quot;Stack is empty!&quot;)
+}
+return s.items[len(s.items)-1]
+}
+func (s *Stack) Size() int {
+return len(s.items)
+}
+``` 
+5. 实现队列
+</code></pre></li>
+</ol>
+
+<p>type Queue struct {
+    items []int
+}</p>
+
+<p>func (q *Queue) Enqueue(item int) {
+    q.items = append(q.items, item)
+}</p>
+
+<p>func (q *Queue) Dequeue() int {
+    if len(q.items) == 0 {
+        panic(&ldquo;Queue is empty!&rdquo;)
+    }
+    item := q.items[0]
+    q.items = q.items[1:]
+    return item
+}</p>
+
+<p>func (q *Queue) Peek() int {
+    if len(q.items) == 0 {
+        panic(&ldquo;Queue is empty!&rdquo;)
+    }
+    return q.items[0]
+}</p>
+
+<p>func (q *Queue) Size() int {
+    return len(q.items)
+}
+&ldquo;`</p>
+ </body>
+</html>
