@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>很高兴听到你想要练习Golang，以下是几个练习实例代码：</p>
+
+<ol>
+<li>找出一个切片中的最大值和最小值</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+)
+
+func main() {
+    nums := []int{1, 2, 3, 4, 5}
+
+    maxNum := nums[0]
+    minNum := nums[0]
+
+    for _, num := range nums {
+        if num &gt; maxNum {
+            maxNum = num
+        }
+
+        if num &lt; minNum {
+            minNum = num
+        }
+    }
+
+    fmt.Println(&quot;Max:&quot;, maxNum)
+    fmt.Println(&quot;Min:&quot;, minNum)
+}
+
+</code></pre>
+
+<ol>
+<li>判断一个字符串是否为回文（正序和倒序一样）</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+)
+
+func isPalindrome(str string) bool {
+    for i := 0; i &lt; len(str)/2; i++ {
+        if str[i] != str[len(str)-1-i] {
+            return false
+        }
+    }
+    return true
+}
+
+func main() {
+    str := &quot;racecar&quot;
+    if isPalindrome(str) {
+        fmt.Println(str, &quot;is a palindrome&quot;)
+    } else {
+        fmt.Println(str, &quot;is not a palindrome&quot;)
+    }
+}
+</code></pre>
+
+<ol>
+<li>实现一个分布式互斥锁，确保同一份代码只能在一个节点上运行</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+    &quot;sync&quot;
+    &quot;time&quot;
+)
+
+type Mutex struct {
+    tokens chan struct{}
+}
+
+func NewMutex(total int) *Mutex {
+    return &amp;Mutex{make(chan struct{}, total)}
+}
+
+func (m *Mutex) Lock() {
+    m.tokens &lt;- struct{}{}
+}
+
+func (m *Mutex) Unlock() {
+    &lt;-m.tokens
+}
+
+func main() {
+    mutex := NewMutex(1)
+    var wg sync.WaitGroup
+
+    for i := 0; i &lt; 10; i++ {
+        wg.Add(1)
+
+        go func(id int) {
+            defer wg.Done()
+
+            mutex.Lock()
+            defer mutex.Unlock()
+
+            fmt.Println(&quot;Goroutine&quot;, id, &quot;is running&quot;)
+            time.Sleep(time.Second)
+        }(i)
+    }
+
+    wg.Wait()
+}
+</code></pre>
+
+<p>希望这些示例代码对你有所帮助，每天多练习，不断提高自己的编程技能！</p>
+ </body>
+</html>
