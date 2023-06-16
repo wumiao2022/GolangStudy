@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>func main() {
+	// 1. 输出&rdquo;Hello, world!&rdquo;
+	fmt.Println(&ldquo;Hello, world!&rdquo;)</p>
+
+<pre><code>// 2. 计算12+23并输出结果
+fmt.Println(12 + 23)
+
+// 3. 使用循环计算1到10的和并输出结果
+sum := 0
+for i := 1; i &lt;= 10; i++ {
+	sum += i
+}
+fmt.Println(sum)
+
+// 4. 定义一个数组[1,2,3,4,5]，使用循环输出数组中的每个元素
+arr := [5]int{1, 2, 3, 4, 5}
+for _, v := range arr {
+	fmt.Println(v)
+}
+
+// 5. 定义一个map，其中键为字符串类型，值为整数类型，至少包含三个键值对，使用循环输出每个键值对
+m := map[string]int{
+	&quot;a&quot;: 1,
+	&quot;b&quot;: 2,
+	&quot;c&quot;: 3,
+}
+for k, v := range m {
+	fmt.Println(k, v)
+}
+</code></pre>
+
+<p>}</p>
+ </body>
+</html>
