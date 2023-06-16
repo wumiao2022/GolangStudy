@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下为一道Golang练习题的代码：</p>
+
+<pre><code>package main
+
+import &quot;fmt&quot;
+
+func main() {
+	// 给定一个整数数组 nums 和一个目标值 target，在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。
+	nums := []int{2, 7, 11, 15}
+	target := 9
+
+	indexMap := make(map[int]int, len(nums))
+	for i, num := range nums {
+		if j, ok := indexMap[target-num]; ok {
+			fmt.Println([]int{j, i})
+			return
+		}
+		indexMap[num] = i
+	}
+}
+</code></pre>
+
+<p>该代码实现了在一个整数数组中找出和为目标值的两个整数，并返回他们的数组下标。通过使用map存储数组中的元素及其下标，可以减少时间复杂度，提高代码效率。</p>
+ </body>
+</html>
