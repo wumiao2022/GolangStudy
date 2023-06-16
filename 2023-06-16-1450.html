@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一个Golang实现的基本的Hello World程序:</p>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;Hello, World!&quot;)
+}
+</code></pre>
+
+<p>以下是一个Golang实现的简单的加法计算器程序:</p>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	var num1, num2 int
+	fmt.Print(&quot;Enter first number: &quot;)
+	fmt.Scan(&amp;num1)
+	fmt.Print(&quot;Enter second number: &quot;)
+	fmt.Scan(&amp;num2)
+	sum := num1 + num2
+	fmt.Println(&quot;Sum is:&quot;, sum)
+}
+</code></pre>
+
+<p>以下是一个Golang实现的简单的文件读写程序:</p>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;io/ioutil&quot;
+)
+
+func main() {
+	content := []byte(&quot;Hello, World!&quot;)
+	err := ioutil.WriteFile(&quot;file.txt&quot;, content, 0644)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	data, err := ioutil.ReadFile(&quot;file.txt&quot;)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	fmt.Println(string(data))
+}
+</code></pre>
+ </body>
+</html>
