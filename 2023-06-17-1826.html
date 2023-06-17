@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li>反转字符串</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	str := &quot;hello world&quot;
+	bytes := []byte(str)
+	for i, j := 0, len(bytes)-1; i &lt; j; i, j = i+1, j-1 {
+		bytes[i], bytes[j] = bytes[j], bytes[i]
+	}
+	fmt.Println(string(bytes))
+}
+</code></pre>
+
+<ol>
+<li>斐波那契数列</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	n := 10
+	a, b := 0, 1
+	for i := 0; i &lt; n; i++ {
+		fmt.Println(a)
+		a, b = b, a+b
+	}
+}
+</code></pre>
+
+<ol>
+<li>冒泡排序</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	arr := []int{3, 1, 4, 1, 5, 9, 2, 6, 5, 3}
+	for i := 0; i &lt; len(arr)-1; i++ {
+		for j := 0; j &lt; len(arr)-1-i; j++ {
+			if arr[j] &gt; arr[j+1] {
+				arr[j], arr[j+1] = arr[j+1], arr[j]
+			}
+		}
+	}
+	fmt.Println(arr)
+}
+</code></pre>
+
+<ol>
+<li>判断素数</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;math&quot;
+)
+
+func main() {
+	n := 47
+	if isPrime(n) {
+		fmt.Printf(&quot;%d is prime\n&quot;, n)
+	} else {
+		fmt.Printf(&quot;%d is not prime\n&quot;, n)
+	}
+}
+
+func isPrime(n int) bool {
+	if n == 1 {
+		return false
+	}
+	end := int(math.Sqrt(float64(n)))
+	for i := 2; i &lt;= end; i++ {
+		if n%i == 0 {
+			return false
+		}
+	}
+	return true
+}
+</code></pre>
+
+<ol>
+<li>求最大公约数</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	a, b := 72, 48
+	fmt.Printf(&quot;gcd of %d and %d: %d\n&quot;, a, b, gcd(a, b))
+}
+
+func gcd(a, b int) int {
+	if b == 0 {
+		return a
+	} else {
+		return gcd(b, a%b)
+	}
+}
+</code></pre>
+ </body>
+</html>
