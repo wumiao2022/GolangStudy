@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>// 练习1：打印“Hello, World!”
+package main</p>
+
+<p>import &ldquo;fmt&rdquo;</p>
+
+<p>func main() {
+    fmt.Println(&ldquo;Hello, World!&rdquo;)
+}</p>
+
+<p>// 练习2：计算两个整数的和并打印结果
+package main</p>
+
+<p>import &ldquo;fmt&rdquo;</p>
+
+<p>func main() {
+    x := 10
+    y := 20
+    sum := x + y
+    fmt.Println(&ldquo;The sum of&rdquo;, x, &ldquo;and&rdquo;, y, &ldquo;is&rdquo;, sum)
+}</p>
+
+<p>// 练习3：判断一个整数是否为奇数并打印结果
+package main</p>
+
+<p>import &ldquo;fmt&rdquo;</p>
+
+<p>func main() {
+    x := 5
+    if x%2 == 0 {
+        fmt.Println(x, &ldquo;is even&rdquo;)
+    } else {
+        fmt.Println(x, &ldquo;is odd&rdquo;)
+    }
+}</p>
+
+<p>// 练习4：打印九九乘法表
+package main</p>
+
+<p>import &ldquo;fmt&rdquo;</p>
+
+<p>func main() {
+    for i := 1; i &lt;= 9; i++ {
+        for j := 1; j &lt;= i; j++ {
+            fmt.Printf(&ldquo;%d*%d=%d\t&rdquo;, j, i, i*j)
+        }
+        fmt.Println()
+    }
+}</p>
+
+<p>// 练习5：判断一个字符串是否为回文字符串并打印结果
+package main</p>
+
+<p>import &ldquo;fmt&rdquo;</p>
+
+<p>func main() {
+    str := &ldquo;racecar&rdquo;
+    isPalindrome := true
+    for i := 0; i &lt; len(str)/2; i++ {
+        if str[i] != str[len(str)-i-1] {
+            isPalindrome = false
+            break
+        }
+    }
+    if isPalindrome {
+        fmt.Println(str, &ldquo;is a palindrome&rdquo;)
+    } else {
+        fmt.Println(str, &ldquo;is not a palindrome&rdquo;)
+    }
+}</p>
+ </body>
+</html>
