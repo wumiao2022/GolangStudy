@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一个简单的Fibonacci数列生成器：</p>
+
+<pre><code class="language-go">func fibonacci(n int) []int {
+    result := make([]int, n)
+    if n == 0 {
+        return result
+    }
+
+    result[0] = 1
+    if n == 1 {
+        return result
+    }
+
+    result[1] = 1
+    for i := 2; i &lt; n; i++ {
+        result[i] = result[i-1] + result[i-2]
+    }
+
+    return result
+}
+</code></pre>
+
+<p>使用方式如下：</p>
+
+<pre><code class="language-go">func main() {
+    fmt.Println(fibonacci(5)) // [1 1 2 3 5]
+    fmt.Println(fibonacci(10)) // [1 1 2 3 5 8 13 21 34 55]
+}
+</code></pre>
+
+<p>这个函数接受一个整数n作为输入，然后返回一个包含前n个Fibonacci数的切片。</p>
+ </body>
+</html>
