@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一个简单的例子：</p>
+
+<pre><code>package main
+
+import &quot;fmt&quot;
+
+func main() {
+    nums := []int{2, 3, 4}
+    sum := 0
+    for _, num := range nums {
+        sum += num
+    }
+    fmt.Println(&quot;Sum:&quot;, sum)
+
+    for i, num := range nums {
+        if num == 3 {
+            fmt.Println(&quot;Index of 3:&quot;, i)
+        }
+    }
+
+    m := make(map[string]int)
+    m[&quot;a&quot;] = 1
+    m[&quot;b&quot;] = 2
+    fmt.Println(&quot;Map:&quot;, m)
+}
+</code></pre>
+ </body>
+</html>
