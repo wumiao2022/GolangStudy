@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li>写一个求和函数，接收任意长度的int类型参数，返回它们的和。</li>
+</ol>
+
+<pre><code class="language-go">func sum(nums ...int) int {
+    ans := 0
+    for _, num := range nums {
+        ans += num
+    }
+    return ans
+}
+</code></pre>
+
+<ol>
+<li>写一个打印99乘法表的函数。</li>
+</ol>
+
+<pre><code class="language-go">func multiplicationTable() {
+    for i := 1; i &lt;= 9; i++ {
+        for j := 1; j &lt;= i; j++ {
+            fmt.Printf(&quot;%d*%d=%d &quot;, j, i, j*i)
+        }
+        fmt.Println()
+    }
+}
+</code></pre>
+
+<ol>
+<li>写一个函数接收一个字符串作为参数，返回一个新字符串，其中每个字符都是原字符串中它的后面一个字符。</li>
+</ol>
+
+<pre><code class="language-go">func shiftString(str string) string {
+    ans := &quot;&quot;
+    for _, char := range str {
+        ans += string(char+1)
+    }
+    return ans
+}
+</code></pre>
+
+<ol>
+<li>写一个递归的斐波那契数列函数，接收一个整数作为参数，返回斐波那契数列的第n项。</li>
+</ol>
+
+<pre><code class="language-go">func fibonacci(n int) int {
+    if n &lt;= 1 {
+        return n
+    }
+    return fibonacci(n-1) + fibonacci(n-2)
+}
+</code></pre>
+
+<ol>
+<li>写一个函数，接收任意一个int类型参数，返回它的阶乘。</li>
+</ol>
+
+<pre><code class="language-go">func factorial(n int) int {
+    ans := 1
+    for i := 1; i &lt;= n; i++ {
+        ans *= i
+    }
+    return ans
+}
+</code></pre>
+ </body>
+</html>
