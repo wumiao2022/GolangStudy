@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li><p>数组反转：</p>
+
+<pre><code>func reverseArray(arr []int) {
+for i, j := 0, len(arr)-1; i &lt; j; i, j = i+1, j-1 {
+    arr[i], arr[j] = arr[j], arr[i]
+}
+}
+</code></pre></li>
+
+<li><p>打印99乘法表：</p>
+
+<pre><code>func printMultiplicationTable() {
+for i := 1; i &lt;= 9; i++ {
+    for j := 1; j &lt;= i; j++ {
+        fmt.Printf(&quot;%d*%d=%d &quot;, j, i, i*j)
+    }
+    fmt.Println()
+}
+}
+</code></pre></li>
+
+<li><p>判断一个字符串是否是回文：</p>
+
+<pre><code>func isPalindrome(s string) bool {
+for i, j := 0, len(s)-1; i &lt; j; i, j = i+1, j-1 {
+    if s[i] != s[j] {
+        return false
+    }
+}
+return true
+}
+</code></pre></li>
+
+<li><p>实现一个简单的排序算法（插入排序）：</p>
+
+<pre><code>func insertionSort(arr []int) {
+for i := 1; i &lt; len(arr); i++ {
+    for j := i; j &gt; 0 &amp;&amp; arr[j] &lt; arr[j-1]; j-- {
+        arr[j], arr[j-1] = arr[j-1], arr[j]
+    }
+}
+}
+</code></pre></li>
+
+<li><p>实现一个简单的栈结构：</p>
+
+<pre><code>type Stack struct {
+items []int
+}
+func (s *Stack) Push(item int) {
+s.items = append(s.items, item)
+}
+func (s *Stack) Pop() int {
+if s.IsEmpty() {
+    return -1
+}
+item := s.items[len(s.items)-1]
+s.items = s.items[:len(s.items)-1]
+return item
+}
+func (s *Stack) Peek() int {
+if s.IsEmpty() {
+    return -1
+}
+return s.items[len(s.items)-1]
+}
+func (s *Stack) IsEmpty() bool {
+return len(s.items) == 0
+}
+</code></pre></li>
+</ol>
+ </body>
+</html>
