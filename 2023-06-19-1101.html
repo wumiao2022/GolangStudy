@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一道Golang的练习题：</p>
+
+<p>实现一个函数，输入一个字符串，将字符串中的字符按照字母表顺序排列后输出。</p>
+
+<pre><code class="language-go">func SortString(input string) string {
+    chars := []rune(input)
+    sort.Slice(chars, func(i, j int) bool {
+        return chars[i] &lt; chars[j]
+    })
+    return string(chars)
+}
+</code></pre>
+ </body>
+</html>
