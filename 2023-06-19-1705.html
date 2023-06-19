@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <h2>练习1：计算文件的MD5值</h2>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;crypto/md5&quot;
+    &quot;fmt&quot;
+    &quot;io/ioutil&quot;
+    &quot;os&quot;
+)
+
+func main() {
+    fileName := &quot;filename.txt&quot;
+
+    file, err := os.Open(fileName)
+    if err != nil {
+        fmt.Println(&quot;Failed to open file:&quot;, err)
+        return
+    }
+    defer file.Close()
+
+    content, err := ioutil.ReadAll(file)
+    if err != nil {
+        fmt.Println(&quot;Failed to read file:&quot;, err)
+        return
+    }
+
+    md5Value := md5.Sum(content)
+    fmt.Printf(&quot;MD5 of %s: %x\n&quot;, fileName, md5Value)
+}
+</code></pre>
+
+<h2>练习2：实现一个简单的HTTP服务器</h2>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+    &quot;net/http&quot;
+)
+
+func main() {
+    http.HandleFunc(&quot;/&quot;, func(writer http.ResponseWriter, request *http.Request) {
+        fmt.Fprintf(writer, &quot;Hello, World!&quot;)
+    })
+
+    if err := http.ListenAndServe(&quot;:8080&quot;, nil); err != nil {
+        fmt.Println(&quot;Failed to start server:&quot;, err)
+        return
+    }
+}
+</code></pre>
+
+<h2>练习3：实现一个简单的TCP服务器</h2>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+    &quot;net&quot;
+)
+
+func main() {
+    listener, err := net.Listen(&quot;tcp&quot;, &quot;127.0.0.1:8000&quot;)
+    if err != nil {
+        fmt.Println(&quot;Failed to start listener:&quot;, err)
+        return
+    }
+
+    for {
+        conn, err := listener.Accept()
+        if err != nil {
+            fmt.Println(&quot;Failed to accept connection:&quot;, err)
+            continue
+        }
+
+        go handleConnection(conn)
+    }
+}
+
+func handleConnection(conn net.Conn) {
+    defer conn.Close()
+
+    buffer := make([]byte, 1024)
+    for {
+        n, err := conn.Read(buffer)
+        if err != nil {
+            fmt.Println(&quot;Failed to read data:&quot;, err)
+            break
+        }
+        if n == 0 {
+            break
+        }
+
+        data := buffer[:n]
+        fmt.Printf(&quot;Received data: %s\n&quot;, string(data))
+
+        _, err = conn.Write([]byte(&quot;Hello, client!&quot;))
+        if err != nil {
+            fmt.Println(&quot;Failed to send data:&quot;, err)
+            break
+        }
+    }
+}
+</code></pre>
+ </body>
+</html>
