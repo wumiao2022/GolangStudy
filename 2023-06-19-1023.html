@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li>编写一个程序，将一个整数切片按从小到大的顺序排序。</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;sort&quot;
+)
+
+func main() {
+	nums := []int{5, 2, 9, 3, 7, 6}
+	sort.Ints(nums)
+	fmt.Println(nums)
+}
+</code></pre>
+
+<ol>
+<li>编写一个程序，比较两个字符串是否相等，不区分大小写。</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;strings&quot;
+)
+
+func main() {
+	str1 := &quot;Hello, world!&quot;
+	str2 := &quot;hELLo, WoRLD!&quot;
+	if strings.EqualFold(str1, str2) {
+		fmt.Println(&quot;Equal&quot;)
+	} else {
+		fmt.Println(&quot;Not equal&quot;)
+	}
+}
+</code></pre>
+
+<ol>
+<li>编写一个程序，找到一个整数切片中的最大值和最小值。</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	nums := []int{5, 2, 9, 3, 7, 6}
+	min := nums[0]
+	max := nums[0]
+	for _, num := range nums {
+		if num &lt; min {
+			min = num
+		} else if num &gt; max {
+			max = num
+		}
+	}
+	fmt.Printf(&quot;Min: %d, Max: %d\n&quot;, min, max)
+}
+</code></pre>
+
+<ol>
+<li>编写一个程序，将一个整数切片的元素顺序颠倒。</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	nums := []int{5, 2, 9, 3, 7, 6}
+	for i := 0; i &lt; len(nums)/2; i++ {
+		j := len(nums) - i - 1
+		nums[i], nums[j] = nums[j], nums[i]
+	}
+	fmt.Println(nums)
+}
+</code></pre>
+
+<ol>
+<li>编写一个程序，计算一个整数切片中所有元素的和。</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	nums := []int{5, 2, 9, 3, 7, 6}
+	sum := 0
+	for _, num := range nums {
+		sum += num
+	}
+	fmt.Printf(&quot;Sum: %d\n&quot;, sum)
+}
+</code></pre>
+ </body>
+</html>
