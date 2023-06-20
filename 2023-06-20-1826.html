@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一道 Golang 练习题：</p>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+// 实现函数AdditivePersistence，计算一个数字的加数持久性，直到结果为个位数为止。
+// 加数持久性：将给定的数字相加直到只剩下一个数字
+func AdditivePersistence(num int) int {
+	count := 0 // 用于计数
+	for num &gt;= 10 {
+		count++
+		sum := 0
+		for num &gt; 0 {
+			sum += num % 10 // 取出个位数进行累加
+			num /= 10      // 更新数字
+		}
+		num = sum
+	}
+	return count
+}
+
+func main() {
+	fmt.Println(AdditivePersistence(2718)) // 输出 2
+}
+</code></pre>
+
+<p>该程序实现了一个名为 <code>AdditivePersistence</code> 的函数，计算一个数字的加数持久性，直到结果为个位数为止。加数持久性是指将给定的数字相加直到只剩下一个数字，即持续加上各个位上的数字，例如：</p>
+
+<ul>
+<li>2718 → 2+7+1+8=18</li>
+<li>18   → 1+8=9
+因此 2718 的加数持久性为 2。</li>
+</ul>
+ </body>
+</html>
