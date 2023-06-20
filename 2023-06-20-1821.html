@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一个练习题示例，利用Golang编写：</p>
+
+<ol>
+<li><p>创建一个名为“person”的结构体，具有两个字段：name和age。</p>
+
+<pre><code>type person struct {
+name string
+age int
+}
+</code></pre></li>
+
+<li><p>创建一个代表人的切片，用于存储多个人。</p>
+
+<pre><code>people := []person{}
+</code></pre></li>
+
+<li><p>循环迭代以下人员姓名，创建一个新的person结构体，并将其添加到people切片中：{&ldquo;Alice&rdquo;, 25}, {&ldquo;Bob&rdquo;, 30}, {&ldquo;Charlie&rdquo;, 35}。</p>
+
+<pre><code>for _, name := range []string{&quot;Alice&quot;, &quot;Bob&quot;, &quot;Charlie&quot;} {
+p := person{name: name, age: 0}
+switch name {
+case &quot;Alice&quot;:
+    p.age = 25
+case &quot;Bob&quot;:
+    p.age = 30
+case &quot;Charlie&quot;:
+    p.age = 35
+}
+people = append(people, p)
+}
+</code></pre></li>
+
+<li><p>在控制台上打印每个人的名称和年龄。</p>
+
+<pre><code>for _, p := range people {
+fmt.Printf(&quot;Name: %s, Age: %d\n&quot;, p.name, p.age)
+}
+</code></pre></li>
+</ol>
+
+<p>完整代码如下：</p>
+
+<pre><code>package main
+
+import &quot;fmt&quot;
+
+type person struct {
+    name string
+    age int
+}
+
+func main() {
+    people := []person{}
+    for _, name := range []string{&quot;Alice&quot;, &quot;Bob&quot;, &quot;Charlie&quot;} {
+        p := person{name: name, age: 0}
+        switch name {
+        case &quot;Alice&quot;:
+            p.age = 25
+        case &quot;Bob&quot;:
+            p.age = 30
+        case &quot;Charlie&quot;:
+            p.age = 35
+        }
+        people = append(people, p)
+    }
+    for _, p := range people {
+        fmt.Printf(&quot;Name: %s, Age: %d\n&quot;, p.name, p.age)
+    }
+}
+</code></pre>
+ </body>
+</html>
