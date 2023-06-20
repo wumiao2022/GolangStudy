@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li>反转字符串</li>
+</ol>
+
+<pre><code class="language-go">func reverseString(s string) string {
+    runes := []rune(s)
+    for i, j := 0, len(runes)-1; i &lt; j; i, j = i+1, j-1 {
+        runes[i], runes[j] = runes[j], runes[i]
+    }
+    return string(runes)
+}
+</code></pre>
+
+<ol>
+<li>两数之和</li>
+</ol>
+
+<pre><code class="language-go">func twoSum(nums []int, target int) []int {
+    m := make(map[int]int)
+    for i, num := range nums {
+        if j, ok := m[target-num]; ok {
+            return []int{j, i}
+        }
+        m[num] = i
+    }
+    return nil
+}
+</code></pre>
+
+<ol>
+<li>最长公共前缀</li>
+</ol>
+
+<pre><code class="language-go">func longestCommonPrefix(strs []string) string {
+    if len(strs) == 0 {
+        return &quot;&quot;
+    }
+    prefix := strs[0]
+    for _, s := range strs {
+        for strings.Index(s, prefix) != 0 {
+            prefix = prefix[0: len(prefix)-1]
+            if len(prefix) == 0 {
+                return &quot;&quot;
+            }
+        }
+    }
+    return prefix
+}
+</code></pre>
+
+<ol>
+<li>整数反转</li>
+</ol>
+
+<pre><code class="language-go">func reverse(x int) int {
+    var result int
+    for x != 0 {
+        result = result*10 + x%10
+        if result &gt; math.MaxInt32 || result &lt; math.MinInt32 {
+            return 0
+        }
+        x /= 10
+    }
+    return result
+}
+</code></pre>
+
+<ol>
+<li>回文数</li>
+</ol>
+
+<pre><code class="language-go">func isPalindrome(x int) bool {
+    if x &lt; 0 {
+        return false
+    }
+    sum := 0
+    num := x
+    for x != 0 {
+        sum = sum*10 + x%10
+        x /= 10
+    }
+    return num == sum
+}
+</code></pre>
+ </body>
+</html>
