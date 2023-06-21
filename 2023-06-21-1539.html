@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一个简单的Golang程序，用于将一段文本反转：</p>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func reverseString(s string) string {
+    runes := []rune(s)
+    for i, j := 0, len(runes)-1; i &lt; len(runes)/2; i, j = i+1, j-1 {
+        runes[i], runes[j] = runes[j], runes[i]
+    }
+    return string(runes)
+}
+
+func main() {
+    s := &quot;Hello, world!&quot;
+    fmt.Println(reverseString(s))
+}
+</code></pre>
+
+<p>输出结果为：</p>
+
+<pre><code>!dlrow ,olleH
+</code></pre>
+ </body>
+</html>
