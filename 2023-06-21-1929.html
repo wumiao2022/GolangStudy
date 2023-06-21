@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一些练习题的示例代码，供你练习使用Golang：</p>
+
+<p>练习1：计算两个数的和</p>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    var a, b int
+    fmt.Print(&quot;请输入两个整数，用空格隔开：&quot;)
+    fmt.Scanln(&amp;a, &amp;b)
+    fmt.Printf(&quot;%d + %d = %d&quot;, a, b, a+b)
+}
+</code></pre>
+
+<p>练习2：输出指定次数的“Hello, Gophers!”</p>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    var times int
+    fmt.Print(&quot;请输入输出次数：&quot;)
+    fmt.Scanln(&amp;times)
+    for i := 0; i &lt; times; i++ {
+        fmt.Println(&quot;Hello, Gophers!&quot;)
+    }
+}
+</code></pre>
+
+<p>练习3：判断一个数是否是偶数</p>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func isEven(num int) bool {
+    return num%2 == 0
+}
+
+func main() {
+    var num int
+    fmt.Print(&quot;请输入一个整数：&quot;)
+    fmt.Scanln(&amp;num)
+    if isEven(num) {
+        fmt.Printf(&quot;%d是偶数\n&quot;, num)
+    } else {
+        fmt.Printf(&quot;%d不是偶数\n&quot;, num)
+    }
+}
+</code></pre>
+
+<p>练习4：给定一个数组，输出其中的偶数</p>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    nums := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+    for _, num := range nums {
+        if num%2 == 0 {
+            fmt.Println(num)
+        }
+    }
+}
+</code></pre>
+
+<p>练习5：输出100以内的质数</p>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func isPrime(num int) bool {
+    if num &lt;= 1 {
+        return false
+    }
+    for i := 2; i*i &lt;= num; i++ {
+        if num%i == 0 {
+            return false
+        }
+    }
+    return true
+}
+
+func main() {
+    for i := 2; i &lt;= 100; i++ {
+        if isPrime(i) {
+            fmt.Println(i)
+        }
+    }
+}
+</code></pre>
+ </body>
+</html>
