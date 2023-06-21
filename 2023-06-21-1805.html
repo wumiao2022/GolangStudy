@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li>打印当前时间</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+    &quot;time&quot;
+)
+
+func main() {
+    fmt.Println(time.Now())
+}
+</code></pre>
+
+<ol>
+<li>反转字符串</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+)
+
+func reverseString(s string) string {
+    runes := []rune(s)
+    for i, j := 0, len(runes)-1; i &lt; j; i, j = i+1, j-1 {
+        runes[i], runes[j] = runes[j], runes[i]
+    }
+    return string(runes)
+}
+
+func main() {
+    s := &quot;hello world&quot;
+    fmt.Println(reverseString(s))
+}
+</code></pre>
+
+<ol>
+<li>计算斐波那契数列第n项</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+)
+
+func fibonacci(n int) int {
+    if n == 0 {
+        return 0
+    } else if n == 1 {
+        return 1
+    } else {
+        return fibonacci(n-1) + fibonacci(n-2)
+    }
+}
+
+func main() {
+   fmt.Println(fibonacci(10)) 
+}
+</code></pre>
+
+<ol>
+<li>判断一个字符串是否是回文</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+)
+
+func isPalindrome(s string) bool {
+    runes := []rune(s)
+    for i, j := 0, len(runes)-1; i &lt; j; i, j = i+1, j-1 {
+        if runes[i] != runes[j] {
+            return false
+        }
+    }
+    return true
+}
+
+func main() {
+   s := &quot;racecar&quot;
+   fmt.Println(isPalindrome(s)) 
+}
+</code></pre>
+
+<ol>
+<li>使用二分法查找一个整数是否在一个有序数组中</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+)
+
+func binarySearch(arr []int, x int) bool {
+    l := 0
+    r := len(arr) - 1
+    for l &lt;= r {
+        mid := l + (r-l)/2
+        if arr[mid] == x {
+            return true
+        } else if arr[mid] &lt; x {
+            l = mid + 1
+        } else {
+            r = mid - 1
+        }
+    }
+    return false
+}
+
+func main() {
+   arr := []int{1, 2, 4, 7, 10, 19}
+   x := 7
+   fmt.Println(binarySearch(arr, x)) 
+}
+</code></pre>
+ </body>
+</html>
