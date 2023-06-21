@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li>将一个字符串反转</li>
+</ol>
+
+<pre><code class="language-go">func reverseString(str string) string {
+    reversed := &quot;&quot;
+    for _, s := range str {
+        reversed = string(s) + reversed
+    }
+    return reversed
+}
+</code></pre>
+
+<ol>
+<li>打印九九乘法表</li>
+</ol>
+
+<pre><code class="language-go">func printMultiplicationTable() {
+    for i := 1; i &lt;= 9; i++ {
+        for j := 1; j &lt;= i; j++ {
+            fmt.Printf(&quot;%d*%d=%d\t&quot;, j, i, i*j)
+        }
+        fmt.Println()
+    }
+}
+</code></pre>
+
+<ol>
+<li>求两个数的最大公约数</li>
+</ol>
+
+<pre><code class="language-go">func gcd(a, b int) int {
+    if b == 0 {
+        return a
+    }
+    return gcd(b, a%b)
+}
+</code></pre>
+
+<ol>
+<li>判断一个数是否为质数</li>
+</ol>
+
+<pre><code class="language-go">func isPrime(n int) bool {
+    if n &lt;= 1 {
+        return false
+    }
+    for i := 2; i &lt;= int(math.Sqrt(float64(n))); i++ {
+        if n%i == 0 {
+            return false
+        }
+    }
+    return true
+}
+</code></pre>
+
+<ol>
+<li>检查一个字符串是否为回文字符串</li>
+</ol>
+
+<pre><code class="language-go">func isPalindrome(str string) bool {
+    for i := 0; i &lt; len(str)/2; i++ {
+        if str[i] != str[len(str)-i-1] {
+            return false
+        }
+    }
+    return true
+}
+</code></pre>
+ </body>
+</html>
