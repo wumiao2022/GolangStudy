@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>func main() {
+    // 1. 打印 &ldquo;Hello, world!&rdquo;
+    fmt.Println(&ldquo;Hello, world!&rdquo;)</p>
+
+<pre><code>// 2. 定义一个整数变量并赋值为10，打印出来
+var num int = 10
+fmt.Println(num)
+
+// 3. 定义一个字符串变量并赋值为 &quot;Golang is awesome!&quot;，打印出来
+var str string = &quot;Golang is awesome!&quot;
+fmt.Println(str)
+
+// 4. 定义一个长度为5、元素类型为整数的切片，打印出来
+var slice []int = make([]int, 5)
+fmt.Println(slice)
+
+// 5. 定义一个结构体类型 Student，包含姓名和分数两个字段；创建一个 Student 类型的变量并赋值，打印出来
+type Student struct {
+    Name string
+    Score float32
+}
+var stu Student = Student{Name: &quot;Jack&quot;, Score: 88.5}
+fmt.Println(stu)
+</code></pre>
+
+<p>}</p>
+ </body>
+</html>
