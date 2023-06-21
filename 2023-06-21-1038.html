@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一道Golang的字符串操作练习题：</p>
+
+<pre><code>package main
+
+import (
+    &quot;fmt&quot;
+    &quot;strings&quot;
+)
+
+func ReverseString(s string) string {
+    var output strings.Builder
+
+    for i := len(s) - 1; i &gt;= 0; i-- {
+        fmt.Fprintf(&amp;output, &quot;%c&quot;, s[i])
+    }
+
+    return output.String()
+}
+
+func main() {
+    s := &quot;hello world&quot;
+    fmt.Printf(&quot;Original: %v\n&quot;, s)
+    fmt.Printf(&quot;Reversed: %v\n&quot;, ReverseString(s))
+}
+</code></pre>
+ </body>
+</html>
