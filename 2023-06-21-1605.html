@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一个使用Golang实现简单HTTP服务器的示例代码:</p>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;net/http&quot;
+)
+
+func main() {
+	http.HandleFunc(&quot;/&quot;, func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintf(w, &quot;Hello, World! This is a simple HTTP server written in Golang.&quot;)
+	})
+
+	http.ListenAndServe(&quot;:8080&quot;, nil)
+}
+</code></pre>
+
+<p>这个程序会启动一个监听本地8080端口的HTTP服务器，对于任何URL的请求都会响应一个简单的&rdquo;Hello, World!&ldquo;消息。</p>
+ </body>
+</html>
