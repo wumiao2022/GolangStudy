@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li><p>实现一个简单的HTTP服务器，监听端口并返回&rdquo;Hello, World!&ldquo;消息。</p>
+
+<pre><code>package main
+import (
+&quot;fmt&quot;
+&quot;net/http&quot;
+)
+func main() {
+http.HandleFunc(&quot;/&quot;, func(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, &quot;Hello, World!&quot;)
+})
+http.ListenAndServe(&quot;:8080&quot;, nil)
+}
+</code></pre></li>
+
+<li><p>实现一个生成斐波那契数列的函数，返回一个切片。</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+func Fibonacci(n int) []int {
+if n &lt; 2 {
+	return []int{0, 1}
+}
+fib := make([]int, n+1)
+fib[0] = 0
+fib[1] = 1
+for i := 2; i &lt;= n; i++ {
+	fib[i] = fib[i-1] + fib[i-2]
+}
+return fib[0:n]
+}
+func main() {
+fmt.Println(Fibonacci(10))
+}
+</code></pre></li>
+
+<li><p>实现一个计算阶乘的函数，返回计算结果。</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+func Factorial(n int) int {
+if n == 0 {
+	return 1
+}
+return n * Factorial(n-1)
+}
+func main() {
+fmt.Println(Factorial(5))
+}
+</code></pre></li>
+
+<li><p>实现一个读取文件并打印文件内容的函数。</p>
+
+<pre><code>package main
+import (
+&quot;fmt&quot;
+&quot;io/ioutil&quot;
+)
+func ReadFile(filename string) {
+content, err := ioutil.ReadFile(filename)
+if err != nil {
+	panic(err)
+}
+fmt.Print(string(content))
+}
+func main() {
+ReadFile(&quot;test.txt&quot;)
+}
+</code></pre></li>
+
+<li><p>实现一个判断是否是质数（素数）的函数。</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+func IsPrime(n int) bool {
+if n &lt; 2 {
+	return false
+}
+for i := 2; i &lt; n; i++ {
+	if n%i == 0 {
+		return false
+	}
+}
+return true
+}
+func main() {
+fmt.Println(IsPrime(7))
+fmt.Println(IsPrime(12))
+}
+</code></pre></li>
+</ol>
+ </body>
+</html>
