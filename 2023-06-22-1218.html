@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>下面是一个Golang多协程下载图片的实例代码：</p>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+    &quot;io&quot;
+    &quot;net/http&quot;
+    &quot;os&quot;
+    &quot;strconv&quot;
+)
+
+func main() {
+    url := &quot;https://picsum.photos/900/700/?random&quot;
+    fileSize := fileSize(url)
+    workerNum := 5
+    sizePerWorker := fileSize / workerNum
+
+    for i := 0; i &lt; workerNum; i++ {
+        start := i * sizePerWorker
+        end := (i + 1) * sizePerWorker
+        if i == workerNum-1 {
+            end = fileSize
+        }
+        go download(url, start, end, i)
+    }
+
+    fmt.Scanln()
+}
+
+func fileSize(url string) int {
+    res, err := http.Head(url)
+    if err != nil {
+        panic(err)
+    }
+    defer res.Body.Close()
+
+    size, err := strconv.Atoi(res.Header.Get(&quot;Content-Length&quot;))
+    if err != nil {
+        panic(err)
+    }
+
+    return size
+}
+
+func download(url string, start int, end int, worker int) {
+    req, err := http.NewRequest(&quot;GET&quot;, url, nil)
+    if err != nil {
+        panic(err)
+    }
+    req.Header.Add(&quot;Range&quot;, fmt.Sprintf(&quot;bytes=%d-%d&quot;, start, end-1))
+
+    res, err := http.DefaultClient.Do(req)
+    if err != nil {
+        panic(err)
+    }
+    defer res.Body.Close()
+
+    file, err := os.OpenFile(fmt.Sprintf(&quot;worker%d.jpg&quot;, worker), os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+    if err != nil {
+        panic(err)
+    }
+    defer file.Close()
+
+    _, err = io.Copy(file, res.Body)
+    if err != nil {
+        panic(err)
+    }
+}
+</code></pre>
+
+<p>这个程序实现了从一个URL下载一张图片，并采用多协程的方式分别下载该文件的不同部分，最后将所有部分数据合并成完整的文件。</p>
+ </body>
+</html>
