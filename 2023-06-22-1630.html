@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下为今日练习代码：</p>
+
+<pre><code>package main
+
+import &quot;fmt&quot;
+
+func main() {
+    var num int
+    fmt.Print(&quot;请输入一个整数：&quot;)
+    fmt.Scan(&amp;num)
+    fmt.Printf(&quot;你输入的数是：%d\n&quot;, num)
+
+    if num%2 == 0 {
+        fmt.Printf(&quot;%d 是偶数\n&quot;, num)
+    } else {
+        fmt.Printf(&quot;%d 是奇数\n&quot;, num)
+    }
+}
+</code></pre>
+ </body>
+</html>
