@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>func main() {
+    // 1. 声明一个整型变量 x，并赋值为 4
+    x := 4
+    fmt.Println(x)</p>
+
+<pre><code>// 2. 声明一个字符串变量 name，并赋值为 &quot;Golang&quot;
+name := &quot;Golang&quot;
+fmt.Println(name)
+
+// 3. 声明一个切片变量 numbers，并将其中的元素初始化为 1,2,3,4,5
+numbers := []int{1, 2, 3, 4, 5}
+fmt.Println(numbers)
+
+// 4. 声明一个函数 max，用于返回两个整型数中的最大值
+max := func(a, b int) int {
+    if a &gt; b {
+        return a
+    } else {
+        return b
+    }
+}
+fmt.Println(max(3, 5))
+
+// 5. 声明一个 struct 类型 Person，包含 name 和 age 两个字段
+type Person struct {
+    name string
+    age int
+}
+person := Person{&quot;Tom&quot;, 20}
+fmt.Println(person)
+</code></pre>
+
+<p>}</p>
+ </body>
+</html>
