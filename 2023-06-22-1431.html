@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一个给定整数切片并返回其中最大值和最小值的函数：</p>
+
+<pre><code class="language-go">func FindMinMax(s []int) (int, int) {
+    min, max := s[0], s[0]
+    for _, num := range s {
+        if num &lt; min {
+            min = num
+        }
+        if num &gt; max {
+            max = num
+        }
+    }
+    return min, max
+}
+</code></pre>
+
+<p>以下是一个使用 goroutine 并发下载多个网站内容的例子：</p>
+
+<pre><code class="language-go">func Download(url string) {
+    resp, err := http.Get(url)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    defer resp.Body.Close()
+    body, err := ioutil.ReadAll(resp.Body)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    fmt.Println(string(body))
+}
+
+func main() {
+    urls := []string{&quot;https://www.baidu.com&quot;, &quot;https://www.google.com&quot;, &quot;https://www.example.com&quot;}
+    for _, url := range urls {
+        go Download(url)
+    }
+
+    // 等待所有下载完成
+    time.Sleep(5 * time.Second)
+}
+</code></pre>
+
+<p>以下是一个使用channels 在协程之间通信的例子：</p>
+
+<pre><code class="language-go">func worker(jobs &lt;-chan string, results chan&lt;- string) {
+    for j := range jobs {
+        // 处理任务
+        results &lt;- fmt.Sprintf(&quot;%s processed&quot;, j)
+    }
+}
+
+func main() {
+    numJobs := 10
+    jobs := make(chan string, numJobs)
+    results := make(chan string, numJobs)
+
+    // 启动3个worker协程
+    numWorkers := 3
+    for i := 0; i &lt; numWorkers; i++ {
+        go worker(jobs, results)
+    }
+
+    // 向 jobs channel 发送任务
+    for i := 0; i &lt; numJobs; i++ {
+        jobs &lt;- fmt.Sprintf(&quot;task %d&quot;, i)
+    }
+    close(jobs)
+
+    // 从 results channel 接收处理完的结果
+    for i := 0; i &lt; numJobs; i++ {
+        fmt.Println(&lt;-results)
+    }
+}
+</code></pre>
+ </body>
+</html>
