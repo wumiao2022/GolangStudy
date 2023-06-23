@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>随机生成10个数字，分别表示每天的训练时间（单位小时），计算这10天中训练时间最长的一天是第几天。</p>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+    &quot;math/rand&quot;
+)
+
+func main() {
+    var maxHrs int
+    var maxDay int
+
+    // 随机生成10个数字
+    hrs := []int{}
+    for i := 0; i &lt; 10; i++ {
+        hrs = append(hrs, rand.Intn(12))
+    }
+
+    fmt.Println(&quot;每日训练时间：&quot;, hrs)
+
+    // 找出最长训练时间
+    for i, hr := range hrs {
+        if hr &gt; maxHrs {
+            maxHrs = hr
+            maxDay = i + 1
+        }
+    }
+
+    fmt.Printf(&quot;第 %d 天是训练时间最长的一天，总共训练了 %d 小时。\n&quot;, maxDay, maxHrs)
+}
+</code></pre>
+ </body>
+</html>
