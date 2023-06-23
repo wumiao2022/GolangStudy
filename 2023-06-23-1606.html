@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li>题目：计算并输出1-1000中的所有素数。</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+)
+
+func main() {
+    for i := 2; i &lt;= 1000; i++ {
+        flag := true
+        for j := 2; j*j &lt;= i; j++ {
+            if i%j == 0 {
+                flag = false
+                break
+            }
+        }
+        if flag {
+            fmt.Printf(&quot;%d &quot;, i)
+        }
+    }
+}
+</code></pre>
+
+<ol>
+<li>题目：对数组进行冒泡排序。</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+)
+
+func bubbleSort(arr []int) {
+    n := len(arr)
+    for i := 0; i &lt; n-1; i++ {
+        for j := 0; j &lt; n-1-i; j++ {
+            if arr[j] &gt; arr[j+1] {
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+            }
+        }
+    }
+}
+
+func main() {
+    arr := []int{5, 4, 3, 2, 1}
+    bubbleSort(arr)
+    fmt.Println(arr) // output: [1 2 3 4 5]
+}
+</code></pre>
+
+<ol>
+<li>题目：将字符串反转。</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+)
+
+func reverse(s string) string {
+    r := []rune(s)
+    for i, j := 0, len(r)-1; i &lt; j; i, j = i+1, j-1 {
+        r[i], r[j] = r[j], r[i]
+    }
+    return string(r)
+}
+
+func main() {
+    s := &quot;hello&quot;
+    fmt.Println(reverse(s)) // output: olleh
+}
+</code></pre>
+
+<ol>
+<li>题目：求出两个数的最大公约数。</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+)
+
+func gcd(a, b int) int {
+    if b == 0 {
+        return a
+    }
+    return gcd(b, a%b)
+}
+
+func main() {
+    a, b := 12, 16
+    fmt.Println(gcd(a, b)) // output: 4
+}
+</code></pre>
+
+<ol>
+<li>题目：判断一个字符串是否是回文串。</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+)
+
+func isPalindrome(s string) bool {
+    n := len(s)
+    for i := 0; i &lt; n/2; i++ {
+        if s[i] != s[n-i-1] {
+            return false
+        }
+    }
+    return true
+}
+
+func main() {
+    s1 := &quot;level&quot;
+    s2 := &quot;hello&quot;
+    fmt.Println(isPalindrome(s1)) // output: true
+    fmt.Println(isPalindrome(s2)) // output: false
+}
+</code></pre>
+ </body>
+</html>
