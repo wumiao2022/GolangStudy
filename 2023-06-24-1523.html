@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一个简单的Golang程序，用于从命令行读取用户输入，并将其打印出来：</p>
+
+<pre><code>package main
+
+import (
+	&quot;fmt&quot;
+	&quot;os&quot;
+)
+
+func main() {
+	var input string
+	fmt.Println(&quot;请输入您的姓名：&quot;)
+	fmt.Scanln(&amp;input)
+	fmt.Println(&quot;你好，&quot;, input)
+	os.Exit(0)
+}
+</code></pre>
+ </body>
+</html>
