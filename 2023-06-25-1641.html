@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>很好，以下是Golang的一些练习实例代码：</p>
+
+<ol>
+<li><p>打印Hello world</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+func main() {
+fmt.Println(&quot;Hello, world!&quot;)
+}
+</code></pre></li>
+
+<li><p>求和</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+func main() {
+nums := []int{1, 2, 3, 4, 5}
+sum := 0
+for _, num := range nums {
+    sum += num
+}
+fmt.Println(&quot;Sum:&quot;, sum)
+}
+</code></pre></li>
+
+<li><p>反转一个切片</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+func main() {
+s := []int{1, 2, 3, 4, 5}
+for i := len(s)/2 - 1; i &gt;= 0; i-- {
+    opp := len(s) - 1 - i
+    s[i], s[opp] = s[opp], s[i]
+}
+fmt.Println(&quot;Reversed slice:&quot;, s)
+}
+</code></pre></li>
+
+<li><p>Fibonacci 数列</p>
+
+<pre><code>package main
+import &quot;fmt&quot;
+func fibonacci(n int) int {
+if n &lt;= 1 {
+    return n
+}
+return fibonacci(n-1) + fibonacci(n-2)
+}
+func main() {
+for i := 0; i &lt; 10; i++ {
+    fmt.Print(fibonacci(i), &quot; &quot;)
+}
+}
+</code></pre></li>
+
+<li><p>判断一个数是否为素数</p>
+
+<pre><code>package main
+import (
+&quot;fmt&quot;
+&quot;math&quot;
+)
+func isPrime(n int) bool {
+if n &lt;= 1 {
+    return false
+}
+for i := 2; i &lt;= int(math.Sqrt(float64(n))); i++ {
+    if n%i == 0 {
+        return false
+    }
+}
+return true
+}
+func main() {
+for i := 0; i &lt;= 20; i++ {
+    if isPrime(i) {
+        fmt.Println(i, &quot;is prime&quot;)
+    }
+}
+}
+</code></pre></li>
+</ol>
+ </body>
+</html>
