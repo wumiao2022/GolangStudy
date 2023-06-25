@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>// 练习1：判断一个整数是否为质数
+func isPrime(n int) bool {
+    if n &lt;= 1 {
+        return false
+    }
+    for i := 2; i*i &lt;= n; i++ {
+        if n%i == 0 {
+            return false
+        }
+    }
+    return true
+}</p>
+
+<p>// 练习2：查找两个字符串的最长公共子串
+func longestCommonSubstring(s1, s2 string) string {
+    len1 := len(s1)
+    len2 := len(s2)
+    if len1 == 0 || len2 == 0 {
+        return &ldquo;&rdquo;
+    }
+    maxLen := 0
+    end := 0
+    dp := make([][]int, len1+1)
+    for i := 0; i &lt;= len1; i++ {
+        dp[i] = make([]int, len2+1)
+    }
+    for i := 1; i &lt;= len1; i++ {
+        for j := 1; j &lt;= len2; j++ {
+            if s1[i-1] == s2[j-1] {
+                dp[i][j] = dp[i-1][j-1] + 1
+                if dp[i][j] &gt; maxLen {
+                    maxLen = dp[i][j]
+                    end = i
+                }
+            }
+        }
+    }
+    return s1[end-maxLen : end]
+}</p>
+
+<p>// 练习3：生成斐波那契数列
+func fibonacci(n int) []int {
+    result := make([]int, n)
+    a, b := 0, 1
+    for i := 0; i &lt; n; i++ {
+        result[i] = b
+        a, b = b, a+b
+    }
+    return result
+}</p>
+
+<p>// 练习4：实现冒泡排序算法
+func bubbleSort(arr []int) {
+    n := len(arr)
+    for i := 0; i &lt; n; i++ {
+        for j := 0; j &lt; n-i-1; j++ {
+            if arr[j] &gt; arr[j+1] {
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+            }
+        }
+    }
+}</p>
+
+<p>// 练习5：实现选择排序算法
+func selectionSort(arr []int) {
+    n := len(arr)
+    for i := 0; i &lt; n-1; i++ {
+        minIndex := i
+        for j := i + 1; j &lt; n; j++ {
+            if arr[j] &lt; arr[minIndex] {
+                minIndex = j
+            }
+        }
+        arr[i], arr[minIndex] = arr[minIndex], arr[i]
+    }
+}</p>
+ </body>
+</html>
