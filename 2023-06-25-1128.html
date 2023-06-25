@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一些不同难度层次的Golang练习代码，供你日常练习之用。</p>
+
+<h3>简单难度</h3>
+
+<h4>打印Hello World</h4>
+
+<pre><code>package main
+
+import &quot;fmt&quot;
+
+func main() {
+    fmt.Println(&quot;Hello World&quot;)
+}
+</code></pre>
+
+<h4>求数组中的最大值和最小值</h4>
+
+<pre><code>package main
+
+import &quot;fmt&quot;
+
+func main() {
+    arr := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+    var max, min int
+    for i, v := range arr {
+        if i == 0 {
+            max = v
+            min = v
+        } else {
+            if v &gt; max {
+                max = v
+            }
+            if v &lt; min {
+                min = v
+            }
+        }
+    }
+    fmt.Printf(&quot;Max value: %v\n&quot;, max)
+    fmt.Printf(&quot;Min value: %v\n&quot;, min)
+}
+</code></pre>
+
+<h3>中等难度</h3>
+
+<h4>实现一个快速排序算法</h4>
+
+<pre><code>package main
+
+import &quot;fmt&quot;
+
+func main() {
+    arr := []int{4, 3, 2, 1, 5}
+    fmt.Println(&quot;Before sorting:&quot;, arr)
+    quickSort(arr, 0, len(arr)-1)
+    fmt.Println(&quot;After sorting:&quot;, arr)
+}
+
+func quickSort(arr []int, left, right int) {
+    if left &lt; right {
+        pivotIndex := partition(arr, left, right)
+        quickSort(arr, left, pivotIndex-1)
+        quickSort(arr, pivotIndex+1, right)
+    }
+}
+
+func partition(arr []int, left, right int) int {
+    pivot := arr[right]
+    i := left
+    for j := left; j &lt; right; j++ {
+        if arr[j] &lt; pivot {
+            arr[i], arr[j] = arr[j], arr[i]
+            i++
+        }
+    }
+    arr[i], arr[right] = arr[right], arr[i]
+    return i
+}
+</code></pre>
+
+<h4>实现一个HTTP服务器，返回&rdquo;Hello World&rdquo;到客户端</h4>
+
+<pre><code>package main
+
+import (
+    &quot;fmt&quot;
+    &quot;net/http&quot;
+)
+
+func main() {
+    http.HandleFunc(&quot;/&quot;, func(w http.ResponseWriter, r *http.Request) {
+        fmt.Fprintf(w, &quot;Hello World&quot;)
+    })
+
+    http.ListenAndServe(&quot;:8000&quot;, nil)
+}
+</code></pre>
+
+<h3>高级难度</h3>
+
+<h4>实现一个LRU缓存算法</h4>
+
+<pre><code>package main
+
+import (
+    &quot;fmt&quot;
+)
+
+type Node struct {
+    key, val int
+    prev, next *Node
+}
+
+type LRUCache struct {
+    capacity int
+    cache map[int]*Node
+    head, tail *Node
+}
+
+func Constructor(capacity int) *LRUCache {
+    head := &amp;Node{0, 0, nil, nil}
+    tail := &amp;Node{0, 0, nil, nil}
+    head.next = tail
+    tail.prev = head
+    return &amp;LRUCache{capacity, make(map[int]*Node), head, tail}
+}
+
+func (this *LRUCache) Get(key int) int {
+    if node, ok := this.cache[key]; ok {
+        this.moveToHead(node)
+        return node.val
+    }
+    return -1
+}
+
+func (this *LRUCache) Put(key int, value int) {
+    if node, ok := this.cache[key]; ok {
+        node.val = value
+        this.moveToHead(node)
+    } else {
+        node := &amp;Node{key, value, nil, nil}
+        this.cache[key] = node
+        this.addToHead(node)
+        if len(this.cache) &gt; this.capacity {
+            removed := this.removeFromTail()
+            delete(this.cache, removed.key)
+        }
+    }
+}
+
+func (this *LRUCache) addToHead(node *Node) {
+    node.prev = this.head
+    node.next = this.head.next
+    this.head.next.prev = node
+    this.head.next = node
+}
+
+func (this *LRUCache) removeFromTail() *Node {
+    node := this.tail.prev
+    this.removeNode(node)
+    return node
+}
+
+func (this *LRUCache) removeNode(node *Node) {
+    node.prev.next = node.next
+    node.next.prev = node.prev
+}
+
+func (this *LRUCache) moveToHead(node *Node) {
+    this.removeNode(node)
+    this.addToHead(node)
+}
+
+func main() {
+    obj := Constructor(2)
+    obj.Put(1, 1)
+    obj.Put(2, 2)
+    fmt.Println(obj.Get(1)) // 1
+    obj.Put(3, 3)
+    fmt.Println(obj.Get(2)) // -1
+    obj.Put(4, 4)
+    fmt.Println(obj.Get(1)) // -1
+    fmt.Println(obj.Get(3)) // 3
+    fmt.Println(obj.Get(4)) // 4
+}
+</code></pre>
+ </body>
+</html>
