@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li>获取当前时间，并打印输出。</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;time&quot;
+)
+
+func main() {
+	now := time.Now()
+	fmt.Println(now)
+}
+</code></pre>
+
+<ol>
+<li>实现一个函数，输入一个字符串，返回该字符串的长度和该字符串中所有数字字符的个数。</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+)
+
+func count(str string) (int, int) {
+	length := len(str)
+	count := 0
+	for _, char := range str {
+		if char &gt;= '0' &amp;&amp; char &lt;= '9' {
+			count++
+		}
+	}
+	return length, count
+}
+
+func main() {
+	str := &quot;abc123def456&quot;
+	length, digitCount := count(str)
+	fmt.Printf(&quot;字符串长度为%d，数字字符个数为%d\n&quot;, length, digitCount)
+}
+</code></pre>
+
+<ol>
+<li>实现一个函数，输入一个字符串，将其中每个单词的首字母大写，并返回修改后的字符串。</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;strings&quot;
+)
+
+func titleCase(str string) string {
+	words := strings.Split(str, &quot; &quot;)
+	for i, word := range words {
+		if len(word) &gt; 0 {
+			words[i] = strings.ToUpper(string(word[0])) + word[1:]
+		}
+	}
+	return strings.Join(words, &quot; &quot;)
+}
+
+func main() {
+	str := &quot;this is a Test sTrIng&quot;
+	title := titleCase(str)
+	fmt.Println(title)
+}
+</code></pre>
+
+<ol>
+<li>实现一个函数，输入一个整数数组和一个目标值，返回数组中和为目标值的两个数的下标。</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+)
+
+func twoSum(nums []int, target int) []int {
+	hashTable := make(map[int]int)
+	for i, num := range nums {
+		if j, ok := hashTable[target-num]; ok {
+			return []int{j, i}
+		}
+		hashTable[num] = i
+	}
+	return nil
+}
+
+func main() {
+	nums := []int{2, 7, 11, 15}
+	target := 9
+	result := twoSum(nums, target)
+	fmt.Println(result)
+}
+</code></pre>
+
+<ol>
+<li>实现一个函数，输入一个字符串数组，将其中所有字符串按照字典序升序排列后返回。</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;sort&quot;
+)
+
+func sortString(strs []string) []string {
+	sort.Strings(strs)
+	return strs
+}
+
+func main() {
+	strs := []string{&quot;cba&quot;, &quot;abc&quot;, &quot;bac&quot;, &quot;cab&quot;}
+	sortedStrs := sortString(strs)
+	fmt.Println(sortedStrs)
+}
+</code></pre>
+ </body>
+</html>
