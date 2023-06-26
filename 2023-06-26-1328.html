@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li>打印出1到10的所有偶数</li>
+</ol>
+
+<pre><code class="language-go">for i := 1; i &lt;= 10; i++ {
+        if i%2 == 0 {
+            fmt.Println(i)
+        }
+}
+</code></pre>
+
+<ol>
+<li>输入一个数字n，打印出从1到n的所有数字</li>
+</ol>
+
+<pre><code class="language-go">var n int
+fmt.Println(&quot;请输入数字n：&quot;)
+fmt.Scanln(&amp;n)
+
+for i := 1; i &lt;= n; i++ {
+    fmt.Println(i)
+}
+</code></pre>
+
+<ol>
+<li>把一个字符串反转并打印出来</li>
+</ol>
+
+<pre><code class="language-go">s := &quot;Hello World&quot;
+for i := len(s)-1; i &gt;=0; i-- {
+    fmt.Printf(&quot;%c&quot;, s[i])
+}
+fmt.Println()
+</code></pre>
+
+<ol>
+<li>给定一个数组，找出其中的最大元素</li>
+</ol>
+
+<pre><code class="language-go">arr := [5]int{3, 8, 1, 9, 5}
+max := arr[0]
+
+for _, v := range arr {
+    if v &gt; max {
+        max = v
+    }
+}
+
+fmt.Println(&quot;最大元素为：&quot;, max)
+</code></pre>
+
+<ol>
+<li>判断一个数是否是素数</li>
+</ol>
+
+<pre><code class="language-go">func isPrime(n int) bool {
+    if n &lt; 2 {
+        return false
+    }
+
+    for i := 2; i*i &lt;= n; i++ {
+        if n%i == 0 {
+            return false
+        }
+    }
+
+    return true
+}
+
+fmt.Println(isPrime(7)) // true
+fmt.Println(isPrime(10)) // false
+</code></pre>
+ </body>
+</html>
