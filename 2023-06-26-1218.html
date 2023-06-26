@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li>计算n的阶乘(循环实现)</li>
+</ol>
+
+<pre><code class="language-go">func factorial(n int) int {
+    result := 1
+    for i := 1; i &lt;= n; i++ {
+        result *= i
+    }
+    return result
+}
+</code></pre>
+
+<ol>
+<li>判断字符串是否为回文串(双指针实现)</li>
+</ol>
+
+<pre><code class="language-go">func isPalindrome(s string) bool {
+    i := 0
+    j := len(s) - 1
+    for i &lt; j {
+        if s[i] != s[j] {
+            return false
+        }
+        i++
+        j--
+    }
+    return true
+}
+</code></pre>
+
+<ol>
+<li>删除切片中指定元素</li>
+</ol>
+
+<pre><code class="language-go">func deleteElement(s []int, target int) []int {
+    result := []int{}
+    for _, val := range s {
+        if val != target {
+            result = append(result, val)
+        }
+    }
+    return result
+}
+</code></pre>
+
+<ol>
+<li>获取切片中的最大值和最小值</li>
+</ol>
+
+<pre><code class="language-go">func getMaxAndMin(s []int) (int, int) {
+    if len(s) == 0 {
+        return 0, 0
+    }
+    max := s[0]
+    min := s[0]
+    for _, val := range s {
+        if val &gt; max {
+            max = val
+        }
+        if val &lt; min {
+            min = val
+        }
+    }
+    return max, min
+}
+</code></pre>
+
+<ol>
+<li>查找切片中第k大的元素(快速选择算法)</li>
+</ol>
+
+<pre><code class="language-go">func quickSelect(s []int, k int) int {
+    if len(s) &lt; k {
+        return -1
+    }
+    pivot := s[0]
+    left := []int{}
+    right := []int{}
+    for _, val := range s[1:] {
+        if val &lt;= pivot {
+            left = append(left, val)
+        } else {
+            right = append(right, val)
+        }
+    }
+    if len(left) == k-1 {
+        return pivot
+    } else if len(left) &gt;= k {
+        return quickSelect(left, k)
+    } else {
+        return quickSelect(right, k-1-len(left))
+    }
+}
+</code></pre>
+ </body>
+</html>
