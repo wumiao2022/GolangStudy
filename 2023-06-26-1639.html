@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li>判断一个数是否为质数：</li>
+</ol>
+
+<pre><code class="language-go">func isPrime(num int) bool {
+    if num &lt;= 1 {
+        return false
+    }
+    for i := 2; i*i &lt;= num; i++ {
+        if num%i == 0 {
+            return false
+        }
+    }
+    return true
+}
+</code></pre>
+
+<ol>
+<li>交换两个变量的值：</li>
+</ol>
+
+<pre><code class="language-go">func swap(a, b *int) {
+    *a, *b = *b, *a
+}
+</code></pre>
+
+<ol>
+<li>反转字符串：</li>
+</ol>
+
+<pre><code class="language-go">func reverseString(s string) string {
+    runes := []rune(s)
+    for i, j := 0, len(runes)-1; i &lt; j; i, j = i+1, j-1 {
+        runes[i], runes[j] = runes[j], runes[i]
+    }
+    return string(runes)
+}
+</code></pre>
+
+<ol>
+<li>判断字符串是否为回文串：</li>
+</ol>
+
+<pre><code class="language-go">func isPalindrome(s string) bool {
+    runes := []rune(s)
+    for i, j := 0, len(runes)-1; i &lt; j; i, j = i+1, j-1 {
+        if runes[i] != runes[j] {
+            return false
+        }
+    }
+    return true
+}
+</code></pre>
+
+<ol>
+<li>查找一个字符串中出现次数最多的字符：</li>
+</ol>
+
+<pre><code class="language-go">func findMaxChar(s string) rune {
+    counts := make(map[rune]int)
+    for _, r := range s {
+        counts[r]++
+    }
+    var maxChar rune
+    maxCount := -1
+    for r, c := range counts {
+        if c &gt; maxCount {
+            maxChar = r
+            maxCount = c
+        }
+    }
+    return maxChar
+}
+</code></pre>
+ </body>
+</html>
