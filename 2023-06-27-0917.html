@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li><p>翻转字符串</p>
+
+<pre><code>func reverseString(s string) string {
+r := []rune(s)
+for i, j := 0, len(s)-1; i &lt; j; i, j = i+1, j-1 {
+    r[i], r[j] = r[j], r[i]
+}
+return string(r)
+}
+</code></pre></li>
+
+<li><p>判断字符串是否为回文</p>
+
+<pre><code>func isPalindrome(s string) bool {
+s = strings.ToLower(s)
+s = regexp.MustCompile(`[^a-zA-Z0-9]+`).ReplaceAllString(s, &quot;&quot;)
+for i, j := 0, len(s)-1; i &lt; j; i, j = i+1, j-1 {
+    if s[i] != s[j] {
+        return false
+    }
+}
+return true
+}
+</code></pre></li>
+
+<li><p>实现快速排序</p>
+
+<pre><code>func partition(arr []int, low, high int) int {
+p := arr[high]
+i := low - 1
+for j := low; j &lt; high; j++ {
+    if arr[j] &lt; p {
+        i++
+        arr[i], arr[j] = arr[j], arr[i]
+    }
+}
+i++
+arr[i], arr[high] = arr[high], arr[i]
+return i
+}
+func quickSort(arr []int, low, high int) []int {
+if low &lt; high {
+    p := partition(arr, low, high)
+    quickSort(arr, low, p-1)
+    quickSort(arr, p+1, high)
+}
+return arr
+}
+</code></pre></li>
+
+<li><p>链表求和</p>
+
+<pre><code>type ListNode struct {
+Val int
+Next *ListNode
+}
+func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
+dummy := &amp;ListNode{Val: 0}
+curr := dummy
+carry := 0
+for l1 != nil || l2 != nil {
+    val1 := 0
+    val2 := 0
+    if l1 != nil {
+        val1 = l1.Val
+        l1 = l1.Next
+    }
+    if l2 != nil {
+        val2 = l2.Val
+        l2 = l2.Next
+    }
+    sum := val1 + val2 + carry
+    carry = sum / 10
+    curr.Next = &amp;ListNode{Val: sum % 10}
+    curr = curr.Next
+}
+if carry != 0 {
+    curr.Next = &amp;ListNode{Val: carry}
+}
+return dummy.Next
+}
+</code></pre></li>
+
+<li><p>二叉树层序遍历</p>
+
+<pre><code>type TreeNode struct {
+Val int
+Left *TreeNode
+Right *TreeNode
+}
+func levelOrder(root *TreeNode) [][]int {
+if root == nil {
+    return [][]int{}
+}
+queue := []*TreeNode{root}
+result := [][]int{}
+for len(queue) &gt; 0 {
+    levelLen := len(queue)
+    level := make([]int, levelLen)
+    for i := 0; i &lt; levelLen; i++ {
+        node := queue[i]
+        level[i] = node.Val
+        if node.Left != nil {
+            queue = append(queue, node.Left)
+        }
+        if node.Right != nil {
+            queue = append(queue, node.Right)
+        }
+    }
+    queue = queue[levelLen:]
+    result = append(result, level)
+}
+return result
+}
+</code></pre></li>
+</ol>
+ </body>
+</html>
