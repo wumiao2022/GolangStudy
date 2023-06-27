@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>这是一个基于Golang的每日多练项目，主要目的是为了帮助Golang初学者提高编码技能，熟悉Golang语言的常用函数和数据类型。</p>
+
+<ol>
+<li><p>编写一个函数，计算两个整数的和。</p>
+
+<pre><code class="language-go">func Add(x, y int) int {
+return x + y
+}
+</code></pre>
+<ol>
+<li>编写一个函数，将一个字符串反转。
+<code>go
+func Reverse(str string) string {
+var result string
+for _, v := range str {
+result = string(v) + result
+}
+return result
+}
+</code></li>
+</ol></li>
+
+<li><p>编写一个函数，将一个数组按照从小到大的顺序排序。</p>
+
+<pre><code class="language-go">func BubbleSort(arr []int) {
+for i := 0; i &lt; len(arr)-1; i++ {
+    for j := 0; j &lt; len(arr)-i-1; j++ {
+        if arr[j] &gt; arr[j+1] {
+            arr[j], arr[j+1] = arr[j+1], arr[j]
+        }
+    }
+}
+}
+</code></pre>
+<ol>
+<li>编写一个函数，计算一个数的阶乘。
+<code>go
+func Factorial(n int) int {
+if n == 0 {
+return 1
+}
+return n * Factorial(n-1)
+}
+</code></li>
+</ol></li>
+
+<li><p>编写一个函数，计算两个数的最大公约数。</p>
+
+<pre><code class="language-go">func Gcd(x, y int) int {
+if y == 0 {
+    return x
+} else {
+    return Gcd(y, x % y)
+}
+}
+</code></pre>
+<ol>
+<li>编写一个函数，检查一个字符串是否为回文字符串。
+<code>go
+func IsPalindrome(str string) bool {
+for i := 0; i &lt; len(str)/2; i++ {
+if str[i] != str[len(str)-i-1] {
+    return false
+}
+}
+return true
+}
+</code></li>
+</ol></li>
+
+<li><p>编写一个函数，将一个整数转换为罗马数字。</p>
+
+<pre><code class="language-go">func IntToRoman(num int) string {
+var (
+    result string
+    romanNumeral = map[int]string{
+        1000: &quot;M&quot;,
+        900:  &quot;CM&quot;,
+        500:  &quot;D&quot;,
+        400:  &quot;CD&quot;,
+        100:  &quot;C&quot;,
+        90:   &quot;XC&quot;,
+        50:   &quot;L&quot;,
+        40:   &quot;XL&quot;,
+        10:   &quot;X&quot;,
+        9:    &quot;IX&quot;,
+        5:    &quot;V&quot;,
+        4:    &quot;IV&quot;,
+        1:    &quot;I&quot;,
+    }
+)
+for k, v := range romanNumeral {
+    for num &gt;= k {
+        num -= k
+        result += v
+    }
+}
+return result
+}
+</code></pre></li>
+</ol>
+ </body>
+</html>
