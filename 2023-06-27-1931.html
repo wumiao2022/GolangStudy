@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li>计算两个整数相加的和并输出结果：</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    var a, b int
+    a = 10
+    b = 20
+    sum := a + b
+    fmt.Println(sum)
+}
+</code></pre>
+
+<ol>
+<li>计算一个数的平方并输出结果：</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    var x int
+    x = 5
+    square := x * x
+    fmt.Println(square)
+}
+</code></pre>
+
+<ol>
+<li>判断一个年份是否为闰年并输出结果：</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    var year int
+    year = 2024
+    if year%4 == 0 &amp;&amp; year%100 != 0 || year%400 == 0 {
+        fmt.Println(&quot;是闰年&quot;)
+    } else {
+        fmt.Println(&quot;不是闰年&quot;)
+    }
+}
+</code></pre>
+
+<ol>
+<li>判断一个字符串是否为回文字符串并输出结果：</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    str := &quot;racecar&quot;
+    isPalindrome := true
+    for i := 0; i &lt; len(str)/2; i++ {
+        if str[i] != str[len(str)-i-1] {
+            isPalindrome = false
+            break
+        }
+    }
+    if isPalindrome {
+        fmt.Println(&quot;是回文字符串&quot;)
+    } else {
+        fmt.Println(&quot;不是回文字符串&quot;)
+    }
+}
+</code></pre>
+
+<ol>
+<li>实现一个简单的计算器并输出结果：</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    var num1, num2 float64
+    var operator string
+    fmt.Print(&quot;请输入第一个数字: &quot;)
+    fmt.Scanln(&amp;num1)
+    fmt.Print(&quot;请输入第二个数字: &quot;)
+    fmt.Scanln(&amp;num2)
+    fmt.Print(&quot;请输入运算符(+, -, *, /): &quot;)
+    fmt.Scanln(&amp;operator)
+	
+    switch operator {
+    case &quot;+&quot;:
+        fmt.Println(num1, &quot;+&quot;, num2, &quot;=&quot;, num1+num2)
+    case &quot;-&quot;:
+        fmt.Println(num1, &quot;-&quot;, num2, &quot;=&quot;, num1-num2)
+    case &quot;*&quot;:
+        fmt.Println(num1, &quot;*&quot;, num2, &quot;=&quot;, num1*num2)
+    case &quot;/&quot;:
+        fmt.Println(num1, &quot;/&quot;, num2, &quot;=&quot;, num1/num2)
+    default:
+        fmt.Println(&quot;无效的运算符&quot;)
+    }
+}
+</code></pre>
+ </body>
+</html>
