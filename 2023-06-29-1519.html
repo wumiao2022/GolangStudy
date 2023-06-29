@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>func main() {
+	// 练习1：声明一个变量x，赋值为10，然后打印出来
+	x := 10
+	fmt.Println(x)</p>
+
+<pre><code>// 练习2：声明一个变量name，赋值为&quot;John&quot;，然后打印出来
+name := &quot;John&quot;
+fmt.Println(name)
+
+// 练习3：声明一个切片numbers，包含5个整数元素，值为1, 2, 3, 4, 5，然后打印出来
+numbers := []int{1, 2, 3, 4, 5}
+fmt.Println(numbers)
+
+// 练习4：声明一个Map person，包含&quot;name&quot;和&quot;age&quot;两个键值对，值分别为&quot;John&quot;和30，然后打印出来
+person := map[string]interface{}{
+	&quot;name&quot;: &quot;John&quot;,
+	&quot;age&quot;:  30,
+}
+fmt.Println(person)
+
+// 练习5：声明一个函数Add，接收两个整数参数a和b，返回它们的和
+fmt.Println(Add(3, 4))
+</code></pre>
+
+<p>}</p>
+
+<p>func Add(a, b int) int {
+	return a + b
+}</p>
+ </body>
+</html>
