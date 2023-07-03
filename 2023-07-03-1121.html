@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    // 1. 输出 &quot;Hello, World!&quot;
+    fmt.Println(&quot;Hello, World!&quot;)
+
+    // 2. 使用for循环输出1到10的数
+    for i := 1; i &lt;= 10; i++ {
+        fmt.Println(i)
+    }
+
+    // 3. 计算和输出两个数的和
+    num1 := 10
+    num2 := 20
+    sum := num1 + num2
+    fmt.Println(&quot;Sum:&quot;, sum)
+
+    // 4. 定义并输出一个字符串变量
+    message := &quot;Golang is awesome!&quot;
+    fmt.Println(message)
+
+    // 5. 使用if语句判断一个数的正负
+    num := -5
+    if num &gt; 0 {
+        fmt.Println(&quot;Positive&quot;)
+    } else if num &lt; 0 {
+        fmt.Println(&quot;Negative&quot;)
+    } else {
+        fmt.Println(&quot;Zero&quot;)
+    }
+
+    // 6. 使用switch语句判断一个数字对应的星期几
+    day := 3
+    switch day {
+    case 1:
+        fmt.Println(&quot;Monday&quot;)
+    case 2:
+        fmt.Println(&quot;Tuesday&quot;)
+    case 3:
+        fmt.Println(&quot;Wednesday&quot;)
+    case 4:
+        fmt.Println(&quot;Thursday&quot;)
+    case 5:
+        fmt.Println(&quot;Friday&quot;)
+    case 6:
+        fmt.Println(&quot;Saturday&quot;)
+    case 7:
+        fmt.Println(&quot;Sunday&quot;)
+    default:
+        fmt.Println(&quot;Invalid day&quot;)
+    }
+
+    // 7. 定义和调用一个函数，计算两个数的乘积
+    multiply(3, 4)
+}
+
+func multiply(num1, num2 int) {
+    result := num1 * num2
+    fmt.Println(&quot;Product:&quot;, result)
+}
+</code></pre>
+
+<p>以上是一些基本的练习实例代码，你可以运行并尝试理解它们的执行结果。每天进行这样的多练习，可以帮助你熟悉Golang的语法和常见的编程概念。</p>
+ </body>
+</html>
