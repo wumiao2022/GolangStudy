@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+    &quot;math/rand&quot;
+    &quot;time&quot;
+)
+
+func main() {
+    // 练习1: 生成一个随机数序列，并按照从小到大的顺序排序
+    nums := generateRandomNumbers(10) // 生成10个随机数
+    fmt.Println(&quot;随机数序列：&quot;, nums)
+    sort(nums)
+    fmt.Println(&quot;排序后的序列：&quot;, nums)
+
+    // 练习2: 实现一个猜数字的游戏，给出提示信息，让用户猜出正确的数值
+    playGuessingGame()
+
+    // 练习3: 实现斐波那契数列的生成函数，并输出前20个斐波那契数
+    fmt.Println(&quot;斐波那契数列:&quot;)
+    for i := 1; i &lt;= 20; i++ {
+        fmt.Printf(&quot;%d &quot;, fibonacci(i))
+    }
+    fmt.Println()
+}
+
+func generateRandomNumbers(n int) []int {
+    rand.Seed(time.Now().UnixNano())
+    nums := make([]int, n)
+    for i := 0; i &lt; n; i++ {
+        nums[i] = rand.Intn(100)
+    }
+    return nums
+}
+
+func sort(nums []int) {
+    for i := 0; i &lt; len(nums)-1; i++ {
+        for j := i + 1; j &lt; len(nums); j++ {
+            if nums[i] &gt; nums[j] {
+                nums[i], nums[j] = nums[j], nums[i]
+            }
+        }
+    }
+}
+
+func playGuessingGame() {
+    rand.Seed(time.Now().UnixNano())
+    number := rand.Intn(100)
+    fmt.Println(&quot;猜数字游戏开始！&quot;)
+    fmt.Println(&quot;请猜一个范围在0到100之间的整数：&quot;)
+    for {
+        var guess int
+        fmt.Scan(&amp;guess)
+        if guess &lt; number {
+            fmt.Println(&quot;猜小了，请继续猜：&quot;)
+        } else if guess &gt; number {
+            fmt.Println(&quot;猜大了，请继续猜：&quot;)
+        } else {
+            fmt.Println(&quot;恭喜你，猜对了！&quot;)
+            break
+        }
+    }
+}
+
+func fibonacci(n int) int {
+    if n &lt;= 2 {
+        return 1
+    }
+    return fibonacci(n-1) + fibonacci(n-2)
+}
+</code></pre>
+ </body>
+</html>
