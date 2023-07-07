@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+)
+
+func main() {
+	// Exercise 1: Print &quot;Hello, World!&quot;
+	fmt.Println(&quot;Hello, World!&quot;)
+
+	// Exercise 2: Find the sum of two integers
+	sum := 3 + 5
+	fmt.Println(&quot;Sum:&quot;, sum)
+
+	// Exercise 3: Find the product of two floating-point numbers
+	num1 := 2.5
+	num2 := 1.5
+	product := num1 * num2
+	fmt.Println(&quot;Product:&quot;, product)
+
+	// Exercise 4: Concatenate two strings
+	string1 := &quot;Hello&quot;
+	string2 := &quot;GoLang&quot;
+	result := string1 + &quot; &quot; + string2
+	fmt.Println(&quot;Result:&quot;, result)
+
+	// Exercise 5: Find the remainder of a division
+	dividend := 20
+	divisor := 3
+	remainder := dividend % divisor
+	fmt.Println(&quot;Remainder:&quot;, remainder)
+
+	// Exercise 6: Display the type of a variable
+	var variable string = &quot;Golang&quot;
+	fmt.Printf(&quot;Type: %T\n&quot;, variable)
+
+	// Exercise 7: Use a for loop to print numbers from 1 to 10
+	for i := 1; i &lt;= 10; i++ {
+		fmt.Println(i)
+	}
+
+	// Exercise 8: Create a function that returns the absolute value of a number
+	fmt.Println(absoluteValue(-5))
+}
+
+func absoluteValue(num int) int {
+	if num &lt; 0 {
+		return -num
+	}
+	return num
+}
+</code></pre>
+
+<p>请注意这只是一个简单的示例，有更多的练习可以用于提高你的 Golang 编程技能。奉劝你多加练习和实践，保持学习的态度，才能真正掌握 Golang。</p>
+ </body>
+</html>
