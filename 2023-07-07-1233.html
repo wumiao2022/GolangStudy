@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	// 实现一个函数，将一个字符串反转并返回
+	fmt.Println(reverseString(&quot;Hello, Go!&quot;))
+
+	// 实现一个函数，接收一个整数数组，返回数组的最大值和最小值
+	numbers := []int{1, 4, 2, 6, 3, 9, 5}
+	max, min := findMaxAndMin(numbers)
+	fmt.Println(&quot;Max:&quot;, max, &quot;Min:&quot;, min)
+
+	// 实现一个函数，接收一个字符串切片，返回切片中的所有元素的长度之和
+	strings := []string{&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;}
+	sum := calculateStringLength(strings)
+	fmt.Println(&quot;Sum:&quot;, sum)
+}
+
+func reverseString(s string) string {
+	r := []rune(s)
+	for i, j := 0, len(r)-1; i &lt; j; i, j = i+1, j-1 {
+		r[i], r[j] = r[j], r[i]
+	}
+	return string(r)
+}
+
+func findMaxAndMin(numbers []int) (int, int) {
+	max := numbers[0]
+	min := numbers[0]
+	for _, num := range numbers {
+		if num &gt; max {
+			max = num
+		}
+		if num &lt; min {
+			min = num
+		}
+	}
+	return max, min
+}
+
+func calculateStringLength(strings []string) int {
+	sum := 0
+	for _, str := range strings {
+		sum += len(str)
+	}
+	return sum
+}
+</code></pre>
+ </body>
+</html>
