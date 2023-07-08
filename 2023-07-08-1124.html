@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">// 练习1：打印1到100之间的所有整数
+for i := 1; i &lt;= 100; i++ {
+    fmt.Println(i)
+}
+
+// 练习2：计算1到100之间所有整数的和
+sum := 0
+for i := 1; i &lt;= 100; i++ {
+    sum += i
+}
+fmt.Println(sum)
+
+// 练习3：判断一个数是否为素数
+num := 17
+isPrime := true
+for i := 2; i &lt; num; i++ {
+    if num%i == 0 {
+        isPrime = false
+        break
+    }
+}
+fmt.Println(isPrime)
+
+// 练习4：计算斐波那契数列的前10个数
+fib := []int{0, 1}
+for i := 2; i &lt; 10; i++ {
+    fib = append(fib, fib[i-1]+fib[i-2])
+}
+fmt.Println(fib)
+
+// 练习5：实现一个冒泡排序算法
+arr := []int{5, 3, 8, 2, 1}
+for i := 0; i &lt; len(arr)-1; i++ {
+    for j := 0; j &lt; len(arr)-1-i; j++ {
+        if arr[j] &gt; arr[j+1] {
+            arr[j], arr[j+1] = arr[j+1], arr[j]
+        }
+    }
+}
+fmt.Println(arr)
+</code></pre>
+
+<p>请自行运行以上代码进行练习。每个练习都有一个注释进行说明。练习1打印1到100之间的所有整数，练习2计算1到100之间所有整数的和，练习3判断一个数是否为素数，练习4计算斐波那契数列的前10个数，练习5实现一个冒泡排序算法。以上练习旨在巩固基本的编程概念和算法思维。</p>
+ </body>
+</html>
