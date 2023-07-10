@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	// Example 1: Print &quot;Hello, World!&quot; to the console
+	fmt.Println(&quot;Hello, World!&quot;)
+
+	// Example 2: Calculate the sum of two numbers and print the result
+	a := 5
+	b := 7
+	sum := a + b
+	fmt.Println(&quot;Sum:&quot;, sum)
+
+	// Example 3: Print the first 10 natural numbers
+	for i := 1; i &lt;= 10; i++ {
+		fmt.Println(i)
+	}
+
+	// Example 4: Check if a number is even or odd
+	number := 9
+	if number%2 == 0 {
+		fmt.Println(&quot;Even&quot;)
+	} else {
+		fmt.Println(&quot;Odd&quot;)
+	}
+
+	// Example 5: Calculate the factorial of a number
+	factorial := 1
+	n := 5
+	for i := 1; i &lt;= n; i++ {
+		factorial *= i
+	}
+	fmt.Println(&quot;Factorial of&quot;, n, &quot;is&quot;, factorial)
+}
+</code></pre>
+
+<p>注意：以上示例代码只是为了提供一些练习的实例，并不涵盖所有Golang编程的方面。</p>
+ </body>
+</html>
