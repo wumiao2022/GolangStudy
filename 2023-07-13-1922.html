@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+    &quot;time&quot;
+)
+
+func main() {
+    // 1. 输出当前时间的年、月、日、时、分、秒
+    now := time.Now()
+    fmt.Println(&quot;Year:&quot;, now.Year())
+    fmt.Println(&quot;Month:&quot;, now.Month())
+    fmt.Println(&quot;Day:&quot;, now.Day())
+    fmt.Println(&quot;Hour:&quot;, now.Hour())
+    fmt.Println(&quot;Minute:&quot;, now.Minute())
+    fmt.Println(&quot;Second:&quot;, now.Second())
+
+    // 2. 根据当前时间，判断今天是星期几
+    weekday := now.Weekday()
+    fmt.Println(&quot;Today is&quot;, weekday)
+
+    // 3. 使用for循环输出0-9的数字
+    for i := 0; i &lt; 10; i++ {
+        fmt.Println(i)
+    }
+
+    // 4. 输出1-100之间所有能被3整除的数字
+    for i := 1; i &lt;= 100; i++ {
+        if i%3 == 0 {
+            fmt.Println(i)
+        }
+    }
+}
+</code></pre>
+ </body>
+</html>
