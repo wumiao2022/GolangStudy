@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	// 示例1
+	var num1, num2 int
+	fmt.Print(&quot;请输入两个整数：&quot;)
+	fmt.Scan(&amp;num1, &amp;num2)
+	fmt.Println(&quot;两个整数的和：&quot;, num1+num2)
+
+	// 示例2
+	var str1, str2 string
+	fmt.Print(&quot;请输入两个字符串：&quot;)
+	fmt.Scan(&amp;str1, &amp;str2)
+	fmt.Println(&quot;拼接后的字符串：&quot;, str1+str2)
+
+	// 示例3
+	names := []string{&quot;Alice&quot;, &quot;Bob&quot;, &quot;Charlie&quot;, &quot;David&quot;}
+	for _, name := range names {
+		fmt.Println(&quot;Hello, &quot;, name)
+	}
+}
+</code></pre>
+
+<p>每个示例的功能如下：</p>
+
+<p>示例1：从用户输入中读取两个整数，然后计算并输出它们的和。</p>
+
+<p>示例2：从用户输入中读取两个字符串，并将它们拼接在一起后输出。</p>
+
+<p>示例3：使用循环遍历字符串切片<code>names</code>，并输出每个字符串前面加上&rdquo;Hello, &ldquo;的结果。</p>
+ </body>
+</html>
