@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>func main() {
+    // 实例1：打印Hello, World!
+    fmt.Println(&ldquo;Hello, World!&rdquo;)</p>
+
+<pre><code>// 实例2：求两个整数之和
+num1 := 10
+num2 := 20
+sum := num1 + num2
+fmt.Println(&quot;Sum:&quot;, sum)
+
+// 实例3：判断一个数是否为质数
+num := 17
+isPrime := true
+for i := 2; i &lt;= int(math.Sqrt(float64(num))); i++ {
+    if num%i == 0 {
+        isPrime = false
+        break
+    }
+}
+if isPrime {
+    fmt.Println(num, &quot;is a prime number&quot;)
+} else {
+    fmt.Println(num, &quot;is not a prime number&quot;)
+}
+
+// 实例4：反转字符串
+str := &quot;Hello, Golang!&quot;
+reversedStr := &quot;&quot;
+for i := len(str) - 1; i &gt;= 0; i-- {
+    reversedStr += string(str[i])
+}
+fmt.Println(&quot;Reversed string:&quot;, reversedStr)
+
+// 实例5：拆分字符串
+str = &quot;Golang is awesome&quot;
+words := strings.Split(str, &quot; &quot;)
+fmt.Println(&quot;Words:&quot;, words)
+
+// 实例6：计算数组元素的平均值
+numbers := []float64{4.5, 6.7, 9.8, 2.3, 1.1}
+sum = 0
+for _, num := range numbers {
+    sum += num
+}
+average := sum / float64(len(numbers))
+fmt.Println(&quot;Average:&quot;, average)
+</code></pre>
+
+<p>}</p>
+ </body>
+</html>
