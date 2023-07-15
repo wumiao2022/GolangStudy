@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	// 练习1：打印Hello, World!
+	fmt.Println(&quot;Hello, World!&quot;)
+
+	// 练习2：计算并打印两个数相加的结果
+	num1 := 10
+	num2 := 20
+	sum := num1 + num2
+	fmt.Println(&quot;Sum:&quot;, sum)
+
+	// 练习3：判断一个数是否为偶数，并打印结果
+	num := 15
+	if num%2 == 0 {
+		fmt.Println(num, &quot;is even&quot;)
+	} else {
+		fmt.Println(num, &quot;is odd&quot;)
+	}
+
+	// 练习4：使用for循环打印数字1到10
+	for i := 1; i &lt;= 10; i++ {
+		fmt.Println(i)
+	}
+
+	// 练习5：定义一个切片，并遍历打印所有元素
+	numbers := []int{1, 2, 3, 4, 5}
+	for _, num := range numbers {
+		fmt.Println(num)
+	}
+}
+</code></pre>
+
+<p>请在本地环境中运行以上代码，观察输出结果。每日多练，不断提升自己的编程技能！如果需要更多练习题目或者有任何问题，请随时提问。</p>
+ </body>
+</html>
