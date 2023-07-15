@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>// 练习1: 打印&rdquo;Hello, World!&rdquo;
+package main</p>
+
+<p>import &ldquo;fmt&rdquo;</p>
+
+<p>func main() {
+	fmt.Println(&ldquo;Hello, World!&rdquo;)
+}</p>
+
+<p>// 练习2: 计算1-10的累加和
+package main</p>
+
+<p>import &ldquo;fmt&rdquo;</p>
+
+<p>func main() {
+	sum := 0
+	for i := 1; i &lt;= 10; i++ {
+		sum += i
+	}
+	fmt.Println(&ldquo;Sum:&rdquo;, sum)
+}</p>
+
+<p>// 练习3: 判断一个数是否为素数
+package main</p>
+
+<p>import &ldquo;fmt&rdquo;</p>
+
+<p>func main() {
+	num := 17
+	isPrime := true
+	for i := 2; i &lt; num; i++ {
+		if num%i == 0 {
+			isPrime = false
+			break
+		}
+	}
+	if isPrime {
+		fmt.Println(num, &ldquo;is a prime number&rdquo;)
+	} else {
+		fmt.Println(num, &ldquo;is not a prime number&rdquo;)
+	}
+}</p>
+
+<p>// 练习4: 实现斐波那契数列
+package main</p>
+
+<p>import &ldquo;fmt&rdquo;</p>
+
+<p>func fibonacci(n int) {
+	a, b := 0, 1
+	for i := 0; i &lt; n; i++ {
+		fmt.Print(a, &ldquo; &ldquo;)
+		a, b = b, a+b
+	}
+	fmt.Println()
+}</p>
+
+<p>func main() {
+	fmt.Println(&ldquo;Fibonacci Series:&rdquo;)
+	fibonacci(10)
+}</p>
+
+<p>// 练习5: 计算圆的面积和周长
+package main</p>
+
+<p>import (
+	&ldquo;fmt&rdquo;
+	&ldquo;math&rdquo;
+)</p>
+
+<p>func calculateCircle(radius float64) (float64, float64) {
+	area := math.Pi * radius * radius
+	perimeter := 2 * math.Pi * radius
+	return area, perimeter
+}</p>
+
+<p>func main() {
+	radius := 5.0
+	area, perimeter := calculateCircle(radius)
+	fmt.Println(&ldquo;Radius:&rdquo;, radius)
+	fmt.Println(&ldquo;Area:&rdquo;, area)
+	fmt.Println(&ldquo;Perimeter:&rdquo;, perimeter)
+}</p>
+ </body>
+</html>
