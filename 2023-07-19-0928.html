@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;math/rand&quot;
+	&quot;time&quot;
+)
+
+func main() {
+	rand.Seed(time.Now().UnixNano())
+
+	// 生成一个随机整数切片
+	numbers := make([]int, 10)
+	for i := range numbers {
+		numbers[i] = rand.Intn(100)
+	}
+
+	// 打印切片中的所有元素
+	fmt.Println(&quot;切片中的元素为:&quot;)
+	fmt.Println(numbers)
+
+	// 计算切片中的最大值和最小值
+	min := numbers[0]
+	max := numbers[0]
+	for _, num := range numbers {
+		if num &lt; min {
+			min = num
+		}
+		if num &gt; max {
+			max = num
+		}
+	}
+
+	// 打印最大值和最小值
+	fmt.Println(&quot;切片中的最小值为:&quot;, min)
+	fmt.Println(&quot;切片中的最大值为:&quot;, max)
+}
+</code></pre>
+
+<p>这个实例生成一个含有10个随机整数的切片，并计算出切片中的最大值和最小值，然后将它们打印出来。你可以每天运行这个实例来练习Golang的切片操作和随机数生成。</p>
+ </body>
+</html>
