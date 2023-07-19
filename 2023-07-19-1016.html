@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>// 1. 打印Hello, World!
+package main</p>
+
+<p>import &ldquo;fmt&rdquo;</p>
+
+<p>func main() {
+	fmt.Println(&ldquo;Hello, World!&rdquo;)
+}</p>
+
+<p>// 2. 两数相加
+package main</p>
+
+<p>import &ldquo;fmt&rdquo;</p>
+
+<p>func main() {
+	a := 5
+	b := 10
+	sum := a + b
+	fmt.Println(&ldquo;Sum:&rdquo;, sum)
+}</p>
+
+<p>// 3. 判断一个数是否为偶数
+package main</p>
+
+<p>import &ldquo;fmt&rdquo;</p>
+
+<p>func main() {
+	num := 12
+	if num%2 == 0 {
+		fmt.Println(num, &ldquo;is even&rdquo;)
+	} else {
+		fmt.Println(num, &ldquo;is odd&rdquo;)
+	}
+}</p>
+
+<p>// 4. 计算斐波那契数列
+package main</p>
+
+<p>import &ldquo;fmt&rdquo;</p>
+
+<p>func fibonacci(n int) int {
+	if n &lt;= 1 {
+		return n
+	}
+	return fibonacci(n-1) + fibonacci(n-2)
+}</p>
+
+<p>func main() {
+	fmt.Println(&ldquo;Fibonacci Sequence:&rdquo;)
+	for i := 0; i &lt; 10; i++ {
+		fmt.Println(fibonacci(i))
+	}
+}</p>
+
+<p>// 5. 反转字符串
+package main</p>
+
+<p>import &ldquo;fmt&rdquo;</p>
+
+<p>func reverseString(str string) string {
+	runes := []rune(str)
+	for i, j := 0, len(runes)-1; i &lt; j; i, j = i+1, j-1 {
+		runes[i], runes[j] = runes[j], runes[i]
+	}
+	return string(runes)
+}</p>
+
+<p>func main() {
+	str := &ldquo;Hello, World!&rdquo;
+	fmt.Println(&ldquo;Original String:&rdquo;, str)
+	fmt.Println(&ldquo;Reversed String:&rdquo;, reverseString(str))
+}</p>
+ </body>
+</html>
