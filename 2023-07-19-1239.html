@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	// 题目：将字符串反转
+	str := &quot;Hello, World!&quot;
+	reversedStr := reverseString(str)
+	fmt.Println(reversedStr)
+
+	// 题目：计算斐波那契数列第n项的值
+	n := 6
+	fibonacci := calculateFibonacci(n)
+	fmt.Println(fibonacci)
+
+	// 题目：判断一个整数是否是素数
+	num := 23
+	isPrime := checkPrime(num)
+	fmt.Println(isPrime)
+}
+
+// 反转字符串
+func reverseString(str string) string {
+	runeArr := []rune(str)
+	for i, j := 0, len(runeArr)-1; i &lt; j; i, j = i+1, j-1 {
+		runeArr[i], runeArr[j] = runeArr[j], runeArr[i]
+	}
+	return string(runeArr)
+}
+
+// 计算斐波那契数列的第n项
+func calculateFibonacci(n int) int {
+	if n &lt;= 1 {
+		return n
+	}
+	return calculateFibonacci(n-1) + calculateFibonacci(n-2)
+}
+
+// 判断一个整数是否是素数
+func checkPrime(num int) bool {
+	if num &lt;= 1 {
+		return false
+	}
+	for i := 2; i*i &lt;= num; i++ {
+		if num%i == 0 {
+			return false
+		}
+	}
+	return true
+}
+</code></pre>
+
+<p>编译运行以上代码，将会得到以下结果：</p>
+
+<pre><code>!dlroW ,olleH
+8
+true
+</code></pre>
+ </body>
+</html>
