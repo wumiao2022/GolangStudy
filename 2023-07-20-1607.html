@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	// 练习1：打印Hello, World!
+	fmt.Println(&quot;Hello, World!&quot;)
+
+	// 练习2：声明一个变量，并打印出其值
+	var num int = 10
+	fmt.Println(num)
+
+	// 练习3：声明一个切片，并打印出其长度和容量
+	slice := []int{1, 2, 3, 4, 5}
+	fmt.Println(len(slice))
+	fmt.Println(cap(slice))
+
+	// 练习4：声明一个函数，计算两个整数的和，并返回结果
+	sum := add(5, 3)
+	fmt.Println(sum)
+
+	// 练习5：声明一个结构体类型，并创建一个结构体变量赋值给它，并打印出其字段的值
+	type Person struct {
+		Name string
+		Age  int
+	}
+	p := Person{Name: &quot;John&quot;, Age: 25}
+	fmt.Println(p.Name)
+	fmt.Println(p.Age)
+}
+
+func add(a, b int) int {
+	return a + b
+}
+</code></pre>
+ </body>
+</html>
