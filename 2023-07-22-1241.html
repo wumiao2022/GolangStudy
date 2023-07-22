@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>import (
+    &ldquo;fmt&rdquo;
+    &ldquo;time&rdquo;
+)</p>
+
+<p>func main() {
+    // 练习1：打印出从1到100的数字
+    for i := 1; i &lt;= 100; i++ {
+        fmt.Println(i)
+    }</p>
+
+<pre><code>// 练习2：打印出当前日期和时间
+fmt.Println(time.Now())
+
+// 练习3：计算两个数字的和并打印结果
+num1 := 10
+num2 := 20
+sum := num1 + num2
+fmt.Println(&quot;Sum:&quot;, sum)
+
+// 练习4：判断一个数字是否为偶数并打印结果
+num := 15
+if num%2 == 0 {
+    fmt.Println(num, &quot;is even&quot;)
+} else {
+    fmt.Println(num, &quot;is odd&quot;)
+}
+
+// 练习5：将一个字符串反转并打印结果
+str := &quot;Hello, Golang!&quot;
+reversedStr := &quot;&quot;
+for _, char := range str {
+    reversedStr = string(char) + reversedStr
+}
+fmt.Println(&quot;Reversed String:&quot;, reversedStr)
+</code></pre>
+
+<p>}</p>
+ </body>
+</html>
