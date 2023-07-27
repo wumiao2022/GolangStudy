@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>func main() {
+	// 练习1：打印&rdquo;Hello, World!&rdquo;
+	fmt.Println(&ldquo;Hello, World!&rdquo;)</p>
+
+<pre><code>// 练习2：定义一个整型变量x，并赋值为42，打印出x的值
+var x int = 42
+fmt.Println(x)
+
+// 练习3：声明一个字符串变量name，并将其赋值为你的名字，打印出name的值
+var name string = &quot;Alice&quot;
+fmt.Println(name)
+
+// 练习4：定义一个包含5个整型元素的数组，并初始化为1, 2, 3, 4, 5，打印出该数组所有元素的和
+arr := [5]int{1, 2, 3, 4, 5}
+sum := 0
+for _, num := range arr {
+	sum += num
+}
+fmt.Println(sum)
+
+// 练习5：定义一个包含10个整型元素的切片，并将切片中的每个元素都加1，最后打印出该切片的所有元素
+slice := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+for i, num := range slice {
+	slice[i] = num + 1
+}
+fmt.Println(slice)
+</code></pre>
+
+<p>}</p>
+ </body>
+</html>
