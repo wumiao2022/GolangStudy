@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">// 练习1：打印Hello, World!
+package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;Hello, World!&quot;)
+}
+</code></pre>
+
+<pre><code class="language-go">// 练习2：求和函数
+package main
+
+import &quot;fmt&quot;
+
+func Sum(a, b int) int {
+	return a + b
+}
+
+func main() {
+	fmt.Println(Sum(2, 3))
+}
+</code></pre>
+
+<pre><code class="language-go">// 练习3：判断奇偶数
+package main
+
+import &quot;fmt&quot;
+
+func IsEven(n int) bool {
+	if n%2 == 0 {
+		return true
+	}
+	return false
+}
+
+func main() {
+	fmt.Println(IsEven(4))
+	fmt.Println(IsEven(7))
+}
+</code></pre>
+
+<pre><code class="language-go">// 练习4：数组遍历
+package main
+
+import &quot;fmt&quot;
+
+func main() {
+	nums := []int{1, 2, 3, 4, 5}
+	for _, num := range nums {
+		fmt.Println(num)
+	}
+}
+</code></pre>
+
+<pre><code class="language-go">// 练习5：切片操作
+package main
+
+import &quot;fmt&quot;
+
+func main() {
+	nums := []int{1, 2, 3, 4, 5}
+	slicedNums := nums[1:4]
+	fmt.Println(slicedNums)
+}
+</code></pre>
+
+<pre><code class="language-go">// 练习6：输入输出
+package main
+
+import &quot;fmt&quot;
+
+func main() {
+	var name string
+	fmt.Print(&quot;请输入你的名字：&quot;)
+	fmt.Scan(&amp;name)
+	fmt.Printf(&quot;你好，%s！&quot;, name)
+}
+</code></pre>
+
+<pre><code class="language-go">// 练习7：循环控制
+package main
+
+import &quot;fmt&quot;
+
+func main() {
+	for i := 1; i &lt;= 10; i++ {
+		if i%2 == 0 {
+			fmt.Println(i)
+		}
+	}
+}
+</code></pre>
+ </body>
+</html>
