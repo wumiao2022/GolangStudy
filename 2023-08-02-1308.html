@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    // 1. Hello World
+    fmt.Println(&quot;Hello, World!&quot;)
+
+    // 2. Variable declaration and assignment
+    var number int
+    number = 10
+
+    // 3. Simple arithmetic operations
+    result := number + 5
+
+    // 4. If statement
+    if result &gt; 15 {
+        fmt.Println(&quot;Result is greater than 15&quot;)
+    } else {
+        fmt.Println(&quot;Result is less than or equal to 15&quot;)
+    }
+
+    // 5. For loop
+    for i := 0; i &lt; 5; i++ {
+        fmt.Println(i)
+    }
+
+    // 6. Array
+    var numbers = [5]int{1, 2, 3, 4, 5}
+
+    // 7. Slice
+    var slice = numbers[1:4]
+
+    // 8. Function
+    sum := addNumbers(5, 10)
+    fmt.Println(&quot;Sum is:&quot;, sum)
+}
+
+func addNumbers(a, b int) int {
+    return a + b
+}
+</code></pre>
+
+<p>这是一个包含一些基本概念的示例代码，可以供你进行练习。在每个练习之前，你可以尝试编写一些测试代码并运行程序来学习和理解每个概念。祝你学习愉快！</p>
+ </body>
+</html>
