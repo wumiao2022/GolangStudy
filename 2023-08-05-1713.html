@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">// 1. 编写一个函数，实现两个整数相加
+func add(a, b int) int {
+    return a + b
+}
+
+// 2. 编写一个函数，实现一个字符串反转
+func reverse(str string) string {
+    runes := []rune(str)
+    for i, j := 0, len(runes)-1; i &lt; j; i, j = i+1, j-1 {
+        runes[i], runes[j] = runes[j], runes[i]
+    }
+    return string(runes)
+}
+
+// 3. 编写一个函数，判断一个数是否为素数
+func isPrime(n int) bool {
+    if n &lt;= 1 {
+        return false
+    }
+    for i := 2; i*i &lt;= n; i++ {
+        if n%i == 0 {
+            return false
+        }
+    }
+    return true
+}
+
+// 4. 编写一个函数，计算斐波那契数列的第n项（递归实现）
+func fibRecursion(n int) int {
+    if n &lt;= 1 {
+        return n
+    }
+    return fibRecursion(n-1) + fibRecursion(n-2)
+}
+
+// 5. 编写一个函数，计算斐波那契数列的第n项（迭代实现）
+func fibIteration(n int) int {
+    if n &lt;= 1 {
+        return n
+    }
+    a, b := 0, 1
+    for i := 2; i &lt;= n; i++ {
+        a, b = b, a+b
+    }
+    return b
+}
+</code></pre>
+
+<p>注意：这些代码仅提供了函数定义，你需要在main函数中调用这些函数来执行。</p>
+ </body>
+</html>
