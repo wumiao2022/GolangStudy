@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    // 练习1：打印&quot;Hello, World!&quot;
+    fmt.Println(&quot;Hello, World!&quot;)
+
+    // 练习2：定义一个整数变量，并打印出其值
+    var num1 int = 10
+    fmt.Println(num1)
+
+    // 练习3：定义一个字符串变量，并打印出其值
+    var str1 string = &quot;Golang&quot;
+    fmt.Println(str1)
+
+    // 练习4：定义一个布尔变量，并打印出其值
+    var flag bool = true
+    fmt.Println(flag)
+
+    // 练习5：定义一个整型数组，并遍历打印出每个元素的值
+    nums := []int{1, 2, 3, 4, 5}
+    for _, num := range nums {
+        fmt.Println(num)
+    }
+    
+    // 练习6：定义一个函数，接收一个整数参数，返回该整数的平方值
+    square := func(num int) int {
+        return num * num
+    }
+    fmt.Println(square(5))
+
+    // 练习7：使用条件语句判断一个整数是否为偶数，如果是，则打印 &quot;偶数&quot;，否则打印 &quot;奇数&quot;
+    num2 := 8
+    if num2 % 2 == 0 {
+        fmt.Println(&quot;偶数&quot;)
+    } else {
+        fmt.Println(&quot;奇数&quot;)
+    }
+
+    // 练习8：定义一个结构体类型，并创建一个该类型的变量，并打印出其中的字段值
+    type Person struct {
+        Name string
+        Age  int
+    }
+    person := Person{
+        Name: &quot;Tom&quot;,
+        Age:  25,
+    }
+    fmt.Println(person.Name)
+    fmt.Println(person.Age)
+}
+</code></pre>
+
+<p>注意：以上代码仅为示例，可能存在语法错误或逻辑错误，请根据实际情况进行调整和修改。</p>
+ </body>
+</html>
