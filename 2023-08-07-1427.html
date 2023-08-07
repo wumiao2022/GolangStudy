@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    // 实现一个函数，接收一个整数参数n，返回一个n行n列的乘法表的二维数组
+    func multiplicationTable(n int) [][]int {
+        table := make([][]int, n)
+        for i := 0; i &lt; n; i++ {
+            table[i] = make([]int, n)
+            for j := 0; j &lt; n; j++ {
+                table[i][j] = (i + 1) * (j + 1)
+            }
+        }
+        return table
+    }
+
+    // 调用函数并输出乘法表的结果
+    fmt.Println(multiplicationTable(5))
+}
+</code></pre>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    // 实现一个函数，接收一个整数参数n，返回n的阶乘
+    func factorial(n int) int {
+        fact := 1
+        for i := 2; i &lt;= n; i++ {
+            fact *= i
+        }
+        return fact
+    }
+
+    // 调用函数并输出阶乘的结果
+    fmt.Println(factorial(5))
+}
+</code></pre>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    // 实现一个函数，接收一个整数参数n，返回一个长度为n的斐波那契数列切片
+    func fibonacciSequence(n int) []int {
+        if n &lt;= 2 {
+            return make([]int, n)
+        }
+        sequence := make([]int, n)
+        sequence[0], sequence[1] = 1, 1
+        for i := 2; i &lt; n; i++ {
+            sequence[i] = sequence[i-1] + sequence[i-2]
+        }
+        return sequence
+    }
+
+    // 调用函数并输出斐波那契数列的结果
+    fmt.Println(fibonacciSequence(8))
+}
+</code></pre>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    // 实现一个函数，接收一个字符串参数str，返回一个反转后的字符串
+    func reverseString(str string) string {
+        runes := []rune(str)
+        for i, j := 0, len(runes)-1; i &lt; j; i, j = i+1, j-1 {
+            runes[i], runes[j] = runes[j], runes[i]
+        }
+        return string(runes)
+    }
+
+    // 调用函数并输出反转后的字符串
+    fmt.Println(reverseString(&quot;Hello, World!&quot;))
+}
+</code></pre>
+ </body>
+</html>
