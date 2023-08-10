@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	// 1. 变量声明与赋值
+	var num1 int = 10
+	var num2 int
+	num2 = 20
+
+	// 2. 条件语句
+	if num1 &lt; num2 {
+		fmt.Println(&quot;num1 is smaller than num2&quot;)
+	} else {
+		fmt.Println(&quot;num1 is greater than or equal to num2&quot;)
+	}
+
+	// 3. 循环语句
+	for i := 0; i &lt; 5; i++ {
+		fmt.Println(i)
+	}
+
+	// 4. 数组操作
+	array := [5]int{1, 2, 3, 4, 5}
+	fmt.Println(array[0])
+	fmt.Println(len(array))
+
+	// 5. 函数定义与调用
+	result := add(5, 3)
+	fmt.Println(result)
+}
+
+func add(a, b int) int {
+	return a + b
+}
+</code></pre>
+ </body>
+</html>
