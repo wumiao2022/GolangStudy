@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>func main() {
+  // 练习1：打印Hello, World!
+  fmt.Println(&ldquo;Hello, World!&rdquo;)</p>
+
+<p>// 练习2：变量与常量
+  var x int = 5
+  const y float64 = 3.14</p>
+
+<p>// 练习3：数组与切片
+  arr := [5]int{1, 2, 3, 4, 5}
+  slice := arr[:3]</p>
+
+<p>// 练习4：条件语句
+  if x &gt; 0 {
+    fmt.Println(&ldquo;x is positive&rdquo;)
+  } else if x &lt; 0 {
+    fmt.Println(&ldquo;x is negative&rdquo;)
+  } else {
+    fmt.Println(&ldquo;x is zero&rdquo;)
+  }</p>
+
+<p>// 练习5：循环语句
+  for i := 0; i &lt; 5; i++ {
+    fmt.Println(i)
+  }</p>
+
+<p>// 练习6：函数
+  result := add(3, 4)
+  fmt.Println(result)</p>
+
+<p>// 练习7：结构体
+  type person struct {
+    name string
+    age int
+  }
+  p := person{name: &ldquo;Alice&rdquo;, age: 25}
+  fmt.Println(p)</p>
+
+<p>// 练习8：指针
+  px := &amp;x
+  fmt.Println(px)</p>
+
+<p>// 练习9：并发
+  go printNumbers()
+  go printLetters()</p>
+
+<p>time.Sleep(time.Second)
+}</p>
+
+<p>func add(a, b int) int {
+  return a + b
+}</p>
+
+<p>func printNumbers() {
+  for i := 1; i &lt;= 5; i++ {
+    fmt.Println(i)
+    time.Sleep(time.Second)
+  }
+}</p>
+
+<p>func printLetters() {
+  for i := &lsquo;A&rsquo;; i &lt;= &lsquo;E&rsquo;; i++ {
+    fmt.Println(string(i))
+    time.Sleep(time.Second)
+  }
+}</p>
+ </body>
+</html>
