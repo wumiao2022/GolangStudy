@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-golang">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    // Exercise 1: Hello, World!
+    fmt.Println(&quot;Hello, World!&quot;)
+
+    // Exercise 2: Sum of two numbers
+    a := 10
+    b := 20
+    sum := a + b
+    fmt.Println(&quot;Sum:&quot;, sum)
+
+    // Exercise 3: Fibonacci sequence
+    n := 10
+    fibonacci := []int{0, 1}
+    for i := 2; i &lt; n; i++ {
+        fibonacci = append(fibonacci, fibonacci[i-1]+fibonacci[i-2])
+    }
+    fmt.Println(&quot;Fibonacci Sequence:&quot;, fibonacci)
+
+    // Exercise 4: Factorial of a number
+    num := 5
+    factorial := 1
+    for i := 1; i &lt;= num; i++ {
+        factorial *= i
+    }
+    fmt.Println(&quot;Factorial of&quot;, num, &quot;is&quot;, factorial)
+}
+</code></pre>
+
+<p>以上是一个示例代码，其中包含了四个练习实例：</p>
+
+<ol>
+<li>打印 &ldquo;Hello, World!&rdquo;</li>
+<li>计算两个数的和</li>
+<li>生成 Fibonacci 数列</li>
+<li>计算一个数的阶乘</li>
+</ol>
+
+<p>你可以按照你的需求和兴趣进行修改和扩展这些练习实例。如果有任何问题，请随时提问。</p>
+ </body>
+</html>
