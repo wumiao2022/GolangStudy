@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code>package main
+
+import &quot;fmt&quot;
+
+func main() {
+	// 1. 打印Hello, World!
+	fmt.Println(&quot;Hello, World!&quot;)
+
+	// 2. 声明并初始化一个整数变量，然后打印该变量的值
+	num := 10
+	fmt.Println(num)
+
+	// 3. 声明一个字符串变量，并将其赋值为&quot;Go Language&quot;
+	var str string = &quot;Go Language&quot;
+	fmt.Println(str)
+
+	// 4. 声明一个浮点数变量，并打印该变量的值
+	var f float64 = 3.14
+	fmt.Println(f)
+
+	// 5. 声明一个布尔变量，并打印该变量的值
+	var b bool = true
+	fmt.Println(b)
+
+	// 6. 使用for循环打印1到10的整数
+	for i := 1; i &lt;= 10; i++ {
+		fmt.Println(i)
+	}
+
+	// 7. 声明一个切片，并初始化为包含整数1到5
+	slice := []int{1, 2, 3, 4, 5}
+	fmt.Println(slice)
+
+	// 8. 使用if-else语句判断一个数是否为偶数，并打印判断结果
+	num = 7
+	if num%2 == 0 {
+		fmt.Println(&quot;偶数&quot;)
+	} else {
+		fmt.Println(&quot;奇数&quot;)
+	}
+
+	// 9. 声明一个包含键值对的map，并打印该map的值
+	m := map[string]int{&quot;a&quot;: 1, &quot;b&quot;: 2, &quot;c&quot;: 3}
+	fmt.Println(m)
+
+	// 10. 声明一个函数，接受一个整数参数并返回该参数的平方
+	square := func(num int) int {
+		return num * num
+	}
+	fmt.Println(square(5))
+}
+</code></pre>
+ </body>
+</html>
