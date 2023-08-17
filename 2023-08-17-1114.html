@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;Hello, World!&quot;)
+}
+</code></pre>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	var num1, num2 int = 10, 20
+	sum := num1 + num2
+	fmt.Println(&quot;The sum of&quot;, num1, &quot;and&quot;, num2, &quot;is&quot;, sum)
+}
+</code></pre>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	var n int
+	fmt.Print(&quot;Enter a number: &quot;)
+	fmt.Scanln(&amp;n)
+
+	if n%2 == 0 {
+		fmt.Println(n, &quot;is an even number&quot;)
+	} else {
+		fmt.Println(n, &quot;is an odd number&quot;)
+	}
+}
+</code></pre>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	var number int
+	fmt.Print(&quot;Enter any number: &quot;)
+	fmt.Scanln(&amp;number)
+
+	if number &gt; 0 {
+		fmt.Println(number, &quot;is a positive number&quot;)
+	} else if number &lt; 0 {
+		fmt.Println(number, &quot;is a negative number&quot;)
+	} else {
+		fmt.Println(number, &quot;is zero&quot;)
+	}
+}
+</code></pre>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	var grade int
+	fmt.Print(&quot;Enter your grade: &quot;)
+	fmt.Scanln(&amp;grade)
+
+	switch {
+	case grade &gt;= 90:
+		fmt.Println(&quot;Grade: A&quot;)
+	case grade &gt;= 80 &amp;&amp; grade &lt; 90:
+		fmt.Println(&quot;Grade: B&quot;)
+	case grade &gt;= 70 &amp;&amp; grade &lt; 80:
+		fmt.Println(&quot;Grade: C&quot;)
+	case grade &gt;= 60 &amp;&amp; grade &lt; 70:
+		fmt.Println(&quot;Grade: D&quot;)
+	default:
+		fmt.Println(&quot;Grade: F&quot;)
+	}
+}
+</code></pre>
+ </body>
+</html>
