@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	// 练习1：打印出1至100的所有奇数
+	for i := 1; i &lt;= 100; i += 2 {
+		fmt.Println(i)
+	}
+
+	// 练习2：判断一个数是否为质数
+	num := 17
+	isPrime := true
+	for i := 2; i &lt; num; i++ {
+		if num%i == 0 {
+			isPrime = false
+			break
+		}
+	}
+	if isPrime {
+		fmt.Println(num, &quot;是一个质数&quot;)
+	} else {
+		fmt.Println(num, &quot;不是一个质数&quot;)
+	}
+
+	// 练习3：计算斐波那契数列的第n项
+	n := 10
+	fib := make([]int, n+1)
+	fib[0] = 0
+	fib[1] = 1
+	for i := 2; i &lt;= n; i++ {
+		fib[i] = fib[i-1] + fib[i-2]
+	}
+	fmt.Println(&quot;第&quot;, n, &quot;项斐波那契数列的值为&quot;, fib[n])
+
+	// 练习4：将字符串进行翻转
+	str := &quot;Hello, Go!&quot;
+	reversedStr := &quot;&quot;
+	for i := len(str) - 1; i &gt;= 0; i-- {
+		reversedStr += string(str[i])
+	}
+	fmt.Println(&quot;翻转后的字符串为&quot;, reversedStr)
+}
+</code></pre>
+ </body>
+</html>
