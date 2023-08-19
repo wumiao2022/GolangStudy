@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	// 第一题：创建一个函数，接收两个整数参数，并返回它们的和
+	func1(3, 5)
+
+	// 第二题：创建一个函数，接收一个字符串参数，并打印出字符串的长度
+	func2(&quot;hello&quot;)
+
+	// 第三题：创建一个函数，接收一个整数参数n，打印从1到n的所有偶数
+	func3(10)
+
+	// 第四题：创建一个函数，接收一个整数切片参数，返回切片中的最大数和最小数
+	slice := []int{1, 5, 3, 8, 2, 6}
+	max, min := func4(slice)
+	fmt.Println(&quot;Max:&quot;, max, &quot;Min:&quot;, min)
+
+	// 第五题：创建一个函数，接收一个整数切片参数，并将切片中的元素按照从小到大排序
+	func5(slice)
+	fmt.Println(&quot;Sorted slice:&quot;, slice)
+}
+
+func func1(a, b int) {
+	sum := a + b
+	fmt.Println(&quot;Sum:&quot;, sum)
+}
+
+func func2(str string) {
+	length := len(str)
+	fmt.Println(&quot;Length:&quot;, length)
+}
+
+func func3(n int) {
+	for i := 1; i &lt;= n; i++ {
+		if i%2 == 0 {
+			fmt.Println(i)
+		}
+	}
+}
+
+func func4(slice []int) (int, int) {
+	max := slice[0]
+	min := slice[0]
+	for _, num := range slice {
+		if num &gt; max {
+			max = num
+		}
+		if num &lt; min {
+			min = num
+		}
+	}
+	return max, min
+}
+
+func func5(slice []int) {
+	for i := 0; i &lt; len(slice)-1; i++ {
+		for j := 0; j &lt; len(slice)-i-1; j++ {
+			if slice[j] &gt; slice[j+1] {
+				slice[j], slice[j+1] = slice[j+1], slice[j]
+			}
+		}
+	}
+}
+</code></pre>
+
+<p>注意：这里给出了每个练习实例的答案，你可以自行尝试运行代码确认结果是否符合预期。完成练习后，可以尝试在每个函数中添加一些额外逻辑来扩展功能。</p>
+ </body>
+</html>
