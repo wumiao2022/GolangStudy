@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    // 练习1：打印Hello, World!
+    fmt.Println(&quot;Hello, World!&quot;)
+
+    // 练习2：将两个整数相加并打印结果
+    num1 := 10
+    num2 := 5
+    sum := num1 + num2
+    fmt.Println(&quot;Sum:&quot;, sum)
+
+    // 练习3：判断一个数是否为偶数，并打印结果
+    num := 7
+    if num%2 == 0 {
+        fmt.Println(num, &quot;is even&quot;)
+    } else {
+        fmt.Println(num, &quot;is odd&quot;)
+    }
+
+    // 练习4：使用循环打印1到10之间的所有整数
+    for i := 1; i &lt;= 10; i++ {
+        fmt.Println(i)
+    }
+
+    // 练习5：使用函数计算并返回两个整数的乘积
+    multiply(6, 3)
+}
+
+func multiply(a, b int) int {
+    product := a * b
+    return product
+}
+</code></pre>
+
+<p>请注意，这些代码只是一些简单的Golang练习实例，以帮助您熟悉语言的基本概念和语法。如果您想进一步了解每个示例的工作原理，请告诉我，我将很乐意为您解释。</p>
+ </body>
+</html>
