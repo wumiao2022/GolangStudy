@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>Sure! Here is a daily practice exercise for you:</p>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;math/rand&quot;
+	&quot;time&quot;
+)
+
+func main() {
+	rand.Seed(time.Now().UnixNano())
+
+	// Generate a random number between 1 and 100
+	target := rand.Intn(100) + 1
+
+	fmt.Println(&quot;Welcome to the Guessing Game!&quot;)
+	fmt.Println(&quot;I have chosen a number between 1 and 100.&quot;)
+	fmt.Println(&quot;Can you guess it?&quot;)
+
+	guessesTaken := 0
+	for {
+		fmt.Print(&quot;Take a guess: &quot;)
+		var guess int
+		_, err := fmt.Scanf(&quot;%d&quot;, &amp;guess)
+		if err != nil {
+			fmt.Println(&quot;Invalid input. Please enter a valid number.&quot;)
+			continue
+		}
+
+		guessesTaken++
+
+		if guess &lt; target {
+			fmt.Println(&quot;Your guess is too low.&quot;)
+		} else if guess &gt; target {
+			fmt.Println(&quot;Your guess is too high.&quot;)
+		} else {
+			fmt.Printf(&quot;Congratulations! You guessed the number in %d tries.\n&quot;, guessesTaken)
+			break
+		}
+	}
+}
+</code></pre>
+
+<p>This program is a simple guessing game where the user needs to guess a randomly chosen number between 1 and 100. It keeps prompting the user for guesses until the correct number is guessed. After each guess, it provides feedback on whether the guess was too low or too high. Once the user guesses the correct number, it displays the number of tries taken.</p>
+ </body>
+</html>
