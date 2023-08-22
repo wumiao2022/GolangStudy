@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	// 示例1：输出Hello, World!
+	fmt.Println(&quot;Hello, World!&quot;)
+
+	// 示例2：计算两数之和，并输出结果
+	num1 := 10
+	num2 := 20
+	sum := num1 + num2
+	fmt.Println(&quot;The sum of&quot;, num1, &quot;and&quot;, num2, &quot;is&quot;, sum)
+
+	// 示例3：判断一个数是否为正数，并输出结果
+	num := -5
+	if num &gt; 0 {
+		fmt.Println(num, &quot;is a positive number.&quot;)
+	} else {
+		fmt.Println(num, &quot;is not a positive number.&quot;)
+	}
+
+	// 示例4：输出1到10的所有偶数
+	for i := 1; i &lt;= 10; i++ {
+		if i%2 == 0 {
+			fmt.Println(i)
+		}
+	}
+
+	// 示例5：查找一个切片中的最大值，并输出结果
+	numbers := []int{1, 5, 3, 9, 7, 2, 8, 4, 6}
+	max := numbers[0]
+	for _, num := range numbers {
+		if num &gt; max {
+			max = num
+		}
+	}
+	fmt.Println(&quot;The maximum number is&quot;, max)
+}
+</code></pre>
+ </body>
+</html>
