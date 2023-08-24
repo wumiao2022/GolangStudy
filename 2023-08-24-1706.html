@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	// 示例1：打印Hello, World!
+	fmt.Println(&quot;Hello, World!&quot;)
+
+	// 示例2：定义一个整型变量num并赋值为10
+	num := 10
+	fmt.Println(num)
+
+	// 示例3：使用for循环打印1到10的整数
+	for i := 1; i &lt;= 10; i++ {
+		fmt.Println(i)
+	}
+
+	// 示例4：定义一个字符串切片并打印切片的长度和容量
+	strSlice := []string{&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;}
+	fmt.Println(&quot;Length:&quot;, len(strSlice))
+	fmt.Println(&quot;Capacity:&quot;, cap(strSlice))
+}
+</code></pre>
+
+<pre><code class="language-shell">Output:
+Hello, World!
+10
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+Length: 3
+Capacity: 3
+</code></pre>
+ </body>
+</html>
