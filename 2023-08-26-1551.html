@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	// 练习1：打印Hello, World!
+	fmt.Println(&quot;Hello, World!&quot;)
+
+	// 练习2：声明并初始化一个整数变量，然后打印出它的值
+	num := 10
+	fmt.Println(num)
+
+	// 练习3：声明一个字符串变量并赋值为你的名字，然后打印出它
+	name := &quot;Alice&quot;
+	fmt.Println(name)
+
+	// 练习4：声明一个切片并添加一些元素，然后打印出它的长度和容量
+	slice := []int{1, 2, 3, 4, 5}
+	fmt.Println(&quot;Length:&quot;, len(slice))
+	fmt.Println(&quot;Capacity:&quot;, cap(slice))
+
+	// 练习5：声明一个map并添加一些键值对，然后打印出它的长度
+	m := map[string]int{
+		&quot;apple&quot;:  1,
+		&quot;banana&quot;: 2,
+		&quot;orange&quot;: 3,
+	}
+	fmt.Println(&quot;Length:&quot;, len(m))
+}
+</code></pre>
+
+<p>以上是一些简单的练习示例代码，每个练习都有一个具体的目标，你可以尝试编写代码来实现这些目标，并运行验证结果。不断地练习和尝试是学习编程语言的重要方法，希望能对你有所帮助！</p>
+ </body>
+</html>
