@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	// 练习1：打印出 &quot;Hello, Golang!&quot; 字符串
+	fmt.Println(&quot;Hello, Golang!&quot;)
+
+	// 练习2：计算两个数的和并打印结果
+	num1 := 10
+	num2 := 5
+	sum := num1 + num2
+	fmt.Println(&quot;Sum:&quot;, sum)
+
+	// 练习3：将一个整数数组按逆序排列并打印结果
+	numbers := []int{5, 2, 7, 9, 1}
+	for i := len(numbers) - 1; i &gt;= 0; i-- {
+		fmt.Println(numbers[i])
+	}
+
+	// 练习4：定义一个结构体表示一个人的信息，包括姓名和年龄，并打印结果
+	type Person struct {
+		Name string
+		Age  int
+	}
+	person := Person{Name: &quot;Alice&quot;, Age: 25}
+	fmt.Println(person)
+}
+</code></pre>
+
+<p>以上是今天的练习代码，每个练习都包含简单的代码示例。你可以尝试阅读、运行和修改它们来进一步熟悉Golang的语法和特性。祝你在Golang的学习和编程之旅中取得成功！</p>
+ </body>
+</html>
