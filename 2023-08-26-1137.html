@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+// 练习1：打印出从1到100的数字，但是遇到可以被3整除的数字用&quot;Fizz&quot;代替，遇到可以被5整除的数字用&quot;Buzz&quot;代替，同时可以被3和5整除的数字用&quot;FizzBuzz&quot;代替。
+func fizzBuzz() {
+    for i := 1; i &lt;= 100; i++ {
+        if i%3 == 0 &amp;&amp; i%5 == 0 {
+            fmt.Println(&quot;FizzBuzz&quot;)
+        } else if i%3 == 0 {
+            fmt.Println(&quot;Fizz&quot;)
+        } else if i%5 == 0 {
+            fmt.Println(&quot;Buzz&quot;)
+        } else {
+            fmt.Println(i)
+        }
+    }
+}
+
+// 练习2：编写一个函数，接受整数数组和目标整数，返回数组中两个数字加和等于目标整数的下标。
+func twoSum(nums []int, target int) []int {
+    hashMap := make(map[int]int)
+    for idx, num := range nums {
+        complement := target - num
+        if val, ok := hashMap[complement]; ok {
+            return []int{val, idx}
+        }
+        hashMap[num] = idx
+    }
+    return nil
+}
+
+// 练习3：实现斐波那契数列的递归函数。
+func fibonacci(n int) int {
+    if n &lt;= 1 {
+        return n
+    }
+    return fibonacci(n-1) + fibonacci(n-2)
+}
+
+func main() {
+    fizzBuzz()
+
+    nums := []int{2, 7, 11, 15}
+    target := 9
+    result := twoSum(nums, target)
+    fmt.Println(&quot;Indices:&quot;, result)
+
+    n := 10
+    fmt.Println(&quot;Fibonacci result:&quot;, fibonacci(n))
+}
+</code></pre>
+ </body>
+</html>
