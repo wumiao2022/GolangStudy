@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>func main() {
+	// 练习1：打印Hello, World!
+	fmt.Println(&ldquo;Hello, World!&rdquo;)</p>
+
+<pre><code>// 练习2：计算并打印1+2的结果
+sum := 1 + 2
+fmt.Println(sum)
+
+// 练习3：声明一个整型变量x并赋值为10，然后打印出x的值
+x := 10
+fmt.Println(x)
+
+// 练习4：声明一个字符串变量name并赋值为&quot;John&quot;，然后打印出name的值
+name := &quot;John&quot;
+fmt.Println(name)
+
+// 练习5：声明一个布尔型变量isTrue并赋值为true，然后打印出isTrue的值
+isTrue := true
+fmt.Println(isTrue)
+
+// 练习6：声明一个浮点型变量pi并赋值为3.14，然后打印出pi的值
+pi := 3.14
+fmt.Println(pi)
+
+// 练习7：声明一个切片类型的变量numbers并分配内存空间，容量为5
+numbers := make([]int, 0, 5)
+fmt.Println(numbers)
+
+// 练习8：声明一个映射类型的变量person并初始化
+person := map[string]string{
+	&quot;name&quot;:  &quot;John&quot;,
+	&quot;age&quot;:   &quot;30&quot;,
+	&quot;email&quot;: &quot;john@example.com&quot;,
+}
+fmt.Println(person)
+
+// 练习9：声明一个结构体类型的变量student并初始化
+type student struct {
+	name  string
+	age   int
+	email string
+}
+student := student{
+	name:  &quot;John&quot;,
+	age:   18,
+	email: &quot;john@example.com&quot;,
+}
+fmt.Println(student)
+</code></pre>
+
+<p>}</p>
+ </body>
+</html>
