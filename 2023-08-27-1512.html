@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	// 练习1：输出Hello, World!
+	fmt.Println(&quot;Hello, World!&quot;)
+
+	// 练习2：求两个整数的和
+	a := 3
+	b := 4
+	sum := a + b
+	fmt.Println(&quot;Sum:&quot;, sum)
+
+	// 练习3：判断一个数是否为偶数
+	num := 7
+	if num%2 == 0 {
+		fmt.Println(num, &quot;is even&quot;)
+	} else {
+		fmt.Println(num, &quot;is odd&quot;)
+	}
+
+	// 练习4：遍历打印切片元素
+	numbers := []int{1, 2, 3, 4, 5}
+	for _, number := range numbers {
+		fmt.Println(number)
+	}
+
+	// 练习5：定义一个结构体
+	type Person struct {
+		Name string
+		Age  int
+	}
+	person := Person{
+		Name: &quot;Alice&quot;,
+		Age:  25,
+	}
+	fmt.Println(&quot;Name:&quot;, person.Name)
+	fmt.Println(&quot;Age:&quot;, person.Age)
+}
+</code></pre>
+
+<p>这是一些简单的Golang练习实例代码，可以用来巩固基础知识和语法。每日多练，加油！</p>
+ </body>
+</html>
