@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+// 1. 求两个整数的和
+func sum(a, b int) int {
+	return a + b
+}
+
+// 2. 判断一个数是否为偶数
+func isEven(num int) bool {
+	if num%2 == 0 {
+		return true
+	}
+	return false
+}
+
+// 3. 计算斐波那契数列的第n个数
+func fibonacci(n int) int {
+	if n &lt;= 1 {
+		return n
+	}
+	return fibonacci(n-1) + fibonacci(n-2)
+}
+
+// 4. 将字符串中的元音字母替换成其他字符
+func replaceVowels(str string, replacement rune) string {
+	vowels := map[rune]bool{
+		'a': true,
+		'e': true,
+		'i': true,
+		'o': true,
+		'u': true,
+	}
+	result := &quot;&quot;
+	for _, ch := range str {
+		if vowels[ch] {
+			result += string(replacement)
+		} else {
+			result += string(ch)
+		}
+	}
+	return result
+}
+
+// 5. 判断一个字符串是否为回文字符串
+func isPalindrome(str string) bool {
+	for i := 0; i &lt; len(str)/2; i++ {
+		if str[i] != str[len(str)-1-i] {
+			return false
+		}
+	}
+	return true
+}
+
+func main() {
+	// 测试示例
+	a, b := 10, 5
+	sumResult := sum(a, b)
+	println(&quot;Sum:&quot;, sumResult)
+
+	num := 9
+	isEvenResult := isEven(num)
+	println(&quot;Is&quot;, num, &quot;even?&quot;, isEvenResult)
+
+	n := 6
+	fibonacciResult := fibonacci(n)
+	println(&quot;Fibonacci at&quot;, n, &quot;:&quot;, fibonacciResult)
+
+	str := &quot;hello&quot;
+	replacement := '*'
+	replaceResult := replaceVowels(str, replacement)
+	println(&quot;Replace vowels:&quot;, replaceResult)
+
+	palindromeStr := &quot;racecar&quot;
+	isPalindromeResult := isPalindrome(palindromeStr)
+	println(&quot;Is&quot;, palindromeStr, &quot;a palindrome?&quot;, isPalindromeResult)
+}
+</code></pre>
+
+<p>这是一些基本的练习示例代码，你可以通过编写测试案例来验证这些函数的功能是否正确。每天多练习会有助于提升你的Golang编程技能！</p>
+ </body>
+</html>
