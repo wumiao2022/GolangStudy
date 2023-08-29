@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	// Exercise 1: Print &quot;Hello, World!&quot; to the console
+
+	fmt.Println(&quot;Hello, World!&quot;)
+
+	// Exercise 2: Calculate the sum of two numbers and print the result
+
+	num1 := 10
+	num2 := 5
+	sum := num1 + num2
+	fmt.Println(&quot;Sum:&quot;, sum)
+
+	// Exercise 3: Create a function that takes two integers as parameters and returns their product
+
+	product := multiply(3, 4)
+	fmt.Println(&quot;Product:&quot;, product)
+
+	// Exercise 4: Create a slice of strings with names of your favorite fruits and print the length of the slice
+
+	fruits := []string{&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;}
+	fmt.Println(&quot;Number of fruits:&quot;, len(fruits))
+
+	// Exercise 5: Iterate over the slice of fruits and print each fruit
+
+	for _, fruit := range fruits {
+		fmt.Println(fruit)
+	}
+}
+
+func multiply(a, b int) int {
+	return a * b
+}
+</code></pre>
+ </body>
+</html>
