@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <ol>
+<li>实现一个简单的计算器程序，输入两个数字和一个运算符（+、-、*、/），输出计算结果。</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+)
+
+func main() {
+	var num1, num2 float64
+	var operator string
+
+	fmt.Print(&quot;Enter first number: &quot;)
+	fmt.Scanln(&amp;num1)
+
+	fmt.Print(&quot;Enter second number: &quot;)
+	fmt.Scanln(&amp;num2)
+
+	fmt.Print(&quot;Enter operator (+, -, *, /): &quot;)
+	fmt.Scanln(&amp;operator)
+
+	result := 0.0
+
+	switch operator {
+	case &quot;+&quot;:
+		result = num1 + num2
+	case &quot;-&quot;:
+		result = num1 - num2
+	case &quot;*&quot;:
+		result = num1 * num2
+	case &quot;/&quot;:
+		result = num1 / num2
+	default:
+		fmt.Println(&quot;Invalid operator&quot;)
+		return
+	}
+
+	fmt.Printf(&quot;Result: %f\n&quot;, result)
+}
+</code></pre>
+
+<ol>
+<li>实现一个函数，接收一个切片作为参数，返回一个逆序排列的切片。</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+)
+
+func reverseSlice(slice []int) []int {
+	reversed := make([]int, len(slice))
+	for i := 0; i &lt; len(slice); i++ {
+		reversed[i] = slice[len(slice)-1-i]
+	}
+	return reversed
+}
+
+func main() {
+	numbers := []int{1, 2, 3, 4, 5}
+	reversedNumbers := reverseSlice(numbers)
+	fmt.Println(reversedNumbers)
+}
+</code></pre>
+
+<ol>
+<li>实现一个函数，接收一个整数作为参数，返回该整数的阶乘。</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+)
+
+func factorial(n int) int {
+	if n &lt;= 1 {
+		return 1
+	}
+	return n * factorial(n-1)
+}
+
+func main() {
+	num := 5
+	result := factorial(num)
+	fmt.Printf(&quot;%d! = %d\n&quot;, num, result)
+}
+</code></pre>
+
+<ol>
+<li>实现一个函数，接收一个字符串作为参数，返回统计该字符串中字母的个数（不区分大小写）。</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;strings&quot;
+)
+
+func countLetters(str string) int {
+	count := 0
+	for _, char := range strings.ToLower(str) {
+		if char &gt;= 'a' &amp;&amp; char &lt;= 'z' {
+			count++
+		}
+	}
+	return count
+}
+
+func main() {
+	str := &quot;Hello, World! 123&quot;
+	result := countLetters(str)
+	fmt.Printf(&quot;Number of letters: %d\n&quot;, result)
+}
+</code></pre>
+
+<ol>
+<li>实现一个函数，接收两个整数作为参数，返回它们的最大公约数。</li>
+</ol>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+)
+
+func gcd(a, b int) int {
+	for b != 0 {
+		a, b = b, a%b
+	}
+	return a
+}
+
+func main() {
+	num1 := 12
+	num2 := 18
+	result := gcd(num1, num2)
+	fmt.Printf(&quot;GCD of %d and %d is %d\n&quot;, num1, num2, result)
+}
+</code></pre>
+ </body>
+</html>
