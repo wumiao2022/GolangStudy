@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+)
+
+func main() {
+	// Example 1: Printing &quot;Hello, World!&quot; to the console
+	fmt.Println(&quot;Hello, World!&quot;)
+
+	// Example 2: Calculating the sum of two numbers
+	num1 := 10
+	num2 := 5
+	sum := num1 + num2
+	fmt.Printf(&quot;The sum of %d and %d is %d\n&quot;, num1, num2, sum)
+
+	// Example 3: Checking if a number is even or odd
+	number := 7
+	if number%2 == 0 {
+		fmt.Printf(&quot;%d is even\n&quot;, number)
+	} else {
+		fmt.Printf(&quot;%d is odd\n&quot;, number)
+	}
+
+	// Example 4: Finding the maximum number in an array
+	numbers := []int{5, 3, 8, 2, 9}
+	max := numbers[0]
+	for _, num := range numbers {
+		if num &gt; max {
+			max = num
+		}
+	}
+	fmt.Printf(&quot;The maximum number in the array is %d\n&quot;, max)
+
+	// Example 5: Converting a temperature from Celsius to Fahrenheit
+	celsius := 30.0
+	fahrenheit := (celsius * 9 / 5) + 32
+	fmt.Printf(&quot;%.2f°C is equal to %.2f°F\n&quot;, celsius, fahrenheit)
+}
+</code></pre>
+
+<p>每天多练习一些基本的代码可以帮助你提升你的Golang编程技能。以上是一些简单示例代码，用于演示不同的概念和技巧。你可以运行这些代码，并根据自己的需求进行修改和扩展。不断练习和尝试新的代码将帮助你更好地掌握Golang编程。祝你在编程路上取得成功！</p>
+ </body>
+</html>
