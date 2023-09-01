@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>func main() {
+    // 练习1：输出Hello, World!
+    fmt.Println(&ldquo;Hello, World!&rdquo;)</p>
+
+<pre><code>// 练习2：计算两个整数的和
+num1 := 10
+num2 := 20
+sum := num1 + num2
+fmt.Println(&quot;Sum:&quot;, sum)
+
+// 练习3：判断一个数是否为偶数
+num := 25
+if num%2 == 0 {
+    fmt.Println(num, &quot;is even.&quot;)
+} else {
+    fmt.Println(num, &quot;is odd.&quot;)
+}
+
+// 练习4：判断一个年份是否为闰年
+year := 2021
+if (year%4 == 0 &amp;&amp; year%100 != 0) || year%400 == 0 {
+    fmt.Println(year, &quot;is a leap year.&quot;)
+} else {
+    fmt.Println(year, &quot;is not a leap year.&quot;)
+}
+
+// 练习5：求一个数组中的最大值
+arr := []int{5, 8, 2, 9, 3}
+max := arr[0]
+for i := 1; i &lt; len(arr); i++ {
+    if arr[i] &gt; max {
+        max = arr[i]
+    }
+}
+fmt.Println(&quot;Max:&quot;, max)
+</code></pre>
+
+<p>}</p>
+ </body>
+</html>
