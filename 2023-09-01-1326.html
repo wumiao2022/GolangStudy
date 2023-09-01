@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;math/rand&quot;
+)
+
+func main() {
+	// 生成一个0到100之间的随机整数
+	randomNumber := rand.Intn(101)
+	fmt.Println(&quot;Random number:&quot;, randomNumber)
+
+	// 判断随机数是奇数还是偶数
+	if randomNumber%2 == 0 {
+		fmt.Println(&quot;Even number&quot;)
+	} else {
+		fmt.Println(&quot;Odd number&quot;)
+	}
+}
+</code></pre>
+ </body>
+</html>
