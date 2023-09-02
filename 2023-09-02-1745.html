@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>func main() {
+    // 1. Hello World
+    fmt.Println(&ldquo;Hello, World!&rdquo;)</p>
+
+<pre><code>// 2. Variables
+var x int = 5
+var y float64 = 3.14
+var z bool = true
+
+// 3. Constants
+const c string = &quot;constant&quot;
+
+// 4. Arrays
+var arr [5]int
+arr[2] = 3
+
+// 5. Slices
+slice := make([]int, 3)
+slice[1] = 2
+
+// 6. Maps
+m := make(map[string]int)
+m[&quot;one&quot;] = 1
+
+// 7. Structs
+type Person struct {
+    name string
+    age  int
+}
+
+p := Person{name: &quot;John&quot;, age: 30}
+
+// 8. Loops
+for i := 0; i &lt; 5; i++ {
+    fmt.Println(i)
+}
+
+// 9. Conditionals
+if x &gt; 2 {
+    fmt.Println(&quot;x is greater than 2&quot;)
+} else if x == 2 {
+    fmt.Println(&quot;x is equal to 2&quot;)
+} else {
+    fmt.Println(&quot;x is less than 2&quot;)
+}
+
+// 10. Functions
+add := func(a, b int) int {
+    return a + b
+}
+
+sum := add(3, 4)
+fmt.Println(sum)
+</code></pre>
+
+<p>}</p>
+ </body>
+</html>
