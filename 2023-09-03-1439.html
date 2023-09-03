@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+)
+
+func main() {
+	// 练习题1：打印Hello, World!
+	fmt.Println(&quot;Hello, World!&quot;)
+
+	// 练习题2：计算两个数的和并输出结果
+	num1 := 10
+	num2 := 20
+	sum := num1 + num2
+	fmt.Println(&quot;Sum:&quot;, sum)
+
+	// 练习题3：打印1到10的所有奇数
+	for i := 1; i &lt;= 10; i += 2 {
+		fmt.Println(i)
+	}
+
+	// 练习题4：判断一个年份是否是闰年并输出结果
+	year := 2024
+	if year%4 == 0 &amp;&amp; (year%100 != 0 || year%400 == 0) {
+		fmt.Println(year, &quot;is a leap year&quot;)
+	} else {
+		fmt.Println(year, &quot;is not a leap year&quot;)
+	}
+
+	// 练习题5：将字符串反转并输出结果
+	str := &quot;Hello, World!&quot;
+	reversedStr := &quot;&quot;
+	for i := len(str) - 1; i &gt;= 0; i-- {
+		reversedStr += string(str[i])
+	}
+	fmt.Println(&quot;Reversed String:&quot;, reversedStr)
+}
+</code></pre>
+
+<p>以上是一些简单的练习题，你可以编写并运行这些代码来练习Golang的基本语法和掌握一些常见的编程技巧。每天坚持多练习，你的编程技能会得到不断提升！祝你成功！</p>
+ </body>
+</html>
