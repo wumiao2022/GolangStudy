@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    // 练习1: 打印&quot;Hello, World!&quot;
+    fmt.Println(&quot;Hello, World!&quot;)
+
+    // 练习2: 交换两个变量的值
+    a := 5
+    b := 10
+    a, b = b, a
+    fmt.Println(&quot;a =&quot;, a, &quot;b =&quot;, b)
+
+    // 练习3: 计算两个数的和并打印结果
+    num1 := 3
+    num2 := 7
+    sum := num1 + num2
+    fmt.Println(&quot;sum =&quot;, sum)
+
+    // 练习4: 判断一个数是否为偶数，并打印结果
+    num := 6
+    if num%2 == 0 {
+        fmt.Println(num, &quot;is even&quot;)
+    } else {
+        fmt.Println(num, &quot;is odd&quot;)
+    }
+}
+</code></pre>
+ </body>
+</html>
