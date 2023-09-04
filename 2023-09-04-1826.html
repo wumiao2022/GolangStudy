@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    // 1. 打印出 &quot;Hello, World!&quot;
+    fmt.Println(&quot;Hello, World!&quot;)
+
+    // 2. 声明一个整数变量并赋值为10，打印出变量的值
+    var num int = 10
+    fmt.Println(num)
+
+    // 3. 声明一个布尔变量并赋值为true，打印出变量的值
+    var isTrue bool = true
+    fmt.Println(isTrue)
+
+    // 4. 使用if语句判断一个整数变量是否大于等于5，如果是则打印&quot;大于等于5&quot;，否则打印&quot;小于5&quot;
+    if num &gt;= 5 {
+        fmt.Println(&quot;大于等于5&quot;)
+    } else {
+        fmt.Println(&quot;小于5&quot;)
+    }
+
+    // 5. 使用for循环打印出10到1的整数，每个数字一行
+    for i := 10; i &gt;= 1; i-- {
+        fmt.Println(i)
+    }
+
+    // 6. 声明一个字符串变量并赋值为&quot;Hello, Golang!&quot;，通过for循环遍历打印出每个字符
+    str := &quot;Hello, Golang!&quot;
+    for _, char := range str {
+        fmt.Printf(&quot;%c &quot;, char)
+    }
+    fmt.Println()
+
+    // 7. 声明一个字符串切片，包含5个元素，分别为&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;, &quot;grape&quot;, &quot;watermelon&quot;，通过for循环遍历打印出每个元素
+    fruits := []string{&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;, &quot;grape&quot;, &quot;watermelon&quot;}
+    for _, fruit := range fruits {
+        fmt.Println(fruit)
+    }
+}
+</code></pre>
+
+<p>这些练习代码包括了打印输出、变量声明与赋值、条件语句、循环语句的使用。你可以将以上代码复制到你的Go编辑器中执行，通过查看输出来验证结果。加油！</p>
+ </body>
+</html>
