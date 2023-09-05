@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	// 练习1: 打印&quot;Hello, World!&quot;
+	fmt.Println(&quot;Hello, World!&quot;)
+
+	// 练习2: 计算两个数的和并打印结果
+	num1 := 10
+	num2 := 20
+	sum := num1 + num2
+	fmt.Println(&quot;Sum:&quot;, sum)
+
+	// 练习3: 编写一个函数，接收一个数组并返回该数组的最大值
+	arr := []int{5, 8, 1, 9, 3}
+	max := findMax(arr)
+	fmt.Println(&quot;Max:&quot;, max)
+
+	// 练习4: 编写一个递归函数，计算斐波那契数列的第 n 个数字
+	n := 8
+	fib := fibonacci(n)
+	fmt.Println(&quot;Fibonacci:&quot;, fib)
+
+	// 练习5: 创建一个结构体表示学生，包含姓名和年龄字段，使用指针类型接收函数修改学生的年龄并打印
+	student := Student{&quot;Alice&quot;, 20}
+	modifyAge(&amp;student, 21)
+	fmt.Println(&quot;Modified Age:&quot;, student.Age)
+}
+
+// 练习3: 查找数组的最大值
+func findMax(arr []int) int {
+	max := arr[0]
+	for _, num := range arr {
+		if num &gt; max {
+			max = num
+		}
+	}
+	return max
+}
+
+// 练习4: 计算斐波那契数列
+func fibonacci(n int) int {
+	if n &lt;= 1 {
+		return n
+	}
+	return fibonacci(n-1) + fibonacci(n-2)
+}
+
+// 练习5: 学生结构体
+type Student struct {
+	Name string
+	Age  int
+}
+
+// 练习5: 修改学生年龄
+func modifyAge(student *Student, age int) {
+	student.Age = age
+}
+</code></pre>
+
+<p>这是一个Golang多练习的示例代码，包含了几个简单的练习，你可以按照注释的提示完成相应的任务。每个练习都有一个例子来演示如何实现。祝你学习愉快！</p>
+ </body>
+</html>
