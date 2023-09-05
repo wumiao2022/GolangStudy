@@ -2,31 +2,29 @@ package main
 
 import (
 	"fmt"
-	"math/rand"
-	"time"
+	"strings"
 )
 
 func main() {
-	rand.Seed(time.Now().UnixNano())
+	// Exercise 1: Convert string to title case
+	str := "hello, how are you?"
+	titleCase := strings.Title(str)
+	fmt.Println(titleCase)
 
-	// 生成一个长度为10的随机整数数组
-	arr := make([]int, 10)
-	for i := 0; i < 10; i++ {
-		arr[i] = rand.Intn(100)
+	// Exercise 2: Count the occurrences of each word in a string
+	text := "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed faucibus nulla id feugiat imperdiet."
+	words := strings.Fields(text)
+	wordCount := make(map[string]int)
+	for _, word := range words {
+		wordCount[word]++
 	}
+	fmt.Println(wordCount)
 
-	// 打印数组
-	fmt.Println("随机数组:", arr)
-
-	// 对数组进行冒泡排序
-	for i := 0; i < len(arr)-1; i++ {
-		for j := 0; j < len(arr)-1-i; j++ {
-			if arr[j] > arr[j+1] {
-				arr[j], arr[j+1] = arr[j+1], arr[j]
-			}
-		}
+	// Exercise 3: Reverse a string
+	s := "Hello, world!"
+	reverse := ""
+	for i := len(s) - 1; i >= 0; i-- {
+		reverse += string(s[i])
 	}
-
-	// 打印排序后的数组
-	fmt.Println("排序后的数组:", arr)
+	fmt.Println(reverse)
 }
