@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code>package main
+
+import (
+	&quot;fmt&quot;
+)
+
+func main() {
+	// Example 1: Hello World
+	fmt.Println(&quot;Hello, World!&quot;)
+
+	// Example 2: Variables and Constants
+	var name string = &quot;John&quot;
+	age := 25
+	const pi float64 = 3.14159
+
+	fmt.Println(&quot;Name:&quot;, name)
+	fmt.Println(&quot;Age:&quot;, age)
+	fmt.Println(&quot;PI:&quot;, pi)
+
+	// Example 3: Control Flow (If-else, For loop)
+	num := 10
+
+	if num &gt; 5 {
+		fmt.Println(&quot;Num is greater than 5&quot;)
+	} else {
+		fmt.Println(&quot;Num is less than or equal to 5&quot;)
+	}
+
+	for i := 1; i &lt;= 5; i++ {
+		fmt.Println(i)
+	}
+
+	// Example 4: Arrays and Slices
+	arr := [5]int{1, 2, 3, 4, 5}
+	slice := []int{6, 7, 8, 9, 10}
+
+	fmt.Println(&quot;Array:&quot;, arr)
+	fmt.Println(&quot;Slice:&quot;, slice)
+
+	// Example 5: Functions
+	result := add(10, 5)
+	fmt.Println(&quot;Result:&quot;, result)
+}
+
+func add(a, b int) int {
+	return a + b
+}
+</code></pre>
+ </body>
+</html>
