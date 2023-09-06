@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>func main() {
+    // 1. 输出&rdquo;Hello, World!&rdquo;
+    fmt.Println(&ldquo;Hello, World!&rdquo;)</p>
+
+<pre><code>// 2. 变量声明与赋值
+var num1 int = 10
+var num2 float64 = 3.14
+fmt.Println(num1, num2)
+
+// 3. 数组的遍历
+arr := []int{1, 2, 3, 4, 5}
+for _, value := range arr {
+    fmt.Println(value)
+}
+
+// 4. 切片操作
+slice := make([]int, 0)
+slice = append(slice, 1, 2, 3)
+fmt.Println(slice[:2])
+
+// 5. 函数的定义和调用
+sum := add(5, 7)
+fmt.Println(sum)
+</code></pre>
+
+<p>}</p>
+
+<p>func add(num1, num2 int) int {
+    return num1 + num2
+}</p>
+ </body>
+</html>
