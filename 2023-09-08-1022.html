@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    // 示例1：变量声明和打印
+    var num1 int = 10
+    fmt.Println(num1)
+
+    // 示例2：类型转换
+    var num2 float64 = float64(num1)
+    fmt.Println(num2)
+
+    // 示例3：条件判断
+    if num1 &gt; 5 {
+        fmt.Println(&quot;num1 is greater than 5&quot;)
+    } else {
+        fmt.Println(&quot;num1 is not greater than 5&quot;)
+    }
+
+    // 示例4：循环语句
+    for i := 0; i &lt; 5; i++ {
+        fmt.Println(i)
+    }
+
+    // 示例5：数组和遍历
+    var arr [5]int = [5]int{1, 2, 3, 4, 5}
+    for _, v := range arr {
+        fmt.Println(v)
+    }
+
+    // 示例6：函数定义和调用
+    result := add(3, 5)
+    fmt.Println(result)
+}
+
+func add(a, b int) int {
+    return a + b
+}
+</code></pre>
+ </body>
+</html>
