@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;time&quot;
+)
+
+func main() {
+	// 今日日期
+	today := time.Now().Format(&quot;2006-01-02&quot;)
+
+	// 打印今日日期
+	fmt.Println(&quot;今日日期：&quot;, today)
+
+	// 输出1到10的平方数
+	for i := 1; i &lt;= 10; i++ {
+		square := i * i
+		fmt.Printf(&quot;%d的平方是：%d\n&quot;, i, square)
+	}
+
+	// 找出数组中的最大值
+	numbers := []int{10, 30, 50, 20, 40}
+	max := numbers[0]
+	for _, num := range numbers {
+		if num &gt; max {
+			max = num
+		}
+	}
+	fmt.Println(&quot;数组中的最大值是：&quot;, max)
+}
+</code></pre>
+ </body>
+</html>
