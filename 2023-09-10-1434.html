@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>func main() {
+	// Exercise 1: Hello World
+	fmt.Println(&ldquo;Hello World!&rdquo;)</p>
+
+<pre><code>// Exercise 2: Variables
+var name string = &quot;John&quot;
+var age int = 25
+fmt.Printf(&quot;My name is %s and I am %d years old.\n&quot;, name, age)
+
+// Exercise 3: Constants
+const pi = 3.14
+fmt.Printf(&quot;The value of pi is %.2f\n&quot;, pi)
+
+// Exercise 4: Arrays
+numbers := [5]int{1, 2, 3, 4, 5}
+fmt.Println(numbers)
+
+// Exercise 5: Slices
+numbersSlice := []int{1, 2, 3, 4, 5}
+fmt.Println(numbersSlice)
+
+// Exercise 6: Loops
+for i := 0; i &lt; 5; i++ {
+	fmt.Println(i)
+}
+
+// Exercise 7: If-else condition
+num := 10
+if num &gt; 5 {
+	fmt.Println(&quot;Number is greater than 5.&quot;)
+} else {
+	fmt.Println(&quot;Number is smaller than or equal to 5.&quot;)
+}
+
+// Exercise 8: Functions
+sum := add(2, 3)
+fmt.Println(&quot;The sum is&quot;, sum)
+</code></pre>
+
+<p>}</p>
+
+<p>func add(a, b int) int {
+	return a + b
+}</p>
+ </body>
+</html>
