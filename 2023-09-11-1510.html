@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	// 练习一：打印 Hello, World!
+	fmt.Println(&quot;Hello, World!&quot;)
+
+	// 练习二：计算并打印数组中元素的和
+	numbers := []int{1, 2, 3, 4, 5}
+	sum := 0
+	for _, num := range numbers {
+		sum += num
+	}
+	fmt.Println(&quot;Sum:&quot;, sum)
+
+	// 练习三：判断一个数是否为素数
+	number := 7
+	isPrime := true
+	for i := 2; i &lt; number; i++ {
+		if number%i == 0 {
+			isPrime = false
+			break
+		}
+	}
+	fmt.Println(&quot;Is Prime:&quot;, isPrime)
+
+	// 练习四：实现一个简单的计算器函数
+	result := calculate(8, 4, &quot;+&quot;)
+	fmt.Println(&quot;Result:&quot;, result)
+}
+
+func calculate(a int, b int, operator string) int {
+	switch operator {
+	case &quot;+&quot;:
+		return a + b
+	case &quot;-&quot;:
+		return a - b
+	case &quot;*&quot;:
+		return a * b
+	case &quot;/&quot;:
+		return a / b
+	default:
+		return 0
+	}
+}
+</code></pre>
+
+<p>请运行上述代码，并查看练习的结果。每个练习都有简单的注释，以便您理解每个练习的目的和实现。请随时提出问题或寻求进一步帮助。</p>
+ </body>
+</html>
