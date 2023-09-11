@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>func main() {
+	// 练习1：输出Hello World
+	fmt.Println(&ldquo;Hello World&rdquo;)</p>
+
+<pre><code>// 练习2：计算两个数的和并输出
+num1 := 10
+num2 := 20
+sum := num1 + num2
+fmt.Println(&quot;Sum:&quot;, sum)
+
+// 练习3：判断一个数是否为偶数
+num := 15
+if num%2 == 0 {
+	fmt.Println(num, &quot;is even&quot;)
+} else {
+	fmt.Println(num, &quot;is odd&quot;)
+}
+
+// 练习4：循环打印数字1到10
+for i := 1; i &lt;= 10; i++ {
+	fmt.Println(i)
+}
+
+// 练习5：打印九九乘法表
+for i := 1; i &lt;= 9; i++ {
+	for j := 1; j &lt;= i; j++ {
+		fmt.Printf(&quot;%d*%d=%d\t&quot;, i, j, i*j)
+	}
+	fmt.Println()
+}
+
+// 练习6：定义数组并输出其中的元素
+arr := [5]int{1, 2, 3, 4, 5}
+for i := 0; i &lt; len(arr); i++ {
+	fmt.Println(arr[i])
+}
+
+// 练习7：定义切片并输出其中的元素
+slice := []int{1, 2, 3, 4, 5}
+for i := 0; i &lt; len(slice); i++ {
+	fmt.Println(slice[i])
+}
+
+// 练习8：定义Map并输出其中的键值对
+m := map[string]int{&quot;a&quot;: 1, &quot;b&quot;: 2, &quot;c&quot;: 3}
+for key, value := range m {
+	fmt.Println(key, value)
+}
+
+// 练习9：定义结构体并输出其中的字段
+type Person struct {
+	Name string
+	Age  int
+}
+p := Person{Name: &quot;Alice&quot;, Age: 25}
+fmt.Println(p.Name, p.Age)
+
+// 练习10：定义接口并实现
+type Shape interface {
+	Area() float64
+}
+type Rectangle struct {
+	Width  float64
+	Height float64
+}
+func (r Rectangle) Area() float64 {
+	return r.Width * r.Height
+}
+r := Rectangle{Width: 10, Height: 5}
+fmt.Println(r.Area())
+</code></pre>
+
+<p>}</p>
+ </body>
+</html>
