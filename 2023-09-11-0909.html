@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>func main() {
+    // 练习1：打印出 &ldquo;Hello, World!&rdquo;
+    fmt.Println(&ldquo;Hello, World!&rdquo;)</p>
+
+<pre><code>// 练习2：定义两个变量num1和num2，分别赋值为10和5，求它们的和并打印出结果
+num1 := 10
+num2 := 5
+sum := num1 + num2
+fmt.Println(&quot;Sum:&quot;, sum)
+
+// 练习3：定义一个切片slice，元素为1, 2, 3, 4, 5，打印出切片的长度和容量
+slice := []int{1, 2, 3, 4, 5}
+fmt.Println(&quot;Length:&quot;, len(slice))
+fmt.Println(&quot;Capacity:&quot;, cap(slice))
+
+// 练习4：定义一个map，键为字符串&quot;Name&quot;，值为字符串&quot;John&quot;，打印出map的内容
+m := map[string]string{&quot;Name&quot;: &quot;John&quot;}
+fmt.Println(m)
+
+// 练习5：定义一个结构体Person，包含字段name和age，实例化一个Person并打印其内容
+type Person struct {
+    name string
+    age  int
+}
+p := Person{name: &quot;Alice&quot;, age: 25}
+fmt.Println(p)
+</code></pre>
+
+<p>}</p>
+ </body>
+</html>
