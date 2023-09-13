@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">func main() {
+    // 练习1: 输出Hello, World!
+    fmt.Println(&quot;Hello, World!&quot;)
+
+    // 练习2: 定义一个整数变量，输出其值
+    var num int
+    num = 100
+    fmt.Println(num)
+
+    // 练习3: 定义一个字符串变量，输出其值
+    var str string
+    str = &quot;Go is awesome!&quot;
+    fmt.Println(str)
+
+    // 练习4: 定义一个布尔变量，输出其值
+    var isTrue bool
+    isTrue = true
+    fmt.Println(isTrue)
+
+    // 练习5: 使用if语句判断一个整数变量的值是否大于10，如果是则输出&quot;大于10&quot;，否则输出&quot;小于等于10&quot;
+    if num &gt; 10 {
+        fmt.Println(&quot;大于10&quot;)
+    } else {
+        fmt.Println(&quot;小于等于10&quot;)
+    }
+
+    // 练习6: 使用for循环输出1到10之间的整数
+    for i := 1; i &lt;= 10; i++ {
+        fmt.Println(i)
+    }
+
+    // 练习7: 定义一个切片，其中包含5个字符串元素，输出切片中的元素
+    slice := []string{&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;, &quot;grape&quot;, &quot;watermelon&quot;}
+    for _, fruit := range slice {
+        fmt.Println(fruit)
+    }
+
+    // 练习8: 定义一个函数，接收两个整数参数并返回它们的和
+    add := func(a, b int) int {
+        return a + b
+    }
+    fmt.Println(add(2, 3))
+}
+</code></pre>
+ </body>
+</html>
