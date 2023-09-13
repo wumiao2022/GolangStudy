@@ -1,28 +1,45 @@
 package main
 
-import (
-	"fmt"
-	"math/rand"
-)
+import "fmt"
 
 func main() {
-	// 练习1：生成一个长度为10的随机整数数组，并输出数组的元素
-	arr := make([]int, 10)
-	for i := 0; i < 10; i++ {
-		arr[i] = rand.Intn(100)
-	}
-	fmt.Println(arr)
+	// Example 1: Hello World
+	fmt.Println("Hello, World!")
 
-	// 练习2：计算1到100之间所有奇数的和，并输出结果
-	sum := 0
-	for i := 1; i <= 100; i += 2 {
-		sum += i
-	}
-	fmt.Println(sum)
+	// Example 2: Variables
+	var x int = 5
+	var y float64 = 7.8
+	var name string = "Golang"
+	fmt.Println("x =", x)
+	fmt.Println("y =", y)
+	fmt.Println("name =", name)
 
-	// 练习3：编写一个函数，接收一个字符串，返回该字符串的长度和首字母大写后的字符串
-	str := "hello world"
-	length := len(str)
-	capitalizedStr := string(str[0]-'a'+'A') + str[1:]
-	fmt.Println(length, capitalizedStr)
+	// Example 3: If statement
+	num := 10
+	if num%2 == 0 {
+		fmt.Println("Even number")
+	} else {
+		fmt.Println("Odd number")
+	}
+
+	// Example 4: Loop - for
+	for i := 1; i <= 5; i++ {
+		fmt.Println(i)
+	}
+
+	// Example 5: Arrays
+	numbers := [5]int{1, 2, 3, 4, 5}
+	fmt.Println(numbers)
+
+	// Example 6: Slices
+	slice := []int{1, 2, 3, 4, 5}
+	fmt.Println(slice)
+
+	// Example 7: Functions
+	result := add(3, 5)
+	fmt.Println("Result =", result)
+}
+
+func add(a, b int) int {
+	return a + b
 }
