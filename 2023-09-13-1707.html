@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>func main() {
+    // 练习1：打印Hello, World!
+    fmt.Println(&ldquo;Hello, World!&rdquo;)</p>
+
+<pre><code>// 练习2：判断一个数是否为偶数
+num := 6
+if num % 2 == 0 {
+    fmt.Println(&quot;该数是偶数&quot;)
+} else {
+    fmt.Println(&quot;该数是奇数&quot;)
+}
+
+// 练习3：计算1到10的累加和
+sum := 0
+for i := 1; i &lt;= 10; i++ {
+    sum += i
+}
+fmt.Println(&quot;1到10的累加和为:&quot;, sum)
+
+// 练习4：求一个整数切片的最大值
+nums := []int{5, 2, 9, 1, 7}
+max := nums[0]
+for _, num := range nums {
+    if num &gt; max {
+        max = num
+    }
+}
+fmt.Println(&quot;整数切片的最大值为:&quot;, max)
+</code></pre>
+
+<p>}</p>
+ </body>
+</html>
