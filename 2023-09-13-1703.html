@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+)
+
+func main() {
+	// 练习1：定义一个函数，接收两个整数参数并返回它们的和
+	sum := add(3, 5)
+	fmt.Println(sum)
+
+	// 练习2：定义一个函数，接收一个字符串参数并返回它的长度
+	length := getLength(&quot;Golang&quot;)
+	fmt.Println(length)
+
+	// 练习3：定义一个结构体类型，并为其定义一个方法，该方法接收两个参数并返回它们的乘积
+	rect := Rectangle{width: 4, height: 5}
+	area := rect.calculateArea()
+	fmt.Println(area)
+}
+
+func add(a, b int) int {
+	return a + b
+}
+
+func getLength(str string) int {
+	return len(str)
+}
+
+type Rectangle struct {
+	width  float64
+	height float64
+}
+
+func (r Rectangle) calculateArea() float64 {
+	return r.width * r.height
+}
+</code></pre>
+ </body>
+</html>
