@@ -1,0 +1,37 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	// 实例1: 计算1到100的和
+	sum := 0
+	for i := 1; i <= 100; i++ {
+		sum += i
+	}
+	fmt.Println("Sum of numbers from 1 to 100 is:", sum)
+
+	// 实例2: 判断一个数是否是质数
+	num := 17
+	isPrime := true
+	for i := 2; i < num; i++ {
+		if num%i == 0 {
+			isPrime = false
+			break
+		}
+	}
+	if isPrime {
+		fmt.Println(num, "is a prime number.")
+	} else {
+		fmt.Println(num, "is not a prime number.")
+	}
+
+	// 实例3: 打印九九乘法表
+	for i := 1; i <= 9; i++ {
+		for j := 1; j <= i; j++ {
+			fmt.Printf("%d * %d = %d\t", j, i, i*j)
+		}
+		fmt.Println()
+	}
+}
