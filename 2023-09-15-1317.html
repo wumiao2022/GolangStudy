@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    // 题目：请将下面的代码中的切片按照逆序输出
+    nums := []int{1, 2, 3, 4, 5}
+    
+    for i := len(nums)-1; i &gt;= 0; i-- {
+        fmt.Println(nums[i])
+    }
+}
+</code></pre>
+ </body>
+</html>
