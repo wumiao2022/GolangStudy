@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;strconv&quot;
+)
+
+func main() {
+	// 练习1：声明一个字符串变量str并赋值为&quot;Hello, World!&quot;，然后将其打印出来
+	str := &quot;Hello, World!&quot;
+	fmt.Println(str)
+
+	// 练习2：声明一个整数变量num并赋值为10，然后将其转换为字符串类型，并打印出来
+	num := 10
+	numStr := strconv.Itoa(num)
+	fmt.Println(numStr)
+
+	// 练习3：声明一个整数变量a并赋值为25，声明一个浮点数变量b并赋值为3.14，然后将它们相加并打印出来
+	a := 25
+	b := 3.14
+	sum := float64(a) + b
+	fmt.Println(sum)
+
+	// 练习4：声明一个切片变量nums并初始化为包含5个整数的切片，然后遍历切片并打印出每个元素的值
+	nums := []int{1, 2, 3, 4, 5}
+	for _, num := range nums {
+		fmt.Println(num)
+	}
+
+	// 练习5：声明一个映射变量person并初始化为包含&quot;name&quot;和&quot;age&quot;两个键值对的映射，然后打印出每个键值对的值
+	person := map[string]interface{}{
+		&quot;name&quot;: &quot;John&quot;,
+		&quot;age&quot;:  30,
+	}
+	fmt.Println(person[&quot;name&quot;])
+	fmt.Println(person[&quot;age&quot;])
+}
+</code></pre>
+
+<p>以上是每日多练的练习实例代码，每个练习都有一个具体的任务，可以按照练习的要求完成并运行代码来增加对Go语言的熟练度。</p>
+ </body>
+</html>
