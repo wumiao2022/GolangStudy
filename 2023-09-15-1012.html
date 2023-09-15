@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	// 练习1：打印 Hello, World!
+	fmt.Println(&quot;Hello, World!&quot;)
+
+	// 练习2：打印 1 到 10 的数字
+	for i := 1; i &lt;= 10; i++ {
+		fmt.Println(i)
+	}
+
+	// 练习3：计算两个数的和并输出结果
+	a := 5
+	b := 3
+	sum := a + b
+	fmt.Println(&quot;Sum:&quot;, sum)
+
+	// 练习4：判断一个数是否为偶数
+	num := 9
+	if num%2 == 0 {
+		fmt.Println(num, &quot;is even&quot;)
+	} else {
+		fmt.Println(num, &quot;is odd&quot;)
+	}
+
+	// 练习5：使用数组存储并输出一组数
+	numbers := [5]int{1, 2, 3, 4, 5}
+	fmt.Println(numbers)
+
+	// 练习6：使用切片存储并输出一组数
+	numbersSlice := []int{1, 2, 3, 4, 5}
+	fmt.Println(numbersSlice)
+
+	// 练习7：使用 map 存储并输出键值对
+	person := map[string]string{
+		&quot;name&quot;:  &quot;John&quot;,
+		&quot;age&quot;:   &quot;30&quot;,
+		&quot;email&quot;: &quot;john@example.com&quot;,
+	}
+	fmt.Println(person)
+}
+</code></pre>
+
+<p>请复制上述代码到你的Golang编辑器中运行，每个练习实例都会有相应的输出结果。</p>
+ </body>
+</html>
