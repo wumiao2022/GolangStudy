@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>func main() {
+	// 练习1：打印Hello, World!
+	fmt.Println(&ldquo;Hello, World!&rdquo;)</p>
+
+<pre><code>// 练习2：计算两个整数的和并输出
+num1 := 10
+num2 := 20
+sum := num1 + num2
+fmt.Println(&quot;Sum:&quot;, sum)
+
+// 练习3：判断一个数是否为偶数并输出结果
+num := 17
+isEven := (num % 2) == 0
+fmt.Println(&quot;Is even:&quot;, isEven)
+
+// 练习4：将一个字符串反转并输出结果
+str := &quot;Hello, Golang!&quot;
+reversedStr := &quot;&quot;
+for i := len(str) - 1; i &gt;= 0; i-- {
+	reversedStr += string(str[i])
+}
+fmt.Println(&quot;Reversed string:&quot;, reversedStr)
+
+// 练习5：使用切片将数组元素去重并输出结果
+arr := []int{1, 2, 3, 4, 3, 2, 1}
+uniqueArr := []int{}
+seen := map[int]bool{}
+for _, num := range arr {
+	if !seen[num] {
+		seen[num] = true
+		uniqueArr = append(uniqueArr, num)
+	}
+}
+fmt.Println(&quot;Unique array:&quot;, uniqueArr)
+</code></pre>
+
+<p>}</p>
+ </body>
+</html>
