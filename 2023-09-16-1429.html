@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    // 1. 打印Hello, World!
+    fmt.Println(&quot;Hello, World!&quot;)
+
+    // 2. 计算两个整数的和
+    num1 := 10
+    num2 := 5
+    sum := num1 + num2
+    fmt.Println(&quot;Sum:&quot;, sum)
+
+    // 3. 判断一个数是否是偶数
+    number := 7
+    if number % 2 == 0 {
+        fmt.Println(number, &quot;is even&quot;)
+    } else {
+        fmt.Println(number, &quot;is odd&quot;)
+    }
+
+    // 4. 使用for循环打印1到10的数字
+    for i := 1; i &lt;= 10; i++ {
+        fmt.Println(i)
+    }
+
+    // 5. 定义一个函数，接收一个整数参数并返回平方值
+    fmt.Println(square(5))
+}
+
+func square(num int) int {
+    return num * num
+}
+</code></pre>
+
+<p>请在本地的Golang环境中运行以上代码。</p>
+ </body>
+</html>
