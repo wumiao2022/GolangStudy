@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+// Example1 is a simple Hello World program
+func Example1() {
+	fmt.Println(&quot;Hello, World!&quot;)
+}
+
+// Example2 is a program to print the sum of two numbers
+func Example2() {
+	num1 := 10
+	num2 := 20
+	sum := num1 + num2
+	fmt.Println(&quot;Sum:&quot;, sum)
+}
+
+// Example3 is a program to find the maximum of three numbers
+func Example3() {
+	num1 := 10
+	num2 := 20
+	num3 := 15
+
+	max := num1
+	if num2 &gt; max {
+		max = num2
+	}
+	if num3 &gt; max {
+		max = num3
+	}
+
+	fmt.Println(&quot;Maximum:&quot;, max)
+}
+
+// Example4 is a program to print the Fibonacci series
+func Example4() {
+	n := 10
+	fmt.Print(&quot;Fibonacci Series: 0 1&quot;)
+
+	a, b := 0, 1
+	for i := 2; i &lt; n; i++ {
+		next := a + b
+		fmt.Print(&quot; &quot;, next)
+		a, b = b, next
+	}
+
+	fmt.Println()
+}
+
+// Example5 is a program to calculate the factorial of a number
+func Example5() {
+	n := 5
+	factorial := 1
+
+	for i := 1; i &lt;= n; i++ {
+		factorial *= i
+	}
+
+	fmt.Println(&quot;Factorial:&quot;, factorial)
+}
+
+func main() {
+	Example1()
+	Example2()
+	Example3()
+	Example4()
+	Example5()
+}
+</code></pre>
+
+<p>您可以将上面的代码复制到一个Go文件中，并运行它以查看示例程序的输出结果。这些示例程序将帮助您练习和熟悉Go语言的基本语法和常见编程问题的解决方案。</p>
+ </body>
+</html>
