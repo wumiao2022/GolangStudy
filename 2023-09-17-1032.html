@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	// 1. 打印Hello, World!
+	fmt.Println(&quot;Hello, World!&quot;)
+
+	// 2. 定义一个整数类型的变量并初始化
+	num := 10
+	fmt.Println(num)
+
+	// 3. 定义一个字符串类型的变量并初始化
+	str := &quot;Golang is awesome&quot;
+	fmt.Println(str)
+
+	// 4. 计算两个整数的和并输出结果
+	num1 := 20
+	num2 := 30
+	sum := num1 + num2
+	fmt.Println(&quot;Sum:&quot;, sum)
+
+	// 5. 定义一个整数类型的切片，并打印切片的长度和容量
+	slice := []int{1, 2, 3, 4, 5}
+	fmt.Println(&quot;Length:&quot;, len(slice))
+	fmt.Println(&quot;Capacity:&quot;, cap(slice))
+
+	// 6. 使用for循环打印从1到10的数字
+	for i := 1; i &lt;= 10; i++ {
+		fmt.Println(i)
+	}
+
+	// 7. 定义一个函数，接收两个整数作为参数并返回它们的乘积
+	multiply := func(a, b int) int {
+		return a * b
+	}
+	fmt.Println(multiply(5, 6))
+
+	// 8. 使用switch语句判断一个数字是奇数还是偶数
+	num3 := 11
+	switch num3 % 2 {
+	case 0:
+		fmt.Println(&quot;Even&quot;)
+	case 1:
+		fmt.Println(&quot;Odd&quot;)
+	}
+
+	// 9. 使用defer延迟执行打印语句
+	defer fmt.Println(&quot;Deferred execution&quot;)
+
+	// 10. 定义一个结构体类型并初始化其字段的值
+	type Person struct {
+		Name string
+		Age  int
+	}
+	person := Person{Name: &quot;John&quot;, Age: 25}
+	fmt.Println(person)
+}
+</code></pre>
+
+<p>注意：以上代码是简单的练习实例，如果你希望学习更多复杂的示例或者深入理解每个练习的原理，建议参考Golang官方文档或相关书籍。</p>
+ </body>
+</html>
