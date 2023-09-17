@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>以下是一个Golang的练习实例代码：</p>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	// 1. 定义一个整型数组，并将数组元素逆序排列
+	numbers := []int{1, 2, 3, 4, 5}
+	reversedNumbers := make([]int, len(numbers))
+	for i, j := 0, len(numbers)-1; i &lt; len(numbers); i, j = i+1, j-1 {
+		reversedNumbers[i] = numbers[j]
+	}
+	fmt.Println(reversedNumbers)
+
+	// 2. 将字符串数组按字母顺序排序
+	words := []string{&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;, &quot;date&quot;}
+	for i := 0; i &lt; len(words)-1; i++ {
+		for j := 0; j &lt; len(words)-i-1; j++ {
+			if words[j] &gt; words[j+1] {
+				words[j], words[j+1] = words[j+1], words[j]
+			}
+		}
+	}
+	fmt.Println(words)
+
+	// 3. 计算斐波那契数列的前 n 个数
+	n := 10
+	fibNumbers := make([]int, n)
+	fibNumbers[0] = 0
+	fibNumbers[1] = 1
+	for i := 2; i &lt; n; i++ {
+		fibNumbers[i] = fibNumbers[i-1] + fibNumbers[i-2]
+	}
+	fmt.Println(fibNumbers)
+}
+</code></pre>
+
+<p>每日多练，不断挑战自己！祝你编程愉快！</p>
+ </body>
+</html>
