@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code>package main
+
+import (
+	&quot;fmt&quot;
+	&quot;math/rand&quot;
+	&quot;time&quot;
+)
+
+func main() {
+	rand.Seed(time.Now().UnixNano())
+
+	// 练习1: 生成并打印一个随机整数
+	randomInt := rand.Intn(100)
+	fmt.Println(&quot;Random Integer:&quot;, randomInt)
+
+	// 练习2: 生成并打印一个随机浮点数
+	randomFloat := rand.Float64()
+	fmt.Println(&quot;Random Float:&quot;, randomFloat)
+
+	// 练习3: 生成并打印一个指定范围内的随机整数
+	min := 10
+	max := 50
+	randomInRange := rand.Intn(max-min+1) + min
+	fmt.Println(&quot;Random Integer in Range:&quot;, randomInRange)
+
+	// 练习4: 生成并打印一个UUID(Universally Unique Identifier)
+	uuid := fmt.Sprintf(&quot;%x-%x-%x-%x-%x&quot;,
+		rand.Uint32(), rand.Uint16(), rand.Uint16(), rand.Uint16(), rand.Uint32())
+	fmt.Println(&quot;UUID:&quot;, uuid)
+}
+</code></pre>
+
+<p>这是一个每日多练的练习集合，其中包含了生成随机整数、随机浮点数、指定范围内的随机整数和UUID的练习。你可以每天完成一个练习来提升你的Golang编程技能。</p>
+ </body>
+</html>
