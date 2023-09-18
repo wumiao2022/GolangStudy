@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <p>func main() {
+	// 练习1：打印Hello, World!
+	fmt.Println(&ldquo;Hello, World!&rdquo;)</p>
+
+<pre><code>// 练习2：计算两个整数的和并打印
+num1 := 10
+num2 := 20
+sum := num1 + num2
+fmt.Println(&quot;Sum:&quot;, sum)
+
+// 练习3：判断一个数是否为偶数并打印
+num := 25
+if num%2 == 0 {
+	fmt.Println(num, &quot;is even&quot;)
+} else {
+	fmt.Println(num, &quot;is odd&quot;)
+}
+
+// 练习4：判断一个年份是否为闰年并打印
+year := 2022
+if year%4 == 0 &amp;&amp; (year%100 != 0 || year%400 == 0) {
+	fmt.Println(year, &quot;is a leap year&quot;)
+} else {
+	fmt.Println(year, &quot;is not a leap year&quot;)
+}
+
+// 练习5：计算一个整数的阶乘并打印
+n := 5
+factorial := 1
+for i := 1; i &lt;= n; i++ {
+	factorial *= i
+}
+fmt.Println(n, &quot;factorial is:&quot;, factorial)
+</code></pre>
+
+<p>}</p>
+ </body>
+</html>
