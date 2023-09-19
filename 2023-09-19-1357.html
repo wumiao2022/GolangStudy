@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+)
+
+func main() {
+	// 1. 将一维数组[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]中的奇数和偶数分别放入两个不同的切片中并打印出来
+	array := [10]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+	oddSlice := []int{}
+	evenSlice := []int{}
+
+	for _, num := range array {
+		if num%2 == 0 {
+			evenSlice = append(evenSlice, num)
+		} else {
+			oddSlice = append(oddSlice, num)
+		}
+	}
+
+	fmt.Println(&quot;Odd numbers:&quot;, oddSlice)
+	fmt.Println(&quot;Even numbers:&quot;, evenSlice)
+
+	// 2. 编写一个函数，接收一个字符串作为参数，返回该字符串中的字符个数、单词个数和行数
+	text := &quot;Hello\nWorld\nGolang&quot;
+	charCount, wordCount, lineCount := countTextInfo(text)
+	fmt.Println(&quot;Character count:&quot;, charCount)
+	fmt.Println(&quot;Word count:&quot;, wordCount)
+	fmt.Println(&quot;Line count:&quot;, lineCount)
+
+	// 3. 使用递归实现斐波那契数列，打印前10个斐波那契数
+	for i := 0; i &lt; 10; i++ {
+		fmt.Println(fibonacci(i))
+	}
+}
+
+func countTextInfo(text string) (int, int, int) {
+	charCount := len(text)
+	wordCount := 0
+	lineCount := 1
+
+	for _, char := range text {
+		if char == '\n' {
+			lineCount++
+		} else if char == ' ' || char == '\t' {
+			continue
+		} else {
+			wordCount++
+		}
+	}
+
+	return charCount, wordCount, lineCount
+}
+
+func fibonacci(n int) int {
+	if n &lt;= 1 {
+		return n
+	}
+	return fibonacci(n-1) + fibonacci(n-2)
+}
+</code></pre>
+
+<p>请将以上代码复制到你的Golang环境中运行，并观察结果。每天坚持练习，提升自己的Golang编程能力！</p>
+ </body>
+</html>
