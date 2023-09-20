@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	// 练习1：打印输出Hello, World!
+	fmt.Println(&quot;Hello, World!&quot;)
+
+	// 练习2：将两个整数相加并打印结果
+	num1 := 10
+	num2 := 20
+	sum := num1 + num2
+	fmt.Println(sum)
+
+	// 练习3：使用循环打印出1到100之间的所有偶数
+	for i := 1; i &lt;= 100; i++ {
+		if i%2 == 0 {
+			fmt.Println(i)
+		}
+	}
+
+	// 练习4：定义一个切片，存储10个整数，并打印输出切片中的元素
+	numbers := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+	for _, num := range numbers {
+		fmt.Println(num)
+	}
+}
+</code></pre>
+ </body>
+</html>
