@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+// 练习1：计算两个整数的和
+func add(a, b int) int {
+	return a + b
+}
+
+// 练习2：判断一个数是否为偶数
+func isEven(n int) bool {
+	return n%2 == 0
+}
+
+// 练习3：找出一个整数切片中的最大值
+func findMax(nums []int) int {
+	max := nums[0]
+	for _, num := range nums {
+		if num &gt; max {
+			max = num
+		}
+	}
+	return max
+}
+
+// 练习4：将一个整数切片中的元素按照从大到小的顺序排序
+func sortDescending(nums []int) []int {
+	for i := 0; i &lt; len(nums)-1; i++ {
+		for j := i + 1; j &lt; len(nums); j++ {
+			if nums[i] &lt; nums[j] {
+				nums[i], nums[j] = nums[j], nums[i]
+			}
+		}
+	}
+	return nums
+}
+
+func main() {
+	// 以下为测试代码
+	fmt.Println(add(3, 5))    // 输出：8
+	fmt.Println(isEven(6))    // 输出：true
+	fmt.Println(findMax([]int{5, 2, 9, 1, 7}))    // 输出：9
+	fmt.Println(sortDescending([]int{5, 2, 9, 1, 7}))    // 输出：[9 7 5 2 1]
+}
+</code></pre>
+
+<p>请注意，这只是一些简单的练习示例，实际编程中还需要考虑更多的异常情况处理、代码优化以及更复杂的算法问题。继续多练习可以提升您的编程能力和解决问题的能力。</p>
+ </body>
+</html>
