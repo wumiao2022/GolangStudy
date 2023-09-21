@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code>package main
+
+import &quot;fmt&quot;
+
+func main() {
+	// 1. 输出Hello, World!
+	fmt.Println(&quot;Hello, World!&quot;)
+
+	// 2. 定义一个整数变量num并赋值为10，输出num的值
+	num := 10
+	fmt.Println(num)
+
+	// 3. 定义一个字符串变量name并赋值为&quot;John&quot;，输出name的值
+	name := &quot;John&quot;
+	fmt.Println(name)
+
+	// 4. 定义一个浮点数变量pi并赋值为3.14，输出pi的值
+	pi := 3.14
+	fmt.Println(pi)
+
+	// 5. 定义一个布尔型变量isTrue并赋值为true，输出isTrue的值
+	isTrue := true
+	fmt.Println(isTrue)
+
+	// 6. 创建一个整型数组arr，包含元素1，2，3，4，5，并输出数组的长度和每个元素的值
+	arr := []int{1, 2, 3, 4, 5}
+	fmt.Println(&quot;Array length:&quot;, len(arr))
+	for i := 0; i &lt; len(arr); i++ {
+		fmt.Println(arr[i])
+	}
+
+	// 7. 定义一个函数add，接收两个整数参数x和y，返回它们的和，并输出结果
+	add := func(x, y int) int {
+		return x + y
+	}
+	fmt.Println(add(1, 2))
+
+	// 8. 使用if语句判断num是否大于10，如果是则输出&quot;num大于10&quot;，否则输出&quot;num不大于10&quot;
+	if num &gt; 10 {
+		fmt.Println(&quot;num大于10&quot;)
+	} else {
+		fmt.Println(&quot;num不大于10&quot;)
+	}
+
+	// 9. 使用for循环输出从1到10的所有整数
+	for i := 1; i &lt;= 10; i++ {
+		fmt.Println(i)
+	}
+
+	// 10. 使用switch语句判断num的值，如果为1则输出&quot;num等于1&quot;，如果为2则输出&quot;num等于2&quot;，其他情况输出&quot;num不等于1或2&quot;
+	switch num {
+	case 1:
+		fmt.Println(&quot;num等于1&quot;)
+	case 2:
+		fmt.Println(&quot;num等于2&quot;)
+	default:
+		fmt.Println(&quot;num不等于1或2&quot;)
+	}
+}
+</code></pre>
+
+<p>&rdquo;`</p>
+ </body>
+</html>
