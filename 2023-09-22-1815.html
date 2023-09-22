@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	// 多练习一：打印Hello, World!
+	fmt.Println(&quot;Hello, World!&quot;)
+
+	// 多练习二：计算两个整数的和并打印结果
+	a := 10
+	b := 20
+	sum := a + b
+	fmt.Println(&quot;The sum of&quot;, a, &quot;and&quot;, b, &quot;is&quot;, sum)
+
+	// 多练习三：判断一个整数是否为偶数
+	num := 15
+	if num%2 == 0 {
+		fmt.Println(num, &quot;is an even number&quot;)
+	} else {
+		fmt.Println(num, &quot;is an odd number&quot;)
+	}
+
+	// 多练习四：判断一个年份是否为闰年
+	year := 2022
+	if year%4 == 0 &amp;&amp; (year%100 != 0 || year%400 == 0) {
+		fmt.Println(year, &quot;is a leap year&quot;)
+	} else {
+		fmt.Println(year, &quot;is not a leap year&quot;)
+	}
+
+	// 多练习五：计算圆的周长和面积
+	radius := 5.0
+	pi := 3.14159
+	circumference := 2 * pi * radius
+	area := pi * radius * radius
+	fmt.Printf(&quot;The circumference of the circle with radius %.2f is %.2f\n&quot;, radius, circumference)
+	fmt.Printf(&quot;The area of the circle with radius %.2f is %.2f\n&quot;, radius, area)
+}
+</code></pre>
+
+<p>这是一些简单的练习示例代码，每个练习包含一个小任务。你可以将它们复制到一个新的Go文件中，然后运行查看结果。每个练习的代码块中已经给出相应的注释，说明了具体的任务要求。加油，多练习才能提高！</p>
+ </body>
+</html>
