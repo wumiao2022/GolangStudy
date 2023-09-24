@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Golang Study</title>
+</head>
+<body>
+
+ <pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	// 练习1：打印Hello, World!
+	fmt.Println(&quot;Hello, World!&quot;)
+
+	// 练习2：计算两个整数的和
+	num1 := 10
+	num2 := 5
+	sum := num1 + num2
+	fmt.Println(&quot;Sum:&quot;, sum)
+
+	// 练习3：判断一个数是否为偶数
+	num := 7
+	if num%2 == 0 {
+		fmt.Println(num, &quot;is even&quot;)
+	} else {
+		fmt.Println(num, &quot;is odd&quot;)
+	}
+
+	// 练习4：使用for循环打印1到10的数字
+	for i := 1; i &lt;= 10; i++ {
+		fmt.Println(i)
+	}
+
+	// 练习5：编写一个函数，接收一个字符串作为参数，返回字符串的长度和第一个字符
+	str := &quot;Hello, Golang!&quot;
+	length, firstChar := getLengthAndFirstChar(str)
+	fmt.Println(&quot;Length:&quot;, length)
+	fmt.Println(&quot;First Character:&quot;, firstChar)
+}
+
+func getLengthAndFirstChar(str string) (int, string) {
+	return len(str), string(str[0])
+}
+</code></pre>
+
+<p>PS：这是一个小练习集合，包括打印Hello, World!、计算两个整数的和、判断一个数是否为偶数、使用for循环打印1到10的数字以及编写一个函数获取字符串的长度和第一个字符。你可以逐个练习并运行代码来理解每个概念的使用。</p>
+ </body>
+</html>
